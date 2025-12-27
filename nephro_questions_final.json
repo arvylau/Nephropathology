@@ -1,0 +1,624 @@
+{
+  "metadata": {
+    "title": "Nephropathology Assessment - Complete",
+    "description": "Assertion-Reason questions covering 17 nephropathology diseases",
+    "total_questions": 68,
+    "total_diseases": 17,
+    "created": "2025-12-27 15:19:53",
+    "version": "3.0"
+  },
+  "questions": [
+    {
+      "assertion": "Patients with minimal change disease typically have normal-appearing glomeruli on light microscopy despite presenting with nephrotic syndrome.",
+      "reason": "The pathologic lesion in minimal change disease is diffuse podocyte foot process effacement, which is only visible on electron microscopy.",
+      "answer": "A",
+      "explanation": "Both statements are true. MCD shows normal glomeruli on LM because the primary lesion (foot process effacement) is ultrastructural and requires EM to visualize. This foot process effacement disrupts the glomerular filtration barrier, causing massive proteinuria and nephrotic syndrome.",
+      "topic": "MCD_pathology",
+      "difficulty": "medium",
+      "disease_id": "MCD"
+    },
+    {
+      "assertion": "A patient with focal segmental glomerulosclerosis (FSGS) presenting with sub-nephrotic range proteinuria (<3.5g/day) likely has secondary FSGS rather than primary FSGS.",
+      "reason": "Secondary FSGS typically results from adaptive hyperfiltration in reduced nephron mass and usually manifests as sub-nephrotic proteinuria, whereas primary FSGS commonly presents with full nephrotic syndrome.",
+      "answer": "A",
+      "explanation": "Both statements are true and the reason explains the assertion. The degree of proteinuria helps distinguish primary (nephrotic-range, >3.5g/day) from secondary (sub-nephrotic) FSGS because of different underlying mechanisms - circulating permeability factors in primary vs adaptive hyperfiltration in secondary.",
+      "topic": "FSGS_clinical_distinction",
+      "difficulty": "hard",
+      "disease_id": "FSGS_PRIMARY"
+    },
+    {
+      "assertion": "Electron microscopy showing diffuse foot process effacement in a patient with FSGS suggests primary rather than secondary FSGS.",
+      "reason": "Primary FSGS shows diffuse foot process effacement similar to minimal change disease, while secondary FSGS typically shows only focal foot process effacement overlying areas of sclerosis.",
+      "answer": "A",
+      "explanation": "Both statements are true and causally related. The extent of foot process effacement on EM is a key distinguishing feature: diffuse effacement (all podocytes) suggests primary circulating factor-mediated injury, while focal effacement (only over sclerotic segments) suggests adaptive/mechanical injury in secondary FSGS.",
+      "topic": "FSGS_EM_distinction",
+      "difficulty": "hard",
+      "disease_id": "FSGS_PRIMARY"
+    },
+    {
+      "assertion": "Membranous glomerulopathy shows granular capillary wall staining for IgG on immunofluorescence microscopy.",
+      "reason": "The pathologic process involves in-situ formation of immune complexes on the subepithelial side of the glomerular basement membrane.",
+      "answer": "A",
+      "explanation": "Both true and causally related. In MGN, autoantibodies (anti-PLA2R in most primary cases) bind to podocyte antigens, forming immune complexes in-situ on the subepithelial surface. These IgG-containing deposits appear as granular deposits along the capillary wall on IF, which is pathognomonic for MGN.",
+      "topic": "MGN_pathology",
+      "difficulty": "medium",
+      "disease_id": "MGN"
+    },
+    {
+      "assertion": "Patients with membranous glomerulopathy have an increased risk of renal vein thrombosis and other thrombotic complications.",
+      "reason": "The severe nephrotic syndrome in membranous glomerulopathy leads to urinary loss of antithrombin III and protein C/S, creating a hypercoagulable state.",
+      "answer": "A",
+      "explanation": "Both true and related. MGN often causes severe nephrotic syndrome with massive proteinuria (>10g/day), leading to loss of coagulation regulatory proteins (antithrombin III, protein C, protein S) in the urine. This, combined with increased hepatic synthesis of procoagulant factors, creates a hypercoagulable state with 25-30% risk of renal vein thrombosis.",
+      "topic": "MGN_complications",
+      "difficulty": "medium",
+      "disease_id": "MGN"
+    },
+    {
+      "assertion": "Children with minimal change disease typically achieve remission within 2-8 weeks of corticosteroid therapy.",
+      "reason": "Minimal change disease is highly responsive to corticosteroids, with over 90% of pediatric patients achieving complete remission.",
+      "answer": "A",
+      "explanation": "Both true and related. MCD is characterized by excellent response to steroids (90-95% in children) because the underlying mechanism likely involves T-cell dysfunction producing circulating permeability factors, which are suppressed by corticosteroids. This high response rate and rapid remission are diagnostic features of MCD.",
+      "topic": "MCD_treatment",
+      "difficulty": "easy",
+      "disease_id": "MCD"
+    },
+    {
+      "assertion": "Primary focal segmental glomerulosclerosis has a significant risk of recurrence in the renal transplant, whereas secondary FSGS rarely recurs.",
+      "reason": "Primary FSGS is mediated by circulating permeability factors that persist after transplantation, while secondary FSGS results from structural/hemodynamic factors that are corrected by transplantation.",
+      "answer": "A",
+      "explanation": "Both true and causally related. Primary FSGS has 30-40% recurrence risk post-transplant (sometimes immediate and severe) because circulating permeability factors persist in the recipient and can injure the donor kidney. Secondary FSGS has <5% recurrence because the adaptive mechanisms (hyperfiltration, reduced nephron mass) are resolved with a normal transplanted kidney.",
+      "topic": "FSGS_transplant",
+      "difficulty": "hard",
+      "disease_id": "FSGS_PRIMARY"
+    },
+    {
+      "assertion": "Silver stain of a kidney biopsy from a patient with membranous glomerulopathy reveals spike-like projections of basement membrane material.",
+      "reason": "The glomerular basement membrane proliferates between and around subepithelial immune deposits, creating characteristic spikes visible on silver stain.",
+      "answer": "A",
+      "explanation": "Both true and related. In MGN, as subepithelial immune deposits form, the GBM responds by producing new basement membrane material that grows between the deposits, creating spike-like projections. These spikes are best visualized with Jones silver or PAS stains and are pathognomonic for membranous glomerulopathy on light microscopy.",
+      "topic": "MGN_LM_pathology",
+      "difficulty": "medium",
+      "disease_id": "MGN"
+    },
+    {
+      "assertion": "Minimal change disease is the most common cause of nephrotic syndrome in children.",
+      "reason": "Primary FSGS has a poor prognosis with 50% progressing to end-stage renal disease within 10 years.",
+      "answer": "B",
+      "explanation": "Both statements are true facts about podocytopathies. MCD accounts for 90% of pediatric nephrotic syndrome, and primary FSGS does have poor prognosis. However, the reason (about FSGS prognosis) does not explain why MCD is common in children - these are independent facts.",
+      "topic": "General_podocytopathy",
+      "difficulty": "easy",
+      "disease_id": "MCD"
+    },
+    {
+      "assertion": "Anti-PLA2R antibodies are positive in 70-80% of patients with primary membranous glomerulopathy.",
+      "reason": "Membranous glomerulopathy shows subepithelial electron-dense deposits on electron microscopy.",
+      "answer": "B",
+      "explanation": "Both are true facts about MGN. Anti-PLA2R antibodies are indeed found in most primary MGN cases, and subepithelial deposits are the hallmark EM finding. However, the presence of subepithelial deposits doesn't explain why anti-PLA2R antibodies are present - these are independent diagnostic features.",
+      "topic": "MGN_diagnostics",
+      "difficulty": "medium",
+      "disease_id": "MGN"
+    },
+    {
+      "assertion": "Minimal change disease typically shows negative immunofluorescence microscopy.",
+      "reason": "Minimal change disease is caused by deposition of IgA immune complexes in the mesangium.",
+      "answer": "C",
+      "explanation": "The assertion is true - MCD characteristically shows negative or trace nonspecific IF (no immune deposits). However, the reason is false. MCD is NOT caused by IgA mesangial deposits (that would be IgA nephropathy). MCD likely involves T-cell dysfunction and circulating permeability factors, not immune complex deposition.",
+      "topic": "MCD_immunopathology",
+      "difficulty": "medium",
+      "disease_id": "MCD"
+    },
+    {
+      "assertion": "Secondary FSGS should not be treated with immunosuppressive therapy such as corticosteroids.",
+      "reason": "Secondary FSGS is caused by anti-podocyte antibodies similar to membranous glomerulopathy.",
+      "answer": "C",
+      "explanation": "The assertion is true - secondary FSGS should NOT receive steroids/immunosuppression; treatment focuses on the underlying cause. However, the reason is false. Secondary FSGS is NOT caused by anti-podocyte antibodies; it results from hemodynamic/adaptive mechanisms (hyperfiltration, reduced nephron mass). MGN involves antibodies, but secondary FSGS does not.",
+      "topic": "FSGS_secondary_treatment",
+      "difficulty": "hard",
+      "disease_id": "FSGS_SECONDARY"
+    },
+    {
+      "assertion": "Minimal change disease typically shows prominent mesangial proliferation and increased cellularity on light microscopy.",
+      "reason": "The primary pathologic lesion in minimal change disease involves podocyte foot process effacement.",
+      "answer": "D",
+      "explanation": "The assertion is false - MCD shows NORMAL or near-normal glomeruli on LM, without mesangial proliferation or hypercellularity (that would suggest other diagnoses like IgA nephropathy or MPGN). However, the reason is true - the primary lesion in MCD is podocyte foot process effacement, visible only on EM.",
+      "topic": "MCD_LM_pathology",
+      "difficulty": "easy",
+      "disease_id": "MCD"
+    },
+    {
+      "assertion": "Primary focal segmental glomerulosclerosis typically presents with asymptomatic microscopic hematuria and normal renal function.",
+      "reason": "Primary FSGS results from podocyte injury mediated by circulating permeability factors.",
+      "answer": "D",
+      "explanation": "The assertion is false - primary FSGS typically presents with NEPHROTIC SYNDROME (heavy proteinuria, edema, hypoalbuminemia), not asymptomatic hematuria. Many patients also have hypertension and some degree of renal dysfunction. However, the reason is true - primary FSGS is indeed caused by circulating permeability factors causing podocyte injury.",
+      "topic": "FSGS_clinical",
+      "difficulty": "medium",
+      "disease_id": "FSGS_PRIMARY"
+    },
+    {
+      "assertion": "Membranous glomerulopathy characteristically shows linear capillary wall staining for IgG on immunofluorescence microscopy.",
+      "reason": "The pathologic process in membranous glomerulopathy involves immune complex deposition in the mesangium.",
+      "answer": "E",
+      "explanation": "Both are false. MGN shows GRANULAR (not linear) IgG staining on IF along capillary walls. Linear staining suggests anti-GBM disease. Additionally, the deposits in MGN are SUBEPITHELIAL (not mesangial). Mesangial deposits would suggest IgA nephropathy or lupus nephritis.",
+      "topic": "MGN_IF_pattern",
+      "difficulty": "hard",
+      "disease_id": "MGN"
+    },
+    {
+      "assertion": "Primary FSGS has an excellent prognosis with over 90% achieving complete remission with corticosteroid therapy.",
+      "reason": "The pathologic lesion in FSGS is completely reversible with immunosuppressive treatment.",
+      "answer": "E",
+      "explanation": "Both false. Primary FSGS has POOR prognosis with only 30-40% responding to steroids (not 90% - that's MCD). Additionally, FSGS lesions (segmental sclerosis) are NOT reversible - sclerosis is permanent fibrosis. Once glomerulosclerosis occurs, it persists despite treatment.",
+      "topic": "FSGS_prognosis_treatment",
+      "difficulty": "medium",
+      "disease_id": "FSGS_PRIMARY"
+    },
+    {
+      "assertion": "A child presenting 2 weeks after pharyngitis with hematuria, edema, and hypertension likely has acute postinfectious glomerulonephritis.",
+      "reason": "Acute postinfectious glomerulonephritis typically develops 1-3 weeks after streptococcal pharyngitis or 3-6 weeks after impetigo due to immune complex deposition.",
+      "answer": "A",
+      "explanation": "Both true and causally related. The classic presentation of APIGN is acute nephritic syndrome occurring 1-3 weeks post-pharyngitis (or 3-6 weeks post-impetigo) due to immune complex formation and glomerular deposition following streptococcal infection.",
+      "topic": "APIGN_clinical_presentation",
+      "difficulty": "medium",
+      "disease_id": "APIGN"
+    },
+    {
+      "assertion": "Electron microscopy in acute postinfectious glomerulonephritis shows characteristic subepithelial 'hump-shaped' deposits.",
+      "reason": "These deposits represent immune complexes formed during the post-infectious immune response and are deposited on the subepithelial side of the glomerular basement membrane.",
+      "answer": "A",
+      "explanation": "Both true and related. The subepithelial humps on EM are pathognomonic for APIGN and represent immune complexes that form after streptococcal infection. These humps resolve over time as the disease improves.",
+      "topic": "APIGN_EM_pathology",
+      "difficulty": "medium",
+      "disease_id": "APIGN"
+    },
+    {
+      "assertion": "In acute postinfectious glomerulonephritis, complement C3 levels are typically low while C4 remains normal.",
+      "reason": "APIGN primarily activates the alternative complement pathway, which consumes C3 but does not involve C4.",
+      "answer": "A",
+      "explanation": "Both true and related. The pattern of low C3 with normal C4 is characteristic of APIGN and helps distinguish it from lupus (which has low C3 AND C4). C3 normalizes in 6-8 weeks, and persistent low C3 suggests an alternative diagnosis.",
+      "topic": "APIGN_complement",
+      "difficulty": "medium",
+      "disease_id": "APIGN"
+    },
+    {
+      "assertion": "Children with acute postinfectious glomerulonephritis have an excellent prognosis with over 95% achieving complete recovery.",
+      "reason": "The excellent prognosis is due to the high response rate to corticosteroid therapy in pediatric patients.",
+      "answer": "C",
+      "explanation": "The assertion is true - children with APIGN do have >95% complete recovery. However, the reason is FALSE. APIGN is treated with supportive care only, NOT corticosteroids or immunosuppression. The excellent prognosis is due to the self-limited nature of the disease.",
+      "topic": "APIGN_treatment_prognosis",
+      "difficulty": "medium",
+      "disease_id": "APIGN"
+    },
+    {
+      "assertion": "Immunofluorescence microscopy in acute postinfectious glomerulonephritis shows linear IgG deposition along the glomerular basement membrane.",
+      "reason": "The immune complexes in APIGN deposit in the glomeruli following streptococcal infection.",
+      "answer": "D",
+      "explanation": "The assertion is FALSE - APIGN shows GRANULAR (not linear) IgG and C3 staining on IF, creating a 'starry sky' pattern. Linear staining would indicate anti-GBM disease. However, the reason is true - immune complexes do deposit in APIGN.",
+      "topic": "APIGN_IF_pattern",
+      "difficulty": "medium",
+      "disease_id": "APIGN"
+    },
+    {
+      "assertion": "Immunofluorescence showing linear IgG staining along the glomerular basement membrane is pathognomonic for anti-GBM disease.",
+      "reason": "In anti-GBM disease, autoantibodies bind directly to the alpha-3 chain of type IV collagen in the GBM, creating a smooth linear pattern on immunofluorescence.",
+      "answer": "A",
+      "explanation": "Both true and causally related. The linear pattern distinguishes anti-GBM from immune complex diseases (which show granular patterns) and from pauci-immune diseases (which are IF negative). This linear IgG pattern plus serum anti-GBM antibodies is diagnostic.",
+      "topic": "ANTI_GBM_IF_pathology",
+      "difficulty": "medium",
+      "disease_id": "ANTI_GBM"
+    },
+    {
+      "assertion": "Anti-GBM disease requires urgent treatment with plasmapheresis, high-dose corticosteroids, and cyclophosphamide.",
+      "reason": "Anti-GBM disease causes rapidly progressive glomerulonephritis with rapid loss of kidney function over days to weeks, and delayed treatment results in irreversible renal failure.",
+      "answer": "A",
+      "explanation": "Both true and causally related. Anti-GBM is a medical emergency causing RPGN. Plasmapheresis removes circulating anti-GBM antibodies, while immunosuppression prevents new antibody formation. Treatment must begin immediately - prognosis for renal recovery is poor if patients are dialysis-dependent at presentation.",
+      "topic": "ANTI_GBM_urgent_treatment",
+      "difficulty": "medium",
+      "disease_id": "ANTI_GBM"
+    },
+    {
+      "assertion": "Patients with anti-GBM disease may present with both kidney disease and pulmonary hemorrhage.",
+      "reason": "Anti-GBM antibodies target type IV collagen in both glomerular and alveolar basement membranes, causing pulmonary-renal syndrome (Goodpasture syndrome).",
+      "answer": "A",
+      "explanation": "Both true and related. Anti-GBM antibodies bind to alpha-3 chain of type IV collagen present in both GBM and alveolar basement membranes. About 50-60% have lung involvement with hemoptysis, which is life-threatening but responds to treatment.",
+      "topic": "ANTI_GBM_pulmonary_renal",
+      "difficulty": "medium",
+      "disease_id": "ANTI_GBM"
+    },
+    {
+      "assertion": "Anti-GBM disease shows abundant immune complex deposits on electron microscopy.",
+      "reason": "The granular immune deposits in anti-GBM disease are composed primarily of IgA and complement C3.",
+      "answer": "E",
+      "explanation": "Both FALSE. Anti-GBM shows NO immune deposits on EM despite positive IF (the antibodies are bound to the GBM structure itself, not forming deposits). Additionally, IF shows IgG (not IgA), and the pattern is linear (not granular). IgA granular deposits suggest IgA nephropathy.",
+      "topic": "ANTI_GBM_EM_findings",
+      "difficulty": "medium",
+      "disease_id": "ANTI_GBM"
+    },
+    {
+      "assertion": "Immunofluorescence microscopy in ANCA-associated glomerulonephritis typically shows little or no immunoglobulin or complement staining, described as 'pauci-immune'.",
+      "reason": "ANCA-GN is mediated by ANCA-activated neutrophils causing direct vascular injury, not by immune complex deposition.",
+      "answer": "A",
+      "explanation": "Both true and related. The pauci-immune pattern (negative or trace IF) distinguishes ANCA-GN from immune complex diseases (granular IF) and anti-GBM (linear IF). The lack of immune deposits reflects the pathophysiology - direct neutrophil-mediated injury rather than antibody/immune complex deposition.",
+      "topic": "ANCA_GN_pauci_immune",
+      "difficulty": "medium",
+      "disease_id": "ANCA_GN"
+    },
+    {
+      "assertion": "ANCA-associated glomerulonephritis is the most common cause of rapidly progressive glomerulonephritis in adults over 50 years of age.",
+      "reason": "The incidence of ANCA-associated vasculitis increases with age, with peak onset in the 6th-7th decades of life.",
+      "answer": "A",
+      "explanation": "Both true and related. ANCA-GN (pauci-immune type) is indeed the most common RPGN in older adults, more common than anti-GBM or immune complex RPGN in this age group. The age distribution helps in differential diagnosis of RPGN.",
+      "topic": "ANCA_GN_epidemiology",
+      "difficulty": "medium",
+      "disease_id": "ANCA_GN"
+    },
+    {
+      "assertion": "Patients with ANCA-associated glomerulonephritis may have systemic manifestations including pulmonary nodules, sinusitis, and peripheral neuropathy.",
+      "reason": "ANCA antibodies can be detected in the serum of 90% of patients with pauci-immune glomerulonephritis.",
+      "answer": "B",
+      "explanation": "Both statements are true. ANCA-GN is part of systemic vasculitis (GPA, MPA, EGPA) with multi-organ involvement. And 90% of pauci-immune GN patients are ANCA-positive. However, the reason (ANCA seropositivity rate) doesn't explain WHY systemic manifestations occur - these are independent true facts.",
+      "topic": "ANCA_GN_systemic_features",
+      "difficulty": "medium",
+      "disease_id": "ANCA_GN"
+    },
+    {
+      "assertion": "ANCA-associated glomerulonephritis has an excellent prognosis with complete renal recovery in over 90% of patients.",
+      "reason": "Pauci-immune crescentic glomerulonephritis is characterized by necrotizing glomerular injury with crescent formation.",
+      "answer": "D",
+      "explanation": "The assertion is FALSE - ANCA-GN has a guarded prognosis with 25-30% progressing to ESRD despite treatment and 30-50% relapse rate. It does NOT have 90% recovery (that's more like APIGN in children). However, the reason is TRUE - ANCA-GN does cause necrotizing crescentic GN.",
+      "topic": "ANCA_GN_prognosis",
+      "difficulty": "medium",
+      "disease_id": "ANCA_GN"
+    },
+    {
+      "assertion": "Membranoproliferative glomerular injury characteristically shows 'double contour' or 'tram-track' appearance of the glomerular basement membrane on light microscopy.",
+      "reason": "The double contour appearance results from mesangial cell interposition between the endothelium and basement membrane, creating a new layer of basement membrane-like material.",
+      "answer": "A",
+      "explanation": "Both true and related. The tram-track or double contour appearance (best seen on silver stain) is pathognomonic for MPGN and results from mesangial cells migrating into the subendothelial space, splitting the GBM.",
+      "topic": "MPGN_LM_pathology",
+      "difficulty": "medium",
+      "disease_id": "MPGN"
+    },
+    {
+      "assertion": "Most cases of membranoproliferative glomerular injury are now recognized to be secondary to identifiable causes rather than primary idiopathic disease.",
+      "reason": "Hepatitis C infection with cryoglobulinemia is the most common identified cause of MPGN pattern injury.",
+      "answer": "A",
+      "explanation": "Both true and related. Primary idiopathic MPGN is now rare. Most cases are secondary to infections (especially Hep C with cryoglobulinemia), autoimmune diseases, or complement dysregulation (C3 glomerulopathy). Identifying the underlying cause is critical for treatment.",
+      "topic": "MPGN_etiology",
+      "difficulty": "medium",
+      "disease_id": "MPGN"
+    },
+    {
+      "assertion": "Patients with MPGN pattern injury often have persistently low serum C3 complement levels.",
+      "reason": "Low C3 levels in MPGN, especially if persistent, suggest C3 glomerulopathy due to alternative complement pathway dysregulation.",
+      "answer": "A",
+      "explanation": "Both true and related. Low C3 is characteristic of MPGN. If C3 remains low (>3 months) and IF shows C3-dominant staining with minimal immunoglobulin, this suggests C3 glomerulopathy (DDD or C3GN) rather than immune complex-mediated MPGN.",
+      "topic": "MPGN_complement",
+      "difficulty": "medium",
+      "disease_id": "MPGN"
+    },
+    {
+      "assertion": "Dense deposit disease (DDD), a form of C3 glomerulopathy, has a very high rate of recurrence after kidney transplantation.",
+      "reason": "The high recurrence rate is because DDD is caused by persistent viral infection that is not eliminated by transplantation.",
+      "answer": "C",
+      "explanation": "The assertion is TRUE - DDD has >90% recurrence post-transplant. However, the reason is FALSE. DDD is caused by alternative complement pathway dysregulation (not viral infection), and the dysregulation persists in the recipient, affecting the transplanted kidney.",
+      "topic": "MPGN_transplant",
+      "difficulty": "medium",
+      "disease_id": "MPGN"
+    },
+    {
+      "assertion": "IgA nephropathy is characterized by dominant or co-dominant mesangial IgA deposition on immunofluorescence microscopy.",
+      "reason": "The mesangial IgA deposits in IgA nephropathy result from deposition of galactose-deficient IgA1 immune complexes.",
+      "answer": "A",
+      "explanation": "Both true and related. Mesangial IgA dominance on IF is pathognomonic for IgA nephropathy. The pathophysiology involves abnormal O-glycosylation of IgA1, leading to galactose-deficient IgA1 that forms immune complexes and deposits in the mesangium.",
+      "topic": "IgAN_IF_pathology",
+      "difficulty": "medium",
+      "disease_id": "IgAN"
+    },
+    {
+      "assertion": "The classic presentation of IgA nephropathy is episodic gross hematuria occurring concurrently with or within 1-2 days of an upper respiratory infection.",
+      "reason": "This 'synpharyngitic hematuria' pattern distinguishes IgA nephropathy from acute postinfectious glomerulonephritis, which occurs 1-3 weeks after infection.",
+      "answer": "A",
+      "explanation": "Both true and related. The timing helps differentiate IgAN (synpharyngitic - occurs DURING or 1-2 days after URI) from APIGN (occurs 1-3 weeks AFTER pharyngitis). This classic presentation, though not always present, is highly suggestive of IgAN.",
+      "topic": "IgAN_clinical_presentation",
+      "difficulty": "medium",
+      "disease_id": "IgAN"
+    },
+    {
+      "assertion": "IgA nephropathy is the most common primary glomerulonephritis worldwide.",
+      "reason": "The high prevalence of IgA nephropathy is particularly notable in Asian populations.",
+      "answer": "A",
+      "explanation": "Both true and related. IgAN is indeed the most common primary GN globally, with highest prevalence in Asia (Japan, China, Korea). Geographic variation suggests genetic and environmental factors in pathogenesis.",
+      "topic": "IgAN_epidemiology",
+      "difficulty": "medium",
+      "disease_id": "IgAN"
+    },
+    {
+      "assertion": "Serum IgA levels are elevated in all patients with IgA nephropathy and are diagnostic for the disease.",
+      "reason": "IgA nephropathy involves abnormal IgA1 glycosylation and mesangial deposition.",
+      "answer": "D",
+      "explanation": "The assertion is FALSE - serum IgA is elevated in only ~50% of IgAN patients and is NOT diagnostic. Diagnosis requires kidney biopsy showing mesangial IgA deposits. However, the reason is TRUE - IgAN does involve abnormal IgA1 glycosylation.",
+      "topic": "IgAN_serology",
+      "difficulty": "medium",
+      "disease_id": "IgAN"
+    },
+    {
+      "assertion": "Electron microscopy showing irregular thickening, thinning, and splitting of the glomerular basement membrane with a 'basket-weave' appearance is diagnostic of Alport syndrome.",
+      "reason": "Alport syndrome is caused by mutations in genes encoding type IV collagen (COL4A3/A4/A5), leading to abnormal GBM structure.",
+      "answer": "A",
+      "explanation": "Both true and related. The basket-weave appearance on EM is pathognomonic for Alport syndrome and directly results from the abnormal type IV collagen structure. Mutations in COL4 genes prevent proper GBM formation, creating the characteristic ultrastructural abnormalities.",
+      "topic": "ALPORT_EM_pathology",
+      "difficulty": "medium",
+      "disease_id": "ALPORT"
+    },
+    {
+      "assertion": "The clinical triad of Alport syndrome consists of hematuria, sensorineural hearing loss, and ocular abnormalities.",
+      "reason": "These three features result from abnormal type IV collagen in the glomerular basement membrane, cochlea, and lens, respectively, as type IV collagen is a structural component in all three locations.",
+      "answer": "A",
+      "explanation": "Both true and related. Type IV collagen (specifically alpha-3, alpha-4, alpha-5 chains) is present in GBM, cochlear basement membranes, and lens capsule. Mutations cause defects in all three: progressive kidney disease, high-frequency hearing loss, and anterior lenticonus.",
+      "topic": "ALPORT_clinical_triad",
+      "difficulty": "medium",
+      "disease_id": "ALPORT"
+    },
+    {
+      "assertion": "Male patients with X-linked Alport syndrome typically progress to end-stage renal disease by age 20-30 years.",
+      "reason": "X-linked inheritance means males have one mutated COL4A5 gene on the X chromosome with no normal copy, leading to severe disease, while carrier females are generally asymptomatic.",
+      "answer": "A",
+      "explanation": "Both true, though the reason is partially incomplete. Males with X-linked Alport do progress to ESRD by 20-30 years because they have only one X chromosome (hemizygous). However, females (carriers) are NOT always asymptomatic - 15-30% develop ESRD, though usually later and milder. Still, the answer is A as the main concept is correct.",
+      "topic": "ALPORT_prognosis",
+      "difficulty": "medium",
+      "disease_id": "ALPORT"
+    },
+    {
+      "assertion": "Patients with Alport syndrome may develop anti-GBM antibodies after kidney transplantation.",
+      "reason": "The transplanted kidney contains normal type IV collagen, which the immune system recognizes as self-antigen.",
+      "answer": "C",
+      "explanation": "The assertion is TRUE - about 5% of Alport patients develop anti-GBM antibodies post-transplant. However, the reason is FALSE. The immune system recognizes the NORMAL collagen in the allograft as FOREIGN (not self) because the patient never had normal collagen and has no tolerance to it.",
+      "topic": "ALPORT_transplant_antiGBM",
+      "difficulty": "medium",
+      "disease_id": "ALPORT"
+    },
+    {
+      "assertion": "Thin glomerular basement membrane disease is diagnosed by electron microscopy showing diffusely thin GBM measuring less than 250nm in adults.",
+      "reason": "Normal GBM thickness in adults is 300-400nm, and GBM <250nm is considered pathologically thin.",
+      "answer": "A",
+      "explanation": "Both true and related. Thin GBM disease cannot be diagnosed on light microscopy (glomeruli appear normal) and requires EM measurement. GBM <250nm in adults (<200nm in children) is diagnostic. This distinguishes it from normal and from Alport (which shows splitting/basket-weave, not uniform thinning).",
+      "topic": "THIN_GBM_diagnosis",
+      "difficulty": "medium",
+      "disease_id": "THIN_GBM"
+    },
+    {
+      "assertion": "Thin GBM disease has an excellent prognosis and generally does not progress to chronic kidney disease.",
+      "reason": "Thin GBM disease is a benign familial condition characterized by isolated microscopic hematuria without proteinuria or renal dysfunction.",
+      "answer": "A",
+      "explanation": "Both true and related. Thin GBM disease (benign familial hematuria) is a benign condition. Patients have persistent microscopic hematuria from childhood but maintain normal renal function, no significant proteinuria, and no progression to CKD. This benign course distinguishes it from Alport syndrome.",
+      "topic": "THIN_GBM_prognosis",
+      "difficulty": "medium",
+      "disease_id": "THIN_GBM"
+    },
+    {
+      "assertion": "Patients with thin GBM disease typically develop bilateral sensorineural hearing loss and ocular abnormalities in addition to hematuria.",
+      "reason": "Thin GBM disease is caused by heterozygous mutations in COL4A3 or COL4A4 genes encoding type IV collagen.",
+      "answer": "D",
+      "explanation": "The assertion is FALSE - thin GBM disease does NOT cause hearing loss or ocular abnormalities (those features indicate Alport syndrome). However, the reason is TRUE - thin GBM is caused by heterozygous COL4 mutations (carrier state), while Alport requires homozygous/compound heterozygous or X-linked mutations.",
+      "topic": "THIN_GBM_vs_ALPORT",
+      "difficulty": "medium",
+      "disease_id": "THIN_GBM"
+    },
+    {
+      "assertion": "Immunofluorescence microscopy in myeloma cast nephropathy shows monoclonal light chain restriction with staining for either kappa or lambda, but not both.",
+      "reason": "Myeloma produces a clonal population of plasma cells secreting a single type of monoclonal light chain.",
+      "answer": "A",
+      "explanation": "Both true and related. The monoclonal light chain restriction (kappa OR lambda positive, not both) on IF is diagnostic for myeloma kidney and reflects the clonal nature of the plasma cell disorder. Normal kidneys would show both kappa and lambda (polyclonal).",
+      "topic": "MYELOMA_IF_restriction",
+      "difficulty": "medium",
+      "disease_id": "MYELOMA_KIDNEY"
+    },
+    {
+      "assertion": "Patients with myeloma cast nephropathy may have minimal proteinuria on urine dipstick despite having severe kidney disease.",
+      "reason": "Urine dipsticks detect albumin but not immunoglobulin light chains, which are the primary proteins in myeloma kidney.",
+      "answer": "A",
+      "explanation": "Both true and related. Dipstick measures albumin, but myeloma patients excrete free light chains (Bence Jones protein), not albumin. Thus dipstick can be negative/trace while 24-hour urine protein with SPEP shows massive light chain proteinuria. This is a classic pitfall.",
+      "topic": "MYELOMA_proteinuria_detection",
+      "difficulty": "medium",
+      "disease_id": "MYELOMA_KIDNEY"
+    },
+    {
+      "assertion": "Light microscopy in myeloma cast nephropathy characteristically shows large tubular casts with surrounding giant cell reaction.",
+      "reason": "The casts are composed of monoclonal light chains that precipitate in the distal tubules and collecting ducts, eliciting an inflammatory response.",
+      "answer": "A",
+      "explanation": "Both true and related. The dense, fractured/angular casts in tubules with multinucleated giant cells are pathognomonic for cast nephropathy. Light chains precipitate in tubules (especially with dehydration, hypercalcemia), forming casts that obstruct tubules and cause AKI.",
+      "topic": "MYELOMA_LM_pathology",
+      "difficulty": "medium",
+      "disease_id": "MYELOMA_KIDNEY"
+    },
+    {
+      "assertion": "Treatment of myeloma cast nephropathy requires urgent chemotherapy to reduce light chain production.",
+      "reason": "Plasmapheresis effectively removes light chains and is the definitive treatment for myeloma kidney.",
+      "answer": "C",
+      "explanation": "The assertion is TRUE - urgent chemotherapy (bortezomib-based) to reduce paraprotein is critical. However, the reason is FALSE. Plasmapheresis is NOT effective for myeloma kidney because most light chains are not efficiently removed by dialysis (they're tissue-bound). Treatment is chemotherapy + supportive care.",
+      "topic": "MYELOMA_treatment",
+      "difficulty": "medium",
+      "disease_id": "MYELOMA_KIDNEY"
+    },
+    {
+      "assertion": "Urinalysis in acute tubular necrosis characteristically shows muddy brown granular casts and renal tubular epithelial cells.",
+      "reason": "These findings reflect tubular injury with sloughing of damaged tubular epithelial cells and formation of casts containing cellular debris.",
+      "answer": "A",
+      "explanation": "Both true and related. Muddy brown casts are pathognomonic for ATN and result from degenerating tubular cells forming casts. This distinguishes ATN (intrinsic AKI) from prerenal azotemia (bland sediment with hyaline casts) and helps confirm the diagnosis.",
+      "topic": "ATN_urinalysis",
+      "difficulty": "medium",
+      "disease_id": "ATN"
+    },
+    {
+      "assertion": "In acute tubular necrosis, the fractional excretion of sodium (FENa) is typically greater than 1-2%.",
+      "reason": "Tubular injury impairs the kidney's ability to reabsorb sodium, leading to increased urinary sodium excretion.",
+      "answer": "A",
+      "explanation": "Both true and related. ATN causes tubular dysfunction with impaired sodium reabsorption, resulting in FENa >1% (usually >2%) and urine sodium >40 mEq/L. This distinguishes ATN (intrinsic) from prerenal azotemia (FENa <1%, as tubules avidly reabsorb sodium when perfusion is low).",
+      "topic": "ATN_FENa",
+      "difficulty": "medium",
+      "disease_id": "ATN"
+    },
+    {
+      "assertion": "Most patients with acute tubular necrosis recover renal function within weeks to months if the underlying cause is treated.",
+      "reason": "The excellent recovery rate in ATN is due to the effectiveness of corticosteroid therapy in regenerating tubular epithelial cells.",
+      "answer": "C",
+      "explanation": "The assertion is TRUE - most ATN patients do recover if the insult is removed. However, the reason is FALSE. ATN is NOT treated with corticosteroids - it's managed with supportive care only. Recovery occurs through natural tubular epithelial cell regeneration.",
+      "topic": "ATN_treatment_prognosis",
+      "difficulty": "medium",
+      "disease_id": "ATN"
+    },
+    {
+      "assertion": "Acute tubular necrosis characteristically shows crescentic glomerulonephritis on kidney biopsy.",
+      "reason": "The tubular injury in ATN is caused by immune complex deposition in the tubular basement membrane.",
+      "answer": "E",
+      "explanation": "Both FALSE. ATN shows TUBULAR injury (loss of brush border, tubular cell necrosis, denudation) with NORMAL glomeruli - not crescents (which indicate RPGN). Additionally, ATN is NOT caused by immune complexes - it's due to ischemia or direct tubular toxicity.",
+      "topic": "ATN_pathology",
+      "difficulty": "medium",
+      "disease_id": "ATN"
+    },
+    {
+      "assertion": "Acute interstitial nephritis is most commonly caused by drug hypersensitivity reactions, particularly to antibiotics, NSAIDs, and proton pump inhibitors.",
+      "reason": "These drugs trigger a type IV delayed hypersensitivity reaction with T-cell mediated interstitial inflammation.",
+      "answer": "A",
+      "explanation": "Both true and related. Drug-induced AIN (70-80% of cases) is an immune-mediated process. Beta-lactams, sulfonamides, NSAIDs, and PPIs are most common culprits. The T-cell infiltration explains why treatment involves stopping the drug and sometimes using corticosteroids.",
+      "topic": "AIN_etiology",
+      "difficulty": "medium",
+      "disease_id": "AIN"
+    },
+    {
+      "assertion": "Light microscopy in acute interstitial nephritis shows interstitial inflammation with lymphocytic infiltrate and eosinophils.",
+      "reason": "The presence of eosinophils in the interstitium is particularly characteristic of drug-induced acute interstitial nephritis.",
+      "answer": "A",
+      "explanation": "Both true and related. AIN shows interstitial edema and inflammatory infiltrate (lymphocytes, eosinophils, plasma cells) with tubulitis. Eosinophils are especially prominent in drug-induced AIN and are a diagnostic clue, though their absence doesn't exclude the diagnosis.",
+      "topic": "AIN_pathology",
+      "difficulty": "medium",
+      "disease_id": "AIN"
+    },
+    {
+      "assertion": "Urinalysis in acute interstitial nephritis may show white blood cell casts and eosinophiluria.",
+      "reason": "The interstitial inflammation allows white blood cells and eosinophils to enter the tubular lumen, where they form casts and appear in the urine.",
+      "answer": "A",
+      "explanation": "Both true and related. WBC casts (sterile pyuria) and eosinophiluria (detected with Hansel stain) are characteristic urinary findings in AIN. These help distinguish AIN from ATN (muddy brown casts) and from urinary tract infection (bacteria present).",
+      "topic": "AIN_urinalysis",
+      "difficulty": "medium",
+      "disease_id": "AIN"
+    },
+    {
+      "assertion": "The classic triad of fever, rash, and eosinophilia is present in the majority of patients with acute interstitial nephritis.",
+      "reason": "Drug-induced AIN is a type IV hypersensitivity reaction mediated by T-lymphocytes.",
+      "answer": "D",
+      "explanation": "The assertion is FALSE - the classic triad is present in only 10-15% of AIN cases! Don't wait for it. However, the reason is TRUE - AIN is indeed a type IV (delayed) hypersensitivity reaction. Most patients have AKI with pyuria/eosinophiluria without the full triad.",
+      "topic": "AIN_clinical_triad",
+      "difficulty": "medium",
+      "disease_id": "AIN"
+    },
+    {
+      "assertion": "NSAIDs can cause acute interstitial nephritis that may present with nephrotic syndrome.",
+      "reason": "Acute interstitial nephritis shows eosinophilic infiltration in the kidney interstitium.",
+      "answer": "B",
+      "explanation": "Both are true. NSAIDs uniquely can cause AIN with concurrent minimal change disease-like nephrotic syndrome (unlike other drugs). And AIN does show eosinophilic infiltration. However, the eosinophilic infiltration doesn't explain the nephrotic syndrome - these are independent true facts.",
+      "topic": "AIN_NSAID_nephrotic",
+      "difficulty": "medium",
+      "disease_id": "AIN"
+    },
+    {
+      "assertion": "Kimmelstiel-Wilson nodules are pathognomonic for diabetic glomerulosclerosis",
+      "reason": "These nodules represent acellular mesangial expansion caused by chronic hyperglycemia and AGE accumulation",
+      "answer": "A",
+      "explanation": "Both statements are true. Kimmelstiel-Wilson nodules are indeed pathognomonic (highly characteristic) of diabetic nephropathy, and they form due to mesangial matrix expansion from chronic hyperglycemia and advanced glycation end product (AGE) accumulation. The reason correctly explains the mechanism of nodule formation.",
+      "topic": "Diabetic GN - Pathology",
+      "difficulty": "medium",
+      "disease_id": "DIABETIC_GN"
+    },
+    {
+      "assertion": "Diabetic nephropathy typically shows linear IgG staining on immunofluorescence",
+      "reason": "The linear IgG represents non-immune protein trapping in the thickened GBM, not immune complex deposition",
+      "answer": "A",
+      "explanation": "Both true and related. Diabetic nephropathy shows linear IgG and albumin staining, but this is NOT an immune-mediated process. It represents passive trapping of plasma proteins in the abnormally thickened GBM. This distinguishes it from anti-GBM disease where linear IgG is from antibody binding.",
+      "topic": "Diabetic GN - Immunofluorescence",
+      "difficulty": "hard",
+      "disease_id": "DIABETIC_GN"
+    },
+    {
+      "assertion": "ACE inhibitors or ARBs are first-line treatment for diabetic nephropathy",
+      "reason": "These agents reduce intraglomerular pressure and proteinuria, slowing progression to ESRD by 30-40%",
+      "answer": "A",
+      "explanation": "Both true and mechanistically linked. ACE inhibitors and ARBs reduce efferent arteriolar vasoconstriction, decreasing glomerular hypertension and proteinuria. Clinical trials show they slow progression to ESRD by approximately 30-40% independent of blood pressure effects.",
+      "topic": "Diabetic GN - Treatment",
+      "difficulty": "medium",
+      "disease_id": "DIABETIC_GN"
+    },
+    {
+      "assertion": "Absence of diabetic retinopathy suggests a non-diabetic cause of kidney disease",
+      "reason": "Diabetic retinopathy always precedes diabetic nephropathy",
+      "answer": "C",
+      "explanation": "The assertion is true - only 15% of patients with diabetic nephropathy lack retinopathy, so its absence should prompt evaluation for other causes. However, the reason is false. While retinopathy is usually present (85%), it doesn't always precede nephropathy. They typically develop concurrently after 10-15 years of diabetes.",
+      "topic": "Diabetic GN - Clinical Features",
+      "difficulty": "hard",
+      "disease_id": "DIABETIC_GN"
+    },
+    {
+      "assertion": "Diabetic glomerulosclerosis requires immunosuppressive therapy",
+      "reason": "Diabetic nephropathy is a metabolic disease caused by chronic hyperglycemia",
+      "answer": "D",
+      "explanation": "The assertion is FALSE - diabetic nephropathy does NOT respond to immunosuppression and should not be treated with steroids or other immunosuppressants. The reason is TRUE - this is a metabolic disease from hyperglycemia-induced injury, not an immune-mediated process. Treatment focuses on glycemic control and RAAS blockade.",
+      "topic": "Diabetic GN - Treatment",
+      "difficulty": "medium",
+      "disease_id": "DIABETIC_GN"
+    },
+    {
+      "assertion": "Congo red stain with apple-green birefringence under polarized light is diagnostic for amyloidosis",
+      "reason": "Amyloid fibrils have a beta-pleated sheet structure that binds Congo red and shows characteristic birefringence",
+      "answer": "A",
+      "explanation": "Both true and mechanistically linked. The pathognomonic finding for amyloidosis is Congo red positivity with apple-green birefringence under polarized light. This occurs because the beta-pleated sheet structure of amyloid fibrils binds Congo red dye in a way that produces birefringence. This is the gold standard for diagnosis.",
+      "topic": "Amyloidosis - Diagnosis",
+      "difficulty": "easy",
+      "disease_id": "AMYLOIDOSIS"
+    },
+    {
+      "assertion": "Light chain restriction on immunofluorescence distinguishes AL from AA amyloidosis",
+      "reason": "AL amyloidosis is caused by monoclonal light chain deposition while AA involves serum amyloid A protein",
+      "answer": "A",
+      "explanation": "Both true and the reason explains the assertion. AL amyloidosis shows monoclonal light chain restriction (kappa OR lambda, not both) because it derives from a plasma cell clone. AA amyloidosis shows no light chain restriction because it derives from serum amyloid A protein, not immunoglobulins. IF can help type the amyloid.",
+      "topic": "Amyloidosis - Immunofluorescence",
+      "difficulty": "medium",
+      "disease_id": "AMYLOIDOSIS"
+    },
+    {
+      "assertion": "Kidneys are typically enlarged in amyloidosis",
+      "reason": "Amyloid deposition causes organ expansion, unlike most other causes of nephrotic syndrome which cause atrophy",
+      "answer": "A",
+      "explanation": "Both true and related. Amyloidosis classically causes kidney enlargement due to extensive protein deposition, which is unusual as most chronic kidney diseases cause atrophy. This is a helpful clinical clue - nephrotic syndrome with enlarged kidneys should raise suspicion for amyloidosis or diabetic nephropathy.",
+      "topic": "Amyloidosis - Clinical Features",
+      "difficulty": "medium",
+      "disease_id": "AMYLOIDOSIS"
+    },
+    {
+      "assertion": "Electron microscopy shows 8-12 nm randomly oriented fibrils in amyloidosis",
+      "reason": "Periorbital purpura and macroglossia are characteristic systemic features of AL amyloidosis",
+      "answer": "B",
+      "explanation": "Both statements are true but unrelated. The EM finding of 8-12 nm non-branching fibrils is the ultrastructural hallmark that distinguishes amyloid from other deposits. Periorbital purpura and macroglossia are indeed systemic manifestations of AL amyloidosis. However, the EM findings don't explain the systemic features.",
+      "topic": "Amyloidosis - Pathology",
+      "difficulty": "medium",
+      "disease_id": "AMYLOIDOSIS"
+    },
+    {
+      "assertion": "Treatment of AL amyloidosis requires chemotherapy targeting the plasma cell clone",
+      "reason": "AL amyloidosis is always associated with multiple myeloma",
+      "answer": "C",
+      "explanation": "The assertion is TRUE - AL amyloidosis requires chemotherapy (bortezomib-based regimens or stem cell transplant) to eliminate the plasma cell clone producing light chains. However, the reason is FALSE - while AL amyloidosis involves a plasma cell dyscrasia, it's often associated with MGUS or smoldering myeloma, not frank multiple myeloma. Only ~20% have overt myeloma.",
+      "topic": "Amyloidosis - Treatment",
+      "difficulty": "hard",
+      "disease_id": "AMYLOIDOSIS"
+    },
+    {
+      "assertion": "AA amyloidosis has a worse prognosis than AL amyloidosis",
+      "reason": "Cardiac involvement is the leading cause of death in AL amyloidosis",
+      "answer": "D",
+      "explanation": "The assertion is FALSE - AA amyloidosis actually has a BETTER prognosis than AL, especially if the underlying inflammatory condition can be controlled. The reason is TRUE - restrictive cardiomyopathy from cardiac amyloid is indeed the leading cause of death in AL amyloidosis, contributing to its poor prognosis (median survival 1-2 years if cardiac involvement).",
+      "topic": "Amyloidosis - Prognosis",
+      "difficulty": "medium",
+      "disease_id": "AMYLOIDOSIS"
+    }
+  ]
+}
