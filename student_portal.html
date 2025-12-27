@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nephropathology - Student Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+        }
+
+        .progress-bar-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .progress-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background-color: #e2e8f0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #48bb78 0%, #38a169 100%);
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .filters {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .filter-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .filter-group label {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .filter-group select {
+            padding: 8px 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .mode-toggle {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background-color: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #5568d3;
+        }
+
+        .btn-secondary {
+            background-color: #cbd5e0;
+            color: #2d3748;
+        }
+
+        .btn-secondary:hover {
+            background-color: #a0aec0;
+        }
+
+        .btn.active {
+            background-color: #667eea;
+            color: white;
+        }
+
+        .questions-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question-card {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .question-card.priority-high {
+            border-left-color: #f56565;
+            background: #fff5f5;
+        }
+
+        .question-card.priority-medium {
+            border-left-color: #ed8936;
+            background: #fffaf0;
+        }
+
+        .question-card.priority-low {
+            border-left-color: #48bb78;
+            background: #f0fff4;
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .question-number {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2d3748;
+        }
+
+        .question-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-disease {
+            background-color: #667eea;
+            color: white;
+        }
+
+        .badge-difficulty-easy {
+            background-color: #48bb78;
+            color: white;
+        }
+
+        .badge-difficulty-medium {
+            background-color: #ed8936;
+            color: white;
+        }
+
+        .badge-difficulty-hard {
+            background-color: #f56565;
+            color: white;
+        }
+
+        .badge-priority {
+            background-color: #f56565;
+            color: white;
+        }
+
+        .question-content {
+            margin: 20px 0;
+        }
+
+        .question-text {
+            margin: 15px 0;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .question-text strong {
+            color: #2d3748;
+        }
+
+        .answer-options {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid #e2e8f0;
+        }
+
+        .answer-options p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .answer-section {
+            margin-top: 20px;
+            padding: 20px;
+            background: #d5f4e6;
+            border-radius: 8px;
+            border-left: 5px solid #48bb78;
+        }
+
+        .answer-section.hidden {
+            display: none;
+        }
+
+        .answer-text {
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+
+        .toggle-answer-btn {
+            margin-top: 15px;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .checkbox-label input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .no-questions {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+
+        .no-questions h3 {
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .filter-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .navigation {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Nephropathology Study Portal</h1>
+            <p>Practice assertion-reason questions for nephropathology</p>
+        </header>
+
+        <div class="progress-bar-container">
+            <div class="progress-stats">
+                <div><strong>Progress:</strong> <span id="progressText">0 / 0 questions completed</span></div>
+                <div><strong>Score:</strong> <span id="scoreText">0%</span></div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%">0%</div>
+            </div>
+        </div>
+
+        <div class="filters">
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label>Disease:</label>
+                    <select id="diseaseFilter" onchange="applyFilters()">
+                        <option value="all">All Diseases</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Difficulty:</label>
+                    <select id="difficultyFilter" onchange="applyFilters()">
+                        <option value="all">All Levels</option>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Priority:</label>
+                    <select id="priorityFilter" onchange="applyFilters()">
+                        <option value="all">All</option>
+                        <option value="high">High Priority Only</option>
+                        <option value="medium">Medium Priority</option>
+                        <option value="low">Low Priority</option>
+                    </select>
+                </div>
+
+                <div class="mode-toggle">
+                    <button class="btn btn-secondary active" id="studyModeBtn" onclick="setMode('study')">Study Mode</button>
+                    <button class="btn btn-secondary" id="testModeBtn" onclick="setMode('test')">Test Mode</button>
+                    <button class="btn btn-primary" onclick="resetProgress()">Reset Progress</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="questions-container">
+            <div id="questionsList"></div>
+        </div>
+    </div>
+
+    <script>
+        let allQuestions = [];
+        let activeQuestions = [];
+        let filteredQuestions = [];
+        let questionSettings = {};
+        let userProgress = {};
+        let currentMode = 'study';
+
+        async function loadQuestions() {
+            try {
+                const response = await fetch('nephro_questions_final.json');
+                const data = await response.json();
+                allQuestions = data.questions;
+
+                // Load instructor settings
+                const savedSettings = localStorage.getItem('nephro_question_settings');
+                if (savedSettings) {
+                    questionSettings = JSON.parse(savedSettings);
+                } else {
+                    // If no settings, all questions are active by default
+                    allQuestions.forEach((q, index) => {
+                        questionSettings[index] = {
+                            active: true,
+                            priority: 'none'
+                        };
+                    });
+                }
+
+                // Filter to only active questions
+                activeQuestions = allQuestions.filter((q, index) => questionSettings[index]?.active);
+
+                // Load user progress
+                const savedProgress = localStorage.getItem('nephro_student_progress');
+                if (savedProgress) {
+                    userProgress = JSON.parse(savedProgress);
+                } else {
+                    userProgress = {};
+                }
+
+                populateFilters();
+                applyFilters();
+                updateProgress();
+            } catch (error) {
+                console.error('Error loading questions:', error);
+                alert('Error loading questions. Please ensure nephro_questions_final.json is in the same directory.');
+            }
+        }
+
+        function populateFilters() {
+            const diseaseSet = new Set();
+            activeQuestions.forEach(q => {
+                if (q.disease_id) diseaseSet.add(q.disease_id);
+            });
+
+            const diseaseFilter = document.getElementById('diseaseFilter');
+            diseaseFilter.innerHTML = '<option value="all">All Diseases</option>';
+            Array.from(diseaseSet).sort().forEach(disease => {
+                const option = document.createElement('option');
+                option.value = disease;
+                option.textContent = disease.replace(/_/g, ' ');
+                diseaseFilter.appendChild(option);
+            });
+        }
+
+        function applyFilters() {
+            const diseaseFilter = document.getElementById('diseaseFilter').value;
+            const difficultyFilter = document.getElementById('difficultyFilter').value;
+            const priorityFilter = document.getElementById('priorityFilter').value;
+
+            filteredQuestions = activeQuestions.filter((q) => {
+                const index = allQuestions.indexOf(q);
+                const settings = questionSettings[index];
+
+                if (diseaseFilter !== 'all' && q.disease_id !== diseaseFilter) return false;
+                if (difficultyFilter !== 'all' && q.difficulty !== difficultyFilter) return false;
+                if (priorityFilter !== 'all' && settings.priority !== priorityFilter) return false;
+
+                return true;
+            });
+
+            renderQuestions();
+        }
+
+        function renderQuestions() {
+            const container = document.getElementById('questionsList');
+
+            if (filteredQuestions.length === 0) {
+                container.innerHTML = `
+                    <div class="no-questions">
+                        <h3>No questions available</h3>
+                        <p>Your instructor hasn't activated any questions matching your filters yet.</p>
+                        <p>Please check back later or try different filters.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filteredQuestions.map((q, filterIndex) => {
+                const realIndex = allQuestions.indexOf(q);
+                const settings = questionSettings[realIndex];
+                const progress = userProgress[realIndex] || { completed: false, showAnswer: false };
+
+                let cardClass = 'question-card';
+                if (settings.priority === 'high') cardClass += ' priority-high';
+                else if (settings.priority === 'medium') cardClass += ' priority-medium';
+                else if (settings.priority === 'low') cardClass += ' priority-low';
+
+                const difficultyClass = `badge-difficulty-${q.difficulty || 'medium'}`;
+
+                return `
+                    <div class="${cardClass}">
+                        <div class="question-header">
+                            <div class="question-number">Question ${filterIndex + 1}</div>
+                            <div class="question-meta">
+                                <span class="badge badge-disease">${q.disease_id || 'General'}</span>
+                                <span class="badge ${difficultyClass}">${(q.difficulty || 'medium').toUpperCase()}</span>
+                                ${settings.priority !== 'none' ? `<span class="badge badge-priority">${settings.priority.toUpperCase()} PRIORITY</span>` : ''}
+                            </div>
+                        </div>
+
+                        <div class="question-content">
+                            <div class="question-text">
+                                <strong>Assertion:</strong> ${q.assertion}
+                            </div>
+                            <div class="question-text">
+                                <strong>Reason:</strong> ${q.reason}
+                            </div>
+
+                            <div class="answer-options">
+                                <p><strong>Choose the correct answer:</strong></p>
+                                <p>(A) Both assertion and reason are true, and the reason correctly explains the assertion</p>
+                                <p>(B) Both assertion and reason are true, but the reason does NOT correctly explain the assertion</p>
+                                <p>(C) Assertion is true, but the reason is false</p>
+                                <p>(D) Assertion is false, but the reason is true</p>
+                                <p>(E) Both assertion and reason are false</p>
+                            </div>
+
+                            ${currentMode === 'study' || progress.showAnswer ? `
+                                <div class="answer-section ${progress.showAnswer ? '' : 'hidden'}" id="answer-${realIndex}">
+                                    <div class="answer-text">
+                                        <strong>Correct Answer:</strong> <span style="color: #38a169; font-size: 18px; font-weight: bold;">${q.answer}</span>
+                                    </div>
+                                    <div class="answer-text">
+                                        <strong>Explanation:</strong> ${q.explanation}
+                                    </div>
+                                </div>
+                            ` : ''}
+                        </div>
+
+                        <div class="navigation">
+                            <label class="checkbox-label">
+                                <input type="checkbox"
+                                       ${progress.completed ? 'checked' : ''}
+                                       onchange="toggleCompleted(${realIndex})">
+                                Mark as completed
+                            </label>
+
+                            ${currentMode === 'study' ? `
+                                <button class="btn btn-primary toggle-answer-btn"
+                                        onclick="toggleAnswer(${realIndex})">
+                                    ${progress.showAnswer ? 'Hide Answer' : 'Show Answer'}
+                                </button>
+                            ` : `
+                                <button class="btn btn-primary toggle-answer-btn"
+                                        onclick="revealAnswer(${realIndex})">
+                                    Reveal Answer
+                                </button>
+                            `}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function toggleAnswer(index) {
+            if (!userProgress[index]) {
+                userProgress[index] = { completed: false, showAnswer: false };
+            }
+            userProgress[index].showAnswer = !userProgress[index].showAnswer;
+            saveProgress();
+            renderQuestions();
+        }
+
+        function revealAnswer(index) {
+            if (!userProgress[index]) {
+                userProgress[index] = { completed: false, showAnswer: false };
+            }
+            userProgress[index].showAnswer = true;
+            saveProgress();
+            renderQuestions();
+        }
+
+        function toggleCompleted(index) {
+            if (!userProgress[index]) {
+                userProgress[index] = { completed: false, showAnswer: false };
+            }
+            userProgress[index].completed = !userProgress[index].completed;
+            saveProgress();
+            updateProgress();
+        }
+
+        function setMode(mode) {
+            currentMode = mode;
+            document.getElementById('studyModeBtn').classList.toggle('active', mode === 'study');
+            document.getElementById('testModeBtn').classList.toggle('active', mode === 'test');
+            renderQuestions();
+        }
+
+        function resetProgress() {
+            if (confirm('Reset all progress? This will clear your completion status for all questions.')) {
+                userProgress = {};
+                saveProgress();
+                updateProgress();
+                renderQuestions();
+            }
+        }
+
+        function saveProgress() {
+            localStorage.setItem('nephro_student_progress', JSON.stringify(userProgress));
+        }
+
+        function updateProgress() {
+            const total = activeQuestions.length;
+            const completed = Object.values(userProgress).filter(p => p.completed).length;
+            const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
+
+            document.getElementById('progressText').textContent = `${completed} / ${total} questions completed`;
+            document.getElementById('scoreText').textContent = `${percentage}%`;
+            document.getElementById('progressFill').style.width = `${percentage}%`;
+            document.getElementById('progressFill').textContent = `${percentage}%`;
+        }
+
+        // Initialize
+        loadQuestions();
+
+        // Listen for changes from instructor portal
+        window.addEventListener('storage', function(e) {
+            if (e.key === 'nephro_question_settings') {
+                loadQuestions();
+            }
+        });
+    </script>
+</body>
+</html>
