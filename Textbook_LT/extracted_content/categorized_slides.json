@@ -1,0 +1,670 @@
+{
+  "MCD": [
+    {
+      "slide": 5,
+      "has_images": true,
+      "preview": "Glomerular capillaries, covered by podocytes"
+    },
+    {
+      "slide": 12,
+      "has_images": true,
+      "preview": "Bowman’s capsule"
+    },
+    {
+      "slide": 13,
+      "has_images": true,
+      "preview": "Diffuse effacement of foot processes"
+    },
+    {
+      "slide": 14,
+      "has_images": true,
+      "preview": "Diffuse effacement of foot processes"
+    },
+    {
+      "slide": 15,
+      "has_images": false,
+      "preview": "MINIMAL CHANGE DISEASE"
+    },
+    {
+      "slide": 23,
+      "has_images": false,
+      "preview": "FSGS"
+    },
+    {
+      "slide": 26,
+      "has_images": true,
+      "preview": "Diffuse effacement of foot processes"
+    },
+    {
+      "slide": 27,
+      "has_images": true,
+      "preview": "FOKALINĖ (ŽIDININĖ) SEGMENTINĖ GLOMERULOSKLEROZĖ"
+    },
+    {
+      "slide": 30,
+      "has_images": false,
+      "preview": "Nephrotic\n\tsudden onset\n\tinsidious\nNephritic\n\tacute\n\tsubacute (RPGN)\n\tchronic\nPr"
+    },
+    {
+      "slide": 38,
+      "has_images": false,
+      "preview": "Nephrotic\n\tsudden onset\n\tinsidious\nNephritic\n\tacute\n\tsubacute (RPGN)\n\tchronic\nPr"
+    },
+    {
+      "slide": 48,
+      "has_images": true,
+      "preview": "Nephrotic\n\tsudden onset\n\tinsidious\nNephritic\n\tacute\n\tsubacute (RPGN)\n\tchronic\nPr"
+    },
+    {
+      "slide": 56,
+      "has_images": false,
+      "preview": "Nephrotic\n\tsudden onset\n\tinsidious\nNephritic\n\tacute\n\tsubacute (RPGN)\n\tchronic\nPr"
+    },
+    {
+      "slide": 60,
+      "has_images": false,
+      "preview": "Nephrotic\n\tsudden onset\n\tinsidious\nNephritic\n\tacute\n\tsubacute (RPGN)\n\tchronic\nPr"
+    },
+    {
+      "slide": 78,
+      "has_images": false,
+      "preview": "Nephrotic\n\tsudden onset\n\tinsidious\nNephritic\n\tacute\n\tsubacute (RPGN)\n\tchronic\nPr"
+    },
+    {
+      "slide": 86,
+      "has_images": false,
+      "preview": "Nephrotic\n\tsudden onset\n\tinsidious\nNephritic\n\tacute\n\tsubacute (RPGN)\n\tchronic\nPr"
+    },
+    {
+      "slide": 88,
+      "has_images": false,
+      "preview": "Nephrotic\n\tsudden onset\n\tinsidious\nNephritic\n\tacute\n\tsubacute (RPGN)\n\tchronic\nPr"
+    },
+    {
+      "slide": 147,
+      "has_images": false,
+      "preview": "Fabry disease"
+    }
+  ],
+  "FSGS": [
+    {
+      "slide": 16,
+      "has_images": true,
+      "preview": "FOCAL AND SEGMENTAL\u000bGLOMERULOSCLEROSIS\u000bFSGS"
+    },
+    {
+      "slide": 17,
+      "has_images": true,
+      "preview": "Focal segmental glomerulosclerosis"
+    },
+    {
+      "slide": 19,
+      "has_images": true,
+      "preview": "The histologic definition of focal segmental glomerulosclerosis is a segmental o"
+    },
+    {
+      "slide": 24,
+      "has_images": true,
+      "preview": "D'Agati, Kaskel, Falk: NEJM 2011."
+    },
+    {
+      "slide": 25,
+      "has_images": true,
+      "preview": "14/0"
+    },
+    {
+      "slide": 123,
+      "has_images": true,
+      "preview": "REFLUX NEPHROPATHY"
+    },
+    {
+      "slide": 134,
+      "has_images": true,
+      "preview": "Diffuse glomerulosclerosis\nNodular (Kimmelstiel-Wilson)"
+    }
+  ],
+  "MGN": [
+    {
+      "slide": 10,
+      "has_images": true,
+      "preview": "Difuse finely granular IgG \u000bin the periphery of glomerular capillaries"
+    },
+    {
+      "slide": 29,
+      "has_images": true,
+      "preview": "MEMBRANOUS NEPHROPATHY"
+    },
+    {
+      "slide": 34,
+      "has_images": true,
+      "preview": "Stage I"
+    },
+    {
+      "slide": 35,
+      "has_images": true,
+      "preview": "Stage I"
+    },
+    {
+      "slide": 36,
+      "has_images": true,
+      "preview": "Stage II"
+    },
+    {
+      "slide": 47,
+      "has_images": true,
+      "preview": "Subepithelial “humps”: diagnostic,  may persist, proteinuria"
+    },
+    {
+      "slide": 125,
+      "has_images": false,
+      "preview": "LUPUS NEPHRITIS, RSP/WHO CLASS"
+    },
+    {
+      "slide": 129,
+      "has_images": true,
+      "preview": "V  Membranous"
+    }
+  ],
+  "IgAN": [
+    {
+      "slide": 9,
+      "has_images": true,
+      "preview": "Diffuse finely granular IgG in the periphery of glomerular capillaries"
+    },
+    {
+      "slide": 11,
+      "has_images": true,
+      "preview": "Laurinavicius Erasmus Riga 2013"
+    },
+    {
+      "slide": 82,
+      "has_images": true,
+      "preview": "IgA NEPHROPATHY (Berger disease)"
+    },
+    {
+      "slide": 83,
+      "has_images": false,
+      "preview": "IgA NEPHROPATHY"
+    },
+    {
+      "slide": 84,
+      "has_images": true,
+      "preview": "Predominant IgA deposition in the mesangium"
+    }
+  ],
+  "MPGN": [
+    {
+      "slide": 59,
+      "has_images": true,
+      "preview": "MEMBRANOPROLIFERATIVE\u000bPATTERN OF \u000bGLOMERULAR INJURY"
+    },
+    {
+      "slide": 121,
+      "has_images": false,
+      "preview": "VESICOURETERAL REFLUX (VUR)"
+    }
+  ],
+  "ANCA": [
+    {
+      "slide": 2,
+      "has_images": true,
+      "preview": "Primary renal injury"
+    },
+    {
+      "slide": 58,
+      "has_images": true,
+      "preview": "ANTINEUTROPHIL CYTOPLASMIC ANTIBODIES (ANCA):"
+    }
+  ],
+  "GBM": [
+    {
+      "slide": 57,
+      "has_images": true,
+      "preview": "Diffuse linear IgG in the periphery of glomerular capillaries"
+    }
+  ],
+  "DIABETIC": [
+    {
+      "slide": 124,
+      "has_images": false,
+      "preview": "“SECONDARY” GLOMERULOPATHIES"
+    },
+    {
+      "slide": 133,
+      "has_images": true,
+      "preview": "DIABETIC NEPHROPATHY"
+    },
+    {
+      "slide": 137,
+      "has_images": false,
+      "preview": "DIABETIC NEPHROPATHY"
+    }
+  ],
+  "AMYLOID": [],
+  "ALPORT": [
+    {
+      "slide": 101,
+      "has_images": false,
+      "preview": "RENAL OXALOSIS"
+    },
+    {
+      "slide": 138,
+      "has_images": false,
+      "preview": "HEREDITARY GLOMERULOPATHIES"
+    },
+    {
+      "slide": 139,
+      "has_images": false,
+      "preview": "Thin glomerular basement membrane (benign familial hematuria)"
+    },
+    {
+      "slide": 143,
+      "has_images": false,
+      "preview": "ALPORT SYNDROME\u000b(hereditary nephritis)"
+    }
+  ],
+  "LUPUS": [
+    {
+      "slide": 67,
+      "has_images": false,
+      "preview": "Immune complex-mediated MPGN"
+    },
+    {
+      "slide": 130,
+      "has_images": false,
+      "preview": "LUPUS NEPHRITIS, \u000bFREQUENT NON-SPECIFIC FEATURES"
+    },
+    {
+      "slide": 131,
+      "has_images": true,
+      "preview": "“Wire loops”"
+    }
+  ],
+  "ATN": [
+    {
+      "slide": 89,
+      "has_images": false,
+      "preview": "ACUTE RENAL FAILURE"
+    },
+    {
+      "slide": 90,
+      "has_images": false,
+      "preview": "ACUTE TUBULAR NECROSIS"
+    }
+  ],
+  "GENERAL": [
+    {
+      "slide": 3,
+      "has_images": true,
+      "preview": "Glomerulus"
+    },
+    {
+      "slide": 132,
+      "has_images": true,
+      "preview": "Tubuloreticular structures in\u000bthe endothelial cells"
+    }
+  ],
+  "IF": [
+    {
+      "slide": 46,
+      "has_images": true,
+      "preview": "IgG, x100"
+    },
+    {
+      "slide": 62,
+      "has_images": false,
+      "preview": "Persisting damage to the glomerular endothelium due to:"
+    },
+    {
+      "slide": 68,
+      "has_images": false,
+      "preview": "Persisting damage to the glomerular endothelium due to:"
+    },
+    {
+      "slide": 69,
+      "has_images": true,
+      "preview": "Figure 2 Activation of C3 convertase is involved in both complement-mediated and"
+    },
+    {
+      "slide": 70,
+      "has_images": true,
+      "preview": "Figure 1 The reclassification of MPGN has led to the emergence of a new spectrum"
+    },
+    {
+      "slide": 73,
+      "has_images": false,
+      "preview": "Persisting damage to the glomerular endothelium due to:"
+    },
+    {
+      "slide": 75,
+      "has_images": true,
+      "preview": "Imunotactoid GN, monoclonal IgG"
+    }
+  ],
+  "EM": [
+    {
+      "slide": 37,
+      "has_images": true,
+      "preview": "Stage III"
+    },
+    {
+      "slide": 76,
+      "has_images": true,
+      "preview": "Thrombotic microangiopathy, chronic\nPatient with anti-phospholipid Ab syndrome\nP"
+    },
+    {
+      "slide": 85,
+      "has_images": true,
+      "preview": "Immune complex deposition in the mesangium"
+    }
+  ],
+  "STAINS": [
+    {
+      "slide": 8,
+      "has_images": true,
+      "preview": "PASM Silver"
+    },
+    {
+      "slide": 93,
+      "has_images": false,
+      "preview": "MYELOMA KIDNEY"
+    },
+    {
+      "slide": 97,
+      "has_images": true,
+      "preview": "PAS negative\nFragmented\nWith cellular component"
+    }
+  ],
+  "OTHER": [
+    {
+      "slide": 1,
+      "has_images": true,
+      "preview": "Arvydas Laurinavicius"
+    },
+    {
+      "slide": 4,
+      "has_images": true,
+      "preview": "Capillary wall"
+    },
+    {
+      "slide": 6,
+      "has_images": true,
+      "preview": "Size and charge selectivity"
+    },
+    {
+      "slide": 18,
+      "has_images": true,
+      "preview": "011614"
+    },
+    {
+      "slide": 20,
+      "has_images": true,
+      "preview": "adhesion"
+    },
+    {
+      "slide": 21,
+      "has_images": true,
+      "preview": "Adhesion to the Bowman’s  capsule"
+    },
+    {
+      "slide": 22,
+      "has_images": true,
+      "preview": "Bowman’s capsule"
+    },
+    {
+      "slide": 28,
+      "has_images": true,
+      "preview": "Glomerular hypertrophy"
+    },
+    {
+      "slide": 31,
+      "has_images": true,
+      "preview": "Bowman’s capsule"
+    },
+    {
+      "slide": 32,
+      "has_images": true,
+      "preview": "98511156-3"
+    },
+    {
+      "slide": 39,
+      "has_images": false,
+      "preview": "HEMATURIA"
+    },
+    {
+      "slide": 40,
+      "has_images": true,
+      "preview": "Glomerular hematuria: GBM defects"
+    },
+    {
+      "slide": 41,
+      "has_images": true,
+      "preview": "Renal hematuria: RBCs in the tubules"
+    },
+    {
+      "slide": 42,
+      "has_images": true,
+      "preview": "DIFFUSE ENDOCAPILLARY PROLIFERATIVE\u000bGLOMERULONEPHRITIS"
+    },
+    {
+      "slide": 43,
+      "has_images": true,
+      "preview": "Bowman’s capsule"
+    },
+    {
+      "slide": 44,
+      "has_images": true,
+      "preview": "Endocapillary GN"
+    },
+    {
+      "slide": 45,
+      "has_images": true,
+      "preview": "Endocapillary GN"
+    },
+    {
+      "slide": 49,
+      "has_images": true,
+      "preview": "DIFFUSE EXTRACAPILLARY PROLIFERATIVE\u000b(crescentic and/or necrotising)\u000bGLOMERULONE"
+    },
+    {
+      "slide": 50,
+      "has_images": true,
+      "preview": "Bowman’s capsule"
+    },
+    {
+      "slide": 51,
+      "has_images": true,
+      "preview": "CRESCENTIC"
+    },
+    {
+      "slide": 53,
+      "has_images": true,
+      "preview": "CRESCENTIC"
+    },
+    {
+      "slide": 54,
+      "has_images": true,
+      "preview": "CRESCENTIC"
+    },
+    {
+      "slide": 61,
+      "has_images": true,
+      "preview": "Bowman’s capsule"
+    },
+    {
+      "slide": 63,
+      "has_images": true,
+      "preview": "Duplication of the glomerular capillary walls"
+    },
+    {
+      "slide": 64,
+      "has_images": true,
+      "preview": "98511156-3"
+    },
+    {
+      "slide": 65,
+      "has_images": true,
+      "preview": "De novo GBM synthesis"
+    },
+    {
+      "slide": 66,
+      "has_images": true,
+      "preview": "Abundant subendothelial and mesangial immune complexes / cryoglobulins"
+    },
+    {
+      "slide": 74,
+      "has_images": true,
+      "preview": "Light chain nephropathy"
+    },
+    {
+      "slide": 77,
+      "has_images": true,
+      "preview": "MESANGIOPROLIFERATIVE\u000bGLOMERULAR INJURY"
+    },
+    {
+      "slide": 79,
+      "has_images": true,
+      "preview": "Bowman’s capsule"
+    },
+    {
+      "slide": 81,
+      "has_images": true,
+      "preview": "Immunoglobulin A Nephropathy"
+    },
+    {
+      "slide": 87,
+      "has_images": true,
+      "preview": "Arvydas Laurinavicius"
+    },
+    {
+      "slide": 92,
+      "has_images": true,
+      "preview": "Flattening of TECs\nLoss of brush border\nMitotic figures"
+    },
+    {
+      "slide": 98,
+      "has_images": true,
+      "preview": "Ig kappa"
+    },
+    {
+      "slide": 108,
+      "has_images": false,
+      "preview": "INTERSTITIAL NEPHRITIS"
+    },
+    {
+      "slide": 110,
+      "has_images": true,
+      "preview": "TEC damage\nTubulitis\nInterstitial exudate, MMN leukocytes"
+    },
+    {
+      "slide": 111,
+      "has_images": true,
+      "preview": "TEC damage\nTubulitis\nInterstitial exudate, MMN leukocytes"
+    },
+    {
+      "slide": 112,
+      "has_images": true,
+      "preview": "TEC damage\nTubulitis\nInterstitial exudate, MMN leukocytes"
+    },
+    {
+      "slide": 113,
+      "has_images": true,
+      "preview": "TEC damage\nTubulitis\nInterstitial exudate, MMN leukocytes"
+    },
+    {
+      "slide": 114,
+      "has_images": true,
+      "preview": "CD8+"
+    },
+    {
+      "slide": 115,
+      "has_images": true,
+      "preview": "Lymphocyte"
+    },
+    {
+      "slide": 116,
+      "has_images": false,
+      "preview": "ANALGESIC NEPHROPATHY"
+    },
+    {
+      "slide": 117,
+      "has_images": false,
+      "preview": "PYELONEPHRITIS"
+    },
+    {
+      "slide": 118,
+      "has_images": false,
+      "preview": "Hematogenous"
+    },
+    {
+      "slide": 119,
+      "has_images": true,
+      "preview": "PMN leukocytes in the tubules"
+    },
+    {
+      "slide": 120,
+      "has_images": true,
+      "preview": "Thyroidisation"
+    },
+    {
+      "slide": 122,
+      "has_images": false,
+      "preview": "VUR"
+    },
+    {
+      "slide": 126,
+      "has_images": true,
+      "preview": "II Mesangial"
+    },
+    {
+      "slide": 127,
+      "has_images": true,
+      "preview": "III Focal endocapillary proliferative"
+    },
+    {
+      "slide": 128,
+      "has_images": true,
+      "preview": "IV  Diffuse endocapillary proliferative"
+    },
+    {
+      "slide": 135,
+      "has_images": true,
+      "preview": "GBM thickening\nMatrix accumulation"
+    },
+    {
+      "slide": 136,
+      "has_images": true,
+      "preview": "Arteriolar hyalinosis"
+    },
+    {
+      "slide": 141,
+      "has_images": true,
+      "preview": "Thin GBM"
+    },
+    {
+      "slide": 142,
+      "has_images": true,
+      "preview": "Thin GBM"
+    },
+    {
+      "slide": 144,
+      "has_images": true,
+      "preview": "Thick GBM with splintering"
+    },
+    {
+      "slide": 145,
+      "has_images": true,
+      "preview": "Thick multilayer GBM"
+    },
+    {
+      "slide": 146,
+      "has_images": true,
+      "preview": "Mesangioproliferative changes"
+    },
+    {
+      "slide": 150,
+      "has_images": true,
+      "preview": "Putoti podocitai"
+    }
+  ]
+}

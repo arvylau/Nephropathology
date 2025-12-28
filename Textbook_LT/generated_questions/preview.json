@@ -1,0 +1,72 @@
+[
+  {
+    "id": 69,
+    "topic": "MCD_slide5",
+    "difficulty": "medium",
+    "assertion_en": "Glomerular capillaries, covered by podocytes",
+    "has_image": true
+  },
+  {
+    "id": 70,
+    "topic": "MCD_slide13",
+    "difficulty": "medium",
+    "assertion_en": "Diffuse effacement of foot processes",
+    "has_image": true
+  },
+  {
+    "id": 71,
+    "topic": "MCD_slide14",
+    "difficulty": "medium",
+    "assertion_en": "Diffuse effacement of foot processes",
+    "has_image": true
+  },
+  {
+    "id": 72,
+    "topic": "MCD_slide26",
+    "difficulty": "medium",
+    "assertion_en": "Diffuse effacement of foot processes",
+    "has_image": true
+  },
+  {
+    "id": 73,
+    "topic": "MCD_slide30",
+    "difficulty": "medium",
+    "assertion_en": "Nephrotic\n\tsudden onset\n\tinsidious\nNephritic\n\tacute\n\tsubacute (RPGN)\n\tchronic\nProteinuria subnephrot...",
+    "has_image": false
+  },
+  {
+    "id": 74,
+    "topic": "MCD_slide38",
+    "difficulty": "medium",
+    "assertion_en": "Nephrotic\n\tsudden onset\n\tinsidious\nNephritic\n\tacute\n\tsubacute (RPGN)\n\tchronic\nProteinuria subnephrot...",
+    "has_image": false
+  },
+  {
+    "id": 75,
+    "topic": "MGN_slide47",
+    "difficulty": "medium",
+    "assertion_en": "Subepithelial “humps”: diagnostic,  may persist, proteinuria",
+    "has_image": true
+  },
+  {
+    "id": 76,
+    "topic": "FSGS_slide16",
+    "difficulty": "medium",
+    "assertion_en": "FOCAL AND SEGMENTAL\u000bGLOMERULOSCLEROSIS\u000bFSGS",
+    "has_image": true
+  },
+  {
+    "id": 77,
+    "topic": "FSGS_slide19",
+    "difficulty": "medium",
+    "assertion_en": "The histologic definition of focal segmental glomerulosclerosis is a segmental obliteration of glome...",
+    "has_image": true
+  },
+  {
+    "id": 78,
+    "topic": "FSGS_slide24",
+    "difficulty": "medium",
+    "assertion_en": "D'Agati, Kaskel, Falk: NEJM 2011.",
+    "has_image": true
+  }
+]

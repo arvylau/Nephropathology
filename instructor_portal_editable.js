@@ -8,7 +8,7 @@ let editingQuestion = null;
 // Load bilingual questions
 async function loadQuestions() {
     try {
-        const response = await fetch('nephro_questions_bilingual.json');
+        const response = await fetch('nephro_questions_enhanced.json');
         const data = await response.json();
 
         // Store translations
@@ -35,7 +35,7 @@ async function loadQuestions() {
         updateStats();
     } catch (error) {
         console.error('Error loading questions:', error);
-        alert('Error loading questions. Make sure nephro_questions_bilingual.json is available.');
+        alert('Error loading questions. Make sure nephro_questions_enhanced.json is available.');
     }
 }
 
@@ -150,6 +150,21 @@ function renderQuestions(questions) {
         const diseaseNameEN = diseaseTranslations[q.disease_id]?.en || q.disease_id;
         const diseaseNameLT = diseaseTranslations[q.disease_id]?.lt || q.disease_id;
 
+        // Build image HTML if image exists
+        let imageHtml = '';
+        if (q.image) {
+            const imagePath = `Textbook_LT/${q.image}`;
+            imageHtml = `
+                <div class="question-image">
+                    <img src="${imagePath}"
+                         alt="Medical image"
+                         onclick="openLightbox('${imagePath}', '#${q.id}: ${q.en.assertion}')"
+                         onerror="this.parentElement.style.display='none'">
+                    <div class="zoom-hint">🔍 Click to enlarge</div>
+                </div>
+            `;
+        }
+
         return `<div class="question-card ${settings.active ? '' : 'inactive'}" id="q-${q.id}" data-editing="false">
             <div class="question-header">
                 <div class="question-meta">
@@ -163,6 +178,7 @@ function renderQuestions(questions) {
                     ${settings.priority !== 'none' ? `<span class="badge badge-priority-${settings.priority}">
                         ★ ${settings.priority === 'high' ? t('high') : t('low')} ${t('priority')}
                     </span>` : ''}
+                    ${q.image ? '<span class="badge" style="background:#e3f2fd;color:#1976d2;">📷 Image</span>' : ''}
                 </div>
                 <div class="question-actions">
                     <button class="btn btn-info btn-edit" onclick="toggleEdit(${q.id})">
@@ -173,6 +189,7 @@ function renderQuestions(questions) {
                     </button>
                 </div>
             </div>
+            ${imageHtml}
             <div class="question-content">
                 <div class="bilingual-content">
                     <div class="lang-column">
@@ -577,6 +594,36 @@ function updateStats() {
 function saveSettings() {
     localStorage.setItem('questionSettings', JSON.stringify(questionSettings));
 }
+
+// Lightbox functions for image zoom
+function openLightbox(imageSrc, caption) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+
+    lightboxImage.src = imageSrc;
+    lightboxImage.alt = caption;
+    lightboxCaption.textContent = caption;
+    lightbox.classList.add('active');
+
+    // Prevent body scroll when lightbox is open
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.classList.remove('active');
+
+    // Restore body scroll
+    document.body.style.overflow = '';
+}
+
+// Close lightbox with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeLightbox();
+    }
+});
 
 // Load on page load
 window.addEventListener('DOMContentLoaded', loadQuestions);

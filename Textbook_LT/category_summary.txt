@@ -1,0 +1,129 @@
+SLIDE CATEGORIZATION SUMMARY
+======================================================================
+
+ALPORT:
+  Total slides: 4
+  With images: 0
+  Examples:
+    - Slide 101: RENAL OXALOSIS
+    - Slide 138: HEREDITARY GLOMERULOPATHIES
+    - Slide 139: Thin glomerular basement membrane (benign familial hematuria)
+
+ANCA:
+  Total slides: 2
+  With images: 2
+  Examples:
+    - Slide 2: Primary renal injury
+    - Slide 58: ANTINEUTROPHIL CYTOPLASMIC ANTIBODIES (ANCA):
+
+ATN:
+  Total slides: 2
+  With images: 0
+  Examples:
+    - Slide 89: ACUTE RENAL FAILURE
+    - Slide 90: ACUTE TUBULAR NECROSIS
+
+DIABETIC:
+  Total slides: 3
+  With images: 1
+  Examples:
+    - Slide 124: “SECONDARY” GLOMERULOPATHIES
+    - Slide 133: DIABETIC NEPHROPATHY
+    - Slide 137: DIABETIC NEPHROPATHY
+
+EM:
+  Total slides: 3
+  With images: 3
+  Examples:
+    - Slide 37: Stage III
+    - Slide 76: Thrombotic microangiopathy, chronic
+Patient with anti-phospholipid Ab syndrome
+P
+    - Slide 85: Immune complex deposition in the mesangium
+
+FSGS:
+  Total slides: 7
+  With images: 7
+  Examples:
+    - Slide 16: FOCAL AND SEGMENTALGLOMERULOSCLEROSISFSGS
+    - Slide 17: Focal segmental glomerulosclerosis
+    - Slide 19: The histologic definition of focal segmental glomerulosclerosis is a segmental o
+
+GBM:
+  Total slides: 1
+  With images: 1
+  Examples:
+    - Slide 57: Diffuse linear IgG in the periphery of glomerular capillaries
+
+GENERAL:
+  Total slides: 2
+  With images: 2
+  Examples:
+    - Slide 3: Glomerulus
+    - Slide 132: Tubuloreticular structures inthe endothelial cells
+
+IF:
+  Total slides: 7
+  With images: 4
+  Examples:
+    - Slide 46: IgG, x100
+    - Slide 62: Persisting damage to the glomerular endothelium due to:
+    - Slide 68: Persisting damage to the glomerular endothelium due to:
+
+IgAN:
+  Total slides: 5
+  With images: 4
+  Examples:
+    - Slide 9: Diffuse finely granular IgG in the periphery of glomerular capillaries
+    - Slide 11: Laurinavicius Erasmus Riga 2013
+    - Slide 82: IgA NEPHROPATHY (Berger disease)
+
+LUPUS:
+  Total slides: 3
+  With images: 1
+  Examples:
+    - Slide 67: Immune complex-mediated MPGN
+    - Slide 130: LUPUS NEPHRITIS, FREQUENT NON-SPECIFIC FEATURES
+    - Slide 131: “Wire loops”
+
+MCD:
+  Total slides: 17
+  With images: 7
+  Examples:
+    - Slide 5: Glomerular capillaries, covered by podocytes
+    - Slide 12: Bowman’s capsule
+    - Slide 13: Diffuse effacement of foot processes
+
+MGN:
+  Total slides: 8
+  With images: 7
+  Examples:
+    - Slide 10: Difuse finely granular IgG in the periphery of glomerular capillaries
+    - Slide 29: MEMBRANOUS NEPHROPATHY
+    - Slide 34: Stage I
+
+MPGN:
+  Total slides: 2
+  With images: 1
+  Examples:
+    - Slide 59: MEMBRANOPROLIFERATIVEPATTERN OF GLOMERULAR INJURY
+    - Slide 121: VESICOURETERAL REFLUX (VUR)
+
+OTHER:
+  Total slides: 58
+  With images: 52
+  Examples:
+    - Slide 1: Arvydas Laurinavicius
+    - Slide 4: Capillary wall
+    - Slide 6: Size and charge selectivity
+
+STAINS:
+  Total slides: 3
+  With images: 2
+  Examples:
+    - Slide 8: PASM Silver
+    - Slide 93: MYELOMA KIDNEY
+    - Slide 97: PAS negative
+Fragmented
+With cellular component
+

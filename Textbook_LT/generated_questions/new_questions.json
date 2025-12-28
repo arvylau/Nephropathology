@@ -1,0 +1,405 @@
+{
+  "metadata": {
+    "title": "Generated Nephropathology Questions",
+    "generated_date": "2025-12-28T22:01:38.801516",
+    "source": "SlidesForSelfStudy_Nephropathology 2024",
+    "total_questions": 20,
+    "method": "Automated extraction from PowerPoint slides"
+  },
+  "questions": [
+    {
+      "id": 69,
+      "disease_id": "MCD",
+      "topic": "MCD_slide5",
+      "difficulty": "medium",
+      "source_slide": 5,
+      "en": {
+        "assertion": "Glomerular capillaries, covered by podocytes",
+        "reason": "This finding is characteristic of the disease pathophysiology",
+        "answer": "A",
+        "explanation": "Glomerular capillaries, covered by podocytes"
+      },
+      "lt": {
+        "assertion": "Peritubular capillary",
+        "reason": "Interstitium",
+        "answer": "A",
+        "explanation": "Peritubular capillary Interstitium Arteriole"
+      },
+      "image": "extracted_images/MCD/MCD_slide5_img1.jpg"
+    },
+    {
+      "id": 70,
+      "disease_id": "MCD",
+      "topic": "MCD_slide13",
+      "difficulty": "medium",
+      "source_slide": 13,
+      "en": {
+        "assertion": "Diffuse effacement of foot processes",
+        "reason": "This finding is characteristic of the disease pathophysiology",
+        "answer": "A",
+        "explanation": "Diffuse effacement of foot processes"
+      },
+      "lt": {
+        "assertion": "Aktyvūs versus lėtiniai (negrįžtami) pokyčiai",
+        "reason": "̴40% kanalėlių atrofija ir stromos sklerozė\n(negrįžtama)",
+        "answer": "A",
+        "explanation": "Aktyvūs versus lėtiniai (negrįžtami) pokyčiai ̴40% kanalėlių atrofija ir stromos sklerozė\n(negrįžtama)"
+      },
+      "image": "extracted_images/MCD/MCD_slide13_img1.jpg"
+    },
+    {
+      "id": 71,
+      "disease_id": "MCD",
+      "topic": "MCD_slide14",
+      "difficulty": "medium",
+      "source_slide": 14,
+      "en": {
+        "assertion": "Diffuse effacement of foot processes",
+        "reason": "This finding is characteristic of the disease pathophysiology",
+        "answer": "A",
+        "explanation": "Diffuse effacement of foot processes"
+      },
+      "lt": {
+        "assertion": "FITC-labeled rabbit polyclonal antibodies against human:",
+        "reason": "IgG ( heavy chain)\nIgA ( heavy chain)\nIgM ( heavy chain)\nC3c complement component\nC1q complement component\nKappa () light chains\nLambda () light chains\n\nFibrinogen\nPhospholipase A2 receptor",
+        "answer": "A",
+        "explanation": "FITC-labeled rabbit polyclonal antibodies against human: IgG ( heavy chain)\nIgA ( heavy chain)\nIgM ( heavy chain)\nC3c complement component\nC1q complement component\nKappa () light chains\nLambda () light chains\n\nFibrinogen\nPhospholipase A2 receptor FITC"
+      },
+      "image": "extracted_images/MCD/MCD_slide14_img1.jpg"
+    },
+    {
+      "id": 72,
+      "disease_id": "MCD",
+      "topic": "MCD_slide26",
+      "difficulty": "medium",
+      "source_slide": 26,
+      "en": {
+        "assertion": "Diffuse effacement of foot processes",
+        "reason": "This finding is characteristic of the disease pathophysiology",
+        "answer": "A",
+        "explanation": "Diffuse effacement of foot processes"
+      },
+      "lt": {
+        "assertion": "The histologic definition of focal segmental glomerulosclerosis is a segmental obliteration of glomerular capillaries by extracellular matrix",
+        "reason": "Capillary lumen",
+        "answer": "A",
+        "explanation": "The histologic definition of focal segmental glomerulosclerosis is a segmental obliteration of glomerular capillaries by extracellular matrix Capillary lumen"
+      },
+      "image": "extracted_images/MCD/MCD_slide26_img1.jpg"
+    },
+    {
+      "id": 73,
+      "disease_id": "MCD",
+      "topic": "MCD_slide30",
+      "difficulty": "medium",
+      "source_slide": 30,
+      "en": {
+        "assertion": "Nephrotic\n\tsudden onset\n\tinsidious\nNephritic\n\tacute\n\tsubacute (RPGN)\n\tchronic\nProteinuria subnephrotic\nHematuria\n\tpersistent micro\n\trecurrent macro\nRenal insufficiency\n\tacute\n\tchronic\nArterial hypertension\nOther systems involved",
+        "reason": "Minimal change NS\nFSGS\n\tprimary\n\tsecondary\nMembranous nephropathy\nEndocapillary GN\nCrescentic GN\n\tanti-GBM\n\tpauci-immune\n\timmune-complex\nMembranoproliferative\n\timmune-complex\n\tcryoglobulin\n\tDDD/C3 GN\n\tparaprotein\n\tTMA\nMesangioproliferative\n\tIgA nephropathy\nGBM abnormalities\n\tAlport\n\tTBMD\nPathologic accumulations\n\tAmyloid\n\tDiabetic glomerulosclerosis\n\tFabry\n\tMyeloma kidney\n\tOxalosis\nTubular, Interstitial, Vascular injury",
+        "answer": "A",
+        "explanation": "Nephrotic\n\tsudden onset\n\tinsidious\nNephritic\n\tacute\n\tsubacute (RPGN)\n\tchronic\nProteinuria subnephrotic\nHematuria\n\tpersistent micro\n\trecurrent macro\nRenal insufficiency\n\tacute\n\tchronic\nArterial hypertension\nOther systems involved Minimal change NS\nFSGS\n\tprimary\n\tsecondary\nMembranous nephropathy\nEndocapillary GN\nCrescentic GN\n\tanti-GBM\n\tpauci-immune\n\timmune-complex\nMembranoproliferative\n\timmune-complex\n\tcryoglobulin\n\tDDD/C3 GN\n\tparaprotein\n\tTMA\nMesangioproliferative\n\tIgA nephropathy\nGBM abnormalities\n\tAlport\n\tTBMD\nPathologic accumulations\n\tAmyloid\n\tDiabetic glomerulosclerosis\n\tFabry\n\tMyeloma kidney\n\tOxalosis\nTubular, Interstitial, Vascular injury Idiopathic\nDrugs\n\tNSAID\n\tAntibiotics\n\tother\nMalignancy\n\tCarcinoma\n\tLymphoproliferative\n\tother\nAutoimmune\n\tANCA\n\tAnti-GBM\n\tSLE\n\tAnti-phospholipid\n\tRA\n\tSS\n\tother\nBacterial infections\n\tAcute Streptococcal\n\tPersistent other\nViral infections\n\tHBV\n\tHCV\n\tHIV\n\tother\nHereditary\nOther kidney disease\nOther disease"
+      },
+      "lt": {
+        "assertion": "14/0",
+        "reason": "011614",
+        "answer": "A",
+        "explanation": "14/0 011614 Treatment of FSGS"
+      }
+    },
+    {
+      "id": 74,
+      "disease_id": "MCD",
+      "topic": "MCD_slide38",
+      "difficulty": "medium",
+      "source_slide": 38,
+      "en": {
+        "assertion": "Nephrotic\n\tsudden onset\n\tinsidious\nNephritic\n\tacute\n\tsubacute (RPGN)\n\tchronic\nProteinuria subnephrotic\nHematuria\n\tpersistent micro\n\trecurrent macro\nRenal insufficiency\n\tacute\n\tchronic\nArterial hypertension\nOther systems involved",
+        "reason": "Minimal change NS\nFSGS\n\tprimary\n\tsecondary\nMembranous nephropathy\nEndocapillary GN\nCrescentic GN\n\tanti-GBM\n\tpauci-immune\n\timmune-complex\nMembranoproliferative\n\timmune-complex\n\tcryoglobulin\n\tDDD/C3 GN\n\tparaprotein\n\tTMA\nMesangioproliferative\n\tIgA nephropathy\nGBM abnormalities\n\tAlport\n\tTBMD\nPathologic accumulations\n\tAmyloid\n\tDiabetic glomerulosclerosis\n\tFabry\n\tMyeloma kidney\n\tOxalosis\nTubular, Interstitial, Vascular injury",
+        "answer": "A",
+        "explanation": "Nephrotic\n\tsudden onset\n\tinsidious\nNephritic\n\tacute\n\tsubacute (RPGN)\n\tchronic\nProteinuria subnephrotic\nHematuria\n\tpersistent micro\n\trecurrent macro\nRenal insufficiency\n\tacute\n\tchronic\nArterial hypertension\nOther systems involved Minimal change NS\nFSGS\n\tprimary\n\tsecondary\nMembranous nephropathy\nEndocapillary GN\nCrescentic GN\n\tanti-GBM\n\tpauci-immune\n\timmune-complex\nMembranoproliferative\n\timmune-complex\n\tcryoglobulin\n\tDDD/C3 GN\n\tparaprotein\n\tTMA\nMesangioproliferative\n\tIgA nephropathy\nGBM abnormalities\n\tAlport\n\tTBMD\nPathologic accumulations\n\tAmyloid\n\tDiabetic glomerulosclerosis\n\tFabry\n\tMyeloma kidney\n\tOxalosis\nTubular, Interstitial, Vascular injury Idiopathic\nDrugs\n\tNSAID\n\tAntibiotics\n\tother\nMalignancy\n\tCarcinoma\n\tLymphoproliferative\n\tother\nAutoimmune\n\tAnti-GBM\n\tANCA \n\tSLE\n\tAnti-phospholipid\n\tRA\n\tSS\n\tother\nBacterial infections\n\tAcute Streptococcal\n\tPersistent other\nViral infections\n\tHBV\n\tHCV\n\tHIV\n\tother\nHereditary\nOther kidney disease\nOther disease"
+      },
+      "lt": {
+        "assertion": "Bowman’s capsule",
+        "reason": "Bowman’s space",
+        "answer": "A",
+        "explanation": "Bowman’s capsule Bowman’s space Capillary wall"
+      }
+    },
+    {
+      "id": 75,
+      "disease_id": "MGN",
+      "topic": "MGN_slide47",
+      "difficulty": "medium",
+      "source_slide": 47,
+      "en": {
+        "assertion": "Subepithelial “humps”: diagnostic,  may persist, proteinuria",
+        "reason": "This finding is characteristic of the disease pathophysiology",
+        "answer": "A",
+        "explanation": "Subepithelial “humps”: diagnostic,  may persist, proteinuria"
+      },
+      "lt": {
+        "assertion": "NEFRITINIS SINDROMAS",
+        "reason": "Šis radinys būdingas ligos patofizologijai",
+        "answer": "A",
+        "explanation": "NEFRITINIS SINDROMAS"
+      },
+      "image": "extracted_images/MGN/MGN_slide47_img1.jpg"
+    },
+    {
+      "id": 76,
+      "disease_id": "FSGS_PRIMARY",
+      "topic": "FSGS_slide16",
+      "difficulty": "medium",
+      "source_slide": 16,
+      "en": {
+        "assertion": "FOCAL AND SEGMENTAL\u000bGLOMERULOSCLEROSIS\u000bFSGS",
+        "reason": "This finding is characteristic of the disease pathophysiology",
+        "answer": "A",
+        "explanation": "FOCAL AND SEGMENTAL\u000bGLOMERULOSCLEROSIS\u000bFSGS"
+      },
+      "lt": {
+        "assertion": "GLOMERULŲ PAŽEIDIMO TIPAI",
+        "reason": "Šis radinys būdingas ligos patofizologijai",
+        "answer": "A",
+        "explanation": "GLOMERULŲ PAŽEIDIMO TIPAI"
+      },
+      "image": "extracted_images/FSGS/FSGS_slide16_img2.png"
+    },
+    {
+      "id": 77,
+      "disease_id": "FSGS_PRIMARY",
+      "topic": "FSGS_slide19",
+      "difficulty": "medium",
+      "source_slide": 19,
+      "en": {
+        "assertion": "The histologic definition of focal segmental glomerulosclerosis is a segmental obliteration of glomerular capillaries by extracellular matrix",
+        "reason": "Segmental glomerulosclerosis",
+        "answer": "A",
+        "explanation": "The histologic definition of focal segmental glomerulosclerosis is a segmental obliteration of glomerular capillaries by extracellular matrix Segmental glomerulosclerosis"
+      },
+      "lt": {
+        "assertion": "Bowman’s capsule",
+        "reason": "Bowman’s space",
+        "answer": "A",
+        "explanation": "Bowman’s capsule Bowman’s space Capillary wall"
+      },
+      "image": "extracted_images/FSGS/FSGS_slide19_img1.png"
+    },
+    {
+      "id": 78,
+      "disease_id": "FSGS_PRIMARY",
+      "topic": "FSGS_slide24",
+      "difficulty": "medium",
+      "source_slide": 24,
+      "en": {
+        "assertion": "D'Agati, Kaskel, Falk: NEJM 2011.",
+        "reason": "Causes of FSGS",
+        "answer": "A",
+        "explanation": "D'Agati, Kaskel, Falk: NEJM 2011. Causes of FSGS"
+      },
+      "lt": {
+        "assertion": "FOCAL AND SEGMENTAL\u000bGLOMERULOSCLEROSIS\u000b\u000bFSGS\u000bŽSGS\u000b\u000bŽIDININĖ SEGMENTINĖ\u000bGLOMERULOSKLEROZĖ",
+        "reason": "Šis radinys būdingas ligos patofizologijai",
+        "answer": "A",
+        "explanation": "FOCAL AND SEGMENTAL\u000bGLOMERULOSCLEROSIS\u000b\u000bFSGS\u000bŽSGS\u000b\u000bŽIDININĖ SEGMENTINĖ\u000bGLOMERULOSKLEROZĖ"
+      },
+      "image": "extracted_images/FSGS/FSGS_slide24_img1.png"
+    },
+    {
+      "id": 79,
+      "disease_id": "IgAN",
+      "topic": "IgAN_slide9",
+      "difficulty": "medium",
+      "source_slide": 9,
+      "en": {
+        "assertion": "Diffuse finely granular IgG in the periphery of glomerular capillaries",
+        "reason": "Diffuse coarsely granular IgG in the periphery of glomerular capillaries",
+        "answer": "A",
+        "explanation": "Diffuse finely granular IgG in the periphery of glomerular capillaries Diffuse coarsely granular IgG in the periphery of glomerular capillaries Diffuse linear IgG in the periphery of glomerular capillaries"
+      },
+      "lt": {
+        "assertion": "Capillary wall",
+        "reason": "Capillary lumen",
+        "answer": "A",
+        "explanation": "Capillary wall Capillary lumen Mesangium"
+      },
+      "image": "extracted_images/IgAN/IgAN_slide9_img1.jpg"
+    },
+    {
+      "id": 80,
+      "disease_id": "IgAN",
+      "topic": "IgAN_slide84",
+      "difficulty": "medium",
+      "source_slide": 84,
+      "en": {
+        "assertion": "Predominant IgA deposition in the mesangium",
+        "reason": "This finding is characteristic of the disease pathophysiology",
+        "answer": "A",
+        "explanation": "Predominant IgA deposition in the mesangium"
+      },
+      "lt": {
+        "assertion": "Imunotactoid GN, monoclonal IgG",
+        "reason": "- + + - -",
+        "answer": "A",
+        "explanation": "Imunotactoid GN, monoclonal IgG - + + - -"
+      },
+      "image": "extracted_images/IgAN/IgAN_slide84_img1.png"
+    },
+    {
+      "id": 81,
+      "disease_id": "IC_RPGN",
+      "topic": "LUPUS_slide130",
+      "difficulty": "medium",
+      "source_slide": 130,
+      "en": {
+        "assertion": "LUPUS NEPHRITIS, \u000bFREQUENT NON-SPECIFIC FEATURES",
+        "reason": "“Wire loops” – large immune complexes\n“Hyalin thrombi” – circulating ICs\nTubuloreticular structures – high alpha-interferon",
+        "answer": "A",
+        "explanation": "LUPUS NEPHRITIS, \u000bFREQUENT NON-SPECIFIC FEATURES “Wire loops” – large immune complexes\n“Hyalin thrombi” – circulating ICs\nTubuloreticular structures – high alpha-interferon"
+      },
+      "lt": {
+        "assertion": "„Tireoidizacija“",
+        "reason": "Šis radinys būdingas ligos patofizologijai",
+        "answer": "A",
+        "explanation": "„Tireoidizacija“"
+      }
+    },
+    {
+      "id": 82,
+      "disease_id": "ALPORT",
+      "topic": "ALPORT_slide139",
+      "difficulty": "medium",
+      "source_slide": 139,
+      "en": {
+        "assertion": "Thin glomerular basement membrane (benign familial hematuria)",
+        "reason": "Autosomal dominant\n! Incidence in healthy population 5-9-10%\nDiagnosis by EM: thin (<264 nm) GBM\nClinical manifestations:\nPersistent microhematuria\nNo progression = good prognosis\nFamilial hematuria\nDifferential diagnosis: \nEarly changes in Alport sindrome\nCarrier state of Alport gene (in women)",
+        "answer": "A",
+        "explanation": "Thin glomerular basement membrane (benign familial hematuria) Autosomal dominant\n! Incidence in healthy population 5-9-10%\nDiagnosis by EM: thin (<264 nm) GBM\nClinical manifestations:\nPersistent microhematuria\nNo progression = good prognosis\nFamilial hematuria\nDifferential diagnosis: \nEarly changes in Alport sindrome\nCarrier state of Alport gene (in women)"
+      },
+      "lt": {
+        "assertion": "Stora supleišėjusi GBM",
+        "reason": "Šis radinys būdingas ligos patofizologijai",
+        "answer": "A",
+        "explanation": "Stora supleišėjusi GBM"
+      }
+    },
+    {
+      "id": 83,
+      "disease_id": "MGN",
+      "topic": "IF_slide62",
+      "difficulty": "medium",
+      "source_slide": 62,
+      "en": {
+        "assertion": "Persisting damage to the glomerular endothelium due to:",
+        "reason": "Immune complex deposition\nImmune complex-mediated (incl. Cryoglobulins)\nComplement activation\nC3 glomerulopathies: Dense Deposit Disease/C3GN\nParaprotein deposition\nLight chain nephropathy\nImmunotactoid GN\nPlatelet aggregation\nThrombotic microangiopathy, chronic",
+        "answer": "A",
+        "explanation": "Persisting damage to the glomerular endothelium due to: Immune complex deposition\nImmune complex-mediated (incl. Cryoglobulins)\nComplement activation\nC3 glomerulopathies: Dense Deposit Disease/C3GN\nParaprotein deposition\nLight chain nephropathy\nImmunotactoid GN\nPlatelet aggregation\nThrombotic microangiopathy, chronic"
+      },
+      "lt": {
+        "assertion": "DIFUZINIS EKSTRAKAPILIARINIS PROLIFERACINIS\u000b(s. pusmėnulinis ir/arba nekrozuojantis)\u000bGLOMERULONEFRITAS",
+        "reason": "Šis radinys būdingas ligos patofizologijai",
+        "answer": "A",
+        "explanation": "DIFUZINIS EKSTRAKAPILIARINIS PROLIFERACINIS\u000b(s. pusmėnulinis ir/arba nekrozuojantis)\u000bGLOMERULONEFRITAS"
+      }
+    },
+    {
+      "id": 84,
+      "disease_id": "MGN",
+      "topic": "IF_slide68",
+      "difficulty": "medium",
+      "source_slide": 68,
+      "en": {
+        "assertion": "Persisting damage to the glomerular endothelium due to:",
+        "reason": "Immune complex deposition\nImmune complex-mediated (incl. Cryoglobulins)\nComplement activation\nC3 glomerulopathies: Dense Deposit Disease/C3GN\nParaprotein deposition\nLight chain nephropathy\nImmunotactoid GN\nPlatelet aggregation\nThrombotic microangiopathy, chronic",
+        "answer": "A",
+        "explanation": "Persisting damage to the glomerular endothelium due to: Immune complex deposition\nImmune complex-mediated (incl. Cryoglobulins)\nComplement activation\nC3 glomerulopathies: Dense Deposit Disease/C3GN\nParaprotein deposition\nLight chain nephropathy\nImmunotactoid GN\nPlatelet aggregation\nThrombotic microangiopathy, chronic"
+      },
+      "lt": {
+        "assertion": "Nephrotic\n\tsudden onset\n\tinsidious\nNephritic\n\tacute\n\tsubacute (RPGN)\n\tchronic\nProteinuria subnephrotic\nHematuria\n\tpersistent micro\n\trecurrent macro\nRenal insufficiency\n\tacute\n\tchronic\nArterial hypertension\nOther systems involved",
+        "reason": "Minimal change NS\nFSGS\n\tprimary\n\tsecondary\nMembranous nephropathy\nEndocapillary GN\nCrescentic GN\n\tanti-GBM\n\tpauci-immune\n\timmune-complex\nMembranoproliferative\n\timmune-complex\n\tcryoglobulin\n\tDDD/C3 GN\n\tparaprotein\n\tTMA\nMesangioproliferative\n\tIgA nephropathy\nGBM abnormalities\n\tAlport\n\tTBMD\nPathologic accumulations\n\tAmyloid\n\tDiabetic glomerulosclerosis\n\tFabry\n\tMyeloma kidney\n\tOxalosis\nTubular, Interstitial, Vascular injury",
+        "answer": "A",
+        "explanation": "Nephrotic\n\tsudden onset\n\tinsidious\nNephritic\n\tacute\n\tsubacute (RPGN)\n\tchronic\nProteinuria subnephrotic\nHematuria\n\tpersistent micro\n\trecurrent macro\nRenal insufficiency\n\tacute\n\tchronic\nArterial hypertension\nOther systems involved Minimal change NS\nFSGS\n\tprimary\n\tsecondary\nMembranous nephropathy\nEndocapillary GN\nCrescentic GN\n\tanti-GBM\n\tpauci-immune\n\timmune-complex\nMembranoproliferative\n\timmune-complex\n\tcryoglobulin\n\tDDD/C3 GN\n\tparaprotein\n\tTMA\nMesangioproliferative\n\tIgA nephropathy\nGBM abnormalities\n\tAlport\n\tTBMD\nPathologic accumulations\n\tAmyloid\n\tDiabetic glomerulosclerosis\n\tFabry\n\tMyeloma kidney\n\tOxalosis\nTubular, Interstitial, Vascular injury Idiopathic\nDrugs\n\tNSAID\n\tAntibiotics\n\tother\nMalignancy\n\tCarcinoma\n\tLymphoproliferative\n\tother\nAutoimmune\n\tANCA\n\tAnti-GBM (Goodpasture)\n\tSLE\n\tAnti-phospholipid\n\tRA\n\tSS\n\tother\nBacterial infections\n\tAcute Streptococcal\n\tPersistent other\nViral infections\n\tHBV\n\tHCV\n\tHIV\n\tother\nHereditary\nOther kidney disease\nOther disease"
+      }
+    },
+    {
+      "id": 85,
+      "disease_id": "MGN",
+      "topic": "IF_slide69",
+      "difficulty": "medium",
+      "source_slide": 69,
+      "en": {
+        "assertion": "Figure 2 Activation of C3 convertase is involved in both complement-mediated and immune-complex-mediated MPGN",
+        "reason": "Bomback, A. S. & Appel, G. B. (2012) Pathogenesis of the C3 glomerulopathies and reclassification of MPGN\nNat. Rev. Nephrol. doi:10.1038/nrneph.2012.213",
+        "answer": "A",
+        "explanation": "Figure 2 Activation of C3 convertase is involved in both complement-mediated and immune-complex-mediated MPGN Bomback, A. S. & Appel, G. B. (2012) Pathogenesis of the C3 glomerulopathies and reclassification of MPGN\nNat. Rev. Nephrol. doi:10.1038/nrneph.2012.213"
+      },
+      "lt": {
+        "assertion": "MEMBRANOPROLIFERACINIS\u000bGLOMERULŲ PAŽEIDIMAS",
+        "reason": "Šis radinys būdingas ligos patofizologijai",
+        "answer": "A",
+        "explanation": "MEMBRANOPROLIFERACINIS\u000bGLOMERULŲ PAŽEIDIMAS"
+      },
+      "image": "extracted_images/IF/IF_slide69_img4.jpg"
+    },
+    {
+      "id": 86,
+      "disease_id": "MGN",
+      "topic": "IF_slide70",
+      "difficulty": "medium",
+      "source_slide": 70,
+      "en": {
+        "assertion": "Figure 1 The reclassification of MPGN has led to the emergence of a new spectrum of diseases called C3 glomerulopathies",
+        "reason": "Bomback, A. S. & Appel, G. B. (2012) Pathogenesis of the C3 glomerulopathies and reclassification of MPGN\nNat. Rev. Nephrol. doi:10.1038/nrneph.2012.213",
+        "answer": "A",
+        "explanation": "Figure 1 The reclassification of MPGN has led to the emergence of a new spectrum of diseases called C3 glomerulopathies Bomback, A. S. & Appel, G. B. (2012) Pathogenesis of the C3 glomerulopathies and reclassification of MPGN\nNat. Rev. Nephrol. doi:10.1038/nrneph.2012.213"
+      },
+      "lt": {
+        "assertion": "Bowman’s capsule",
+        "reason": "Bowman’s space",
+        "answer": "A",
+        "explanation": "Bowman’s capsule Bowman’s space Capillary wall"
+      },
+      "image": "extracted_images/IF/IF_slide70_img4.jpg"
+    },
+    {
+      "id": 87,
+      "disease_id": "MCD",
+      "topic": "EM_slide76",
+      "difficulty": "medium",
+      "source_slide": 76,
+      "en": {
+        "assertion": "Thrombotic microangiopathy, chronic\nPatient with anti-phospholipid Ab syndrome\nPossible fibrin deposition",
+        "reason": "This finding is characteristic of the disease pathophysiology",
+        "answer": "A",
+        "explanation": "Thrombotic microangiopathy, chronic\nPatient with anti-phospholipid Ab syndrome\nPossible fibrin deposition"
+      },
+      "lt": {
+        "assertion": "Diffuse coarsely granular IgG in the periphery of glomerular capillaries",
+        "reason": "IMMUNE COMPLEX\nMEMBRANOPROLIFERATIVE\u000bGLOMERULONEPHRITIS",
+        "answer": "A",
+        "explanation": "Diffuse coarsely granular IgG in the periphery of glomerular capillaries IMMUNE COMPLEX\nMEMBRANOPROLIFERATIVE\u000bGLOMERULONEPHRITIS"
+      },
+      "image": "extracted_images/EM/EM_slide76_img1.jpg"
+    },
+    {
+      "id": 88,
+      "disease_id": "MCD",
+      "topic": "EM_slide85",
+      "difficulty": "medium",
+      "source_slide": 85,
+      "en": {
+        "assertion": "Immune complex deposition in the mesangium",
+        "reason": "This finding is characteristic of the disease pathophysiology",
+        "answer": "A",
+        "explanation": "Immune complex deposition in the mesangium"
+      },
+      "lt": {
+        "assertion": "Thrombotic microangiopathy, chronic\nPatient with anti-phospholipid Ab syndrome\nPossible fibrin deposition",
+        "reason": "Šis radinys būdingas ligos patofizologijai",
+        "answer": "A",
+        "explanation": "Thrombotic microangiopathy, chronic\nPatient with anti-phospholipid Ab syndrome\nPossible fibrin deposition"
+      },
+      "image": "extracted_images/EM/EM_slide85_img1.jpg"
+    }
+  ]
+}

@@ -1,0 +1,609 @@
+{
+  "5": {
+    "topic": "MCD",
+    "images": [
+      "MCD_slide5_img1.jpg"
+    ]
+  },
+  "12": {
+    "topic": "MCD",
+    "images": [
+      "MCD_slide12_img1.jpg"
+    ]
+  },
+  "13": {
+    "topic": "MCD",
+    "images": [
+      "MCD_slide13_img1.jpg",
+      "MCD_slide13_img2.jpg"
+    ]
+  },
+  "14": {
+    "topic": "MCD",
+    "images": [
+      "MCD_slide14_img1.jpg"
+    ]
+  },
+  "26": {
+    "topic": "MCD",
+    "images": [
+      "MCD_slide26_img1.jpg",
+      "MCD_slide26_img2.jpg"
+    ]
+  },
+  "27": {
+    "topic": "MCD",
+    "images": [
+      "MCD_slide27_img3.jpg"
+    ]
+  },
+  "48": {
+    "topic": "MCD",
+    "images": [
+      "MCD_slide48_img12.jpg"
+    ]
+  },
+  "16": {
+    "topic": "FSGS",
+    "images": [
+      "FSGS_slide16_img2.png",
+      "FSGS_slide16_img3.jpg"
+    ]
+  },
+  "17": {
+    "topic": "FSGS",
+    "images": [
+      "FSGS_slide17_img1.jpg"
+    ]
+  },
+  "19": {
+    "topic": "FSGS",
+    "images": [
+      "FSGS_slide19_img1.png"
+    ]
+  },
+  "24": {
+    "topic": "FSGS",
+    "images": [
+      "FSGS_slide24_img1.png"
+    ]
+  },
+  "25": {
+    "topic": "FSGS",
+    "images": [
+      "FSGS_slide25_img3.png"
+    ]
+  },
+  "123": {
+    "topic": "FSGS",
+    "images": [
+      "FSGS_slide123_img3.jpg",
+      "FSGS_slide123_img4.jpg"
+    ]
+  },
+  "134": {
+    "topic": "FSGS",
+    "images": [
+      "FSGS_slide134_img1.jpg"
+    ]
+  },
+  "10": {
+    "topic": "MGN",
+    "images": [
+      "MGN_slide10_img1.jpg",
+      "MGN_slide10_img2.jpg"
+    ]
+  },
+  "29": {
+    "topic": "MGN",
+    "images": [
+      "MGN_slide29_img2.png",
+      "MGN_slide29_img3.jpg"
+    ]
+  },
+  "34": {
+    "topic": "MGN",
+    "images": [
+      "MGN_slide34_img1.jpg"
+    ]
+  },
+  "35": {
+    "topic": "MGN",
+    "images": [
+      "MGN_slide35_img1.jpg"
+    ]
+  },
+  "36": {
+    "topic": "MGN",
+    "images": [
+      "MGN_slide36_img1.jpg"
+    ]
+  },
+  "47": {
+    "topic": "MGN",
+    "images": [
+      "MGN_slide47_img1.jpg"
+    ]
+  },
+  "129": {
+    "topic": "MGN",
+    "images": [
+      "MGN_slide129_img1.jpg"
+    ]
+  },
+  "9": {
+    "topic": "IgAN",
+    "images": [
+      "IgAN_slide9_img1.jpg",
+      "IgAN_slide9_img2.jpg",
+      "IgAN_slide9_img3.jpg",
+      "IgAN_slide9_img4.png"
+    ]
+  },
+  "11": {
+    "topic": "IgAN",
+    "images": [
+      "IgAN_slide11_img1.png",
+      "IgAN_slide11_img2.jpg",
+      "IgAN_slide11_img4.png"
+    ]
+  },
+  "82": {
+    "topic": "IgAN",
+    "images": [
+      "IgAN_slide82_img2.png",
+      "IgAN_slide82_img3.jpg",
+      "IgAN_slide82_img4.png"
+    ]
+  },
+  "84": {
+    "topic": "IgAN",
+    "images": [
+      "IgAN_slide84_img1.png",
+      "IgAN_slide84_img2.png"
+    ]
+  },
+  "59": {
+    "topic": "MPGN",
+    "images": [
+      "MPGN_slide59_img2.png",
+      "MPGN_slide59_img3.jpg"
+    ]
+  },
+  "2": {
+    "topic": "ANCA",
+    "images": [
+      "ANCA_slide2_img3.png",
+      "ANCA_slide2_img4.jpg"
+    ]
+  },
+  "58": {
+    "topic": "ANCA",
+    "images": [
+      "ANCA_slide58_img3.jpg"
+    ]
+  },
+  "57": {
+    "topic": "GBM",
+    "images": [
+      "GBM_slide57_img1.jpg",
+      "GBM_slide57_img3.jpg"
+    ]
+  },
+  "133": {
+    "topic": "DIABETIC",
+    "images": [
+      "DIABETIC_slide133_img3.jpg"
+    ]
+  },
+  "131": {
+    "topic": "LUPUS",
+    "images": [
+      "LUPUS_slide131_img1.jpg"
+    ]
+  },
+  "3": {
+    "topic": "GENERAL",
+    "images": [
+      "GENERAL_slide3_img1.jpg",
+      "GENERAL_slide3_img2.png"
+    ]
+  },
+  "132": {
+    "topic": "GENERAL",
+    "images": [
+      "GENERAL_slide132_img1.jpg"
+    ]
+  },
+  "46": {
+    "topic": "IF",
+    "images": [
+      "IF_slide46_img1.jpg",
+      "IF_slide46_img8.jpg"
+    ]
+  },
+  "69": {
+    "topic": "IF",
+    "images": [
+      "IF_slide69_img4.jpg"
+    ]
+  },
+  "70": {
+    "topic": "IF",
+    "images": [
+      "IF_slide70_img4.jpg"
+    ]
+  },
+  "75": {
+    "topic": "IF",
+    "images": [
+      "IF_slide75_img1.png",
+      "IF_slide75_img4.jpg",
+      "IF_slide75_img5.jpg"
+    ]
+  },
+  "37": {
+    "topic": "EM",
+    "images": [
+      "EM_slide37_img1.jpg"
+    ]
+  },
+  "76": {
+    "topic": "EM",
+    "images": [
+      "EM_slide76_img1.jpg"
+    ]
+  },
+  "85": {
+    "topic": "EM",
+    "images": [
+      "EM_slide85_img1.jpg"
+    ]
+  },
+  "8": {
+    "topic": "STAINS",
+    "images": [
+      "STAINS_slide8_img1.png",
+      "STAINS_slide8_img2.jpg",
+      "STAINS_slide8_img3.jpg",
+      "STAINS_slide8_img4.jpg",
+      "STAINS_slide8_img5.png"
+    ]
+  },
+  "97": {
+    "topic": "STAINS",
+    "images": [
+      "STAINS_slide97_img1.png"
+    ]
+  },
+  "1": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide1_img3.png"
+    ]
+  },
+  "4": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide4_img1.jpg"
+    ]
+  },
+  "6": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide6_img1.jpg"
+    ]
+  },
+  "18": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide18_img3.png"
+    ]
+  },
+  "20": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide20_img1.png"
+    ]
+  },
+  "21": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide21_img1.png"
+    ]
+  },
+  "22": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide22_img1.jpg",
+      "OTHER_slide22_img12.png"
+    ]
+  },
+  "28": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide28_img1.png"
+    ]
+  },
+  "31": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide31_img1.jpg",
+      "OTHER_slide31_img12.jpg"
+    ]
+  },
+  "32": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide32_img2.jpg"
+    ]
+  },
+  "40": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide40_img1.jpg"
+    ]
+  },
+  "41": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide41_img1.jpg"
+    ]
+  },
+  "42": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide42_img2.png",
+      "OTHER_slide42_img3.jpg"
+    ]
+  },
+  "43": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide43_img1.jpg",
+      "OTHER_slide43_img12.png"
+    ]
+  },
+  "44": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide44_img1.jpg"
+    ]
+  },
+  "45": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide45_img1.jpg"
+    ]
+  },
+  "49": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide49_img2.png",
+      "OTHER_slide49_img3.jpg"
+    ]
+  },
+  "50": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide50_img1.jpg",
+      "OTHER_slide50_img12.jpg"
+    ]
+  },
+  "51": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide51_img1.jpg"
+    ]
+  },
+  "53": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide53_img1.jpg"
+    ]
+  },
+  "54": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide54_img1.jpg"
+    ]
+  },
+  "61": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide61_img1.jpg",
+      "OTHER_slide61_img12.jpg"
+    ]
+  },
+  "63": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide63_img1.jpg"
+    ]
+  },
+  "64": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide64_img2.jpg"
+    ]
+  },
+  "65": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide65_img1.jpg"
+    ]
+  },
+  "66": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide66_img1.jpg",
+      "OTHER_slide66_img2.jpg"
+    ]
+  },
+  "74": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide74_img1.png",
+      "OTHER_slide74_img4.jpg",
+      "OTHER_slide74_img5.jpg"
+    ]
+  },
+  "77": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide77_img2.png",
+      "OTHER_slide77_img3.jpg"
+    ]
+  },
+  "79": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide79_img1.jpg",
+      "OTHER_slide79_img12.png"
+    ]
+  },
+  "81": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide81_img2.png",
+      "OTHER_slide81_img3.jpg"
+    ]
+  },
+  "87": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide87_img4.png"
+    ]
+  },
+  "92": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide92_img1.png"
+    ]
+  },
+  "98": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide98_img1.jpg",
+      "OTHER_slide98_img3.jpg",
+      "OTHER_slide98_img6.jpg",
+      "OTHER_slide98_img7.jpg"
+    ]
+  },
+  "110": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide110_img1.png"
+    ]
+  },
+  "111": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide111_img1.png"
+    ]
+  },
+  "112": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide112_img1.jpg"
+    ]
+  },
+  "113": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide113_img1.jpg"
+    ]
+  },
+  "114": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide114_img1.jpg"
+    ]
+  },
+  "115": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide115_img1.jpg",
+      "OTHER_slide115_img7.png"
+    ]
+  },
+  "119": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide119_img1.png"
+    ]
+  },
+  "120": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide120_img1.jpg"
+    ]
+  },
+  "126": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide126_img1.jpg"
+    ]
+  },
+  "127": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide127_img1.jpg"
+    ]
+  },
+  "128": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide128_img1.jpg"
+    ]
+  },
+  "135": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide135_img1.jpg"
+    ]
+  },
+  "136": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide136_img1.png"
+    ]
+  },
+  "141": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide141_img1.jpg"
+    ]
+  },
+  "142": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide142_img1.jpg"
+    ]
+  },
+  "144": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide144_img1.jpg"
+    ]
+  },
+  "145": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide145_img1.png"
+    ]
+  },
+  "146": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide146_img1.jpg"
+    ]
+  },
+  "150": {
+    "topic": "OTHER",
+    "images": [
+      "OTHER_slide150_img1.jpg",
+      "OTHER_slide150_img2.png"
+    ]
+  }
+}

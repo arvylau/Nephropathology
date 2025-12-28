@@ -1,0 +1,189 @@
+{
+  "metadata": {
+    "title": "Refined Nephropathology Questions",
+    "generated_date": "2025-12-28T22:04:00.404795",
+    "source": "SlidesForSelfStudy_Nephropathology 2024 - Curated",
+    "total_questions": 9,
+    "method": "Manual curation with bilingual matching and medical accuracy verification"
+  },
+  "questions": [
+    {
+      "id": 69,
+      "disease_id": "MCD",
+      "topic": "MCD_slide13",
+      "difficulty": "medium",
+      "source_slide": 13,
+      "en": {
+        "assertion": "Minimal change disease shows diffuse effacement of podocyte foot processes",
+        "reason": "This lesion is only visible on electron microscopy, not by light microscopy",
+        "answer": "A",
+        "explanation": "Minimal change disease shows diffuse effacement of podocyte foot processes This lesion is only visible on electron microscopy, not by light microscopy Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Minimalių pokyčių liga rodo difuzinį podocitų kojelių išnykimą",
+        "reason": "Šis pažeidimas matomas tik elektronine mikroskopija, ne šviesos mikroskopija",
+        "answer": "A",
+        "explanation": "Minimalių pokyčių liga rodo difuzinį podocitų kojelių išnykimą Šis pažeidimas matomas tik elektronine mikroskopija, ne šviesos mikroskopija Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/MCD/MCD_slide13_img1.jpg"
+    },
+    {
+      "id": 70,
+      "disease_id": "MCD",
+      "topic": "MCD_slide13",
+      "difficulty": "medium",
+      "source_slide": 13,
+      "en": {
+        "assertion": "Minimal change disease glomeruli appear normal on light microscopy",
+        "reason": "The diagnostic lesion is ultrastructural foot process effacement",
+        "answer": "A",
+        "explanation": "Minimal change disease glomeruli appear normal on light microscopy The diagnostic lesion is ultrastructural foot process effacement Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Minimalių pokyčių ligos glomerulai atrodo normalūs šviesos mikroskopijoje",
+        "reason": "Diagnostinis pažeidimas yra ultrastruktūrinis kojelių išnykimas",
+        "answer": "A",
+        "explanation": "Minimalių pokyčių ligos glomerulai atrodo normalūs šviesos mikroskopijoje Diagnostinis pažeidimas yra ultrastruktūrinis kojelių išnykimas Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/MCD/MCD_slide13_img1.jpg"
+    },
+    {
+      "id": 71,
+      "disease_id": "MGN",
+      "topic": "MGN_slide34",
+      "difficulty": "medium",
+      "source_slide": 34,
+      "en": {
+        "assertion": "Membranous nephropathy shows subepithelial immune complex deposits",
+        "reason": "These deposits form characteristic spikes visible on silver stain",
+        "answer": "A",
+        "explanation": "Membranous nephropathy shows subepithelial immune complex deposits These deposits form characteristic spikes visible on silver stain Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Membraninė nefropatija rodo subepitelinius imunokompleksinius nuosėdus",
+        "reason": "Šie nuosėdai formuoja būdingus smailius, matomus sidabro dažyme",
+        "answer": "A",
+        "explanation": "Membraninė nefropatija rodo subepitelinius imunokompleksinius nuosėdus Šie nuosėdai formuoja būdingus smailius, matomus sidabro dažyme Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/MGN/MGN_slide34_img1.jpg"
+    },
+    {
+      "id": 72,
+      "disease_id": "MGN",
+      "topic": "MGN_slide47",
+      "difficulty": "medium",
+      "source_slide": 47,
+      "en": {
+        "assertion": "Subepithelial humps in membranous nephropathy may persist",
+        "reason": "These deposits are diagnostic and correlate with proteinuria",
+        "answer": "A",
+        "explanation": "Subepithelial humps in membranous nephropathy may persist These deposits are diagnostic and correlate with proteinuria Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Subepitheliniai gumbeliai membraninėje nefropatijoje gali išlikti",
+        "reason": "Šie nuosėdai yra diagnostiniai ir koreliuoja su proteinurija",
+        "answer": "A",
+        "explanation": "Subepitheliniai gumbeliai membraninėje nefropatijoje gali išlikti Šie nuosėdai yra diagnostiniai ir koreliuoja su proteinurija Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/MGN/MGN_slide47_img1.jpg"
+    },
+    {
+      "id": 73,
+      "disease_id": "FSGS_PRIMARY",
+      "topic": "FSGS_slide16",
+      "difficulty": "easy",
+      "source_slide": 16,
+      "en": {
+        "assertion": "Focal segmental glomerulosclerosis affects only some glomeruli",
+        "reason": "The sclerosis is both focal (some glomeruli) and segmental (part of tuft)",
+        "answer": "A",
+        "explanation": "Focal segmental glomerulosclerosis affects only some glomeruli The sclerosis is both focal (some glomeruli) and segmental (part of tuft) Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Fokusinė segmentinė glomerulosklerozė pažeidžia tik kai kuriuos glomerulius",
+        "reason": "Sklerozė yra ir fokusinė (kai kurie glomerulai) ir segmentinė (dalis kampo)",
+        "answer": "A",
+        "explanation": "Fokusinė segmentinė glomerulosklerozė pažeidžia tik kai kuriuos glomerulius Sklerozė yra ir fokusinė (kai kurie glomerulai) ir segmentinė (dalis kampo) Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/FSGS/FSGS_slide16_img2.png"
+    },
+    {
+      "id": 74,
+      "disease_id": "FSGS_PRIMARY",
+      "topic": "FSGS_slide19",
+      "difficulty": "medium",
+      "source_slide": 19,
+      "en": {
+        "assertion": "FSGS is defined as segmental obliteration of glomerular capillaries by extracellular matrix",
+        "reason": "This distinguishes it from global glomerulosclerosis",
+        "answer": "A",
+        "explanation": "FSGS is defined as segmental obliteration of glomerular capillaries by extracellular matrix This distinguishes it from global glomerulosclerosis Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "FSGS apibrėžiama kaip segmentinis glomerulo kapiliarų užakimas ekstraląsteliniu matriksu",
+        "reason": "Tai skiria ją nuo visuotinės glomerulosklerozės",
+        "answer": "A",
+        "explanation": "FSGS apibrėžiama kaip segmentinis glomerulo kapiliarų užakimas ekstraląsteliniu matriksu Tai skiria ją nuo visuotinės glomerulosklerozės Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/FSGS/FSGS_slide19_img1.png"
+    },
+    {
+      "id": 75,
+      "disease_id": "IgAN",
+      "topic": "IgAN_slide52",
+      "difficulty": "easy",
+      "source_slide": 52,
+      "en": {
+        "assertion": "IgA nephropathy shows dominant mesangial IgA deposits on immunofluorescence",
+        "reason": "IgA immune complexes deposit preferentially in the mesangial matrix",
+        "answer": "A",
+        "explanation": "IgA nephropathy shows dominant mesangial IgA deposits on immunofluorescence IgA immune complexes deposit preferentially in the mesangial matrix Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "IgA nefropatija rodo dominuojančius mezanginius IgA nuosėdus imunofluorescencijoje",
+        "reason": "IgA imuniniai kompleksai kaupiasi pirmenybiškai mezanginiame matrikse",
+        "answer": "A",
+        "explanation": "IgA nefropatija rodo dominuojančius mezanginius IgA nuosėdus imunofluorescencijoje IgA imuniniai kompleksai kaupiasi pirmenybiškai mezanginiame matrikse Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      }
+    },
+    {
+      "id": 76,
+      "disease_id": "MGN",
+      "topic": "IF_slide9",
+      "difficulty": "medium",
+      "source_slide": 9,
+      "en": {
+        "assertion": "Diffuse finely granular IgG in glomerular capillary walls suggests membranous nephropathy",
+        "reason": "This pattern reflects subepithelial immune complex deposition",
+        "answer": "A",
+        "explanation": "Diffuse finely granular IgG in glomerular capillary walls suggests membranous nephropathy This pattern reflects subepithelial immune complex deposition Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Difuzinis smulkiai granuliuotas IgG glomerulo kapiliarų sienelėse rodo membraninę nefropatiją",
+        "reason": "Šis modelis atspindi subepitelinį imunokompleksinį nusėdimą",
+        "answer": "A",
+        "explanation": "Difuzinis smulkiai granuliuotas IgG glomerulo kapiliarų sienelėse rodo membraninę nefropatiją Šis modelis atspindi subepitelinį imunokompleksinį nusėdimą Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/IgAN/IgAN_slide9_img1.jpg"
+    },
+    {
+      "id": 77,
+      "disease_id": "ALPORT",
+      "topic": "ALPORT_slide80",
+      "difficulty": "hard",
+      "source_slide": 80,
+      "en": {
+        "assertion": "Alport syndrome shows characteristic GBM ultrastructural abnormalities",
+        "reason": "Type IV collagen defects cause basket-weave GBM pattern",
+        "answer": "A",
+        "explanation": "Alport syndrome shows characteristic GBM ultrastructural abnormalities Type IV collagen defects cause basket-weave GBM pattern Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Alport sindromas rodo būdingus GBM ultrastruktūrinius nukrypimus",
+        "reason": "IV tipo kolageno defektai sukelia krepšelio pynimo GBM raštą",
+        "answer": "A",
+        "explanation": "Alport sindromas rodo būdingus GBM ultrastruktūrinius nukrypimus IV tipo kolageno defektai sukelia krepšelio pynimo GBM raštą Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      }
+    }
+  ]
+}

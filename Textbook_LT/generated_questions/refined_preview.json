@@ -1,0 +1,74 @@
+[
+  {
+    "id": 69,
+    "topic": "MCD_slide13",
+    "difficulty": "medium",
+    "assertion_en": "Minimal change disease shows diffuse effacement of podocyte foot processes",
+    "assertion_lt": "Minimalių pokyčių liga rodo difuzinį podocitų kojelių išnykimą",
+    "has_image": true
+  },
+  {
+    "id": 70,
+    "topic": "MCD_slide13",
+    "difficulty": "medium",
+    "assertion_en": "Minimal change disease glomeruli appear normal on light microscopy",
+    "assertion_lt": "Minimalių pokyčių ligos glomerulai atrodo normalūs šviesos mikroskopijoje",
+    "has_image": true
+  },
+  {
+    "id": 71,
+    "topic": "MGN_slide34",
+    "difficulty": "medium",
+    "assertion_en": "Membranous nephropathy shows subepithelial immune complex deposits",
+    "assertion_lt": "Membraninė nefropatija rodo subepitelinius imunokompleksinius nuosėdus",
+    "has_image": true
+  },
+  {
+    "id": 72,
+    "topic": "MGN_slide47",
+    "difficulty": "medium",
+    "assertion_en": "Subepithelial humps in membranous nephropathy may persist",
+    "assertion_lt": "Subepitheliniai gumbeliai membraninėje nefropatijoje gali išlikti",
+    "has_image": true
+  },
+  {
+    "id": 73,
+    "topic": "FSGS_slide16",
+    "difficulty": "easy",
+    "assertion_en": "Focal segmental glomerulosclerosis affects only some glomeruli",
+    "assertion_lt": "Fokusinė segmentinė glomerulosklerozė pažeidžia tik kai kuriuos glomerulius",
+    "has_image": true
+  },
+  {
+    "id": 74,
+    "topic": "FSGS_slide19",
+    "difficulty": "medium",
+    "assertion_en": "FSGS is defined as segmental obliteration of glomerular capillaries by extracellular matrix",
+    "assertion_lt": "FSGS apibrėžiama kaip segmentinis glomerulo kapiliarų užakimas ekstraląsteliniu matriksu",
+    "has_image": true
+  },
+  {
+    "id": 75,
+    "topic": "IgAN_slide52",
+    "difficulty": "easy",
+    "assertion_en": "IgA nephropathy shows dominant mesangial IgA deposits on immunofluorescence",
+    "assertion_lt": "IgA nefropatija rodo dominuojančius mezanginius IgA nuosėdus imunofluorescencijoje",
+    "has_image": false
+  },
+  {
+    "id": 76,
+    "topic": "IF_slide9",
+    "difficulty": "medium",
+    "assertion_en": "Diffuse finely granular IgG in glomerular capillary walls suggests membranous nephropathy",
+    "assertion_lt": "Difuzinis smulkiai granuliuotas IgG glomerulo kapiliarų sienelėse rodo membraninę nefropatiją",
+    "has_image": true
+  },
+  {
+    "id": 77,
+    "topic": "ALPORT_slide80",
+    "difficulty": "hard",
+    "assertion_en": "Alport syndrome shows characteristic GBM ultrastructural abnormalities",
+    "assertion_lt": "Alport sindromas rodo būdingus GBM ultrastruktūrinius nukrypimus",
+    "has_image": false
+  }
+]

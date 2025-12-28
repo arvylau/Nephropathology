@@ -1,0 +1,50 @@
+=== SLIDE CONTENT ANALYSIS ===
+
+--- SLIDE 1 ---
+EN Title: LT Title: EN: Arvydas Laurinavicius
+LT: Patologijos, teismo medicinos ir farmakologijos katedra
+Images: EN=1, LT=1
+
+--- SLIDE 2 ---
+EN Title: LT Title: EN: Primary renal injury
+LT: Inkstų ligos / Miglinas M, Juknevičius I, Laurinavičius A, Razukas V., Žekonis M.  – Vilnius, “Vaist
+Images: EN=2, LT=0
+
+--- SLIDE 3 ---
+EN Title: LT Title: EN: Glomerulus
+LT: NORMALI STRUKTŪRA
+Images: EN=2, LT=2
+
+--- SLIDE 4 ---
+EN Title: LT Title: EN: Capillary wall
+LT: Glomerulus
+Images: EN=1, LT=2
+
+--- SLIDE 5 ---
+EN Title: LT Title: EN: Glomerular capillaries, covered by podocytes
+LT: Peritubular capillary
+Images: EN=1, LT=3
+
+--- SLIDE 6 ---
+EN Title: LT Title: EN: Size and charge selectivity
+LT: Pirminis pažeidimas
+Images: EN=1, LT=2
+
+--- SLIDE 7 ---
+EN Title: LT Title: LT: NORMALUS GLOMERULAS
+Images: EN=2, LT=2
+
+--- SLIDE 8 ---
+EN Title: LT Title: EN: PASM Silver
+LT: Bowman’s capsule
+Images: EN=5, LT=3
+
+--- SLIDE 9 ---
+EN Title: LT Title: EN: Diffuse finely granular IgG in the periphery of glomerular capillaries
+LT: Capillary wall
+Images: EN=4, LT=1
+
+--- SLIDE 10 ---
+EN Title: LT Title: EN: Difuse finely granular IgG in the periphery of glomerular capillaries
+Images: EN=2, LT=1
+

@@ -9,7 +9,7 @@ let diseaseTranslations = {};
 // Load questions and settings
 async function loadQuestions() {
     try {
-        const response = await fetch('nephro_questions_bilingual.json');
+        const response = await fetch('nephro_questions_enhanced.json');
         const data = await response.json();
 
         translations = data.interface_translations;
@@ -63,7 +63,7 @@ async function loadQuestions() {
         document.getElementById('questions-container').innerHTML =
             '<div style="background:white;padding:50px;border-radius:15px;text-align:center;color:#f56565;">' +
             '<p style="font-size:20px;">Error loading questions</p>' +
-            '<p style="margin-top:10px;">Please ensure nephro_questions_bilingual.json is available.</p>' +
+            '<p style="margin-top:10px;">Please ensure nephro_questions_enhanced.json is available.</p>' +
             '</div>';
     }
 }
@@ -117,12 +117,33 @@ function renderCurrentQuestion() {
 
     const correctAnswer = question.en.answer;
 
+    // Build image HTML if image exists
+    let imageHtml = '';
+    if (question.image) {
+        const imagePath = `Textbook_LT/${question.image}`;
+        const imageCaption = currentLang === 'en'
+            ? 'Click to enlarge'
+            : 'Spustelėkite norėdami padidinti';
+
+        imageHtml = `
+            <div class="question-image">
+                <img src="${imagePath}"
+                     alt="Medical image"
+                     onclick="openLightbox('${imagePath}', '${question[currentLang].assertion}')"
+                     onerror="this.parentElement.style.display='none'">
+                <div class="zoom-hint">🔍 ${imageCaption}</div>
+            </div>
+        `;
+    }
+
     container.innerHTML = `
         <div class="question-card active">
             <div class="question-header">
                 <span class="question-number">${t('question_bank')}: ${currentQuestionIndex + 1} / ${activeQuestions.length}</span>
                 <span class="badge badge-${question.difficulty}">${t(question.difficulty)}</span>
             </div>
+
+            ${imageHtml}
 
             <div class="question-content">
                 <div class="content-section">
@@ -250,6 +271,36 @@ function restartAssessment() {
     renderCurrentQuestion();
     updateProgress();
 }
+
+// Lightbox functions for image zoom
+function openLightbox(imageSrc, caption) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+
+    lightboxImage.src = imageSrc;
+    lightboxImage.alt = caption;
+    lightboxCaption.textContent = caption;
+    lightbox.classList.add('active');
+
+    // Prevent body scroll when lightbox is open
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.classList.remove('active');
+
+    // Restore body scroll
+    document.body.style.overflow = '';
+}
+
+// Close lightbox with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeLightbox();
+    }
+});
 
 // Load questions on page load
 window.addEventListener('DOMContentLoaded', loadQuestions);
