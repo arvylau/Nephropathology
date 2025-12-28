@@ -81,9 +81,12 @@ function setLanguage(lang) {
 }
 
 function updateInterfaceLanguage() {
-    document.getElementById('header-title').textContent = t('title');
+    const titleText = currentLang === 'en' ? 'Nephropathology Student Portal' : 'Nefropatologijos studentų portalas';
+    document.getElementById('header-title').textContent = titleText;
     document.getElementById('header-subtitle').textContent = t('subtitle');
     document.getElementById('progress-label').textContent = t('total_questions');
+    const scoreLabel = currentLang === 'en' ? 'Current Score' : 'Dabartinis rezultatas';
+    document.getElementById('score-label-current').textContent = scoreLabel;
     document.getElementById('completion-title').textContent = 'Assessment Complete!';
     document.getElementById('completion-subtitle').textContent = "You've answered all questions";
     document.getElementById('score-label').textContent = t('answer');
@@ -207,7 +210,15 @@ function updateProgress() {
     const total = activeQuestions.length;
     const percentage = total > 0 ? Math.round((answered / total) * 100) : 0;
 
+    // Calculate current score
+    const correct = activeQuestions.filter(q =>
+        answers[q.id] === q.en.answer
+    ).length;
+    const scorePercentage = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+
     document.getElementById('progress-stats').textContent = `${answered} / ${total}`;
+    document.getElementById('current-score').textContent = `${scorePercentage}% (${correct}/${answered})`;
+
     const fillElement = document.getElementById('progress-fill');
     fillElement.style.width = percentage + '%';
     fillElement.textContent = percentage + '%';
