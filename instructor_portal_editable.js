@@ -64,7 +64,9 @@ function updateInterfaceLanguage() {
     document.getElementById('btn-activate-filtered').textContent = t('activate_filtered');
     document.getElementById('btn-deactivate-filtered').textContent = t('deactivate_filtered');
     document.getElementById('btn-reset').textContent = t('reset_all');
-    document.getElementById('btn-export').textContent = t('export_settings');
+    document.getElementById('btn-export-json').textContent = 'Export JSON';
+    document.getElementById('btn-export-excel').textContent = 'Export Excel';
+    document.getElementById('btn-export-gift').textContent = 'Export Moodle GIFT';
     document.getElementById('btn-import').textContent = t('import_settings');
     document.getElementById('filters-title').textContent = t('filters');
     document.getElementById('label-disease').textContent = t('disease');
