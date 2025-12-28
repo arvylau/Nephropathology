@@ -6,10 +6,9 @@
       "lt"
     ],
     "total_questions": 68,
-    "created": "2025-12-28 11:50:11",
-    "version": "3.3-bilingual-full-translation",
-    "translation_method": "Google Translate with medical terminology preservation",
-    "note": "Full Lithuanian sentence translation with preserved medical terms"
+    "created": "2025-12-28T19:25:42.852Z",
+    "version": "3.4-editable-bilingual",
+    "translation_method": "Google Translate with medical terminology preservation + manual editing"
   },
   "interface_translations": {
     "en": {
@@ -644,7 +643,7 @@
         "explanation": "Both true and related. The pauci-immune pattern (negative or trace IF) distinguishes ANCA-GN from immune complex diseases (granular IF) and anti-GBM (linear IF). The lack of immune deposits reflects the pathophysiology - direct neutrophil-mediated injury rather than antibody/immune complex deposition."
       },
       "lt": {
-        "assertion": "Imunofluorescencinė mikroskopija sergant su ANCA susijusiu glomerulonefritu paprastai rodo mažai arba visai nedažyti imunoglobulino arba komplemento, apibūdinamo kaip „pauci imuninis“.",
+        "assertion": "Imunofluorescencinė mikroskopija sergant su ANCA susijusiu glomerulonefritu paprastai rodo mažai arba visai nedažyti imunoglobulino arba komplemento, apibūdinamo kaip „mažai imuninis“.",
         "reason": "ANCA-GN tarpininkauja ANCA aktyvuoti neutrofilai, sukeliantys tiesioginį kraujagyslių pažeidimą, o ne imuninio komplekso nusėdimas.",
         "answer": "A",
         "explanation": "Ir tiesa, ir susijusi.Pauci-imuninis modelis (neigiamas arba pėdsakas IF) išskiria ANCA-GN nuo imuninių kompleksinių ligų (granuliuotas IF) ir anti-GBM (linijinis IF).Imuninių nuosėdų trūkumas atspindi patofiziologiją – tiesioginį neutrofilų sukeltą pažeidimą, o ne antikūnų/imuninio komplekso nusėdimą."
