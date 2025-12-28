@@ -390,6 +390,8 @@
             }
         }
     </style>
+    <!-- SheetJS library for Excel export -->
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -429,7 +431,9 @@
                 <button class="btn btn-success" onclick="activateFiltered()" id="btn-activate-filtered">Activate Filtered</button>
                 <button class="btn btn-danger" onclick="deactivateFiltered()" id="btn-deactivate-filtered">Deactivate Filtered</button>
                 <button class="btn btn-warning" onclick="resetAll()" id="btn-reset">Reset All</button>
-                <button class="btn btn-info" onclick="exportData()" id="btn-export">Export JSON</button>
+                <button class="btn btn-info" onclick="exportJSON()" id="btn-export-json">Export JSON</button>
+                <button class="btn btn-success" onclick="exportExcel()" id="btn-export-excel">Export Excel</button>
+                <button class="btn btn-warning" onclick="exportMoodleGIFT()" id="btn-export-gift">Export Moodle GIFT</button>
                 <button class="btn btn-info" onclick="document.getElementById('import-file').click()" id="btn-import">Import JSON</button>
                 <input type="file" id="import-file" accept=".json" style="display:none" onchange="importData(event)">
             </div>

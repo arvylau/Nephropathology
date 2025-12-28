@@ -366,7 +366,7 @@ function resetAll() {
     }
 }
 
-function exportData() {
+function exportJSON() {
     // Create complete JSON with updated questions
     const exportData = {
         metadata: {
@@ -393,6 +393,148 @@ function exportData() {
     URL.revokeObjectURL(url);
 
     alert('JSON file exported with all edits! You can replace the original file with this one.');
+}
+
+function exportExcel() {
+    // Create workbook
+    const wb = XLSX.utils.book_new();
+
+    // Prepare data for Excel
+    const excelData = allQuestions.map(q => {
+        const settings = questionSettings[q.id] || { active: true, priority: 'none' };
+        const diseaseEN = diseaseTranslations[q.disease_id]?.en || q.disease_id;
+        const diseaseLT = diseaseTranslations[q.disease_id]?.lt || q.disease_id;
+
+        return {
+            'ID': q.id,
+            'Active': settings.active ? 'Yes' : 'No',
+            'Priority': settings.priority,
+            'Disease (EN)': diseaseEN,
+            'Disease (LT)': diseaseLT,
+            'Difficulty': q.difficulty,
+            'Topic': q.topic,
+            'Assertion (EN)': q.en.assertion,
+            'Assertion (LT)': q.lt.assertion,
+            'Reason (EN)': q.en.reason,
+            'Reason (LT)': q.lt.reason,
+            'Answer': q.en.answer,
+            'Explanation (EN)': q.en.explanation,
+            'Explanation (LT)': q.lt.explanation
+        };
+    });
+
+    // Create worksheet
+    const ws = XLSX.utils.json_to_sheet(excelData);
+
+    // Set column widths
+    ws['!cols'] = [
+        { wch: 5 },   // ID
+        { wch: 8 },   // Active
+        { wch: 10 },  // Priority
+        { wch: 30 },  // Disease EN
+        { wch: 30 },  // Disease LT
+        { wch: 10 },  // Difficulty
+        { wch: 20 },  // Topic
+        { wch: 60 },  // Assertion EN
+        { wch: 60 },  // Assertion LT
+        { wch: 60 },  // Reason EN
+        { wch: 60 },  // Reason LT
+        { wch: 8 },   // Answer
+        { wch: 70 },  // Explanation EN
+        { wch: 70 }   // Explanation LT
+    ];
+
+    // Add worksheet to workbook
+    XLSX.utils.book_append_sheet(wb, ws, 'Nephropathology Questions');
+
+    // Generate Excel file
+    const timestamp = new Date().toISOString().split('T')[0];
+    XLSX.writeFile(wb, `nephropathology_questions_${timestamp}.xlsx`);
+
+    alert('Excel file exported successfully!');
+}
+
+function exportMoodleGIFT() {
+    let giftText = '// Nephropathology Assessment - Moodle GIFT Format\n';
+    giftText += '// Generated: ' + new Date().toISOString() + '\n';
+    giftText += '// Total Questions: ' + allQuestions.length + '\n\n';
+
+    // Filter to only active questions
+    const activeQs = allQuestions.filter(q => {
+        const settings = questionSettings[q.id];
+        return !settings || settings.active !== false;
+    });
+
+    activeQs.forEach((q, index) => {
+        const diseaseEN = diseaseTranslations[q.disease_id]?.en || q.disease_id;
+        const diseaseLT = diseaseTranslations[q.disease_id]?.lt || q.disease_id;
+
+        // Question title
+        giftText += `// Question ${index + 1} - ${diseaseEN}\n`;
+        giftText += `::Q${q.id} - ${diseaseEN}::\n`;
+
+        // Question text (bilingual)
+        giftText += `[html]<div class="nephro-question">\n`;
+        giftText += `<p><strong>English:</strong></p>\n`;
+        giftText += `<p><strong>Assertion:</strong> ${escapeGIFT(q.en.assertion)}</p>\n`;
+        giftText += `<p><strong>Reason:</strong> ${escapeGIFT(q.en.reason)}</p>\n`;
+        giftText += `<p><strong>Lietuvių:</strong></p>\n`;
+        giftText += `<p><strong>Teiginys:</strong> ${escapeGIFT(q.lt.assertion)}</p>\n`;
+        giftText += `<p><strong>Priežastis:</strong> ${escapeGIFT(q.lt.reason)}</p>\n`;
+        giftText += `</div>\n`;
+
+        // Multiple choice options
+        giftText += `{\n`;
+
+        const options = [
+            { letter: 'A', text: 'Both assertion and reason are true, and the reason correctly explains the assertion' },
+            { letter: 'B', text: 'Both assertion and reason are true, but the reason does NOT correctly explain the assertion' },
+            { letter: 'C', text: 'Assertion is true, but the reason is false' },
+            { letter: 'D', text: 'Assertion is false, but the reason is true' },
+            { letter: 'E', text: 'Both assertion and reason are false' }
+        ];
+
+        options.forEach(option => {
+            if (option.letter === q.en.answer) {
+                giftText += `\t=A: ${escapeGIFT(option.text)}\n`;
+            } else {
+                giftText += `\t~A: ${escapeGIFT(option.text)}\n`;
+            }
+        });
+
+        giftText += `}\n\n`;
+
+        // Feedback/Explanation
+        giftText += `// Explanation (EN): ${escapeGIFT(q.en.explanation)}\n`;
+        giftText += `// Explanation (LT): ${escapeGIFT(q.lt.explanation)}\n`;
+        giftText += `\n`;
+    });
+
+    // Create and download file
+    const blob = new Blob([giftText], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    const timestamp = new Date().toISOString().split('T')[0];
+    a.download = `nephropathology_moodle_${timestamp}.gift`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    alert(`Moodle GIFT file exported! ${activeQs.length} active questions included.`);
+}
+
+function escapeGIFT(text) {
+    // Escape special GIFT characters
+    return text
+        .replace(/\\/g, '\\\\')
+        .replace(/~/g, '\\~')
+        .replace(/=/g, '\\=')
+        .replace(/#/g, '\\#')
+        .replace(/{/g, '\\{')
+        .replace(/}/g, '\\}')
+        .replace(/:/g, '\\:');
 }
 
 function importData(event) {
