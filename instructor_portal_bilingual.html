@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nephropathology - Instructor Portal (Bilingual)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+        }
+
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 5px;
+            background: rgba(255,255,255,0.2);
+            padding: 5px;
+            border-radius: 25px;
+        }
+
+        .lang-btn {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            background: transparent;
+            color: white;
+        }
+
+        .lang-btn.active {
+            background: white;
+            color: #667eea;
+        }
+
+        .lang-btn:hover:not(.active) {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .stats-bar {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .controls {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .controls h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background-color: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #5568d3;
+        }
+
+        .btn-success {
+            background-color: #48bb78;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background-color: #38a169;
+        }
+
+        .btn-danger {
+            background-color: #f56565;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #e53e3e;
+        }
+
+        .filters {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .filter-group label {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .filter-group select {
+            padding: 8px 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .questions-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question-card {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .question-card.inactive {
+            opacity: 0.6;
+            border-left-color: #cbd5e0;
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .question-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-disease {
+            background-color: #667eea;
+            color: white;
+        }
+
+        .badge-difficulty {
+            background-color: #ed8936;
+            color: white;
+        }
+
+        .badge-status {
+            background-color: #48bb78;
+            color: white;
+        }
+
+        .badge-inactive {
+            background-color: #cbd5e0;
+            color: #4a5568;
+        }
+
+        .question-content {
+            margin: 15px 0;
+        }
+
+        .question-text {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .question-text strong {
+            color: #2d3748;
+        }
+
+        .question-controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e2e8f0;
+            flex-wrap: wrap;
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            .stats-bar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .language-toggle {
+                position: static;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="language-toggle">
+                <button class="lang-btn active" onclick="setLanguage('en')" id="lang-en">EN</button>
+                <button class="lang-btn" onclick="setLanguage('lt')" id="lang-lt">LT</button>
+            </div>
+            <h1 id="header-title">Nephropathology Instructor Portal</h1>
+            <p id="header-subtitle">Manage and control student access to questions</p>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-value" id="totalQuestions">0</div>
+                <div class="stat-label" id="label-total">Total Questions</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="activeQuestions">0</div>
+                <div class="stat-label" id="label-active">Active Questions</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="inactiveQuestions">0</div>
+                <div class="stat-label" id="label-inactive">Inactive Questions</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="highPriority">0</div>
+                <div class="stat-label" id="label-high-priority">High Priority</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <h2 id="label-bulk-actions">Bulk Actions</h2>
+            <div class="button-group">
+                <button class="btn btn-success" onclick="bulkActivate()" id="btn-activate-all">Activate All</button>
+                <button class="btn btn-danger" onclick="bulkDeactivate()" id="btn-deactivate-all">Deactivate All</button>
+                <button class="btn btn-primary" onclick="resetAllSettings()" id="btn-reset-all">Reset All</button>
+            </div>
+
+            <h2 id="label-filters" style="margin-top: 20px;">Filters</h2>
+            <div class="filters">
+                <div class="filter-group">
+                    <label id="label-disease-filter">Disease:</label>
+                    <select id="diseaseFilter" onchange="applyFilters()">
+                        <option value="all" id="opt-all-diseases">All Diseases</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label id="label-difficulty-filter">Difficulty:</label>
+                    <select id="difficultyFilter" onchange="applyFilters()">
+                        <option value="all" id="opt-all-levels">All Levels</option>
+                        <option value="easy" id="opt-easy">Easy</option>
+                        <option value="medium" id="opt-medium">Medium</option>
+                        <option value="hard" id="opt-hard">Hard</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label id="label-status-filter">Status:</label>
+                    <select id="statusFilter" onchange="applyFilters()">
+                        <option value="all" id="opt-all-status">All</option>
+                        <option value="active" id="opt-active-only">Active Only</option>
+                        <option value="inactive" id="opt-inactive-only">Inactive Only</option>
+                    </select>
+                </div>
+
+                <div class="search-box">
+                    <input type="text" id="searchBox" placeholder="Search questions..." oninput="applyFilters()">
+                </div>
+            </div>
+        </div>
+
+        <div class="questions-container">
+            <h2 id="label-question-bank" style="margin-bottom: 20px;">Question Bank</h2>
+            <div id="questionsList"></div>
+        </div>
+    </div>
+
+    <script>
+        let allQuestions = [];
+        let questionSettings = {};
+        let filteredQuestions = [];
+        let currentLang = 'en';
+        let translations = {};
+        let diseaseTranslations = {};
+
+        // Load bilingual questions
+        async function loadQuestions() {
+            try {
+                const response = await fetch('nephro_questions_bilingual.json');
+                const data = await response.json();
+
+                // Store translations
+                translations = data.interface_translations;
+                diseaseTranslations = data.disease_translations;
+
+                // Convert bilingual format to working format
+                allQuestions = data.questions;
+
+                // Load saved settings
+                const savedSettings = localStorage.getItem('nephro_question_settings');
+                if (savedSettings) {
+                    questionSettings = JSON.parse(savedSettings);
+                } else {
+                    // Initialize all active
+                    allQuestions.forEach((q, index) => {
+                        questionSettings[index] = {
+                            active: true,
+                            priority: 'none'
+                        };
+                    });
+                    saveSettings();
+                }
+
+                populateFilters();
+                updateInterfaceLanguage();
+                applyFilters();
+                updateStats();
+            } catch (error) {
+                console.error('Error loading questions:', error);
+                alert('Error loading questions. Make sure nephro_questions_bilingual.json is available.');
+            }
+        }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+            document.getElementById('lang-lt').classList.toggle('active', lang === 'lt');
+            updateInterfaceLanguage();
+            renderQuestions();
+        }
+
+        function updateInterfaceLanguage() {
+            const t = translations[currentLang];
+            if (!t) return;
+
+            // Update header
+            document.getElementById('header-title').textContent = t.title;
+            document.getElementById('header-subtitle').textContent = t.subtitle;
+
+            // Update stats labels
+            document.getElementById('label-total').textContent = t.total_questions;
+            document.getElementById('label-active').textContent = t.active_questions;
+            document.getElementById('label-inactive').textContent = t.inactive_questions;
+            document.getElementById('label-high-priority').textContent = t.high_priority;
+
+            // Update buttons
+            document.getElementById('label-bulk-actions').textContent = t.bulk_actions;
+            document.getElementById('btn-activate-all').textContent = t.activate_all;
+            document.getElementById('btn-deactivate-all').textContent = t.deactivate_all;
+            document.getElementById('btn-reset-all').textContent = t.reset_all;
+
+            // Update filter labels
+            document.getElementById('label-filters').textContent = t.filters;
+            document.getElementById('label-disease-filter').textContent = t.disease;
+            document.getElementById('label-difficulty-filter').textContent = t.difficulty;
+            document.getElementById('label-status-filter').textContent = t.status;
+
+            // Update filter options
+            document.getElementById('opt-all-diseases').textContent = t.all_diseases;
+            document.getElementById('opt-all-levels').textContent = t.all_levels;
+            document.getElementById('opt-easy').textContent = t.easy;
+            document.getElementById('opt-medium').textContent = t.medium;
+            document.getElementById('opt-hard').textContent = t.hard;
+            document.getElementById('opt-all-status').textContent = t.all;
+            document.getElementById('opt-active-only').textContent = t.active_only;
+            document.getElementById('opt-inactive-only').textContent = t.inactive_only;
+
+            // Update search placeholder
+            document.getElementById('searchBox').placeholder = t.search_questions;
+
+            // Update question bank title
+            document.getElementById('label-question-bank').textContent = t.question_bank;
+
+            // Update disease filter options
+            populateFilters();
+        }
+
+        function populateFilters() {
+            const diseaseSet = new Set();
+            allQuestions.forEach(q => {
+                if (q.disease_id) diseaseSet.add(q.disease_id);
+            });
+
+            const diseaseFilter = document.getElementById('diseaseFilter');
+            const currentValue = diseaseFilter.value;
+            diseaseFilter.innerHTML = `<option value="all">${translations[currentLang].all_diseases}</option>`;
+
+            Array.from(diseaseSet).sort().forEach(diseaseId => {
+                const option = document.createElement('option');
+                option.value = diseaseId;
+                option.textContent = diseaseTranslations[diseaseId][currentLang];
+                diseaseFilter.appendChild(option);
+            });
+
+            diseaseFilter.value = currentValue;
+        }
+
+        function applyFilters() {
+            const diseaseFilter = document.getElementById('diseaseFilter').value;
+            const difficultyFilter = document.getElementById('difficultyFilter').value;
+            const statusFilter = document.getElementById('statusFilter').value;
+            const searchText = document.getElementById('searchBox').value.toLowerCase();
+
+            filteredQuestions = allQuestions.filter((q, index) => {
+                const settings = questionSettings[index];
+
+                if (diseaseFilter !== 'all' && q.disease_id !== diseaseFilter) return false;
+                if (difficultyFilter !== 'all' && q.difficulty !== difficultyFilter) return false;
+                if (statusFilter === 'active' && !settings.active) return false;
+                if (statusFilter === 'inactive' && settings.active) return false;
+
+                if (searchText) {
+                    const searchableText = `${q[currentLang].assertion} ${q[currentLang].reason}`.toLowerCase();
+                    if (!searchableText.includes(searchText)) return false;
+                }
+
+                return true;
+            });
+
+            renderQuestions();
+        }
+
+        function renderQuestions() {
+            const container = document.getElementById('questionsList');
+            const t = translations[currentLang];
+
+            if (filteredQuestions.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #999; padding: 40px;">No questions match filters.</p>';
+                return;
+            }
+
+            container.innerHTML = filteredQuestions.map((q, filterIndex) => {
+                const realIndex = allQuestions.indexOf(q);
+                const settings = questionSettings[realIndex];
+                const isActive = settings.active;
+
+                let cardClass = 'question-card';
+                if (!isActive) cardClass += ' inactive';
+
+                const diseaseText = diseaseTranslations[q.disease_id]?.[currentLang] || q.disease_id;
+
+                return `
+                    <div class="${cardClass}">
+                        <div class="question-header">
+                            <div class="question-meta">
+                                <span class="badge badge-disease">${diseaseText}</span>
+                                <span class="badge badge-difficulty">${q.difficulty.toUpperCase()}</span>
+                                <span class="badge ${isActive ? 'badge-status' : 'badge-inactive'}">
+                                    ${isActive ? t.active : t.inactive}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="question-content">
+                            <div class="question-text">
+                                <strong>${t.assertion}:</strong> ${q[currentLang].assertion}
+                            </div>
+                            <div class="question-text">
+                                <strong>${t.reason}:</strong> ${q[currentLang].reason}
+                            </div>
+                            <div class="question-text" style="color: #48bb78; font-weight: 600;">
+                                <strong>${t.answer}:</strong> ${q[currentLang].answer}
+                            </div>
+                        </div>
+
+                        <div class="question-controls">
+                            <button class="btn ${isActive ? 'btn-danger' : 'btn-success'} btn-sm"
+                                    onclick="toggleActive(${realIndex})">
+                                ${isActive ? t.deactivate : t.activate}
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function toggleActive(index) {
+            questionSettings[index].active = !questionSettings[index].active;
+            saveSettings();
+            applyFilters();
+            updateStats();
+        }
+
+        function bulkActivate() {
+            allQuestions.forEach((q, index) => {
+                questionSettings[index].active = true;
+            });
+            saveSettings();
+            applyFilters();
+            updateStats();
+        }
+
+        function bulkDeactivate() {
+            allQuestions.forEach((q, index) => {
+                questionSettings[index].active = false;
+            });
+            saveSettings();
+            applyFilters();
+            updateStats();
+        }
+
+        function resetAllSettings() {
+            if (confirm('Reset all settings?')) {
+                allQuestions.forEach((q, index) => {
+                    questionSettings[index] = {
+                        active: true,
+                        priority: 'none'
+                    };
+                });
+                saveSettings();
+                applyFilters();
+                updateStats();
+            }
+        }
+
+        function saveSettings() {
+            localStorage.setItem('nephro_question_settings', JSON.stringify(questionSettings));
+        }
+
+        function updateStats() {
+            const total = allQuestions.length;
+            const active = Object.values(questionSettings).filter(s => s.active).length;
+            const inactive = total - active;
+            const highPriority = Object.values(questionSettings).filter(s => s.priority === 'high').length;
+
+            document.getElementById('totalQuestions').textContent = total;
+            document.getElementById('activeQuestions').textContent = active;
+            document.getElementById('inactiveQuestions').textContent = inactive;
+            document.getElementById('highPriority').textContent = highPriority;
+        }
+
+        // Initialize
+        loadQuestions();
+    </script>
+</body>
+</html>
