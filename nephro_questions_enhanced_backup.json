@@ -7,21 +7,15 @@
     ],
     "total_questions": 120,
     "created": "2025-12-28T19:25:42.852Z",
-    "updated": "2025-12-29T13:44:30.319989",
-    "version": "4.2-migrated",
+    "updated": "2025-12-28T22:09:13.755652",
+    "version": "4.0-enhanced-with-images",
     "translation_method": "Google Translate with medical terminology preservation + manual editing",
     "enhancement_source": "SlidesForSelfStudy_Nephropathology 2024",
     "questions_with_images": 36,
     "generation_methods": [
       "Original manual creation (68 questions)",
       "PowerPoint extraction and curation (52 questions)"
-    ],
-    "image_migration": {
-      "migrated": 36,
-      "skipped": 0,
-      "errors": 0,
-      "new_location": "question_images/"
-    }
+    ]
   },
   "interface_translations": {
     "en": {
@@ -1436,7 +1430,7 @@
         "answer": "A",
         "explanation": "Minimalių pokyčių liga rodo difuzinį podocitų kojelių išnykimą. Šis pažeidimas matomas tik elektronine mikroskopija, ne šviesos mikroskopija. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_69.jpg"
+      "image": "extracted_images/MCD/MCD_slide13_img1.jpg"
     },
     {
       "id": 70,
@@ -1456,7 +1450,7 @@
         "answer": "A",
         "explanation": "Minimalių pokyčių ligos glomerulai atrodo normalūs šviesos mikroskopijoje. Diagnostinis pažeidimas yra ultrastruktūrinis kojelių išnykimas, matomas tik elektronine mikroskopija. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_70.jpg"
+      "image": "extracted_images/MCD/MCD_slide13_img1.jpg"
     },
     {
       "id": 71,
@@ -1476,7 +1470,7 @@
         "answer": "A",
         "explanation": "Minimalių pokyčių liga paprastai pasireiškia nefroziniu sindromu vaikams. Tai dažniausia nefrozinio sindromo priežastis vaikams iki 10 metų. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_71.jpg"
+      "image": "extracted_images/MCD/MCD_slide12_img1.jpg"
     },
     {
       "id": 72,
@@ -1496,7 +1490,7 @@
         "answer": "A",
         "explanation": "Minimalių pokyčių liga paprastai gerai reaguoja į kortikosteroidų terapiją. Podocitų pažeidimas yra grįžtamas ir funkcinis, o ne struktūrinis. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_72.jpg"
+      "image": "extracted_images/MCD/MCD_slide13_img1.jpg"
     },
     {
       "id": 73,
@@ -1516,7 +1510,7 @@
         "answer": "A",
         "explanation": "Imunofluorescencija minimalių pokyčių ligoje paprastai yra neigiama. Šioje ligoje nėra imunokompleksinių nuosėdų. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_73.jpg"
+      "image": "extracted_images/MCD/MCD_slide14_img1.jpg"
     },
     {
       "id": 74,
@@ -1536,7 +1530,7 @@
         "answer": "A",
         "explanation": "Podocitai dengia glomerulo kapiliarus ir formuoja filtracijos barjerą. Jų kojelės persipina sukurdamos plyšio diafragmą. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_74.jpg"
+      "image": "extracted_images/MCD/MCD_slide5_img1.jpg"
     },
     {
       "id": 75,
@@ -1556,7 +1550,7 @@
         "answer": "A",
         "explanation": "Glomerulo filtracijos barjeras užtikrina ir dydžio, ir krūvio selektyvumą. Neigiamai įkrauti baltymai yra atstumti neigiamai įkrautos bazinės membranos. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_75.jpg"
+      "image": "extracted_images/OTHER/OTHER_slide6_img1.jpg"
     },
     {
       "id": 76,
@@ -1576,7 +1570,7 @@
         "answer": "A",
         "explanation": "Selektyvus proteinurija yra būdinga minimalių pokyčių ligai. Krūvio barjeras yra pirmiausia paveiktas, leidžiantis albumino praradimui, išlaikant didesnius baltymus. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_76.jpg"
+      "image": "extracted_images/MCD/MCD_slide12_img1.jpg"
     },
     {
       "id": 77,
@@ -1596,7 +1590,7 @@
         "answer": "A",
         "explanation": "Fokusinį kojelių išnykimą galima matyti antrinėse priežastyse. Difuzinis išnykimas yra reikalingas pirminės minimalių pokyčių ligos diagnozei. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_77.jpg"
+      "image": "extracted_images/MCD/MCD_slide13_img1.jpg"
     },
     {
       "id": 78,
@@ -1616,7 +1610,7 @@
         "answer": "A",
         "explanation": "Minimalių pokyčių liga sudaro 10-15% nefrozinio sindromo suaugusiems. Suaugusiems kitos priežastys, tokios kaip membraninė nefropatija ir FSGS yra dažnesnės. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_78.jpg"
+      "image": "extracted_images/MCD/MCD_slide12_img1.jpg"
     },
     {
       "id": 79,
@@ -1636,7 +1630,7 @@
         "answer": "A",
         "explanation": "Membraninė nefropatija rodo subepitelinius imunokompleksinius nuosėdus. Šie nuosėdai formuoja būdingus smailius, matomus sidabro dažyme. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_79.jpg"
+      "image": "extracted_images/MGN/MGN_slide34_img1.jpg"
     },
     {
       "id": 80,
@@ -1656,7 +1650,7 @@
         "answer": "A",
         "explanation": "Subepitheliniai nuosėdai membraninėje nefropatijoje gali išlikti mėnesius. Šie nuosėdai yra diagnostiniai ir koreliuoja su tęsiama proteinurija. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_80.jpg"
+      "image": "extracted_images/MGN/MGN_slide47_img1.jpg"
     },
     {
       "id": 81,
@@ -1676,7 +1670,7 @@
         "answer": "A",
         "explanation": "Imunofluorescencija membraninėje nefropatijoje rodo granulinius IgG nuosėdus. IgG antikūnai jungiasi prie podocitų antigenų sukurdami in-situ imuninius kompleksus. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_81.jpg"
+      "image": "extracted_images/IgAN/IgAN_slide9_img1.jpg"
     },
     {
       "id": 82,
@@ -1696,7 +1690,7 @@
         "answer": "A",
         "explanation": "PLA2R antikūnai randami 70-80% pirminės membraninės nefropatijos. Fosfolipazė A2 receptorius yra pagrindinis podocitų antigenas idiopatinėje MGN. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_82.jpg"
+      "image": "extracted_images/MGN/MGN_slide34_img1.jpg"
     },
     {
       "id": 83,
@@ -1716,7 +1710,7 @@
         "answer": "A",
         "explanation": "Membraninė nefropatija progresuoja per keturias histologines stadijas. Stadijos atspindi evoliuciją nuo ankstyvų nuosėdų iki išplėtotos membranos sustorėjimo. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_83.jpg"
+      "image": "extracted_images/MGN/MGN_slide34_img1.jpg"
     },
     {
       "id": 84,
@@ -1736,7 +1730,7 @@
         "answer": "A",
         "explanation": "I stadijos membraninė nefropatija rodo elektronų tankius nuosėdus be smailių. GBM smailių formavimas įvyksta vėliau, kai bazinė membrana auga aplink nuosėdus. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_84.jpg"
+      "image": "extracted_images/MGN/MGN_slide34_img1.jpg"
     },
     {
       "id": 85,
@@ -1756,7 +1750,7 @@
         "answer": "A",
         "explanation": "Smailiai sidabro dažyme yra patognomoniški membraninei nefropatijai. Smailiai reprezentuoja GBM išplėtimus tarp subepithelinių nuosėdų. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_85.jpg"
+      "image": "extracted_images/MGN/MGN_slide34_img1.jpg"
     },
     {
       "id": 86,
@@ -1776,7 +1770,7 @@
         "answer": "A",
         "explanation": "Antrinė membraninė nefropatija gali būti sukeliama lupus ir infekcijų. Įvairūs antigenai gali nusėsti subepithelinėse vietose sukurdami panašią morfologiją. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_86.jpg"
+      "image": "extracted_images/MGN/MGN_slide34_img1.jpg"
     },
     {
       "id": 87,
@@ -1796,7 +1790,7 @@
         "answer": "A",
         "explanation": "Membraninė nefropatija yra dažniausia nefrozinio sindromo priežastis baltaodžiams suaugusiems. Pirminė MGN paprastai paveikia suaugusiuosius virš 40 metų. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_87.jpg"
+      "image": "extracted_images/MGN/MGN_slide34_img1.jpg"
     },
     {
       "id": 88,
@@ -1816,7 +1810,7 @@
         "answer": "A",
         "explanation": "Difuzinis smulkiai granuliuotas IgG išilgai kapiliarų sienelių rodo membraninę nefropatiją. Šis modelis atspindi subepitelinį imunokompleksinį nusėdimą. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_88.jpg"
+      "image": "extracted_images/IgAN/IgAN_slide9_img1.jpg"
     },
     {
       "id": 89,
@@ -1836,7 +1830,7 @@
         "answer": "A",
         "explanation": "Fokusinė segmentinė glomerulosklerozė pažeidžia tik kai kuriuos glomerulius. Sklerozė yra ir fokusinė (kai kurie glomerulai) ir segmentinė (dalis kampo). Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_89.png"
+      "image": "extracted_images/FSGS/FSGS_slide16_img2.png"
     },
     {
       "id": 90,
@@ -1856,7 +1850,7 @@
         "answer": "A",
         "explanation": "FSGS apibrėžiama kaip segmentinis glomerulo kapiliarų užakimas ekstraląsteliniu matriksu. Tai skiria ją nuo visuotinės glomerulosklerozės. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_90.png"
+      "image": "extracted_images/FSGS/FSGS_slide19_img1.png"
     },
     {
       "id": 91,
@@ -1876,7 +1870,7 @@
         "answer": "A",
         "explanation": "Pirminė FSGS pasireiškia nefroziniu sindromu ir progresuojančia inkstų nepakankamumu. Podocitų pažeidimas sukelia proteinuriją ir progresuojantį randėjimą. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_91.png"
+      "image": "extracted_images/FSGS/FSGS_slide19_img1.png"
     },
     {
       "id": 92,
@@ -1896,7 +1890,7 @@
         "answer": "A",
         "explanation": "Kolapsuojanti FSGS variantas turi blogiausią prognozę. Ji rodo išplėstinį podocitų atsiskyrimą ir greitą progresavimą į inkstų nepakankamumą. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_92.png"
+      "image": "extracted_images/FSGS/FSGS_slide19_img1.png"
     },
     {
       "id": 93,
@@ -1916,7 +1910,7 @@
         "answer": "A",
         "explanation": "FSGS gali būti pirminė arba antrinė dėl kitų būklių. Antrinė FSGS įvyksta dėl adaptyvinių pokyčių iš sumažėjusios nefronų masės ar kitų stresorių. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_93.png"
+      "image": "extracted_images/FSGS/FSGS_slide16_img2.png"
     },
     {
       "id": 94,
@@ -1936,7 +1930,7 @@
         "answer": "A",
         "explanation": "Galiuko pažeidimo FSGS turi geresnį atsaką į steroidus. Šis variantas rodo mažesnį podocitų išsekimą ir geresnį inkstų funkcijos išsaugojimą. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_94.png"
+      "image": "extracted_images/FSGS/FSGS_slide19_img1.png"
     },
     {
       "id": 95,
@@ -1956,7 +1950,7 @@
         "answer": "A",
         "explanation": "FSGS rodo kojelių išnykimą elektroninėje mikroskopijoje. Podocitų pažeidimas yra pirminis įvykis vedantis į segmentinį randėjimą. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_95.png"
+      "image": "extracted_images/FSGS/FSGS_slide16_img2.png"
     },
     {
       "id": 96,
@@ -1976,7 +1970,7 @@
         "answer": "A",
         "explanation": "Perihilarinė FSGS dažnai susieta su antrinėmis priežastimis. Ji įvyksta būklėse sukeliančiose glomerulo hiperfiltaciją kaip nutukimas ir sumažėjusi nefronų masė. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_96.png"
+      "image": "extracted_images/FSGS/FSGS_slide19_img1.png"
     },
     {
       "id": 97,
@@ -2110,7 +2104,7 @@
         "answer": "A",
         "explanation": "Linijinis IgG dažymas išilgai GBM yra diagnostinis anti-GBM ligai. Antikūnai jungiasi tolygiai prie GBM sukurdami lygų linijinį modelį. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_103.jpg"
+      "image": "extracted_images/IgAN/IgAN_slide9_img1.jpg"
     },
     {
       "id": 104,
@@ -2130,7 +2124,7 @@
         "answer": "A",
         "explanation": "Granulinis imunofluorescencija rodo imunokompleksais tarpininkaujamą ligą. Imuniniai kompleksai nusėda diskrečiose vietose sukurdami granulini modelį. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_104.jpg"
+      "image": "extracted_images/IgAN/IgAN_slide9_img1.jpg"
     },
     {
       "id": 105,
@@ -2150,7 +2144,7 @@
         "answer": "A",
         "explanation": "Pauci-imuninis glomerulonefritas rodo nebuvimą arba minimalų imunofluorescenciją. ANCA susijęs GN trūksta reikšmingo imunokompleksinio nusėdimo. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_105.jpg"
+      "image": "extracted_images/IgAN/IgAN_slide9_img1.jpg"
     },
     {
       "id": 106,
@@ -2170,7 +2164,7 @@
         "answer": "A",
         "explanation": "C3-dominuojantis glomerulonefritas rodo komplemento tarpininkaujamą pažeidimą. Alternatyvaus komplemento kelio disreguliacija sukelia C3 nusėdimą be imunoglobulinų. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_106.jpg"
+      "image": "extracted_images/IgAN/IgAN_slide9_img1.jpg"
     },
     {
       "id": 107,
@@ -2190,7 +2184,7 @@
         "answer": "A",
         "explanation": "Mezanginis IgA su C3 bet nebuvimas C1q yra tipiškas IgA nefropatijai. IgA aktyvina komplementą per alternatyvų kelią, ne klasikinį kelią. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_107.jpg"
+      "image": "extracted_images/IgAN/IgAN_slide9_img1.jpg"
     },
     {
       "id": 108,
@@ -2286,7 +2280,7 @@
         "answer": "A",
         "explanation": "ANCA susijęs GN rodo pauci-imuninį pusmėnulinį glomerulonefritą. Neutrofilų tarpininkaujamas pažeidimas įvyksta be reikšmingo imunokompleksinio nusėdimo. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_112.jpg"
+      "image": "extracted_images/OTHER/OTHER_slide66_img1.jpg"
     },
     {
       "id": 113,
@@ -2306,7 +2300,7 @@
         "answer": "A",
         "explanation": "ANCA-GN apima granulomatozę su poliangiitu (Wegener's). Tai viena iš trijų pagrindinių ANCA susijusių vaskulitų. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_113.jpg"
+      "image": "extracted_images/OTHER/OTHER_slide66_img1.jpg"
     },
     {
       "id": 114,
@@ -2326,7 +2320,7 @@
         "answer": "A",
         "explanation": "ANCA antikūnai taikosi į neutrofilų citoplazminius fermentus. MPO-ANCA ir PR3-ANCA aktyvina neutrofilus sukeliantis nekrotizuojantį uždegimą. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_114.jpg"
+      "image": "extracted_images/OTHER/OTHER_slide66_img1.jpg"
     },
     {
       "id": 115,

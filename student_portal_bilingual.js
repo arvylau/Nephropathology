@@ -120,7 +120,8 @@ function renderCurrentQuestion() {
     // Build image HTML if image exists
     let imageHtml = '';
     if (question.image) {
-        const imagePath = `Textbook_LT/${question.image}`;
+        // Image path is relative: question_images/question_69.jpg
+        const imagePath = question.image;
         const imageCaption = currentLang === 'en'
             ? 'Click to enlarge'
             : 'Spustelėkite norėdami padidinti';

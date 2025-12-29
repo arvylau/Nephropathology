@@ -153,7 +153,8 @@ function renderQuestions(questions) {
         // Build image HTML if image exists
         let imageHtml = '';
         if (q.image) {
-            const imagePath = `Textbook_LT/${q.image}`;
+            // Image path is relative: question_images/question_69.jpg
+            const imagePath = q.image;
             imageHtml = `
                 <div class="question-image">
                     <img src="${imagePath}"

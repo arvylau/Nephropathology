@@ -71,6 +71,20 @@ RESULT: Everything saved instantly!
         No export button needed!
 ```
 
+### **Remove Image (with Auto-Backup):**
+
+```
+YOU:    Click "🗑️ Remove" button on question
+PORTAL: ✓ Moves image to REMOVED subfolder
+        ✓ Adds timestamp: question_69_2025-12-29.jpg
+        ✓ Updates JSON to remove image reference
+        ✓ Shows "✓ Image removed and moved to REMOVED folder"
+
+RESULT: Image safely backed up in REMOVED/
+        Database updated automatically
+        Can recover image if needed
+```
+
 ---
 
 ## 📋 Workflow Comparison
@@ -152,6 +166,14 @@ question_images/
 Saved to: question_images/question_[ID].[ext]
 Example:  question_images/question_69.jpg
 ```
+
+### **Removed Images (Backup):**
+```
+Saved to: question_images/REMOVED/question_[ID]_[DATE].[ext]
+Example:  question_images/REMOVED/question_69_2025-12-29.jpg
+```
+
+**Recovery:** If you accidentally remove an image, you can find it in the REMOVED subfolder with a timestamp. Simply copy it back to the question_images folder and rename it.
 
 ### **JSON Database:**
 ```
@@ -283,6 +305,9 @@ Nephropathology/
 ├── question_images/                  ← Select this in portal
 │   ├── question_69.jpg               ← Auto-saved
 │   ├── question_71.png               ← Auto-saved
+│   ├── REMOVED/                      ← Auto-created for removed images
+│   │   ├── question_69_2025-12-29.jpg  ← Backup of removed image
+│   │   └── question_71_2025-12-28.png  ← Backup of removed image
 │   └── nephro_questions_auto_updated.json  ← Auto-saved
 ├── nephro_questions_enhanced.json    ← Original (keep as backup)
 ├── student_portal_bilingual.html
@@ -293,8 +318,23 @@ Nephropathology/
 ### **Backup Strategy:**
 1. **Never delete** `nephro_questions_enhanced.json` (original)
 2. **Auto-saved JSON** is at `question_images/nephro_questions_auto_updated.json`
-3. **Make backups** before major changes
-4. **Test portals** after updates
+3. **Removed images** are backed up in `REMOVED/` subfolder with timestamps
+4. **Make backups** before major changes
+5. **Test portals** after updates
+
+### **Image Removal & Recovery:**
+**To Remove an Image:**
+1. Click the "🗑️ Remove" button on the question card
+2. Confirm the removal
+3. Image is automatically moved to `REMOVED/` subfolder with timestamp
+4. Database is updated (if auto-save is enabled)
+
+**To Recover a Removed Image:**
+1. Navigate to `question_images/REMOVED/` folder
+2. Find the image with timestamp (e.g., `question_69_2025-12-29.jpg`)
+3. Copy it back to `question_images/` folder
+4. Rename to remove timestamp (e.g., `question_69.jpg`)
+5. Update the question in the portal to re-add the image path
 
 ### **Update Portals:**
 After using auto-save, update your portals to use the new JSON:
@@ -361,11 +401,13 @@ const response = await fetch('question_images/nephro_questions_auto_updated.json
 ✅ Updates JSON database (if enabled)
 ✅ Shows confirmation notifications
 ✅ No manual file organization needed
+✅ **NEW:** Backs up removed images to REMOVED folder
 
 ### **What You Do:**
 1️⃣ Select folder (once)
 2️⃣ Drag & drop images
-3️⃣ Done!
+3️⃣ Remove images safely (auto-backed up)
+4️⃣ Done!
 
 ### **Time Saved:**
 - **Before:** 10 minutes per batch

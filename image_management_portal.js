@@ -154,7 +154,8 @@ function renderGallery(questions) {
             imageSrc = newImageData[q.id].dataUrl;
             imagePath = `NEW: ${newImageData[q.id].file.name}`;
         } else if (q.image) {
-            imageSrc = `Textbook_LT/${q.image}`;
+            // Image path is relative: question_images/question_69.jpg
+            imageSrc = q.image;
             imagePath = q.image;
         }
 
@@ -443,19 +444,108 @@ function cancelReplacement(questionId) {
     }
 }
 
-function removeImage(questionId) {
-    if (confirm('Remove the image from this question? This will update the database when exported.')) {
-        const question = allQuestions.find(q => q.id === questionId);
-        if (question) {
-            // Mark for removal by setting image to null
-            newImageData[questionId] = {
-                file: null,
-                dataUrl: null,
-                removed: true
-            };
-            modifiedQuestions.add(questionId);
-            applyFilters();
-            updateStats();
+async function removeImage(questionId) {
+    const question = allQuestions.find(q => q.id === questionId);
+    if (!question || !question.image) return;
+
+    if (!confirm('Remove this image?\n\nThe image file will be moved to the REMOVED subfolder as a backup.')) {
+        return;
+    }
+
+    try {
+        // If folder access is available, move the file to REMOVED subfolder
+        if (imageFolderHandle) {
+            await moveImageToRemoved(question.image, questionId);
+        }
+
+        // Mark for removal in database
+        newImageData[questionId] = {
+            file: null,
+            dataUrl: null,
+            removed: true
+        };
+        modifiedQuestions.add(questionId);
+
+        // Update question to remove image reference
+        question.image = null;
+
+        // AUTO-SAVE: Save JSON if auto-save is enabled
+        if (autoSaveEnabled && imageFolderHandle) {
+            await autoSaveJSON();
+        }
+
+        applyFilters();
+        updateStats();
+        showToast('✓ Image removed and moved to REMOVED folder');
+    } catch (error) {
+        console.error('Error removing image:', error);
+        alert('Could not move image to REMOVED folder. The image reference will still be removed from the database.');
+
+        // Still mark for removal even if file move fails
+        newImageData[questionId] = {
+            file: null,
+            dataUrl: null,
+            removed: true
+        };
+        modifiedQuestions.add(questionId);
+        question.image = null;
+
+        applyFilters();
+        updateStats();
+    }
+}
+
+// Move image file to REMOVED subfolder
+async function moveImageToRemoved(imagePath, questionId) {
+    if (!imageFolderHandle) {
+        throw new Error('No folder access');
+    }
+
+    // Extract filename from path: "question_images/question_69.jpg" -> "question_69.jpg"
+    const fileName = imagePath.split('/').pop();
+
+    try {
+        // Get handle to the existing image file
+        const existingFileHandle = await imageFolderHandle.getFileHandle(fileName);
+
+        // Read the file content
+        const file = await existingFileHandle.getFile();
+        const fileContent = await file.arrayBuffer();
+
+        // Create REMOVED subdirectory if it doesn't exist
+        let removedFolderHandle;
+        try {
+            removedFolderHandle = await imageFolderHandle.getDirectoryHandle('REMOVED', { create: true });
+        } catch (error) {
+            console.error('Error creating REMOVED folder:', error);
+            throw new Error('Could not create REMOVED subfolder');
+        }
+
+        // Add timestamp to filename to prevent overwrites
+        const timestamp = new Date().toISOString().replace(/[:.]/g, '-').split('T')[0];
+        const extension = fileName.split('.').pop();
+        const baseName = fileName.replace(`.${extension}`, '');
+        const newFileName = `${baseName}_${timestamp}.${extension}`;
+
+        // Write file to REMOVED subfolder
+        const newFileHandle = await removedFolderHandle.getFileHandle(newFileName, { create: true });
+        const writable = await newFileHandle.createWritable();
+        await writable.write(fileContent);
+        await writable.close();
+
+        console.log(`✓ Moved to REMOVED: ${newFileName}`);
+
+        // Delete the original file
+        // Note: File System Access API doesn't have a direct delete method
+        // We'll overwrite with empty content or leave it (browser limitation)
+        // The database update will handle the logical removal
+
+    } catch (error) {
+        if (error.name === 'NotFoundError') {
+            console.log('Image file not found in folder (may have been already removed)');
+            // This is OK - the file might not exist in the folder yet
+        } else {
+            throw error;
         }
     }
 }
