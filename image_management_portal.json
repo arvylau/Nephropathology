@@ -1,0 +1,2436 @@
+{
+  "metadata": {
+    "title": "Nephropathology Assessment - Enhanced with Updated Images",
+    "languages": [
+      "en",
+      "lt"
+    ],
+    "total_questions": 120,
+    "updated": "2025-12-29T09:47:30.816Z",
+    "version": "4.1-image-managed",
+    "questions_with_images": 35,
+    "modifications": {
+      "modified_questions": 4,
+      "modified_date": "2025-12-29T09:47:30.819Z"
+    }
+  },
+  "interface_translations": {
+    "en": {
+      "title": "Nephropathology Instructor Portal",
+      "subtitle": "Manage and control student access to questions",
+      "total_questions": "Total Questions",
+      "active_questions": "Active Questions",
+      "inactive_questions": "Inactive Questions",
+      "high_priority": "High Priority",
+      "bulk_actions": "Bulk Actions",
+      "activate_all": "Activate All",
+      "deactivate_all": "Deactivate All",
+      "activate_filtered": "Activate Filtered",
+      "deactivate_filtered": "Deactivate Filtered",
+      "reset_all": "Reset All",
+      "export_settings": "Export Settings",
+      "import_settings": "Import Settings",
+      "filters": "Filters",
+      "disease": "Disease",
+      "all_diseases": "All Diseases",
+      "difficulty": "Difficulty",
+      "all_levels": "All Levels",
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard",
+      "status": "Status",
+      "all": "All",
+      "active_only": "Active Only",
+      "inactive_only": "Inactive Only",
+      "priority": "Priority",
+      "all_priorities": "All Priorities",
+      "high": "High",
+      "low": "Low",
+      "none": "None",
+      "search_questions": "Search questions...",
+      "question_bank": "Question Bank",
+      "activate": "Activate",
+      "deactivate": "Deactivate",
+      "assertion": "Assertion",
+      "reason": "Reason",
+      "answer": "Answer",
+      "explanation": "Explanation",
+      "active": "ACTIVE",
+      "inactive": "INACTIVE",
+      "choose_answer": "Choose the correct answer:",
+      "both_true_explains": "Both assertion and reason are true, and the reason correctly explains the assertion",
+      "both_true_not_explains": "Both assertion and reason are true, but the reason does NOT correctly explain the assertion",
+      "assertion_true_reason_false": "Assertion is true, but the reason is false",
+      "assertion_false_reason_true": "Assertion is false, but the reason is true",
+      "both_false": "Both assertion and reason are false"
+    },
+    "lt": {
+      "title": "Nefropatologijos instruktoriaus portalas",
+      "subtitle": "Valdykite ir kontroliuokite studentų prieigą prie klausimų",
+      "total_questions": "Iš viso klausimų",
+      "active_questions": "Aktyvūs klausimai",
+      "inactive_questions": "Neaktyvūs klausimai",
+      "high_priority": "Aukštas prioritetas",
+      "bulk_actions": "Masiniai veiksmai",
+      "activate_all": "Aktyvuoti visus",
+      "deactivate_all": "Išjungti visus",
+      "activate_filtered": "Aktyvuoti filtruotus",
+      "deactivate_filtered": "Išjungti filtruotus",
+      "reset_all": "Atstatyti viską",
+      "export_settings": "Eksportuoti nustatymus",
+      "import_settings": "Importuoti nustatymus",
+      "filters": "Filtrai",
+      "disease": "Liga",
+      "all_diseases": "Visos ligos",
+      "difficulty": "Sudėtingumas",
+      "all_levels": "Visi lygiai",
+      "easy": "Lengvas",
+      "medium": "Vidutinis",
+      "hard": "Sunkus",
+      "status": "Būsena",
+      "all": "Visi",
+      "active_only": "Tik aktyvūs",
+      "inactive_only": "Tik neaktyvūs",
+      "priority": "Prioritetas",
+      "all_priorities": "Visi prioritetai",
+      "high": "Aukštas",
+      "low": "Žemas",
+      "none": "Nėra",
+      "search_questions": "Ieškoti klausimų...",
+      "question_bank": "Klausimų bankas",
+      "activate": "Aktyvuoti",
+      "deactivate": "Išjungti",
+      "assertion": "Teiginys",
+      "reason": "Priežastis",
+      "answer": "Atsakymas",
+      "explanation": "Paaiškinimas",
+      "active": "AKTYVUS",
+      "inactive": "NEAKTYVUS",
+      "choose_answer": "Pasirinkite teisingą atsakymą:",
+      "both_true_explains": "Ir teiginys, ir priežastis yra teisingi, o priežastis teisingai paaiškina teiginį",
+      "both_true_not_explains": "Ir teiginys, ir priežastis yra teisingi, tačiau priežastis NEPAAIŠKINA teiginio",
+      "assertion_true_reason_false": "Teiginys yra teisingas, bet priežastis yra klaidinga",
+      "assertion_false_reason_true": "Teiginys yra klaidingas, bet priežastis yra teisinga",
+      "both_false": "Ir teiginys, ir priežastis yra klaidingi"
+    }
+  },
+  "disease_translations": {
+    "MCD": {
+      "en": "Minimal Change Disease",
+      "lt": "Minimalių pokyčių liga"
+    },
+    "FSGS_PRIMARY": {
+      "en": "Primary Focal Segmental Glomerulosclerosis",
+      "lt": "Pirminė fokalinė segmentinė glomerulosklerozė"
+    },
+    "FSGS_SECONDARY": {
+      "en": "Secondary Focal Segmental Glomerulosclerosis",
+      "lt": "Antrinė fokalinė segmentinė glomerulosklerozė"
+    },
+    "MGN": {
+      "en": "Membranous Glomerulopathy",
+      "lt": "Membraninė glomerulopatija"
+    },
+    "APIGN": {
+      "en": "Acute Postinfectious Glomerulonephritis",
+      "lt": "Ūminis poinfekcinė glomerulonefritas"
+    },
+    "MPGN": {
+      "en": "Membranoproliferative Glomerular Injury",
+      "lt": "Membranoproliferacinis glomerulų pažeidimas"
+    },
+    "IgAN": {
+      "en": "IgA Nephropathy",
+      "lt": "IgA nefropatija"
+    },
+    "ANTI_GBM": {
+      "en": "Anti-GBM Disease",
+      "lt": "Anti-GBM liga"
+    },
+    "ANCA_GN": {
+      "en": "ANCA-Associated Glomerulonephritis",
+      "lt": "Su ANCA susijęs glomerulonefritas"
+    },
+    "IC_RPGN": {
+      "en": "Immune Complex-Mediated RPGN",
+      "lt": "Imuninių kompleksų sukeltas greitai progresuojantis glomerulonefritas"
+    },
+    "ALPORT": {
+      "en": "Alport Syndrome",
+      "lt": "Alporto sindromas"
+    },
+    "THIN_GBM": {
+      "en": "Thin Glomerular Basement Membrane Disease",
+      "lt": "Plonos glomerulų bazinės membranos liga"
+    },
+    "MYELOMA_KIDNEY": {
+      "en": "Myeloma Cast Nephropathy",
+      "lt": "Mielomos cilindrų nefropatija"
+    },
+    "ATN": {
+      "en": "Acute Tubular Necrosis",
+      "lt": "Ūminė kanalėlių nekrozė"
+    },
+    "AIN": {
+      "en": "Acute Interstitial Nephritis",
+      "lt": "Ūminis intersticinis nefritas"
+    },
+    "DIABETIC_GN": {
+      "en": "Diabetic Glomerulosclerosis",
+      "lt": "Diabetinė glomerulosklerozė"
+    },
+    "AMYLOIDOSIS": {
+      "en": "Renal Amyloidosis",
+      "lt": "Inkstų amiloidozė"
+    }
+  },
+  "questions": [
+    {
+      "id": 1,
+      "disease_id": "MCD",
+      "topic": "MCD_pathology",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Patients with minimal change disease typically have normal-appearing glomeruli on light microscopy despite presenting with nephrotic syndrome.",
+        "reason": "The pathologic lesion in minimal change disease is diffuse podocyte foot process effacement, which is only visible on electron microscopy.",
+        "answer": "A",
+        "explanation": "Both statements are true. MCD shows normal glomeruli on LM because the primary lesion (foot process effacement) is ultrastructural and requires EM to visualize. This foot process effacement disrupts the glomerular filtration barrier, causing massive proteinuria and nephrotic syndrome."
+      },
+      "lt": {
+        "assertion": "Pacientams, sergantiems minimalių pokyčių liga, šviesos mikroskopu paprastai būna normalios formos glomerulų, nepaisant nefrozinio sindromo.",
+        "reason": "Patologinis pažeidimas esant minimalių pakitimų ligai yra difuzinis podocitų pėdos proceso išsausėjimas, kuris matomas tik elektroniniu mikroskopu.",
+        "answer": "A",
+        "explanation": "Abu teiginiai yra teisingi.MCD rodo normalius glomerulus LM, nes pirminis pažeidimas (pėdos proceso išnykimas) yra ultrastruktūrinis ir norint jį vizualizuoti, reikia EM.Šis pėdos proceso išsausėjimas pažeidžia glomerulų filtracijos barjerą, sukeldamas didžiulę proteinuriją ir nefrozinį sindromą."
+      }
+    },
+    {
+      "id": 2,
+      "disease_id": "FSGS_PRIMARY",
+      "topic": "FSGS_clinical_distinction",
+      "difficulty": "hard",
+      "en": {
+        "assertion": "A patient with focal segmental glomerulosclerosis (FSGS) presenting with sub-nephrotic range proteinuria (<3.5g/day) likely has secondary FSGS rather than primary FSGS.",
+        "reason": "Secondary FSGS typically results from adaptive hyperfiltration in reduced nephron mass and usually manifests as sub-nephrotic proteinuria, whereas primary FSGS commonly presents with full nephrotic syndrome.",
+        "answer": "A",
+        "explanation": "Both statements are true and the reason explains the assertion. The degree of proteinuria helps distinguish primary (nephrotic-range, >3.5g/day) from secondary (sub-nephrotic) FSGS because of different underlying mechanisms - circulating permeability factors in primary vs adaptive hyperfiltration in secondary."
+      },
+      "lt": {
+        "assertion": "Pacientas, sergantis židinine segmentine glomeruloskleroze (FSGS), kuriam pasireiškė subnefrozinė proteinurija (<3,5 g per dieną), greičiausiai turi antrinę FSGS, o ne pirminę FSGS.",
+        "reason": "Antrinė FSGS paprastai atsiranda dėl adaptyvios hiperfiltracijos sumažėjus nefrono masei ir dažniausiai pasireiškia subnefrozine proteinurija, o pirminė FSGS dažniausiai pasireiškia visišku nefroziniu sindromu.",
+        "answer": "A",
+        "explanation": "Abu teiginiai yra teisingi, o priežastis paaiškina teiginį.Proteinurijos laipsnis padeda atskirti pirminę (nefrozinio diapazono, > 3,5 g per dieną) nuo antrinio (subnefrozinio) FSGS dėl skirtingų pagrindinių mechanizmų – cirkuliuojančių pralaidumo faktorių pirminėje ir adaptyvioje hiperfiltracijoje antrinėje."
+      }
+    },
+    {
+      "id": 3,
+      "disease_id": "FSGS_PRIMARY",
+      "topic": "FSGS_EM_distinction",
+      "difficulty": "hard",
+      "en": {
+        "assertion": "Electron microscopy showing diffuse foot process effacement in a patient with FSGS suggests primary rather than secondary FSGS.",
+        "reason": "Primary FSGS shows diffuse foot process effacement similar to minimal change disease, while secondary FSGS typically shows only focal foot process effacement overlying areas of sclerosis.",
+        "answer": "A",
+        "explanation": "Both statements are true and causally related. The extent of foot process effacement on EM is a key distinguishing feature: diffuse effacement (all podocytes) suggests primary circulating factor-mediated injury, while focal effacement (only over sclerotic segments) suggests adaptive/mechanical injury in secondary FSGS."
+      },
+      "lt": {
+        "assertion": "Elektroninė mikroskopija, rodanti difuzinį pėdos proceso išnykimą pacientui, turinčiam FSGS, rodo pirminį, o ne antrinį FSGS.",
+        "reason": "Pirminis FSGS rodo difuzinį pėdos proceso išbėrimą, panašų į minimalių pokyčių ligą, o antrinis FSGS paprastai rodo tik židininį pėdos proceso išbėrimą, esantį virš sklerozės sričių.",
+        "answer": "A",
+        "explanation": "Abu teiginiai yra teisingi ir priežastiniu ryšiu susiję.Pėdos proceso išnykimo mastas EM yra pagrindinis skiriamasis bruožas: difuzinis išblukimas (visi podocitai) rodo pirminį cirkuliuojančio faktoriaus sukeltą sužalojimą, o židinio išblukimas (tik skleroziniuose segmentuose) rodo adaptyvų / mechaninį antrinio FSGS pažeidimą."
+      }
+    },
+    {
+      "id": 4,
+      "disease_id": "MGN",
+      "topic": "MGN_pathology",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Membranous glomerulopathy shows granular capillary wall staining for IgG on immunofluorescence microscopy.",
+        "reason": "The pathologic process involves in-situ formation of immune complexes on the subepithelial side of the glomerular basement membrane.",
+        "answer": "A",
+        "explanation": "Both true and causally related. In MGN, autoantibodies (anti-PLA2R in most primary cases) bind to podocyte antigens, forming immune complexes in-situ on the subepithelial surface. These IgG-containing deposits appear as granular deposits along the capillary wall on IF, which is pathognomonic for MGN."
+      },
+      "lt": {
+        "assertion": "Membraninė glomerulopatija rodo granuliuotą kapiliarų sienelių dažymą IgG imunofluorescencinės mikroskopijos metu.",
+        "reason": "Patologinis procesas apima imuninių kompleksų susidarymą in situ glomerulų bazinės membranos subepitelinėje pusėje.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir priežastinis ryšys.Sergant MGN, autoantikūnai (anti-PLA2R daugeliu pirminių atvejų) jungiasi prie podocitų antigenų, formuodami imuninius kompleksus in situ ant subepitelinio paviršiaus.Šios IgG turinčios nuosėdos atrodo kaip granuliuotos nuosėdos išilgai kapiliaro sienelės IF, o tai yra patognomoniška MGN."
+      }
+    },
+    {
+      "id": 5,
+      "disease_id": "MGN",
+      "topic": "MGN_complications",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Patients with membranous glomerulopathy have an increased risk of renal vein thrombosis and other thrombotic complications.",
+        "reason": "The severe nephrotic syndrome in membranous glomerulopathy leads to urinary loss of antithrombin III and protein C/S, creating a hypercoagulable state.",
+        "answer": "A",
+        "explanation": "Both true and related. MGN often causes severe nephrotic syndrome with massive proteinuria (>10g/day), leading to loss of coagulation regulatory proteins (antithrombin III, protein C, protein S) in the urine. This, combined with increased hepatic synthesis of procoagulant factors, creates a hypercoagulable state with 25-30% risk of renal vein thrombosis."
+      },
+      "lt": {
+        "assertion": "Pacientams, sergantiems membranine glomerulopatija, padidėja inkstų venų trombozės ir kitų trombozinių komplikacijų rizika.",
+        "reason": "Sunkus nefrozinis sindromas sergant membranine glomerulopatija sukelia antitrombino III ir baltymo C/S netekimą su šlapimu, todėl susidaro hiperkoaguliacinė būsena.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.MGN dažnai sukelia sunkų nefrozinį sindromą su didele proteinurija (>10 g per parą), dėl ko šlapime prarandami krešėjimą reguliuojantys baltymai (antitrombinas III, baltymas C, baltymas S).Tai kartu su padidėjusia prokoaguliacinių faktorių sinteze kepenyse sukuria hiperkoaguliuojančią būseną su 25-30% inkstų venų trombozės rizika."
+      }
+    },
+    {
+      "id": 6,
+      "disease_id": "MCD",
+      "topic": "MCD_treatment",
+      "difficulty": "easy",
+      "en": {
+        "assertion": "Children with minimal change disease typically achieve remission within 2-8 weeks of corticosteroid therapy.",
+        "reason": "Minimal change disease is highly responsive to corticosteroids, with over 90% of pediatric patients achieving complete remission.",
+        "answer": "A",
+        "explanation": "Both true and related. MCD is characterized by excellent response to steroids (90-95% in children) because the underlying mechanism likely involves T-cell dysfunction producing circulating permeability factors, which are suppressed by corticosteroids. This high response rate and rapid remission are diagnostic features of MCD."
+      },
+      "lt": {
+        "assertion": "Vaikai, sergantys minimalių pokyčių liga, paprastai pasiekia remisiją per 2–8 savaites nuo gydymo kortikosteroidais.",
+        "reason": "Minimalių pokyčių liga labai reaguoja į kortikosteroidus, daugiau nei 90% vaikų pasiekia visišką remisiją.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.MCD pasižymi puikiu atsaku į steroidus (90–95 % vaikams), nes pagrindinis mechanizmas greičiausiai susijęs su T-ląstelių disfunkcija, dėl kurios susidaro cirkuliuojantys pralaidumo faktoriai, kuriuos slopina kortikosteroidai.Šis didelis atsako dažnis ir greita remisija yra diagnostinės MCD savybės."
+      }
+    },
+    {
+      "id": 7,
+      "disease_id": "FSGS_PRIMARY",
+      "topic": "FSGS_transplant",
+      "difficulty": "hard",
+      "en": {
+        "assertion": "Primary focal segmental glomerulosclerosis has a significant risk of recurrence in the renal transplant, whereas secondary FSGS rarely recurs.",
+        "reason": "Primary FSGS is mediated by circulating permeability factors that persist after transplantation, while secondary FSGS results from structural/hemodynamic factors that are corrected by transplantation.",
+        "answer": "A",
+        "explanation": "Both true and causally related. Primary FSGS has 30-40% recurrence risk post-transplant (sometimes immediate and severe) because circulating permeability factors persist in the recipient and can injure the donor kidney. Secondary FSGS has <5% recurrence because the adaptive mechanisms (hyperfiltration, reduced nephron mass) are resolved with a normal transplanted kidney."
+      },
+      "lt": {
+        "assertion": "Pirminė židininė segmentinė glomerulosklerozė turi didelę pasikartojimo riziką po inkstų persodinimo, o antrinė FSGS pasikartoja retai.",
+        "reason": "Pirminį FSGS lemia cirkuliuojantys pralaidumo veiksniai, kurie išlieka po transplantacijos, o antrinis FSGS atsiranda dėl struktūrinių / hemodinaminių veiksnių, kurie koreguojami transplantacijos metu.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir priežastinis ryšys.Pirminis FSGS turi 30–40 % pasikartojimo riziką po transplantacijos (kartais iš karto ir sunkiai), nes recipiente išlieka cirkuliuojantys pralaidumo veiksniai ir gali pažeisti donoro inkstą.Antrinis FSGS kartojasi <5 %, nes adaptaciniai mechanizmai (hiperfiltracija, sumažėjusi nefrono masė) išsprendžiami normaliu persodintu inkstu."
+      }
+    },
+    {
+      "id": 8,
+      "disease_id": "MGN",
+      "topic": "MGN_LM_pathology",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Silver stain of a kidney biopsy from a patient with membranous glomerulopathy reveals spike-like projections of basement membrane material.",
+        "reason": "The glomerular basement membrane proliferates between and around subepithelial immune deposits, creating characteristic spikes visible on silver stain.",
+        "answer": "A",
+        "explanation": "Both true and related. In MGN, as subepithelial immune deposits form, the GBM responds by producing new basement membrane material that grows between the deposits, creating spike-like projections. These spikes are best visualized with Jones silver or PAS stains and are pathognomonic for membranous glomerulopathy on light microscopy."
+      },
+      "lt": {
+        "assertion": "Paciento, sergančio membranine glomerulopatija, inkstų biopsijos sidabro dėmė atskleidžia smailės formos pamatinės membranos medžiagos projekcijas.",
+        "reason": "Glomerulų bazinė membrana dauginasi tarp subepitelinių imuninių nuosėdų ir aplink juos, sukurdama būdingus spyglius, matomus ant sidabro dėmės.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.Esant MGN, susiformavus subepitelinėms imuninėms nuosėdoms, GBM reaguoja gamindamas naują bazinės membranos medžiagą, kuri auga tarp nuosėdų ir sukuria smaigalius primenančius iškyšulius.Šie spygliai geriausiai vizualizuojami naudojant Jones sidabro arba PAS dėmes ir yra patognomoniški membraninei glomerulopatijai atliekant šviesos mikroskopiją."
+      }
+    },
+    {
+      "id": 9,
+      "disease_id": "MCD",
+      "topic": "General_podocytopathy",
+      "difficulty": "easy",
+      "en": {
+        "assertion": "Minimal change disease is the most common cause of nephrotic syndrome in children.",
+        "reason": "Primary FSGS has a poor prognosis with 50% progressing to end-stage renal disease within 10 years.",
+        "answer": "B",
+        "explanation": "Both statements are true facts about podocytopathies. MCD accounts for 90% of pediatric nephrotic syndrome, and primary FSGS does have poor prognosis. However, the reason (about FSGS prognosis) does not explain why MCD is common in children - these are independent facts."
+      },
+      "lt": {
+        "assertion": "Minimalių pokyčių liga yra dažniausia vaikų nefrozinio sindromo priežastis.",
+        "reason": "Pirminio FSGS prognozė yra prasta, o 50% pacientų per 10 metų progresuoja iki paskutinės stadijos inkstų ligos.",
+        "answer": "B",
+        "explanation": "Abu teiginiai yra tikri faktai apie podocitopatijas.MCD sudaro 90% vaikų nefrozinio sindromo, o pirminio FSGS prognozė yra prasta.Tačiau priežastis (apie FSGS prognozę) nepaaiškina, kodėl MCD yra dažnas vaikams – tai nepriklausomi faktai."
+      }
+    },
+    {
+      "id": 10,
+      "disease_id": "MGN",
+      "topic": "MGN_diagnostics",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Anti-PLA2R antibodies are positive in 70-80% of patients with primary membranous glomerulopathy.",
+        "reason": "Membranous glomerulopathy shows subepithelial electron-dense deposits on electron microscopy.",
+        "answer": "B",
+        "explanation": "Both are true facts about MGN. Anti-PLA2R antibodies are indeed found in most primary MGN cases, and subepithelial deposits are the hallmark EM finding. However, the presence of subepithelial deposits doesn't explain why anti-PLA2R antibodies are present - these are independent diagnostic features."
+      },
+      "lt": {
+        "assertion": "Anti-PLA2R antikūnai yra teigiami 70-80% pacientų, sergančių pirmine membranine glomerulopatija.",
+        "reason": "Membraninė glomerulopatija elektronų mikroskopu rodo subepitelinius elektronų tankius nuosėdas.",
+        "answer": "B",
+        "explanation": "Abu yra tikri faktai apie MGN.Anti-PLA2R antikūnai iš tiesų randami daugeliu pirminių MGN atvejų, o subepitelinės nuosėdos yra būdingas EM radinys.Tačiau subepitelinių nuosėdų buvimas nepaaiškina, kodėl yra anti-PLA2R antikūnų – tai nepriklausomos diagnostinės savybės."
+      }
+    },
+    {
+      "id": 11,
+      "disease_id": "MCD",
+      "topic": "MCD_immunopathology",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Minimal change disease typically shows negative immunofluorescence microscopy.",
+        "reason": "Minimal change disease is caused by deposition of IgA immune complexes in the mesangium.",
+        "answer": "C",
+        "explanation": "The assertion is true - MCD characteristically shows negative or trace nonspecific IF (no immune deposits). However, the reason is false. MCD is NOT caused by IgA mesangial deposits (that would be IgA nephropathy). MCD likely involves T-cell dysfunction and circulating permeability factors, not immune complex deposition."
+      },
+      "lt": {
+        "assertion": "Minimalių pokyčių liga paprastai rodo neigiamą imunofluorescencinę mikroskopiją.",
+        "reason": "Minimalių pokyčių ligą sukelia IgA imuninių kompleksų nusėdimas mezangiume.",
+        "answer": "C",
+        "explanation": "Teiginys yra teisingas – MCD būdingas neigiamas arba nespecifinis pėdsakas IF (jokių imuninių nuosėdų).Tačiau priežastis yra klaidinga.MCD NĖRA sukeltas IgA mezangialinių nuosėdų (tai būtų IgA nefropatija).MCD greičiausiai susijęs su T-ląstelių disfunkcija ir cirkuliuojančiais pralaidumo veiksniais, o ne su imuninio komplekso nusėdimu."
+      }
+    },
+    {
+      "id": 12,
+      "disease_id": "FSGS_SECONDARY",
+      "topic": "FSGS_secondary_treatment",
+      "difficulty": "hard",
+      "en": {
+        "assertion": "Secondary FSGS should not be treated with immunosuppressive therapy such as corticosteroids.",
+        "reason": "Secondary FSGS is caused by anti-podocyte antibodies similar to membranous glomerulopathy.",
+        "answer": "C",
+        "explanation": "The assertion is true - secondary FSGS should NOT receive steroids/immunosuppression; treatment focuses on the underlying cause. However, the reason is false. Secondary FSGS is NOT caused by anti-podocyte antibodies; it results from hemodynamic/adaptive mechanisms (hyperfiltration, reduced nephron mass). MGN involves antibodies, but secondary FSGS does not."
+      },
+      "lt": {
+        "assertion": "Antrinis FSGS neturėtų būti gydomas imunosupresiniais vaistais, pvz., kortikosteroidais.",
+        "reason": "Antrinį FSGS sukelia antipodocitų antikūnai, panašūs į membraninę glomerulopatiją.",
+        "answer": "C",
+        "explanation": "Teiginys yra teisingas – antrinis FSGS NETURI gauti steroidų / imunosupresijos;gydymas sutelkiamas į pagrindinę priežastį.Tačiau priežastis yra klaidinga.Antrinis FSGS nėra sukeltas anti-podocitų antikūnų;tai atsiranda dėl hemodinaminių / adaptacinių mechanizmų (hiperfiltracijos, sumažėjusios nefrono masės).MGN apima antikūnus, bet antrinis FSGS neturi."
+      }
+    },
+    {
+      "id": 13,
+      "disease_id": "MCD",
+      "topic": "MCD_LM_pathology",
+      "difficulty": "easy",
+      "en": {
+        "assertion": "Minimal change disease typically shows prominent mesangial proliferation and increased cellularity on light microscopy.",
+        "reason": "The primary pathologic lesion in minimal change disease involves podocyte foot process effacement.",
+        "answer": "D",
+        "explanation": "The assertion is false - MCD shows NORMAL or near-normal glomeruli on LM, without mesangial proliferation or hypercellularity (that would suggest other diagnoses like IgA nephropathy or MPGN). However, the reason is true - the primary lesion in MCD is podocyte foot process effacement, visible only on EM."
+      },
+      "lt": {
+        "assertion": "Minimalių pokyčių liga paprastai rodo ryškią mezangialo proliferaciją ir padidėjusį ląstelių skaičių šviesos mikroskopu.",
+        "reason": "Pirminis patologinis pažeidimas esant minimalių pakitimų ligai apima podocitų pėdos proceso išnykimą.",
+        "answer": "D",
+        "explanation": "Teiginys yra klaidingas – MCD rodo NORMALUS arba beveik normalius glomerulus LM, be mezangialinio proliferacijos ar hiperląsteliškumo (tai rodo kitas diagnozes, pvz., IgA nefropatiją arba MPGN).Tačiau priežastis yra tiesa – pirminis MCD pažeidimas yra podocitų pėdos procesų išsausėjimas, matomas tik EM."
+      }
+    },
+    {
+      "id": 14,
+      "disease_id": "FSGS_PRIMARY",
+      "topic": "FSGS_clinical",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Primary focal segmental glomerulosclerosis typically presents with asymptomatic microscopic hematuria and normal renal function.",
+        "reason": "Primary FSGS results from podocyte injury mediated by circulating permeability factors.",
+        "answer": "D",
+        "explanation": "The assertion is false - primary FSGS typically presents with NEPHROTIC SYNDROME (heavy proteinuria, edema, hypoalbuminemia), not asymptomatic hematuria. Many patients also have hypertension and some degree of renal dysfunction. However, the reason is true - primary FSGS is indeed caused by circulating permeability factors causing podocyte injury."
+      },
+      "lt": {
+        "assertion": "Pirminė židininė segmentinė glomerulosklerozė paprastai pasireiškia besimptome mikroskopine hematurija ir normalia inkstų funkcija.",
+        "reason": "Pirminiai FSGS atsiranda dėl podocitų pažeidimo, kurį sukelia cirkuliuojantys pralaidumo veiksniai.",
+        "answer": "D",
+        "explanation": "Teiginys yra klaidingas – pirminis FSGS paprastai pasireiškia NEFROZINIU SINDROMU (sunki proteinurija, edema, hipoalbuminemija), o ne besimptomė hematurija.Daugelis pacientų taip pat turi hipertenziją ir tam tikrą inkstų funkcijos sutrikimą.Tačiau priežastis yra tiesa – pirminį FSGS iš tiesų sukelia cirkuliuojantys pralaidumo veiksniai, sukeliantys podocitų pažeidimą."
+      }
+    },
+    {
+      "id": 15,
+      "disease_id": "MGN",
+      "topic": "MGN_IF_pattern",
+      "difficulty": "hard",
+      "en": {
+        "assertion": "Membranous glomerulopathy characteristically shows linear capillary wall staining for IgG on immunofluorescence microscopy.",
+        "reason": "The pathologic process in membranous glomerulopathy involves immune complex deposition in the mesangium.",
+        "answer": "E",
+        "explanation": "Both are false. MGN shows GRANULAR (not linear) IgG staining on IF along capillary walls. Linear staining suggests anti-GBM disease. Additionally, the deposits in MGN are SUBEPITHELIAL (not mesangial). Mesangial deposits would suggest IgA nephropathy or lupus nephritis."
+      },
+      "lt": {
+        "assertion": "Membraninė glomerulopatija imunofluorescencinės mikroskopijos metu pasižymi linijiniu kapiliarų sienelių dažymu IgG.",
+        "reason": "Patologinis membraninės glomerulopatijos procesas apima imuninio komplekso nusėdimą mezangiume.",
+        "answer": "E",
+        "explanation": "Abu yra klaidingi.MGN rodo GRANULIŲ (ne tiesinį) IgG dažymą ant IF išilgai kapiliarų sienelių.Linijinis dažymas rodo anti-GBM ligą.Be to, MGN indėliai yra SUBEPITELINIAI (ne mezangialiniai).Mezangialinės nuosėdos rodo IgA nefropatiją arba vilkligę."
+      }
+    },
+    {
+      "id": 16,
+      "disease_id": "FSGS_PRIMARY",
+      "topic": "FSGS_prognosis_treatment",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Primary FSGS has an excellent prognosis with over 90% achieving complete remission with corticosteroid therapy.",
+        "reason": "The pathologic lesion in FSGS is completely reversible with immunosuppressive treatment.",
+        "answer": "E",
+        "explanation": "Both false. Primary FSGS has POOR prognosis with only 30-40% responding to steroids (not 90% - that's MCD). Additionally, FSGS lesions (segmental sclerosis) are NOT reversible - sclerosis is permanent fibrosis. Once glomerulosclerosis occurs, it persists despite treatment."
+      },
+      "lt": {
+        "assertion": "Pirminis FSGS turi puikią prognozę, daugiau nei 90% pacientų pasiekia visišką remisiją gydant kortikosteroidais.",
+        "reason": "Patologinis pažeidimas FSGS yra visiškai grįžtamas taikant imunosupresinį gydymą.",
+        "answer": "E",
+        "explanation": "Abu netikri.Pirminio FSGS prognozė yra PRASTA, tik 30–40% reaguoja į steroidus (ne 90% - tai yra MCD).Be to, FSGS pažeidimai (segmentinė sklerozė) NĖRA grįžtami – sklerozė yra nuolatinė fibrozė.Atsiradus glomerulosklerozei, ji išlieka nepaisant gydymo."
+      }
+    },
+    {
+      "id": 17,
+      "disease_id": "APIGN",
+      "topic": "APIGN_clinical_presentation",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "A child presenting 2 weeks after pharyngitis with hematuria, edema, and hypertension likely has acute postinfectious glomerulonephritis.",
+        "reason": "Acute postinfectious glomerulonephritis typically develops 1-3 weeks after streptococcal pharyngitis or 3-6 weeks after impetigo due to immune complex deposition.",
+        "answer": "A",
+        "explanation": "Both true and causally related. The classic presentation of APIGN is acute nephritic syndrome occurring 1-3 weeks post-pharyngitis (or 3-6 weeks post-impetigo) due to immune complex formation and glomerular deposition following streptococcal infection."
+      },
+      "lt": {
+        "assertion": "Vaikas, kuriam praėjus 2 savaitėms po faringito pasireiškė hematurija, edema ir hipertenzija, greičiausiai serga ūminiu poinfekciniu glomerulonefritu.",
+        "reason": "Ūminis poinfekcinis glomerulonefritas paprastai išsivysto 1-3 savaites po streptokokinio faringito arba 3-6 savaites po impetigo dėl imuninio komplekso nusėdimo.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir priežastinis ryšys.Klasikinis APIGN pasireiškimas yra ūminis nefritinis sindromas, pasireiškiantis 1–3 savaites po faringito (arba 3–6 savaites po impetigo) dėl imuninio komplekso susidarymo ir glomerulų nusėdimo po streptokokinės infekcijos."
+      }
+    },
+    {
+      "id": 18,
+      "disease_id": "APIGN",
+      "topic": "APIGN_EM_pathology",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Electron microscopy in acute postinfectious glomerulonephritis shows characteristic subepithelial 'hump-shaped' deposits.",
+        "reason": "These deposits represent immune complexes formed during the post-infectious immune response and are deposited on the subepithelial side of the glomerular basement membrane.",
+        "answer": "A",
+        "explanation": "Both true and related. The subepithelial humps on EM are pathognomonic for APIGN and represent immune complexes that form after streptococcal infection. These humps resolve over time as the disease improves."
+      },
+      "lt": {
+        "assertion": "Elektroninė mikroskopija sergant ūminiu poinfekciniu glomerulonefritu rodo būdingas subepitelines „kuproto formos“ nuosėdas.",
+        "reason": "Šios nuosėdos yra imuniniai kompleksai, susidarę poinfekcinio imuninio atsako metu ir yra nusėdę glomerulų bazinės membranos subepitelinėje pusėje.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.Subepiteliniai kauburėliai EM yra patognomoniški APIGN ir yra imuniniai kompleksai, susidarantys po streptokokinės infekcijos.Šios kupros išnyksta laikui bėgant, kai liga pagerėja."
+      }
+    },
+    {
+      "id": 19,
+      "disease_id": "APIGN",
+      "topic": "APIGN_complement",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "In acute postinfectious glomerulonephritis, complement C3 levels are typically low while C4 remains normal.",
+        "reason": "APIGN primarily activates the alternative complement pathway, which consumes C3 but does not involve C4.",
+        "answer": "A",
+        "explanation": "Both true and related. The pattern of low C3 with normal C4 is characteristic of APIGN and helps distinguish it from lupus (which has low C3 AND C4). C3 normalizes in 6-8 weeks, and persistent low C3 suggests an alternative diagnosis."
+      },
+      "lt": {
+        "assertion": "Sergant ūminiu poinfekciniu glomerulonefritu, komplemento C3 lygis paprastai yra mažas, o C4 išlieka normalus.",
+        "reason": "APIGN pirmiausia suaktyvina alternatyvų komplemento kelią, kuris sunaudoja C3, bet neapima C4.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.Žemas C3 ir normalus C4 modelis yra būdingas APIGN ir padeda atskirti jį nuo vilkligės (kurios C3 IR C4).C3 normalizuojasi per 6-8 savaites, o nuolatinis mažas C3 rodo alternatyvią diagnozę."
+      }
+    },
+    {
+      "id": 20,
+      "disease_id": "APIGN",
+      "topic": "APIGN_treatment_prognosis",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Children with acute postinfectious glomerulonephritis have an excellent prognosis with over 95% achieving complete recovery.",
+        "reason": "The excellent prognosis is due to the high response rate to corticosteroid therapy in pediatric patients.",
+        "answer": "C",
+        "explanation": "The assertion is true - children with APIGN do have >95% complete recovery. However, the reason is FALSE. APIGN is treated with supportive care only, NOT corticosteroids or immunosuppression. The excellent prognosis is due to the self-limited nature of the disease."
+      },
+      "lt": {
+        "assertion": "Vaikai, sergantys ūminiu poinfekciniu glomerulonefritu, turi puikią prognozę, daugiau nei 95% atvejų visiškai pasveiksta.",
+        "reason": "Puikią prognozę lėmė didelis vaikų atsako į gydymą kortikosteroidais dažnis.",
+        "answer": "C",
+        "explanation": "Teiginys yra tiesa – vaikai, turintys APIGN, visiškai pasveiksta >95%.Tačiau priežastis yra klaidinga.APIGN gydomas tik palaikomuoju gydymu, NE kortikosteroidais ar imunosupresija.Puikią prognozę lemia savaiminis ligos pobūdis."
+      }
+    },
+    {
+      "id": 21,
+      "disease_id": "APIGN",
+      "topic": "APIGN_IF_pattern",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Immunofluorescence microscopy in acute postinfectious glomerulonephritis shows linear IgG deposition along the glomerular basement membrane.",
+        "reason": "The immune complexes in APIGN deposit in the glomeruli following streptococcal infection.",
+        "answer": "D",
+        "explanation": "The assertion is FALSE - APIGN shows GRANULAR (not linear) IgG and C3 staining on IF, creating a 'starry sky' pattern. Linear staining would indicate anti-GBM disease. However, the reason is true - immune complexes do deposit in APIGN."
+      },
+      "lt": {
+        "assertion": "Imunofluorescencinė mikroskopija sergant ūminiu poinfekciniu glomerulonefritu rodo linijinį IgG nusėdimą išilgai glomerulų bazinės membranos.",
+        "reason": "APIGN imuniniai kompleksai nusėda glomeruluose po streptokokinės infekcijos.",
+        "answer": "D",
+        "explanation": "Teiginys Klaidingas – APIGN rodo GRANULIŲ (ne tiesinį) IgG ir C3 dažymą ant IF, sukuriant „žvaigždėto dangaus“ raštą.Linijinis dažymas rodytų anti-GBM ligą.Tačiau priežastis yra tiesa – imuniniai kompleksai nusėda APIGN."
+      }
+    },
+    {
+      "id": 22,
+      "disease_id": "ANTI_GBM",
+      "topic": "ANTI_GBM_IF_pathology",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Immunofluorescence showing linear IgG staining along the glomerular basement membrane is pathognomonic for anti-GBM disease.",
+        "reason": "In anti-GBM disease, autoantibodies bind directly to the alpha-3 chain of type IV collagen in the GBM, creating a smooth linear pattern on immunofluorescence.",
+        "answer": "A",
+        "explanation": "Both true and causally related. The linear pattern distinguishes anti-GBM from immune complex diseases (which show granular patterns) and from pauci-immune diseases (which are IF negative). This linear IgG pattern plus serum anti-GBM antibodies is diagnostic."
+      },
+      "lt": {
+        "assertion": "Imunofluorescencija, rodanti linijinį IgG dažymą išilgai glomerulų bazinės membranos, yra patognomoniška anti-GBM ligai.",
+        "reason": "Sergant anti-GBM liga, autoantikūnai tiesiogiai jungiasi prie IV tipo kolageno alfa-3 grandinės GBM, sukurdami sklandų linijinį imunofluorescencijos modelį.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir priežastinis ryšys.Linijinis modelis išskiria anti-GBM nuo imuninių kompleksinių ligų (kurios rodo granuliuotus modelius) ir nuo pauci-imuninių ligų (kurios yra IF neigiamos).Šis linijinis IgG modelis ir serumo anti-GBM antikūnai yra diagnostiniai."
+      }
+    },
+    {
+      "id": 23,
+      "disease_id": "ANTI_GBM",
+      "topic": "ANTI_GBM_urgent_treatment",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Anti-GBM disease requires urgent treatment with plasmapheresis, high-dose corticosteroids, and cyclophosphamide.",
+        "reason": "Anti-GBM disease causes rapidly progressive glomerulonephritis with rapid loss of kidney function over days to weeks, and delayed treatment results in irreversible renal failure.",
+        "answer": "A",
+        "explanation": "Both true and causally related. Anti-GBM is a medical emergency causing RPGN. Plasmapheresis removes circulating anti-GBM antibodies, while immunosuppression prevents new antibody formation. Treatment must begin immediately - prognosis for renal recovery is poor if patients are dialysis-dependent at presentation."
+      },
+      "lt": {
+        "assertion": "Prieš GBM ligą reikia skubiai gydyti plazmafereze, didelėmis kortikosteroidų dozėmis ir ciklofosfamidu.",
+        "reason": "Anti-GBM liga sukelia greitai progresuojantį glomerulonefritą su greitu inkstų funkcijos praradimu per kelias dienas ar savaites, o uždelstas gydymas sukelia negrįžtamą inkstų nepakankamumą.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir priežastinis ryšys.Anti-GBM yra skubi medicininė pagalba, sukelianti GPGN.Plazmaferezė pašalina cirkuliuojančius anti-GBM antikūnus, o imunosupresija neleidžia susidaryti naujiems antikūnams.Gydymas turi prasidėti nedelsiant – inkstų atsigavimo prognozė yra prasta, jei pacientai gydymo metu priklauso nuo dializės."
+      }
+    },
+    {
+      "id": 24,
+      "disease_id": "ANTI_GBM",
+      "topic": "ANTI_GBM_pulmonary_renal",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Patients with anti-GBM disease may present with both kidney disease and pulmonary hemorrhage.",
+        "reason": "Anti-GBM antibodies target type IV collagen in both glomerular and alveolar basement membranes, causing pulmonary-renal syndrome (Goodpasture syndrome).",
+        "answer": "A",
+        "explanation": "Both true and related. Anti-GBM antibodies bind to alpha-3 chain of type IV collagen present in both GBM and alveolar basement membranes. About 50-60% have lung involvement with hemoptysis, which is life-threatening but responds to treatment."
+      },
+      "lt": {
+        "assertion": "Pacientams, sergantiems anti-GBM liga, gali pasireikšti ir inkstų liga, ir plaučių kraujavimas.",
+        "reason": "Anti-GBM antikūnai yra nukreipti į IV tipo kolageną tiek glomerulų, tiek alveolių bazinėse membranose, sukeldami plaučių-inkstų sindromą (Goodpasture sindromą).",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.Anti-GBM antikūnai jungiasi prie IV tipo kolageno alfa-3 grandinės, esančios tiek GBM, tiek alveolių bazinėse membranose.Maždaug 50–60 % sergančių plaučių pažeidimais pasireiškia hemoptizė, kuri yra pavojinga gyvybei, bet reaguoja į gydymą."
+      }
+    },
+    {
+      "id": 25,
+      "disease_id": "ANTI_GBM",
+      "topic": "ANTI_GBM_EM_findings",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Anti-GBM disease shows abundant immune complex deposits on electron microscopy.",
+        "reason": "The granular immune deposits in anti-GBM disease are composed primarily of IgA and complement C3.",
+        "answer": "E",
+        "explanation": "Both FALSE. Anti-GBM shows NO immune deposits on EM despite positive IF (the antibodies are bound to the GBM structure itself, not forming deposits). Additionally, IF shows IgG (not IgA), and the pattern is linear (not granular). IgA granular deposits suggest IgA nephropathy."
+      },
+      "lt": {
+        "assertion": "Anti-GBM liga rodo gausius imuninio komplekso nuosėdas elektroniniu mikroskopu.",
+        "reason": "Granuliuotos imuninės nuosėdos sergant anti-GBM liga daugiausia susideda iš IgA ir papildo C3.",
+        "answer": "E",
+        "explanation": "Abu NETEISINGAI.Anti-GBM nerodo imuninių nuosėdų EM, nepaisant teigiamų IF (antikūnai yra prijungti prie pačios GBM struktūros, nesudaro nuosėdų).Be to, IF rodo IgG (ne IgA), o raštas yra linijinis (ne granuliuotas).IgA granuliuotos nuosėdos rodo IgA nefropatiją."
+      }
+    },
+    {
+      "id": 26,
+      "disease_id": "ANCA_GN",
+      "topic": "ANCA_GN_pauci_immune",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Immunofluorescence microscopy in ANCA-associated glomerulonephritis typically shows little or no immunoglobulin or complement staining, described as 'pauci-immune'.",
+        "reason": "ANCA-GN is mediated by ANCA-activated neutrophils causing direct vascular injury, not by immune complex deposition.",
+        "answer": "A",
+        "explanation": "Both true and related. The pauci-immune pattern (negative or trace IF) distinguishes ANCA-GN from immune complex diseases (granular IF) and anti-GBM (linear IF). The lack of immune deposits reflects the pathophysiology - direct neutrophil-mediated injury rather than antibody/immune complex deposition."
+      },
+      "lt": {
+        "assertion": "Imunofluorescencinė mikroskopija sergant su ANCA susijusiu glomerulonefritu paprastai rodo mažai arba visai nedažyti imunoglobulino arba komplemento, apibūdinamo kaip „mažai imuninis“.",
+        "reason": "ANCA-GN tarpininkauja ANCA aktyvuoti neutrofilai, sukeliantys tiesioginį kraujagyslių pažeidimą, o ne imuninio komplekso nusėdimas.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.Pauci-imuninis modelis (neigiamas arba pėdsakas IF) išskiria ANCA-GN nuo imuninių kompleksinių ligų (granuliuotas IF) ir anti-GBM (linijinis IF).Imuninių nuosėdų trūkumas atspindi patofiziologiją – tiesioginį neutrofilų sukeltą pažeidimą, o ne antikūnų/imuninio komplekso nusėdimą."
+      }
+    },
+    {
+      "id": 27,
+      "disease_id": "ANCA_GN",
+      "topic": "ANCA_GN_epidemiology",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "ANCA-associated glomerulonephritis is the most common cause of rapidly progressive glomerulonephritis in adults over 50 years of age.",
+        "reason": "The incidence of ANCA-associated vasculitis increases with age, with peak onset in the 6th-7th decades of life.",
+        "answer": "A",
+        "explanation": "Both true and related. ANCA-GN (pauci-immune type) is indeed the most common RPGN in older adults, more common than anti-GBM or immune complex RPGN in this age group. The age distribution helps in differential diagnosis of RPGN."
+      },
+      "lt": {
+        "assertion": "Su ANCA susijęs glomerulonefritas yra dažniausia greitai progresuojančio glomerulonefrito priežastis vyresniems nei 50 metų suaugusiems žmonėms.",
+        "reason": "Su ANCA susijusio vaskulito dažnis didėja su amžiumi, o didžiausias pasireiškimas pasireiškia 6–7 gyvenimo dešimtmečiais.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.ANCA-GN (pauci-imuninis tipas) iš tiesų yra labiausiai paplitęs GPGN vyresnio amžiaus žmonėms, dažniau nei anti-GBM arba imuninis kompleksas GPGN šioje amžiaus grupėje.Amžiaus pasiskirstymas padeda diferencijuoti GPGN diagnozę."
+      }
+    },
+    {
+      "id": 28,
+      "disease_id": "ANCA_GN",
+      "topic": "ANCA_GN_systemic_features",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Patients with ANCA-associated glomerulonephritis may have systemic manifestations including pulmonary nodules, sinusitis, and peripheral neuropathy.",
+        "reason": "ANCA antibodies can be detected in the serum of 90% of patients with pauci-immune glomerulonephritis.",
+        "answer": "B",
+        "explanation": "Both statements are true. ANCA-GN is part of systemic vasculitis (GPA, MPA, EGPA) with multi-organ involvement. And 90% of pauci-immune GN patients are ANCA-positive. However, the reason (ANCA seropositivity rate) doesn't explain WHY systemic manifestations occur - these are independent true facts."
+      },
+      "lt": {
+        "assertion": "Pacientams, sergantiems ANCA sukeltu glomerulonefritu, gali pasireikšti sisteminės apraiškos, įskaitant plaučių mazgus, sinusitą ir periferinę neuropatiją.",
+        "reason": "ANCA antikūnų galima aptikti 90% pacientų, sergančių pauciimunine glomerulonefritu, serume.",
+        "answer": "B",
+        "explanation": "Abu teiginiai yra teisingi.ANCA-GN yra sisteminio vaskulito (GPA, MPA, EGPA), kai pažeidžiami keli organai, dalis.Ir 90% pauci-imunine GN pacientų yra ANCA teigiami.Tačiau priežastis (ANCA seropozityvumo rodiklis) nepaaiškina, KODĖL atsiranda sisteminės apraiškos – tai nepriklausomi tikri faktai."
+      }
+    },
+    {
+      "id": 29,
+      "disease_id": "ANCA_GN",
+      "topic": "ANCA_GN_prognosis",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "ANCA-associated glomerulonephritis has an excellent prognosis with complete renal recovery in over 90% of patients.",
+        "reason": "Pauci-immune crescentic glomerulonephritis is characterized by necrotizing glomerular injury with crescent formation.",
+        "answer": "D",
+        "explanation": "The assertion is FALSE - ANCA-GN has a guarded prognosis with 25-30% progressing to ESRD despite treatment and 30-50% relapse rate. It does NOT have 90% recovery (that's more like APIGN in children). However, the reason is TRUE - ANCA-GN does cause necrotizing crescentic GN."
+      },
+      "lt": {
+        "assertion": "ANCA sukeltas glomerulonefritas turi puikią prognozę ir visiškai atsigauna inkstai daugiau nei 90 % pacientų.",
+        "reason": "Pauci imuniniam pusmėnulio glomerulonefritui būdingas nekrozuojantis glomerulų pažeidimas su pusmėnulio formavimu.",
+        "answer": "D",
+        "explanation": "Teiginys yra NETEISINGAS – ANCA-GN prognozė yra apsaugota: 25–30 % progresuoja iki ESRD, nepaisant gydymo, ir 30–50 % atkryčių dažnį.90% atsigavimo NĖRA (tai labiau panašu į APIGN vaikams).Tačiau priežastis TRUE – ANCA-GN sukelia nekrozuojantį pusmėnulio GN."
+      }
+    },
+    {
+      "id": 30,
+      "disease_id": "MPGN",
+      "topic": "MPGN_LM_pathology",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Membranoproliferative glomerular injury characteristically shows 'double contour' or 'tram-track' appearance of the glomerular basement membrane on light microscopy.",
+        "reason": "The double contour appearance results from mesangial cell interposition between the endothelium and basement membrane, creating a new layer of basement membrane-like material.",
+        "answer": "A",
+        "explanation": "Both true and related. The tram-track or double contour appearance (best seen on silver stain) is pathognomonic for MPGN and results from mesangial cells migrating into the subendothelial space, splitting the GBM."
+      },
+      "lt": {
+        "assertion": "Membranoproliferacinis glomerulų pažeidimas šviesos mikroskopu pasižymi glomerulų bazinės membranos „dvigubo kontūro“ arba „tramvajaus bėgio“ išvaizda.",
+        "reason": "Dvigubo kontūro išvaizda atsiranda dėl mezangialinių ląstelių įsiterpimo tarp endotelio ir bazinės membranos, sukuriant naują į bazinę membraną panašios medžiagos sluoksnį.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.Tramvajaus takelio arba dvigubo kontūro išvaizda (geriausiai matoma ant sidabrinės dėmės) yra patognomoniška MPGN ir atsiranda dėl mezangialinių ląstelių migracijos į subendotelinę erdvę, padalydamos GBM."
+      }
+    },
+    {
+      "id": 31,
+      "disease_id": "MPGN",
+      "topic": "MPGN_etiology",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Most cases of membranoproliferative glomerular injury are now recognized to be secondary to identifiable causes rather than primary idiopathic disease.",
+        "reason": "Hepatitis C infection with cryoglobulinemia is the most common identified cause of MPGN pattern injury.",
+        "answer": "A",
+        "explanation": "Both true and related. Primary idiopathic MPGN is now rare. Most cases are secondary to infections (especially Hep C with cryoglobulinemia), autoimmune diseases, or complement dysregulation (C3 glomerulopathy). Identifying the underlying cause is critical for treatment."
+      },
+      "lt": {
+        "assertion": "Dauguma membranoproliferacinio glomerulų pažeidimo atvejų dabar pripažįstami kaip antriniai dėl nustatytų priežasčių, o ne dėl pirminės idiopatinės ligos.",
+        "reason": "Hepatito C infekcija su krioglobulinemija yra dažniausia nustatyta MPGN modelio pažeidimo priežastis.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.Pirminis idiopatinis MPGN dabar yra retas.Dauguma atvejų yra antriniai dėl infekcijų (ypač hepatito C su krioglobulinemija), autoimuninių ligų arba komplemento disreguliacijos (C3 glomerulopatija).Gydant labai svarbu nustatyti pagrindinę priežastį."
+      }
+    },
+    {
+      "id": 32,
+      "disease_id": "MPGN",
+      "topic": "MPGN_complement",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Patients with MPGN pattern injury often have persistently low serum C3 complement levels.",
+        "reason": "Low C3 levels in MPGN, especially if persistent, suggest C3 glomerulopathy due to alternative complement pathway dysregulation.",
+        "answer": "A",
+        "explanation": "Both true and related. Low C3 is characteristic of MPGN. If C3 remains low (>3 months) and IF shows C3-dominant staining with minimal immunoglobulin, this suggests C3 glomerulopathy (DDD or C3GN) rather than immune complex-mediated MPGN."
+      },
+      "lt": {
+        "assertion": "Pacientai, turintys MPGN modelio pažeidimą, dažnai turi nuolat mažą C3 komplemento kiekį serume.",
+        "reason": "Žemas C3 lygis MPGN, ypač jei jis išlieka, rodo C3 glomerulopatiją dėl alternatyvaus komplemento kelio disreguliacijos.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.Žemas C3 būdingas __IŠSAUGOMAS_15__.Jei C3 išlieka mažas (>3 mėn.) ir IF rodo C3 dominuojantį dažymą su minimaliu imunoglobulinu, tai rodo C3 glomerulopatiją (DDD arba C3GN), o ne imuninio komplekso sukeltą__KONSERVUOK_15__."
+      }
+    },
+    {
+      "id": 33,
+      "disease_id": "MPGN",
+      "topic": "MPGN_transplant",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Dense deposit disease (DDD), a form of C3 glomerulopathy, has a very high rate of recurrence after kidney transplantation.",
+        "reason": "The high recurrence rate is because DDD is caused by persistent viral infection that is not eliminated by transplantation.",
+        "answer": "C",
+        "explanation": "The assertion is TRUE - DDD has >90% recurrence post-transplant. However, the reason is FALSE. DDD is caused by alternative complement pathway dysregulation (not viral infection), and the dysregulation persists in the recipient, affecting the transplanted kidney."
+      },
+      "lt": {
+        "assertion": "Tankiųjų nuosėdų liga (DDD), C3 glomerulopatijos forma, po inksto transplantacijos labai dažnai atsinaujina.",
+        "reason": "Didelis pasikartojimo dažnis yra dėl to, kad DDD sukelia nuolatinė virusinė infekcija, kuri nepašalinama persodinant.",
+        "answer": "C",
+        "explanation": "Teiginys yra TIKRAS – po transplantacijos DDD kartojasi >90 %.Tačiau priežastis yra klaidinga.DDD sukelia alternatyvaus komplemento kelio disreguliacija (ne virusinė infekcija), o reguliavimas išlieka recipiente, paveikdamas persodintą inkstą."
+      }
+    },
+    {
+      "id": 34,
+      "disease_id": "IgAN",
+      "topic": "IgAN_IF_pathology",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "IgA nephropathy is characterized by dominant or co-dominant mesangial IgA deposition on immunofluorescence microscopy.",
+        "reason": "The mesangial IgA deposits in IgA nephropathy result from deposition of galactose-deficient IgA1 immune complexes.",
+        "answer": "A",
+        "explanation": "Both true and related. Mesangial IgA dominance on IF is pathognomonic for IgA nephropathy. The pathophysiology involves abnormal O-glycosylation of IgA1, leading to galactose-deficient IgA1 that forms immune complexes and deposits in the mesangium."
+      },
+      "lt": {
+        "assertion": "IgA nefropatija pasižymi dominuojančiu arba kodominuojančiu mezangialiniu IgA nusėdimu imunofluorescencinės mikroskopijos metu.",
+        "reason": "Mezangialinės IgA nuosėdos sergant IgA nefropatija atsiranda dėl galaktozės stokojančių IgA1 imuninių kompleksų nusėdimo.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.Mezangialus IgA dominavimas IF yra patognominis IgA nefropatijai.Patofiziologija apima nenormalų IgA1 O-glikozilinimą, dėl kurio susidaro galaktozės trūkumas IgA1, kuris sudaro imuninius kompleksus ir nuosėdas mezangiume."
+      }
+    },
+    {
+      "id": 35,
+      "disease_id": "IgAN",
+      "topic": "IgAN_clinical_presentation",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "The classic presentation of IgA nephropathy is episodic gross hematuria occurring concurrently with or within 1-2 days of an upper respiratory infection.",
+        "reason": "This 'synpharyngitic hematuria' pattern distinguishes IgA nephropathy from acute postinfectious glomerulonephritis, which occurs 1-3 weeks after infection.",
+        "answer": "A",
+        "explanation": "Both true and related. The timing helps differentiate IgAN (synpharyngitic - occurs DURING or 1-2 days after URI) from APIGN (occurs 1-3 weeks AFTER pharyngitis). This classic presentation, though not always present, is highly suggestive of IgAN."
+      },
+      "lt": {
+        "assertion": "Klasikinis IgA nefropatijos pasireiškimas yra epizodinė didelė hematurija, atsirandanti kartu su viršutinių kvėpavimo takų infekcija arba per 1–2 dienas po jos.",
+        "reason": "Šis „sinfaringinės hematurijos“ modelis išskiria IgA nefropatiją nuo ūminio poinfekcinio glomerulonefrito, kuris pasireiškia praėjus 1–3 savaitėms po užsikrėtimo.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.Laikas padeda atskirti IgAN (sinfaringinį – atsiranda PER arba 1–2 dienas po URI) nuo APIGN (pasireiškia 1–3 savaites PO faringito).Šis klasikinis pristatymas, nors ir ne visada pateikiamas, labai rodo IgAN."
+      }
+    },
+    {
+      "id": 36,
+      "disease_id": "IgAN",
+      "topic": "IgAN_epidemiology",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "IgA nephropathy is the most common primary glomerulonephritis worldwide.",
+        "reason": "The high prevalence of IgA nephropathy is particularly notable in Asian populations.",
+        "answer": "A",
+        "explanation": "Both true and related. IgAN is indeed the most common primary GN globally, with highest prevalence in Asia (Japan, China, Korea). Geographic variation suggests genetic and environmental factors in pathogenesis."
+      },
+      "lt": {
+        "assertion": "IgA nefropatija yra labiausiai paplitęs pirminis glomerulonefritas visame pasaulyje.",
+        "reason": "Didelis IgA nefropatijos paplitimas ypač pastebimas Azijos populiacijose.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.IgAN iš tiesų yra labiausiai paplitęs pirminis GN visame pasaulyje, o didžiausias paplitimas Azijoje (Japonijoje, Kinijoje, Korėjoje).Geografiniai skirtumai rodo genetinius ir aplinkos veiksnius patogenezėje."
+      }
+    },
+    {
+      "id": 37,
+      "disease_id": "IgAN",
+      "topic": "IgAN_serology",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Serum IgA levels are elevated in all patients with IgA nephropathy and are diagnostic for the disease.",
+        "reason": "IgA nephropathy involves abnormal IgA1 glycosylation and mesangial deposition.",
+        "answer": "D",
+        "explanation": "The assertion is FALSE - serum IgA is elevated in only ~50% of IgAN patients and is NOT diagnostic. Diagnosis requires kidney biopsy showing mesangial IgA deposits. However, the reason is TRUE - IgAN does involve abnormal IgA1 glycosylation."
+      },
+      "lt": {
+        "assertion": "IgA koncentracija serume yra padidėjusi visiems pacientams, sergantiems IgA nefropatija ir yra ligos diagnozė.",
+        "reason": "IgA nefropatija apima nenormalų IgA1 glikozilinimą ir mezangialinį nusėdimą.",
+        "answer": "D",
+        "explanation": "Teiginys Klaidingas – serumas IgA yra padidėjęs tik ~50% IgAN pacientų ir NĖRA diagnostinis.Diagnozei nustatyti reikalinga inkstų biopsija, kurioje matomos mezanginės IgA nuosėdos.Tačiau priežastis TIKRA – IgAN yra susijęs su nenormaliu IgA1 glikozilinimu."
+      }
+    },
+    {
+      "id": 38,
+      "disease_id": "ALPORT",
+      "topic": "ALPORT_EM_pathology",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Electron microscopy showing irregular thickening, thinning, and splitting of the glomerular basement membrane with a 'basket-weave' appearance is diagnostic of Alport syndrome.",
+        "reason": "Alport syndrome is caused by mutations in genes encoding type IV collagen (COL4A3/A4/A5), leading to abnormal GBM structure.",
+        "answer": "A",
+        "explanation": "Both true and related. The basket-weave appearance on EM is pathognomonic for Alport syndrome and directly results from the abnormal type IV collagen structure. Mutations in COL4 genes prevent proper GBM formation, creating the characteristic ultrastructural abnormalities."
+      },
+      "lt": {
+        "assertion": "Elektroninė mikroskopija, rodanti netaisyklingą glomerulų bazinės membranos sustorėjimą, plonėjimą ir skilimą su „krepšelio pynimo“ išvaizda, yra Alport sindromo diagnozė.",
+        "reason": "Alport sindromą sukelia IV tipo kolageną (COL4A3/A4/A5) koduojančių genų mutacijos, dėl kurių susidaro nenormali GBM struktūra.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.Pintinė pinti EM yra patognomoniška Alport sindromui ir tiesiogiai atsiranda dėl nenormalios IV tipo kolageno struktūros.COL4 genų mutacijos neleidžia tinkamai formuotis GBM, sukurdamos būdingus ultrastruktūrinius anomalijas."
+      }
+    },
+    {
+      "id": 39,
+      "disease_id": "ALPORT",
+      "topic": "ALPORT_clinical_triad",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "The clinical triad of Alport syndrome consists of hematuria, sensorineural hearing loss, and ocular abnormalities.",
+        "reason": "These three features result from abnormal type IV collagen in the glomerular basement membrane, cochlea, and lens, respectively, as type IV collagen is a structural component in all three locations.",
+        "answer": "A",
+        "explanation": "Both true and related. Type IV collagen (specifically alpha-3, alpha-4, alpha-5 chains) is present in GBM, cochlear basement membranes, and lens capsule. Mutations cause defects in all three: progressive kidney disease, high-frequency hearing loss, and anterior lenticonus."
+      },
+      "lt": {
+        "assertion": "Klinikinė Alport sindromo triada susideda iš hematurija, sensorineurinis klausos praradimas ir akių anomalijos.",
+        "reason": "Šios trys savybės atsiranda dėl nenormalaus IV tipo kolageno glomerulų bazinėje membranoje, sraigėje ir lęšyje, nes IV tipo kolagenas yra struktūrinis komponentas visose trijose vietose.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.IV tipo kolagenas (ypač alfa-3, alfa-4, alfa-5 grandinės) yra GBM, kochlearinėse bazinėse membranose ir lęšio kapsulėje.Mutacijos sukelia visų trijų defektų: progresuojančią inkstų ligą, aukšto dažnio klausos praradimą ir priekinį lenticonusą."
+      }
+    },
+    {
+      "id": 40,
+      "disease_id": "ALPORT",
+      "topic": "ALPORT_prognosis",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Male patients with X-linked Alport syndrome typically progress to end-stage renal disease by age 20-30 years.",
+        "reason": "X-linked inheritance means males have one mutated COL4A5 gene on the X chromosome with no normal copy, leading to severe disease, while carrier females are generally asymptomatic.",
+        "answer": "A",
+        "explanation": "Both true, though the reason is partially incomplete. Males with X-linked Alport do progress to ESRD by 20-30 years because they have only one X chromosome (hemizygous). However, females (carriers) are NOT always asymptomatic - 15-30% develop ESRD, though usually later and milder. Still, the answer is A as the main concept is correct."
+      },
+      "lt": {
+        "assertion": "Su X susietu Alport sindromu sergantys vyrai paprastai progresuoja iki paskutinės stadijos inkstų ligos iki 20–30 metų amžiaus.",
+        "reason": "Su X susietas paveldėjimas reiškia, kad patinai turi vieną mutavusį COL4A5 geną X chromosomoje ir neturi normalios kopijos, o tai sukelia sunkią ligą, o nešiotojai paprastai yra besimptomiai.",
+        "answer": "A",
+        "explanation": "Abu tiesa, nors priežastis iš dalies neišsami.Patinai su X susietu Alport progresuoja iki ESRD 20–30 metų, nes jie turi tik vieną X chromosomą (hemizigotinę).Tačiau patelės (nešiotojai) NE visada būna besimptomiai – 15–30 % išsivysto NSL, nors dažniausiai vėliau ir švelniau.Vis dėlto atsakymas yra A, nes pagrindinė sąvoka yra teisinga."
+      }
+    },
+    {
+      "id": 41,
+      "disease_id": "ALPORT",
+      "topic": "ALPORT_transplant_antiGBM",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Patients with Alport syndrome may develop anti-GBM antibodies after kidney transplantation.",
+        "reason": "The transplanted kidney contains normal type IV collagen, which the immune system recognizes as self-antigen.",
+        "answer": "C",
+        "explanation": "The assertion is TRUE - about 5% of Alport patients develop anti-GBM antibodies post-transplant. However, the reason is FALSE. The immune system recognizes the NORMAL collagen in the allograft as FOREIGN (not self) because the patient never had normal collagen and has no tolerance to it."
+      },
+      "lt": {
+        "assertion": "Pacientams, sergantiems Alport sindromu, po inksto transplantacijos gali susidaryti anti-GBM antikūnų.",
+        "reason": "Persodintame inkste yra normalaus IV tipo kolageno, kurį imuninė sistema atpažįsta kaip savo antigeną.",
+        "answer": "C",
+        "explanation": "Teiginys yra TIKRAS – maždaug 5 % Alport pacientų po transplantacijos susidaro anti-GBM antikūnai.Tačiau priežastis yra klaidinga.Imuninė sistema atpažįsta NORMALĮ kolageną alotransplante kaip Svetimą (ne save), nes pacientas niekada neturėjo normalaus kolageno ir netoleruoja jo."
+      }
+    },
+    {
+      "id": 42,
+      "disease_id": "THIN_GBM",
+      "topic": "THIN_GBM_diagnosis",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Thin glomerular basement membrane disease is diagnosed by electron microscopy showing diffusely thin GBM measuring less than 250nm in adults.",
+        "reason": "Normal GBM thickness in adults is 300-400nm, and GBM <250nm is considered pathologically thin.",
+        "answer": "A",
+        "explanation": "Both true and related. Thin GBM disease cannot be diagnosed on light microscopy (glomeruli appear normal) and requires EM measurement. GBM <250nm in adults (<200nm in children) is diagnostic. This distinguishes it from normal and from Alport (which shows splitting/basket-weave, not uniform thinning)."
+      },
+      "lt": {
+        "assertion": "Plonų glomerulų bazinės membranos liga diagnozuojama elektroniniu mikroskopu, kai suaugusiesiems matomas difuziškai plonas GBM, kurio ilgis mažesnis nei 250 nm.",
+        "reason": "Įprastas GBM storis suaugusiems yra 300-400 nm, o GBM <250 nm laikomas patologiškai plonu.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.Plona GBM liga negali būti diagnozuojama atliekant šviesos mikroskopiją (glomerulai atrodo normalūs), todėl reikia išmatuoti EM.GBM <250nm suaugusiems (<200nm vaikams) yra diagnostinė.Tai išskiria jį nuo įprasto ir nuo Alport (tai rodo padalijimą / krepšelio pynimą, nevienodą retinimą)."
+      }
+    },
+    {
+      "id": 43,
+      "disease_id": "THIN_GBM",
+      "topic": "THIN_GBM_prognosis",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Thin GBM disease has an excellent prognosis and generally does not progress to chronic kidney disease.",
+        "reason": "Thin GBM disease is a benign familial condition characterized by isolated microscopic hematuria without proteinuria or renal dysfunction.",
+        "answer": "A",
+        "explanation": "Both true and related. Thin GBM disease (benign familial hematuria) is a benign condition. Patients have persistent microscopic hematuria from childhood but maintain normal renal function, no significant proteinuria, and no progression to CKD. This benign course distinguishes it from Alport syndrome."
+      },
+      "lt": {
+        "assertion": "Plona GBM liga turi puikią prognozę ir paprastai neprogresuoja į lėtinę inkstų ligą.",
+        "reason": "Plonoji GBM liga yra gerybinė šeimyninė būklė, kuriai būdinga izoliuota mikroskopinė hematurija be proteinurijos ar inkstų funkcijos sutrikimo.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.Plonoji GBM liga (gerybinė šeiminė hematurija) yra gerybinė būklė.Pacientai turi nuolatinę mikroskopinę hematuriją nuo vaikystės, tačiau palaiko normalią inkstų funkciją, nėra reikšmingos proteinurijos ir neprogresuoja į ŠKL.Ši gerybinė eiga išskiria jį nuo Alport sindromo."
+      }
+    },
+    {
+      "id": 44,
+      "disease_id": "THIN_GBM",
+      "topic": "THIN_GBM_vs_ALPORT",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Patients with thin GBM disease typically develop bilateral sensorineural hearing loss and ocular abnormalities in addition to hematuria.",
+        "reason": "Thin GBM disease is caused by heterozygous mutations in COL4A3 or COL4A4 genes encoding type IV collagen.",
+        "answer": "D",
+        "explanation": "The assertion is FALSE - thin GBM disease does NOT cause hearing loss or ocular abnormalities (those features indicate Alport syndrome). However, the reason is TRUE - thin GBM is caused by heterozygous COL4 mutations (carrier state), while Alport requires homozygous/compound heterozygous or X-linked mutations."
+      },
+      "lt": {
+        "assertion": "Pacientams, sergantiems plona GBM liga, be hematurijos, paprastai atsiranda dvišalis sensorineurinis klausos praradimas ir akių sutrikimai.",
+        "reason": "Ploną GBM ligą sukelia heterozigotinės mutacijos COL4A3 arba COL4A4 genuose, koduojančiuose IV tipo kolageną.",
+        "answer": "D",
+        "explanation": "Teiginys Klaidingas – plona GBM liga nesukelia klausos praradimo ar akių anomalijų (šie požymiai rodo Alport sindromą).Tačiau priežastis TIKRA – ploną GBM sukelia heterozigotinės COL4 mutacijos (nešiklio būsena), o Alport reikalingos homozigotinės/sudėtinės heterozigotinės arba su X susietos mutacijos."
+      }
+    },
+    {
+      "id": 45,
+      "disease_id": "MYELOMA_KIDNEY",
+      "topic": "MYELOMA_IF_restriction",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Immunofluorescence microscopy in myeloma cast nephropathy shows monoclonal light chain restriction with staining for either kappa or lambda, but not both.",
+        "reason": "Myeloma produces a clonal population of plasma cells secreting a single type of monoclonal light chain.",
+        "answer": "A",
+        "explanation": "Both true and related. The monoclonal light chain restriction (kappa OR lambda positive, not both) on IF is diagnostic for myeloma kidney and reflects the clonal nature of the plasma cell disorder. Normal kidneys would show both kappa and lambda (polyclonal)."
+      },
+      "lt": {
+        "assertion": "Imunofluorescencinė mikroskopija sergant mielomine nefropatija rodo monokloninį lengvosios grandinės apribojimą, dažant kappa arba lambda, bet ne abu.",
+        "reason": "Mieloma gamina kloninę plazmos ląstelių populiaciją, išskiriančią vieno tipo monokloninę lengvąją grandinę.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.IF monokloninės lengvosios grandinės apribojimas (kappa ARBA lambda teigiamas, ne abu) yra inkstų mielomos diagnozė ir atspindi plazmos ląstelių sutrikimo kloninį pobūdį.Normalūs inkstai rodo ir kappa, ir lambda (polikloninius)."
+      }
+    },
+    {
+      "id": 46,
+      "disease_id": "MYELOMA_KIDNEY",
+      "topic": "MYELOMA_proteinuria_detection",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Patients with myeloma cast nephropathy may have minimal proteinuria on urine dipstick despite having severe kidney disease.",
+        "reason": "Urine dipsticks detect albumin but not immunoglobulin light chains, which are the primary proteins in myeloma kidney.",
+        "answer": "A",
+        "explanation": "Both true and related. Dipstick measures albumin, but myeloma patients excrete free light chains (Bence Jones protein), not albumin. Thus dipstick can be negative/trace while 24-hour urine protein with SPEP shows massive light chain proteinuria. This is a classic pitfall."
+      },
+      "lt": {
+        "assertion": "Pacientams, sergantiems mielomos nefropatija, šlapimo matuoklyje gali būti minimali proteinurija, nepaisant sunkios inkstų ligos.",
+        "reason": "Šlapimo matuokliai aptinka albuminą, bet ne imunoglobulino lengvąsias grandines, kurios yra pagrindiniai mielomos inkstų baltymai.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.Matuoklis matuoja albuminą, tačiau mieloma sergantys pacientai išskiria laisvąsias lengvąsias grandines (Bence Jones baltymą), o ne albuminą.Taigi matuoklis gali būti neigiamas / pėdsakai, o 24 valandų šlapimo baltymas su SPEP rodo didžiulę lengvosios grandinės proteinuriją.Tai klasikinis spąstas."
+      }
+    },
+    {
+      "id": 47,
+      "disease_id": "MYELOMA_KIDNEY",
+      "topic": "MYELOMA_LM_pathology",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Light microscopy in myeloma cast nephropathy characteristically shows large tubular casts with surrounding giant cell reaction.",
+        "reason": "The casts are composed of monoclonal light chains that precipitate in the distal tubules and collecting ducts, eliciting an inflammatory response.",
+        "answer": "A",
+        "explanation": "Both true and related. The dense, fractured/angular casts in tubules with multinucleated giant cells are pathognomonic for cast nephropathy. Light chains precipitate in tubules (especially with dehydration, hypercalcemia), forming casts that obstruct tubules and cause AKI."
+      },
+      "lt": {
+        "assertion": "Šviesos mikroskopija sergant mielomine nefropatija būdinga dideliems kanalėlių gipsams su aplinkinių milžiniškų ląstelių reakcija.",
+        "reason": "Gipsai sudaryti iš monokloninių lengvųjų grandinių, kurios nusėda distaliniuose kanalėliuose ir surinkimo kanaluose, sukeldamos uždegiminį atsaką.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.Tankūs, lūžę/kampiniai gipsai kanalėliuose su daugiabranduolėmis milžiniškomis ląstelėmis yra patognomoniški gipsinės nefropatijos atveju.Lengvosios grandinės nusėda kanalėliuose (ypač esant dehidratacijai, hiperkalcemijai), sudarydamos lietinius, kurie užkemša kanalėlius ir sukelia AKI."
+      }
+    },
+    {
+      "id": 48,
+      "disease_id": "MYELOMA_KIDNEY",
+      "topic": "MYELOMA_treatment",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Treatment of myeloma cast nephropathy requires urgent chemotherapy to reduce light chain production.",
+        "reason": "Plasmapheresis effectively removes light chains and is the definitive treatment for myeloma kidney.",
+        "answer": "C",
+        "explanation": "The assertion is TRUE - urgent chemotherapy (bortezomib-based) to reduce paraprotein is critical. However, the reason is FALSE. Plasmapheresis is NOT effective for myeloma kidney because most light chains are not efficiently removed by dialysis (they're tissue-bound). Treatment is chemotherapy + supportive care."
+      },
+      "lt": {
+        "assertion": "Mielomos nefropatijos gydymui reikalinga skubi chemoterapija, siekiant sumažinti lengvosios grandinės gamybą.",
+        "reason": "Plazmaferezė veiksmingai pašalina lengvąsias grandines ir yra galutinis mielomos inkstų gydymas.",
+        "answer": "C",
+        "explanation": "Teiginys yra TIKRAS – skubi chemoterapija (bortezomibo pagrindu), siekiant sumažinti paraproteino kiekį, yra labai svarbi.Tačiau priežastis yra klaidinga.Plazmaferezė NĖRA veiksminga sergant inkstų mieloma, nes dauguma lengvųjų grandinių nėra veiksmingai pašalinamos dializės būdu (jos yra susietos su audiniu).Gydymas yra chemoterapija + palaikomasis gydymas."
+      }
+    },
+    {
+      "id": 49,
+      "disease_id": "ATN",
+      "topic": "ATN_urinalysis",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Urinalysis in acute tubular necrosis characteristically shows muddy brown granular casts and renal tubular epithelial cells.",
+        "reason": "These findings reflect tubular injury with sloughing of damaged tubular epithelial cells and formation of casts containing cellular debris.",
+        "answer": "A",
+        "explanation": "Both true and related. Muddy brown casts are pathognomonic for ATN and result from degenerating tubular cells forming casts. This distinguishes ATN (intrinsic AKI) from prerenal azotemia (bland sediment with hyaline casts) and helps confirm the diagnosis."
+      },
+      "lt": {
+        "assertion": "Šlapimo tyrimas ūminės kanalėlių nekrozės atveju rodo purvinas rudas granuliuotas ląsteles ir inkstų kanalėlių epitelio ląsteles.",
+        "reason": "Šie radiniai atspindi kanalėlių sužalojimą dėl pažeistų kanalėlių epitelio ląstelių slinkimo ir ląstelių, kuriose yra ląstelių šiukšlių, susidarymo.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.Purvinos rudos spalvos dėmės yra patognomoniškos ŪKN ir atsiranda dėl išsigimusių kanalėlių ląstelių, formuojančių ląsteles.Tai išskiria ŪKN (vidinį AKI) nuo prerenalinės azotemijos (švelnios nuosėdos su hialino sluoksniais) ir padeda patvirtinti diagnozę."
+      }
+    },
+    {
+      "id": 50,
+      "disease_id": "ATN",
+      "topic": "ATN_FENa",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "In acute tubular necrosis, the fractional excretion of sodium (FENa) is typically greater than 1-2%.",
+        "reason": "Tubular injury impairs the kidney's ability to reabsorb sodium, leading to increased urinary sodium excretion.",
+        "answer": "A",
+        "explanation": "Both true and related. ATN causes tubular dysfunction with impaired sodium reabsorption, resulting in FENa >1% (usually >2%) and urine sodium >40 mEq/L. This distinguishes ATN (intrinsic) from prerenal azotemia (FENa <1%, as tubules avidly reabsorb sodium when perfusion is low)."
+      },
+      "lt": {
+        "assertion": "Ūminės kanalėlių nekrozės atveju dalinis natrio (FENa) išsiskyrimas paprastai yra didesnis nei 1–2%.",
+        "reason": "Dėl kanalėlių pažeidimo sutrinka inkstų gebėjimas reabsorbuoti natrį, todėl padidėja natrio išsiskyrimas su šlapimu.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.ŪKN sukelia kanalėlių disfunkciją su sutrikusia natrio reabsorbcija, todėl FENa >1% (dažniausiai >2%) ir natrio šlapime >40 mEq/L.Tai išskiria ŪKN (vidinę) nuo prerenalinės azotemijos (FENa <1%, nes kanalėliai aistringai reabsorbuoja natrį, kai perfuzija yra maža)."
+      }
+    },
+    {
+      "id": 51,
+      "disease_id": "ATN",
+      "topic": "ATN_treatment_prognosis",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Most patients with acute tubular necrosis recover renal function within weeks to months if the underlying cause is treated.",
+        "reason": "The excellent recovery rate in ATN is due to the effectiveness of corticosteroid therapy in regenerating tubular epithelial cells.",
+        "answer": "C",
+        "explanation": "The assertion is TRUE - most ATN patients do recover if the insult is removed. However, the reason is FALSE. ATN is NOT treated with corticosteroids - it's managed with supportive care only. Recovery occurs through natural tubular epithelial cell regeneration."
+      },
+      "lt": {
+        "assertion": "Daugumos pacientų, sergančių ūmine kanalėlių nekroze, inkstų funkcija atsigauna per kelias savaites ar mėnesius, jei gydoma pagrindinė priežastis.",
+        "reason": "Puikus atsigavimo greitis ŪKN yra dėl kortikosteroidų terapijos veiksmingumo regeneruojant kanalėlių epitelio ląsteles.",
+        "answer": "C",
+        "explanation": "Teiginys yra TIKRAS – dauguma ŪKN pacientų pasveiksta, jei įžeidimas pašalinamas.Tačiau priežastis yra klaidinga.ŪKN NEgydomas kortikosteroidais – jis valdomas tik taikant palaikomąją priežiūrą.Atsigavimas vyksta per natūralų kanalėlių epitelio ląstelių regeneraciją."
+      }
+    },
+    {
+      "id": 52,
+      "disease_id": "ATN",
+      "topic": "ATN_pathology",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Acute tubular necrosis characteristically shows crescentic glomerulonephritis on kidney biopsy.",
+        "reason": "The tubular injury in ATN is caused by immune complex deposition in the tubular basement membrane.",
+        "answer": "E",
+        "explanation": "Both FALSE. ATN shows TUBULAR injury (loss of brush border, tubular cell necrosis, denudation) with NORMAL glomeruli - not crescents (which indicate RPGN). Additionally, ATN is NOT caused by immune complexes - it's due to ischemia or direct tubular toxicity."
+      },
+      "lt": {
+        "assertion": "Inkstų biopsijos metu ūminė kanalėlių nekrozė rodo pusmėnulio glomerulonefritą.",
+        "reason": "Vamzdinį pažeidimą ŪKN sukelia imuninio komplekso nusėdimas vamzdinėje bazinėje membranoje.",
+        "answer": "E",
+        "explanation": "Abu NETEISINGAI.ŪKN rodo VAMZELĮ (šepetėlio krašto praradimas, kanalėlių ląstelių nekrozė, denudacija) su NORMALIAIS glomerulais - ne pusmėnuliais (kurie rodo GPGN).Be to, ŪKN nesukelia imuniniai kompleksai – tai dėl išemijos arba tiesioginio kanalėlių toksiškumo."
+      }
+    },
+    {
+      "id": 53,
+      "disease_id": "AIN",
+      "topic": "AIN_etiology",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Acute interstitial nephritis is most commonly caused by drug hypersensitivity reactions, particularly to antibiotics, NSAIDs, and proton pump inhibitors.",
+        "reason": "These drugs trigger a type IV delayed hypersensitivity reaction with T-cell mediated interstitial inflammation.",
+        "answer": "A",
+        "explanation": "Both true and related. Drug-induced AIN (70-80% of cases) is an immune-mediated process. Beta-lactams, sulfonamides, NSAIDs, and PPIs are most common culprits. The T-cell infiltration explains why treatment involves stopping the drug and sometimes using corticosteroids."
+      },
+      "lt": {
+        "assertion": "Ūminį intersticinį nefritą dažniausiai sukelia padidėjusio jautrumo vaistams reakcijos, ypač antibiotikams, NVNU ir protonų siurblio inhibitoriams.",
+        "reason": "Šie vaistai sukelia IV tipo uždelstą padidėjusio jautrumo reakciją su T ląstelių sukeltu intersticiniu uždegimu.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.Vaistų sukeltas ŪIN (70-80% atvejų) yra imuninės sistemos sukeltas procesas.Beta laktamai, sulfonamidai, NVNU ir PSI yra dažniausiai kaltininkai.T-ląstelių infiltracija paaiškina, kodėl gydymas apima vaisto vartojimo nutraukimą ir kartais kortikosteroidų vartojimą."
+      }
+    },
+    {
+      "id": 54,
+      "disease_id": "AIN",
+      "topic": "AIN_pathology",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Light microscopy in acute interstitial nephritis shows interstitial inflammation with lymphocytic infiltrate and eosinophils.",
+        "reason": "The presence of eosinophils in the interstitium is particularly characteristic of drug-induced acute interstitial nephritis.",
+        "answer": "A",
+        "explanation": "Both true and related. AIN shows interstitial edema and inflammatory infiltrate (lymphocytes, eosinophils, plasma cells) with tubulitis. Eosinophils are especially prominent in drug-induced AIN and are a diagnostic clue, though their absence doesn't exclude the diagnosis."
+      },
+      "lt": {
+        "assertion": "Šviesos mikroskopija sergant ūminiu intersticiniu nefritu rodo intersticinį uždegimą su limfocitų infiltratu ir eozinofilais.",
+        "reason": "Eozinofilų buvimas intersticyje ypač būdingas vaistų sukeltam ūminiam intersticiniam nefritui.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.ŪIN rodo intersticinę edemą ir uždegiminį infiltratą (limfocitai, eozinofilai, plazmos ląstelės) su tubulitu.Eozinofilai yra ypač ryškūs vaistų sukeltame ŪIN ir yra diagnostinis požymis, nors jų nebuvimas neatmeta diagnozės."
+      }
+    },
+    {
+      "id": 55,
+      "disease_id": "AIN",
+      "topic": "AIN_urinalysis",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Urinalysis in acute interstitial nephritis may show white blood cell casts and eosinophiluria.",
+        "reason": "The interstitial inflammation allows white blood cells and eosinophils to enter the tubular lumen, where they form casts and appear in the urine.",
+        "answer": "A",
+        "explanation": "Both true and related. WBC casts (sterile pyuria) and eosinophiluria (detected with Hansel stain) are characteristic urinary findings in AIN. These help distinguish AIN from ATN (muddy brown casts) and from urinary tract infection (bacteria present)."
+      },
+      "lt": {
+        "assertion": "Šlapimo tyrimas ūminio intersticinio nefrito atveju gali rodyti baltųjų kraujo kūnelių ląsteles ir eozinofiluriją.",
+        "reason": "Dėl intersticinio uždegimo baltieji kraujo kūneliai ir eozinofilai patenka į kanalėlių spindį, kur susidaro gipsai ir atsiranda šlapime.",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.WBC gipsai (sterili pirurija) ir eozinofilurija (nustatyta Hansel dėme) yra būdingi šlapimo radiniai ŪIN.Tai padeda atskirti ŪIN nuo ŪKN (purvinos rudos spalvos dėmės) ir nuo šlapimo takų infekcijos (yra bakterijų)."
+      }
+    },
+    {
+      "id": 56,
+      "disease_id": "AIN",
+      "topic": "AIN_clinical_triad",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "The classic triad of fever, rash, and eosinophilia is present in the majority of patients with acute interstitial nephritis.",
+        "reason": "Drug-induced AIN is a type IV hypersensitivity reaction mediated by T-lymphocytes.",
+        "answer": "D",
+        "explanation": "The assertion is FALSE - the classic triad is present in only 10-15% of AIN cases! Don't wait for it. However, the reason is TRUE - AIN is indeed a type IV (delayed) hypersensitivity reaction. Most patients have AKI with pyuria/eosinophiluria without the full triad."
+      },
+      "lt": {
+        "assertion": "Klasikinė karščiavimo, bėrimo ir eozinofilija triada būdinga daugumai pacientų, sergančių ūminiu intersticiniu nefritu.",
+        "reason": "Vaistų sukelta ŪIN yra IV tipo padidėjusio jautrumo reakcija, kurią sukelia T limfocitai.",
+        "answer": "D",
+        "explanation": "Teiginys Klaidingas – klasikinė triada pasitaiko tik 10-15% ŪIN atvejų!Nelaukite.Tačiau priežastis TIKRA – ŪIN iš tiesų yra IV tipo (uždelsta) padidėjusio jautrumo reakcija.Dauguma pacientų turi AKI su piurija / eozinofilurija be visos triados."
+      }
+    },
+    {
+      "id": 57,
+      "disease_id": "AIN",
+      "topic": "AIN_NSAID_nephrotic",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "NSAIDs can cause acute interstitial nephritis that may present with nephrotic syndrome.",
+        "reason": "Acute interstitial nephritis shows eosinophilic infiltration in the kidney interstitium.",
+        "answer": "B",
+        "explanation": "Both are true. NSAIDs uniquely can cause AIN with concurrent minimal change disease-like nephrotic syndrome (unlike other drugs). And AIN does show eosinophilic infiltration. However, the eosinophilic infiltration doesn't explain the nephrotic syndrome - these are independent true facts."
+      },
+      "lt": {
+        "assertion": "NVNU gali sukelti ūminį intersticinį nefritą, kuris gali pasireikšti nefroziniu sindromu.",
+        "reason": "Ūminis intersticinis nefritas rodo eozinofilinę infiltraciją inksto intersticyje.",
+        "answer": "B",
+        "explanation": "Abu yra tiesa.Nesteroidiniai vaistai nuo uždegimo gali sukelti ŪIN kartu su minimaliais pokyčiais į ligą panašų nefrozinį sindromą (skirtingai nuo kitų vaistų).Ir ŪIN rodo eozinofilinį infiltraciją.Tačiau eozinofilinė infiltracija nepaaiškina nefrozinio sindromo – tai nepriklausomi tikri faktai."
+      }
+    },
+    {
+      "id": 58,
+      "disease_id": "DIABETIC_GN",
+      "topic": "Diabetic GN - Pathology",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Kimmelstiel-Wilson nodules are pathognomonic for diabetic glomerulosclerosis",
+        "reason": "These nodules represent acellular mesangial expansion caused by chronic hyperglycemia and AGE accumulation",
+        "answer": "A",
+        "explanation": "Both statements are true. Kimmelstiel-Wilson nodules are indeed pathognomonic (highly characteristic) of diabetic nephropathy, and they form due to mesangial matrix expansion from chronic hyperglycemia and advanced glycation end product (AGE) accumulation. The reason correctly explains the mechanism of nodule formation."
+      },
+      "lt": {
+        "assertion": "Kimmelstiel-Wilson mazgeliai yra patognomoniški diabetinei glomerulosklerozei",
+        "reason": "Šie mazgeliai rodo ląstelinį mezangialinį išsiplėtimą, kurį sukelia lėtinė hiperglikemija ir AGE kaupimasis",
+        "answer": "A",
+        "explanation": "Abu teiginiai yra teisingi.Kimmelstiel-Wilson mazgeliai iš tiesų yra patognomoniški (labai būdingi) diabetinei nefropatijai ir susidaro dėl mezangialinės matricos išsiplėtimo dėl lėtinės hiperglikemijos ir pažengusio glikacijos galutinio produkto (AGE) kaupimosi.Priežastis teisingai paaiškina mazgelių susidarymo mechanizmą."
+      }
+    },
+    {
+      "id": 59,
+      "disease_id": "DIABETIC_GN",
+      "topic": "Diabetic GN - Immunofluorescence",
+      "difficulty": "hard",
+      "en": {
+        "assertion": "Diabetic nephropathy typically shows linear IgG staining on immunofluorescence",
+        "reason": "The linear IgG represents non-immune protein trapping in the thickened GBM, not immune complex deposition",
+        "answer": "A",
+        "explanation": "Both true and related. Diabetic nephropathy shows linear IgG and albumin staining, but this is NOT an immune-mediated process. It represents passive trapping of plasma proteins in the abnormally thickened GBM. This distinguishes it from anti-GBM disease where linear IgG is from antibody binding."
+      },
+      "lt": {
+        "assertion": "Diabetinė nefropatija paprastai rodo linijinį IgG dažymą pagal imunofluorescenciją",
+        "reason": "Linijinis IgG reiškia neimuninių baltymų gaudymą sutirštėjusiame GBM, o ne imuninio komplekso nusėdimą",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.Diabetinė nefropatija rodo linijinį IgG ir albumino dažymą, tačiau tai NĖRA imuninės sistemos sukeltas procesas.Tai rodo pasyvų plazmos baltymų gaudymą neįprastai sutirštėjusiame GBM.Tai išskiria ją nuo anti-GBM ligos, kur linijinis IgG yra dėl antikūnų surišimo."
+      }
+    },
+    {
+      "id": 60,
+      "disease_id": "DIABETIC_GN",
+      "topic": "Diabetic GN - Treatment",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "ACE inhibitors or ARBs are first-line treatment for diabetic nephropathy",
+        "reason": "These agents reduce intraglomerular pressure and proteinuria, slowing progression to ESRD by 30-40%",
+        "answer": "A",
+        "explanation": "Both true and mechanistically linked. ACE inhibitors and ARBs reduce efferent arteriolar vasoconstriction, decreasing glomerular hypertension and proteinuria. Clinical trials show they slow progression to ESRD by approximately 30-40% independent of blood pressure effects."
+      },
+      "lt": {
+        "assertion": "ACE inhibitoriai arba ARB yra pirmosios eilės diabetinės nefropatijos gydymas",
+        "reason": "Šios medžiagos sumažina intraglomerulinį spaudimą ir proteinuriją, sulėtindamos progresavimą iki ESRD 30–40%.",
+        "answer": "A",
+        "explanation": "Ir tikras, ir mechaniškai susietas.ACE inhibitoriai ir ARBs mažina eferentinį arteriolių vazokonstrikciją, mažina glomerulų hipertenziją ir proteinuriją.Klinikiniai tyrimai rodo, kad jie sulėtina progresavimą iki ESRD maždaug 30–40%, nepriklausomai nuo kraujospūdžio poveikio."
+      }
+    },
+    {
+      "id": 61,
+      "disease_id": "DIABETIC_GN",
+      "topic": "Diabetic GN - Clinical Features",
+      "difficulty": "hard",
+      "en": {
+        "assertion": "Absence of diabetic retinopathy suggests a non-diabetic cause of kidney disease",
+        "reason": "Diabetic retinopathy always precedes diabetic nephropathy",
+        "answer": "C",
+        "explanation": "The assertion is true - only 15% of patients with diabetic nephropathy lack retinopathy, so its absence should prompt evaluation for other causes. However, the reason is false. While retinopathy is usually present (85%), it doesn't always precede nephropathy. They typically develop concurrently after 10-15 years of diabetes."
+      },
+      "lt": {
+        "assertion": "Diabetinės retinopatijos nebuvimas rodo, kad inkstų liga nėra diabetinė",
+        "reason": "Diabetinė retinopatija visada yra prieš diabetinę nefropatiją",
+        "answer": "C",
+        "explanation": "Teiginys yra teisingas - tik 15% pacientų, sergančių diabetine nefropatija, trūksta retinopatijos, todėl jos nebuvimas turėtų paskatinti įvertinti kitas priežastis.Tačiau priežastis yra klaidinga.Nors retinopatija paprastai būna (85%), ji ne visada būna prieš nefropatiją.Paprastai jie vystosi kartu po 10–15 metų sergant cukriniu diabetu."
+      }
+    },
+    {
+      "id": 62,
+      "disease_id": "DIABETIC_GN",
+      "topic": "Diabetic GN - Treatment",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Diabetic glomerulosclerosis requires immunosuppressive therapy",
+        "reason": "Diabetic nephropathy is a metabolic disease caused by chronic hyperglycemia",
+        "answer": "D",
+        "explanation": "The assertion is FALSE - diabetic nephropathy does NOT respond to immunosuppression and should not be treated with steroids or other immunosuppressants. The reason is TRUE - this is a metabolic disease from hyperglycemia-induced injury, not an immune-mediated process. Treatment focuses on glycemic control and RAAS blockade."
+      },
+      "lt": {
+        "assertion": "Diabetinė glomerulosklerozė reikalauja imunosupresinio gydymo",
+        "reason": "Diabetinė nefropatija yra medžiagų apykaitos liga, kurią sukelia lėtinė hiperglikemija",
+        "answer": "D",
+        "explanation": "Teiginys Klaidingas – diabetinė nefropatija NEreaguoja į imunosupresiją ir neturėtų būti gydoma steroidais ar kitais imunosupresantais.Priežastis TIKRAI – tai medžiagų apykaitos liga dėl hiperglikemijos sukeltos traumos, o ne imuninės sistemos sukeltas procesas.Gydymas orientuotas į glikemijos kontrolę ir RAAS blokadą."
+      }
+    },
+    {
+      "id": 63,
+      "disease_id": "AMYLOIDOSIS",
+      "topic": "Amyloidosis - Diagnosis",
+      "difficulty": "easy",
+      "en": {
+        "assertion": "Congo red stain with apple-green birefringence under polarized light is diagnostic for amyloidosis",
+        "reason": "Amyloid fibrils have a beta-pleated sheet structure that binds Congo red and shows characteristic birefringence",
+        "answer": "A",
+        "explanation": "Both true and mechanistically linked. The pathognomonic finding for amyloidosis is Congo red positivity with apple-green birefringence under polarized light. This occurs because the beta-pleated sheet structure of amyloid fibrils binds Congo red dye in a way that produces birefringence. This is the gold standard for diagnosis."
+      },
+      "lt": {
+        "assertion": "Kongo raudonasis dėmė su obuolių žalumo dvigubu lūžiu poliarizuotoje šviesoje yra amiloidozės diagnozė",
+        "reason": "Amiloidinės fibrilės turi beta klostuotą lakštinę struktūrą, kuri suriša Kongo raudonasis ir pasižymi būdingu dvigubu lūžiu",
+        "answer": "A",
+        "explanation": "Ir tikras, ir mechaniškai susietas.Patognomoninis amiloidozės radinys yra Kongo raudonasis pozityvumas su obuolių žalios spalvos dvigubu lūžiu poliarizuotoje šviesoje.Taip atsitinka todėl, kad amiloidinių fibrilių beta klostuota lakštinė struktūra suriša Kongo raudonasis dažus taip, kad susidaro dvigubas lūžis.Tai yra auksinis diagnostikos standartas."
+      }
+    },
+    {
+      "id": 64,
+      "disease_id": "AMYLOIDOSIS",
+      "topic": "Amyloidosis - Immunofluorescence",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Light chain restriction on immunofluorescence distinguishes AL from AA amyloidosis",
+        "reason": "AL amyloidosis is caused by monoclonal light chain deposition while AA involves serum amyloid A protein",
+        "answer": "A",
+        "explanation": "Both true and the reason explains the assertion. AL amyloidosis shows monoclonal light chain restriction (kappa OR lambda, not both) because it derives from a plasma cell clone. AA amyloidosis shows no light chain restriction because it derives from serum amyloid A protein, not immunoglobulins. IF can help type the amyloid."
+      },
+      "lt": {
+        "assertion": "Lengvosios grandinės imunofluorescencijos apribojimas išskiria AL nuo AA amiloidozės",
+        "reason": "AL amiloidozę sukelia monokloninis lengvosios grandinės nusėdimas, o AA apima serumo amiloido A baltymą",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir priežastis paaiškina teiginį.AL amiloidozė rodo monokloninį lengvosios grandinės apribojimą (kappa OR lambda, o ne abu), nes ji kilusi iš plazmos ląstelių klono.AA amiloidozė nerodo lengvosios grandinės apribojimo, nes ji atsiranda iš serumo amiloido A baltymo, o ne iš imunoglobulinų.IF gali padėti įvesti amiloidą."
+      }
+    },
+    {
+      "id": 65,
+      "disease_id": "AMYLOIDOSIS",
+      "topic": "Amyloidosis - Clinical Features",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Kidneys are typically enlarged in amyloidosis",
+        "reason": "Amyloid deposition causes organ expansion, unlike most other causes of nephrotic syndrome which cause atrophy",
+        "answer": "A",
+        "explanation": "Both true and related. Amyloidosis classically causes kidney enlargement due to extensive protein deposition, which is unusual as most chronic kidney diseases cause atrophy. This is a helpful clinical clue - nephrotic syndrome with enlarged kidneys should raise suspicion for amyloidosis or diabetic nephropathy."
+      },
+      "lt": {
+        "assertion": "Inkstai paprastai padidėja sergant amiloidoze",
+        "reason": "Amiloido nusėdimas sukelia organų išsiplėtimą, skirtingai nuo daugelio kitų nefrozinio sindromo priežasčių, sukeliančių atrofiją",
+        "answer": "A",
+        "explanation": "Ir tiesa, ir susijusi.Amiloidozė klasikiniu būdu sukelia inkstų padidėjimą dėl didelio baltymų nusėdimo, o tai neįprasta, nes dauguma lėtinių inkstų ligų sukelia atrofiją.Tai naudingas klinikinis patarimas – nefrozinis sindromas su padidėjusiais inkstais turėtų kelti įtarimą dėl amiloidozės ar diabetinės nefropatijos."
+      }
+    },
+    {
+      "id": 66,
+      "disease_id": "AMYLOIDOSIS",
+      "topic": "Amyloidosis - Pathology",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "Electron microscopy shows 8-12 nm randomly oriented fibrils in amyloidosis",
+        "reason": "Periorbital purpura and macroglossia are characteristic systemic features of AL amyloidosis",
+        "answer": "B",
+        "explanation": "Both statements are true but unrelated. The EM finding of 8-12 nm non-branching fibrils is the ultrastructural hallmark that distinguishes amyloid from other deposits. Periorbital purpura and macroglossia are indeed systemic manifestations of AL amyloidosis. However, the EM findings don't explain the systemic features."
+      },
+      "lt": {
+        "assertion": "Elektroninė mikroskopija rodo 8-12 nm atsitiktinai orientuotas fibriles sergant amiloidoze",
+        "reason": "Periorbitalinė purpura ir makroglosija yra būdingi sisteminiai AL amiloidozės požymiai",
+        "answer": "B",
+        "explanation": "Abu teiginiai yra teisingi, bet nesusiję.EM 8–12 nm nesišakojusių fibrilių radinys yra ultrastruktūrinis požymis, išskiriantis amiloidą nuo kitų nuosėdų.Periorbitalinė purpura ir makroglosija iš tiesų yra sisteminės AL amiloidozės apraiškos.Tačiau EM išvados nepaaiškina sisteminių savybių."
+      }
+    },
+    {
+      "id": 67,
+      "disease_id": "AMYLOIDOSIS",
+      "topic": "Amyloidosis - Treatment",
+      "difficulty": "hard",
+      "en": {
+        "assertion": "Treatment of AL amyloidosis requires chemotherapy targeting the plasma cell clone",
+        "reason": "AL amyloidosis is always associated with multiple myeloma",
+        "answer": "C",
+        "explanation": "The assertion is TRUE - AL amyloidosis requires chemotherapy (bortezomib-based regimens or stem cell transplant) to eliminate the plasma cell clone producing light chains. However, the reason is FALSE - while AL amyloidosis involves a plasma cell dyscrasia, it's often associated with MGUS or smoldering myeloma, not frank multiple myeloma. Only ~20% have overt myeloma."
+      },
+      "lt": {
+        "assertion": "AL amiloidozei gydyti reikalinga chemoterapija, nukreipta į plazmos ląstelių kloną",
+        "reason": "AL amiloidozė visada yra susijusi su daugybine mieloma",
+        "answer": "C",
+        "explanation": "Teiginys yra TIKRAS – AL amiloidozei reikalinga chemoterapija (bortezomibu pagrįsti režimai arba kamieninių ląstelių transplantacija), kad būtų pašalintas plazmos ląstelių klonas, gaminantis lengvas grandines.Tačiau priežastis Klaidinga – nors AL amiloidozė apima plazmos ląstelių diskraziją, ji dažnai siejama su MGUS arba smirdančia mieloma, o ne su daugybine mieloma.Tik ~20% turi ryškią mielomą."
+      }
+    },
+    {
+      "id": 68,
+      "disease_id": "AMYLOIDOSIS",
+      "topic": "Amyloidosis - Prognosis",
+      "difficulty": "medium",
+      "en": {
+        "assertion": "AA amyloidosis has a worse prognosis than AL amyloidosis",
+        "reason": "Cardiac involvement is the leading cause of death in AL amyloidosis",
+        "answer": "D",
+        "explanation": "The assertion is FALSE - AA amyloidosis actually has a BETTER prognosis than AL, especially if the underlying inflammatory condition can be controlled. The reason is TRUE - restrictive cardiomyopathy from cardiac amyloid is indeed the leading cause of death in AL amyloidosis, contributing to its poor prognosis (median survival 1-2 years if cardiac involvement)."
+      },
+      "lt": {
+        "assertion": "AA amiloidozės prognozė yra blogesnė nei AL amiloidozės",
+        "reason": "Širdies pažeidimas yra pagrindinė mirties priežastis sergant AL amiloidoze",
+        "answer": "D",
+        "explanation": "Teiginys yra NETEISINGAS – AA amiloidozės prognozė iš tikrųjų yra GERESNE nei AL, ypač jei galima kontroliuoti pagrindinę uždegiminę būklę.Priežastis TIKRA – ribojanti kardiomiopatija dėl širdies amiloido iš tiesų yra pagrindinė mirties priežastis sergant AL amiloidoze, prisidedanti prie prastos jos prognozės (vidutinis išgyvenamumas 1–2 metai, jei pažeidžiama širdis)."
+      }
+    },
+    {
+      "id": 69,
+      "disease_id": "MCD",
+      "topic": "MCD_slide13",
+      "difficulty": "medium",
+      "source_slide": 13,
+      "en": {
+        "assertion": "Minimal change disease shows diffuse effacement of podocyte foot processes",
+        "reason": "This lesion is only visible on electron microscopy, not by light microscopy",
+        "answer": "A",
+        "explanation": "Minimal change disease shows diffuse effacement of podocyte foot processes. This lesion is only visible on electron microscopy, not by light microscopy. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Minimalių pokyčių liga rodo difuzinį podocitų kojelių išnykimą",
+        "reason": "Šis pažeidimas matomas tik elektronine mikroskopija, ne šviesos mikroskopija",
+        "answer": "A",
+        "explanation": "Minimalių pokyčių liga rodo difuzinį podocitų kojelių išnykimą. Šis pažeidimas matomas tik elektronine mikroskopija, ne šviesos mikroskopija. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/MCD/MCD_slide13_img1.jpg"
+    },
+    {
+      "id": 70,
+      "disease_id": "MCD",
+      "topic": "MCD_slide13",
+      "difficulty": "medium",
+      "source_slide": 13,
+      "en": {
+        "assertion": "Minimal change disease glomeruli appear normal on light microscopy",
+        "reason": "The diagnostic lesion is ultrastructural foot process effacement visible only by electron microscopy",
+        "answer": "A",
+        "explanation": "Minimal change disease glomeruli appear normal on light microscopy. The diagnostic lesion is ultrastructural foot process effacement visible only by electron microscopy. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Minimalių pokyčių ligos glomerulai atrodo normalūs šviesos mikroskopijoje",
+        "reason": "Diagnostinis pažeidimas yra ultrastruktūrinis kojelių išnykimas, matomas tik elektronine mikroskopija",
+        "answer": "A",
+        "explanation": "Minimalių pokyčių ligos glomerulai atrodo normalūs šviesos mikroskopijoje. Diagnostinis pažeidimas yra ultrastruktūrinis kojelių išnykimas, matomas tik elektronine mikroskopija. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/MCD/MCD_slide13_img1.jpg"
+    },
+    {
+      "id": 71,
+      "disease_id": "MCD",
+      "topic": "MCD_slide12",
+      "difficulty": "easy",
+      "source_slide": 12,
+      "en": {
+        "assertion": "Minimal change disease typically presents with nephrotic syndrome in children",
+        "reason": "It is the most common cause of nephrotic syndrome in children under 10 years",
+        "answer": "A",
+        "explanation": "Minimal change disease typically presents with nephrotic syndrome in children. It is the most common cause of nephrotic syndrome in children under 10 years. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Minimalių pokyčių liga paprastai pasireiškia nefroziniu sindromu vaikams",
+        "reason": "Tai dažniausia nefrozinio sindromo priežastis vaikams iki 10 metų",
+        "answer": "A",
+        "explanation": "Minimalių pokyčių liga paprastai pasireiškia nefroziniu sindromu vaikams. Tai dažniausia nefrozinio sindromo priežastis vaikams iki 10 metų. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/MCD/MCD_slide12_img1.jpg"
+    },
+    {
+      "id": 72,
+      "disease_id": "MCD",
+      "topic": "MCD_slide13",
+      "difficulty": "medium",
+      "source_slide": 13,
+      "en": {
+        "assertion": "Minimal change disease usually responds well to corticosteroid therapy",
+        "reason": "The podocyte injury is reversible and functional rather than structural",
+        "answer": "A",
+        "explanation": "Minimal change disease usually responds well to corticosteroid therapy. The podocyte injury is reversible and functional rather than structural. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Minimalių pokyčių liga paprastai gerai reaguoja į kortikosteroidų terapiją",
+        "reason": "Podocitų pažeidimas yra grįžtamas ir funkcinis, o ne struktūrinis",
+        "answer": "A",
+        "explanation": "Minimalių pokyčių liga paprastai gerai reaguoja į kortikosteroidų terapiją. Podocitų pažeidimas yra grįžtamas ir funkcinis, o ne struktūrinis. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/MCD/MCD_slide13_img1.jpg"
+    },
+    {
+      "id": 73,
+      "disease_id": "MCD",
+      "topic": "MCD_slide14",
+      "difficulty": "medium",
+      "source_slide": 14,
+      "en": {
+        "assertion": "Immunofluorescence in minimal change disease is typically negative",
+        "reason": "There are no immune complex deposits in this disease",
+        "answer": "A",
+        "explanation": "Immunofluorescence in minimal change disease is typically negative. There are no immune complex deposits in this disease. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Imunofluorescencija minimalių pokyčių ligoje paprastai yra neigiama",
+        "reason": "Šioje ligoje nėra imunokompleksinių nuosėdų",
+        "answer": "A",
+        "explanation": "Imunofluorescencija minimalių pokyčių ligoje paprastai yra neigiama. Šioje ligoje nėra imunokompleksinių nuosėdų. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/MCD/MCD_slide14_img1.jpg"
+    },
+    {
+      "id": 74,
+      "disease_id": "MCD",
+      "topic": "MCD_slide5",
+      "difficulty": "easy",
+      "source_slide": 5,
+      "en": {
+        "assertion": "Podocytes cover glomerular capillaries and form the filtration barrier",
+        "reason": "Their foot processes interdigitate to create the slit diaphragm",
+        "answer": "A",
+        "explanation": "Podocytes cover glomerular capillaries and form the filtration barrier. Their foot processes interdigitate to create the slit diaphragm. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Podocitai dengia glomerulo kapiliarus ir formuoja filtracijos barjerą",
+        "reason": "Jų kojelės persipina sukurdamos plyšio diafragmą",
+        "answer": "A",
+        "explanation": "Podocitai dengia glomerulo kapiliarus ir formuoja filtracijos barjerą. Jų kojelės persipina sukurdamos plyšio diafragmą. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/MCD/MCD_slide5_img1.jpg"
+    },
+    {
+      "id": 75,
+      "disease_id": "MCD",
+      "topic": "MCD_slide6",
+      "difficulty": "medium",
+      "source_slide": 6,
+      "en": {
+        "assertion": "The glomerular filtration barrier provides both size and charge selectivity",
+        "reason": "Negatively charged proteins are repelled by the negatively charged basement membrane",
+        "answer": "A",
+        "explanation": "The glomerular filtration barrier provides both size and charge selectivity. Negatively charged proteins are repelled by the negatively charged basement membrane. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Glomerulo filtracijos barjeras užtikrina ir dydžio, ir krūvio selektyvumą",
+        "reason": "Neigiamai įkrauti baltymai yra atstumti neigiamai įkrautos bazinės membranos",
+        "answer": "A",
+        "explanation": "Glomerulo filtracijos barjeras užtikrina ir dydžio, ir krūvio selektyvumą. Neigiamai įkrauti baltymai yra atstumti neigiamai įkrautos bazinės membranos. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/OTHER/OTHER_slide6_img1.jpg"
+    },
+    {
+      "id": 76,
+      "disease_id": "MCD",
+      "topic": "MCD_slide12",
+      "difficulty": "medium",
+      "source_slide": 12,
+      "en": {
+        "assertion": "Selective proteinuria is characteristic of minimal change disease",
+        "reason": "The charge barrier is primarily affected, allowing albumin loss while retaining larger proteins",
+        "answer": "A",
+        "explanation": "Selective proteinuria is characteristic of minimal change disease. The charge barrier is primarily affected, allowing albumin loss while retaining larger proteins. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Selektyvus proteinurija yra būdinga minimalių pokyčių ligai",
+        "reason": "Krūvio barjeras yra pirmiausia paveiktas, leidžiantis albumino praradimui, išlaikant didesnius baltymus",
+        "answer": "A",
+        "explanation": "Selektyvus proteinurija yra būdinga minimalių pokyčių ligai. Krūvio barjeras yra pirmiausia paveiktas, leidžiantis albumino praradimui, išlaikant didesnius baltymus. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/MCD/MCD_slide12_img1.jpg"
+    },
+    {
+      "id": 77,
+      "disease_id": "MCD",
+      "topic": "MCD_slide13",
+      "difficulty": "hard",
+      "source_slide": 13,
+      "en": {
+        "assertion": "Focal foot process effacement can be seen in secondary causes",
+        "reason": "Diffuse effacement is required for the diagnosis of primary minimal change disease",
+        "answer": "A",
+        "explanation": "Focal foot process effacement can be seen in secondary causes. Diffuse effacement is required for the diagnosis of primary minimal change disease. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Fokusinį kojelių išnykimą galima matyti antrinėse priežastyse",
+        "reason": "Difuzinis išnykimas yra reikalingas pirminės minimalių pokyčių ligos diagnozei",
+        "answer": "A",
+        "explanation": "Fokusinį kojelių išnykimą galima matyti antrinėse priežastyse. Difuzinis išnykimas yra reikalingas pirminės minimalių pokyčių ligos diagnozei. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/MCD/MCD_slide13_img1.jpg"
+    },
+    {
+      "id": 78,
+      "disease_id": "MCD",
+      "topic": "MCD_slide12",
+      "difficulty": "medium",
+      "source_slide": 12,
+      "en": {
+        "assertion": "Minimal change disease accounts for 10-15% of nephrotic syndrome in adults",
+        "reason": "In adults, other causes like membranous nephropathy and FSGS are more common",
+        "answer": "A",
+        "explanation": "Minimal change disease accounts for 10-15% of nephrotic syndrome in adults. In adults, other causes like membranous nephropathy and FSGS are more common. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Minimalių pokyčių liga sudaro 10-15% nefrozinio sindromo suaugusiems",
+        "reason": "Suaugusiems kitos priežastys, tokios kaip membraninė nefropatija ir FSGS yra dažnesnės",
+        "answer": "A",
+        "explanation": "Minimalių pokyčių liga sudaro 10-15% nefrozinio sindromo suaugusiems. Suaugusiems kitos priežastys, tokios kaip membraninė nefropatija ir FSGS yra dažnesnės. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/MCD/MCD_slide12_img1.jpg"
+    },
+    {
+      "id": 79,
+      "disease_id": "MGN",
+      "topic": "MGN_slide34",
+      "difficulty": "medium",
+      "source_slide": 34,
+      "en": {
+        "assertion": "Membranous nephropathy shows subepithelial immune complex deposits",
+        "reason": "These deposits form characteristic spikes visible on silver stain",
+        "answer": "A",
+        "explanation": "Membranous nephropathy shows subepithelial immune complex deposits. These deposits form characteristic spikes visible on silver stain. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Membraninė nefropatija rodo subepitelinius imunokompleksinius nuosėdus",
+        "reason": "Šie nuosėdai formuoja būdingus smailius, matomus sidabro dažyme",
+        "answer": "A",
+        "explanation": "Membraninė nefropatija rodo subepitelinius imunokompleksinius nuosėdus. Šie nuosėdai formuoja būdingus smailius, matomus sidabro dažyme. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/MGN/MGN_slide34_img1.jpg"
+    },
+    {
+      "id": 80,
+      "disease_id": "MGN",
+      "topic": "MGN_slide47",
+      "difficulty": "medium",
+      "source_slide": 47,
+      "en": {
+        "assertion": "Subepithelial deposits in membranous nephropathy may persist for months",
+        "reason": "These deposits are diagnostic and correlate with ongoing proteinuria",
+        "answer": "A",
+        "explanation": "Subepithelial deposits in membranous nephropathy may persist for months. These deposits are diagnostic and correlate with ongoing proteinuria. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Subepitheliniai nuosėdai membraninėje nefropatijoje gali išlikti mėnesius",
+        "reason": "Šie nuosėdai yra diagnostiniai ir koreliuoja su tęsiama proteinurija",
+        "answer": "A",
+        "explanation": "Subepitheliniai nuosėdai membraninėje nefropatijoje gali išlikti mėnesius. Šie nuosėdai yra diagnostiniai ir koreliuoja su tęsiama proteinurija. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/MGN/MGN_slide47_img1.jpg"
+    },
+    {
+      "id": 81,
+      "disease_id": "MGN",
+      "topic": "MGN_slide9",
+      "difficulty": "medium",
+      "source_slide": 9,
+      "en": {
+        "assertion": "Immunofluorescence in membranous nephropathy shows granular IgG deposits",
+        "reason": "IgG antibodies bind to podocyte antigens creating in-situ immune complexes",
+        "answer": "A",
+        "explanation": "Immunofluorescence in membranous nephropathy shows granular IgG deposits. IgG antibodies bind to podocyte antigens creating in-situ immune complexes. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Imunofluorescencija membraninėje nefropatijoje rodo granulinius IgG nuosėdus",
+        "reason": "IgG antikūnai jungiasi prie podocitų antigenų sukurdami in-situ imuninius kompleksus",
+        "answer": "A",
+        "explanation": "Imunofluorescencija membraninėje nefropatijoje rodo granulinius IgG nuosėdus. IgG antikūnai jungiasi prie podocitų antigenų sukurdami in-situ imuninius kompleksus. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/IgAN/IgAN_slide9_img1.jpg"
+    },
+    {
+      "id": 82,
+      "disease_id": "MGN",
+      "topic": "MGN_slide34",
+      "difficulty": "hard",
+      "source_slide": 34,
+      "en": {
+        "assertion": "PLA2R antibodies are found in 70-80% of primary membranous nephropathy",
+        "reason": "Phospholipase A2 receptor is the major podocyte antigen in idiopathic MGN",
+        "answer": "A",
+        "explanation": "PLA2R antibodies are found in 70-80% of primary membranous nephropathy. Phospholipase A2 receptor is the major podocyte antigen in idiopathic MGN. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "PLA2R antikūnai randami 70-80% pirminės membraninės nefropatijos",
+        "reason": "Fosfolipazė A2 receptorius yra pagrindinis podocitų antigenas idiopatinėje MGN",
+        "answer": "A",
+        "explanation": "PLA2R antikūnai randami 70-80% pirminės membraninės nefropatijos. Fosfolipazė A2 receptorius yra pagrindinis podocitų antigenas idiopatinėje MGN. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "question_images/question_82.jpeg"
+    },
+    {
+      "id": 83,
+      "disease_id": "MGN",
+      "topic": "MGN_slide34",
+      "difficulty": "medium",
+      "source_slide": 34,
+      "en": {
+        "assertion": "Membranous nephropathy progresses through four histologic stages",
+        "reason": "Stages reflect the evolution from early deposits to advanced membrane thickening",
+        "answer": "A",
+        "explanation": "Membranous nephropathy progresses through four histologic stages. Stages reflect the evolution from early deposits to advanced membrane thickening. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Membraninė nefropatija progresuoja per keturias histologines stadijas",
+        "reason": "Stadijos atspindi evoliuciją nuo ankstyvų nuosėdų iki išplėtotos membranos sustorėjimo",
+        "answer": "A",
+        "explanation": "Membraninė nefropatija progresuoja per keturias histologines stadijas. Stadijos atspindi evoliuciją nuo ankstyvų nuosėdų iki išplėtotos membranos sustorėjimo. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/MGN/MGN_slide34_img1.jpg"
+    },
+    {
+      "id": 84,
+      "disease_id": "MGN",
+      "topic": "MGN_slide34",
+      "difficulty": "hard",
+      "source_slide": 34,
+      "en": {
+        "assertion": "Stage I membranous nephropathy shows electron-dense deposits without spikes",
+        "reason": "GBM spike formation occurs later as basement membrane grows around deposits",
+        "answer": "A",
+        "explanation": "Stage I membranous nephropathy shows electron-dense deposits without spikes. GBM spike formation occurs later as basement membrane grows around deposits. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "I stadijos membraninė nefropatija rodo elektronų tankius nuosėdus be smailių",
+        "reason": "GBM smailių formavimas įvyksta vėliau, kai bazinė membrana auga aplink nuosėdus",
+        "answer": "A",
+        "explanation": "I stadijos membraninė nefropatija rodo elektronų tankius nuosėdus be smailių. GBM smailių formavimas įvyksta vėliau, kai bazinė membrana auga aplink nuosėdus. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/MGN/MGN_slide34_img1.jpg"
+    },
+    {
+      "id": 85,
+      "disease_id": "MGN",
+      "topic": "MGN_slide34",
+      "difficulty": "medium",
+      "source_slide": 34,
+      "en": {
+        "assertion": "Spikes on silver stain are pathognomonic for membranous nephropathy",
+        "reason": "The spikes represent GBM extensions between subepithelial deposits",
+        "answer": "A",
+        "explanation": "Spikes on silver stain are pathognomonic for membranous nephropathy. The spikes represent GBM extensions between subepithelial deposits. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Smailiai sidabro dažyme yra patognomoniški membraninei nefropatijai",
+        "reason": "Smailiai reprezentuoja GBM išplėtimus tarp subepithelinių nuosėdų",
+        "answer": "A",
+        "explanation": "Smailiai sidabro dažyme yra patognomoniški membraninei nefropatijai. Smailiai reprezentuoja GBM išplėtimus tarp subepithelinių nuosėdų. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/MGN/MGN_slide34_img1.jpg"
+    },
+    {
+      "id": 86,
+      "disease_id": "MGN",
+      "topic": "MGN_slide34",
+      "difficulty": "medium",
+      "source_slide": 34,
+      "en": {
+        "assertion": "Secondary membranous nephropathy can be caused by lupus and infections",
+        "reason": "Various antigens can deposit in subepithelial locations producing similar morphology",
+        "answer": "A",
+        "explanation": "Secondary membranous nephropathy can be caused by lupus and infections. Various antigens can deposit in subepithelial locations producing similar morphology. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Antrinė membraninė nefropatija gali būti sukeliama lupus ir infekcijų",
+        "reason": "Įvairūs antigenai gali nusėsti subepithelinėse vietose sukurdami panašią morfologiją",
+        "answer": "A",
+        "explanation": "Antrinė membraninė nefropatija gali būti sukeliama lupus ir infekcijų. Įvairūs antigenai gali nusėsti subepithelinėse vietose sukurdami panašią morfologiją. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/MGN/MGN_slide34_img1.jpg"
+    },
+    {
+      "id": 87,
+      "disease_id": "MGN",
+      "topic": "MGN_slide34",
+      "difficulty": "easy",
+      "source_slide": 34,
+      "en": {
+        "assertion": "Membranous nephropathy is the most common cause of nephrotic syndrome in Caucasian adults",
+        "reason": "Primary MGN typically affects adults over 40 years of age",
+        "answer": "A",
+        "explanation": "Membranous nephropathy is the most common cause of nephrotic syndrome in Caucasian adults. Primary MGN typically affects adults over 40 years of age. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Membraninė nefropatija yra dažniausia nefrozinio sindromo priežastis baltaodžiams suaugusiems",
+        "reason": "Pirminė MGN paprastai paveikia suaugusiuosius virš 40 metų",
+        "answer": "A",
+        "explanation": "Membraninė nefropatija yra dažniausia nefrozinio sindromo priežastis baltaodžiams suaugusiems. Pirminė MGN paprastai paveikia suaugusiuosius virš 40 metų. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/MGN/MGN_slide34_img1.jpg"
+    },
+    {
+      "id": 88,
+      "disease_id": "MGN",
+      "topic": "MGN_slide9",
+      "difficulty": "medium",
+      "source_slide": 9,
+      "en": {
+        "assertion": "Diffuse finely granular IgG along capillary walls suggests membranous nephropathy",
+        "reason": "This pattern reflects subepithelial immune complex deposition",
+        "answer": "A",
+        "explanation": "Diffuse finely granular IgG along capillary walls suggests membranous nephropathy. This pattern reflects subepithelial immune complex deposition. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Difuzinis smulkiai granuliuotas IgG išilgai kapiliarų sienelių rodo membraninę nefropatiją",
+        "reason": "Šis modelis atspindi subepitelinį imunokompleksinį nusėdimą",
+        "answer": "A",
+        "explanation": "Difuzinis smulkiai granuliuotas IgG išilgai kapiliarų sienelių rodo membraninę nefropatiją. Šis modelis atspindi subepitelinį imunokompleksinį nusėdimą. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/IgAN/IgAN_slide9_img1.jpg"
+    },
+    {
+      "id": 89,
+      "disease_id": "FSGS_PRIMARY",
+      "topic": "FSGS_slide16",
+      "difficulty": "easy",
+      "source_slide": 16,
+      "en": {
+        "assertion": "Focal segmental glomerulosclerosis affects only some glomeruli",
+        "reason": "The sclerosis is both focal (some glomeruli) and segmental (part of tuft)",
+        "answer": "A",
+        "explanation": "Focal segmental glomerulosclerosis affects only some glomeruli. The sclerosis is both focal (some glomeruli) and segmental (part of tuft). Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Fokusinė segmentinė glomerulosklerozė pažeidžia tik kai kuriuos glomerulius",
+        "reason": "Sklerozė yra ir fokusinė (kai kurie glomerulai) ir segmentinė (dalis kampo)",
+        "answer": "A",
+        "explanation": "Fokusinė segmentinė glomerulosklerozė pažeidžia tik kai kuriuos glomerulius. Sklerozė yra ir fokusinė (kai kurie glomerulai) ir segmentinė (dalis kampo). Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "question_images/question_89.png"
+    },
+    {
+      "id": 90,
+      "disease_id": "FSGS_PRIMARY",
+      "topic": "FSGS_slide19",
+      "difficulty": "medium",
+      "source_slide": 19,
+      "en": {
+        "assertion": "FSGS is defined as segmental obliteration of glomerular capillaries by extracellular matrix",
+        "reason": "This distinguishes it from global glomerulosclerosis",
+        "answer": "A",
+        "explanation": "FSGS is defined as segmental obliteration of glomerular capillaries by extracellular matrix. This distinguishes it from global glomerulosclerosis. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "FSGS apibrėžiama kaip segmentinis glomerulo kapiliarų užakimas ekstraląsteliniu matriksu",
+        "reason": "Tai skiria ją nuo visuotinės glomerulosklerozės",
+        "answer": "A",
+        "explanation": "FSGS apibrėžiama kaip segmentinis glomerulo kapiliarų užakimas ekstraląsteliniu matriksu. Tai skiria ją nuo visuotinės glomerulosklerozės. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/FSGS/FSGS_slide19_img1.png"
+    },
+    {
+      "id": 91,
+      "disease_id": "FSGS_PRIMARY",
+      "topic": "FSGS_slide19",
+      "difficulty": "medium",
+      "source_slide": 19,
+      "en": {
+        "assertion": "Primary FSGS presents with nephrotic syndrome and progressive renal failure",
+        "reason": "Podocyte injury leads to proteinuria and progressive scarring",
+        "answer": "A",
+        "explanation": "Primary FSGS presents with nephrotic syndrome and progressive renal failure. Podocyte injury leads to proteinuria and progressive scarring. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Pirminė FSGS pasireiškia nefroziniu sindromu ir progresuojančia inkstų nepakankamumu",
+        "reason": "Podocitų pažeidimas sukelia proteinuriją ir progresuojantį randėjimą",
+        "answer": "A",
+        "explanation": "Pirminė FSGS pasireiškia nefroziniu sindromu ir progresuojančia inkstų nepakankamumu. Podocitų pažeidimas sukelia proteinuriją ir progresuojantį randėjimą. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/FSGS/FSGS_slide19_img1.png"
+    },
+    {
+      "id": 92,
+      "disease_id": "FSGS_PRIMARY",
+      "topic": "FSGS_slide19",
+      "difficulty": "hard",
+      "source_slide": 19,
+      "en": {
+        "assertion": "Collapsing FSGS variant has the worst prognosis",
+        "reason": "It shows extensive podocyte detachment and rapid progression to renal failure",
+        "answer": "A",
+        "explanation": "Collapsing FSGS variant has the worst prognosis. It shows extensive podocyte detachment and rapid progression to renal failure. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Kolapsuojanti FSGS variantas turi blogiausią prognozę",
+        "reason": "Ji rodo išplėstinį podocitų atsiskyrimą ir greitą progresavimą į inkstų nepakankamumą",
+        "answer": "A",
+        "explanation": "Kolapsuojanti FSGS variantas turi blogiausią prognozę. Ji rodo išplėstinį podocitų atsiskyrimą ir greitą progresavimą į inkstų nepakankamumą. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/FSGS/FSGS_slide19_img1.png"
+    },
+    {
+      "id": 93,
+      "disease_id": "FSGS_PRIMARY",
+      "topic": "FSGS_slide16",
+      "difficulty": "medium",
+      "source_slide": 16,
+      "en": {
+        "assertion": "FSGS can be primary or secondary to other conditions",
+        "reason": "Secondary FSGS occurs due to adaptive changes from reduced nephron mass or other stressors",
+        "answer": "A",
+        "explanation": "FSGS can be primary or secondary to other conditions. Secondary FSGS occurs due to adaptive changes from reduced nephron mass or other stressors. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "FSGS gali būti pirminė arba antrinė dėl kitų būklių",
+        "reason": "Antrinė FSGS įvyksta dėl adaptyvinių pokyčių iš sumažėjusios nefronų masės ar kitų stresorių",
+        "answer": "A",
+        "explanation": "FSGS gali būti pirminė arba antrinė dėl kitų būklių. Antrinė FSGS įvyksta dėl adaptyvinių pokyčių iš sumažėjusios nefronų masės ar kitų stresorių. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "question_images/question_93.png"
+    },
+    {
+      "id": 94,
+      "disease_id": "FSGS_PRIMARY",
+      "topic": "FSGS_slide19",
+      "difficulty": "hard",
+      "source_slide": 19,
+      "en": {
+        "assertion": "Tip lesion FSGS has better response to steroids",
+        "reason": "This variant shows less podocyte depletion and better preservation of renal function",
+        "answer": "A",
+        "explanation": "Tip lesion FSGS has better response to steroids. This variant shows less podocyte depletion and better preservation of renal function. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Galiuko pažeidimo FSGS turi geresnį atsaką į steroidus",
+        "reason": "Šis variantas rodo mažesnį podocitų išsekimą ir geresnį inkstų funkcijos išsaugojimą",
+        "answer": "A",
+        "explanation": "Galiuko pažeidimo FSGS turi geresnį atsaką į steroidus. Šis variantas rodo mažesnį podocitų išsekimą ir geresnį inkstų funkcijos išsaugojimą. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/FSGS/FSGS_slide19_img1.png"
+    },
+    {
+      "id": 95,
+      "disease_id": "FSGS_PRIMARY",
+      "topic": "FSGS_slide16",
+      "difficulty": "medium",
+      "source_slide": 16,
+      "en": {
+        "assertion": "FSGS shows foot process effacement on electron microscopy",
+        "reason": "Podocyte injury is the primary event leading to segmental scarring",
+        "answer": "A",
+        "explanation": "FSGS shows foot process effacement on electron microscopy. Podocyte injury is the primary event leading to segmental scarring. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "FSGS rodo kojelių išnykimą elektroninėje mikroskopijoje",
+        "reason": "Podocitų pažeidimas yra pirminis įvykis vedantis į segmentinį randėjimą",
+        "answer": "A",
+        "explanation": "FSGS rodo kojelių išnykimą elektroninėje mikroskopijoje. Podocitų pažeidimas yra pirminis įvykis vedantis į segmentinį randėjimą. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      }
+    },
+    {
+      "id": 96,
+      "disease_id": "FSGS_PRIMARY",
+      "topic": "FSGS_slide19",
+      "difficulty": "hard",
+      "source_slide": 19,
+      "en": {
+        "assertion": "Perihilar FSGS is often associated with secondary causes",
+        "reason": "It occurs in conditions causing glomerular hyperfiltration like obesity and reduced nephron mass",
+        "answer": "A",
+        "explanation": "Perihilar FSGS is often associated with secondary causes. It occurs in conditions causing glomerular hyperfiltration like obesity and reduced nephron mass. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Perihilarinė FSGS dažnai susieta su antrinėmis priežastimis",
+        "reason": "Ji įvyksta būklėse sukeliančiose glomerulo hiperfiltaciją kaip nutukimas ir sumažėjusi nefronų masė",
+        "answer": "A",
+        "explanation": "Perihilarinė FSGS dažnai susieta su antrinėmis priežastimis. Ji įvyksta būklėse sukeliančiose glomerulo hiperfiltaciją kaip nutukimas ir sumažėjusi nefronų masė. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/FSGS/FSGS_slide19_img1.png"
+    },
+    {
+      "id": 97,
+      "disease_id": "IgAN",
+      "topic": "IgAN_slide52",
+      "difficulty": "easy",
+      "source_slide": 52,
+      "en": {
+        "assertion": "IgA nephropathy shows dominant mesangial IgA deposits on immunofluorescence",
+        "reason": "IgA immune complexes deposit preferentially in the mesangial matrix",
+        "answer": "A",
+        "explanation": "IgA nephropathy shows dominant mesangial IgA deposits on immunofluorescence. IgA immune complexes deposit preferentially in the mesangial matrix. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "IgA nefropatija rodo dominuojančius mezanginius IgA nuosėdus imunofluorescencijoje",
+        "reason": "IgA imuniniai kompleksai kaupiasi pirmenybiškai mezanginiame matrikse",
+        "answer": "A",
+        "explanation": "IgA nefropatija rodo dominuojančius mezanginius IgA nuosėdus imunofluorescencijoje. IgA imuniniai kompleksai kaupiasi pirmenybiškai mezanginiame matrikse. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      }
+    },
+    {
+      "id": 98,
+      "disease_id": "IgAN",
+      "topic": "IgAN_slide52",
+      "difficulty": "easy",
+      "source_slide": 52,
+      "en": {
+        "assertion": "IgA nephropathy is the most common primary glomerulonephritis worldwide",
+        "reason": "It accounts for 30-40% of primary glomerulonephritis in many populations",
+        "answer": "A",
+        "explanation": "IgA nephropathy is the most common primary glomerulonephritis worldwide. It accounts for 30-40% of primary glomerulonephritis in many populations. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "IgA nefropatija yra dažniausia pirminė glomerulonefritas pasaulyje",
+        "reason": "Ji sudaro 30-40% pirminių glomerulonefritų daugelyje populiacijų",
+        "answer": "A",
+        "explanation": "IgA nefropatija yra dažniausia pirminė glomerulonefritas pasaulyje. Ji sudaro 30-40% pirminių glomerulonefritų daugelyje populiacijų. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      }
+    },
+    {
+      "id": 99,
+      "disease_id": "IgAN",
+      "topic": "IgAN_slide52",
+      "difficulty": "medium",
+      "source_slide": 52,
+      "en": {
+        "assertion": "IgA nephropathy typically presents with episodic gross hematuria",
+        "reason": "Episodes often follow upper respiratory infections (synpharyngitic hematuria)",
+        "answer": "A",
+        "explanation": "IgA nephropathy typically presents with episodic gross hematuria. Episodes often follow upper respiratory infections (synpharyngitic hematuria). Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "IgA nefropatija paprastai pasireiškia epizodine makroskopine hematurija",
+        "reason": "Epizodai dažnai seka viršutinių kvėpavimo takų infekcijas (sinfaringitinė hematurija)",
+        "answer": "A",
+        "explanation": "IgA nefropatija paprastai pasireiškia epizodine makroskopine hematurija. Epizodai dažnai seka viršutinių kvėpavimo takų infekcijas (sinfaringitinė hematurija). Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      }
+    },
+    {
+      "id": 100,
+      "disease_id": "IgAN",
+      "topic": "IgAN_slide52",
+      "difficulty": "medium",
+      "source_slide": 52,
+      "en": {
+        "assertion": "Henoch-Schönlein purpura shows identical renal findings to IgA nephropathy",
+        "reason": "Both diseases involve IgA immune complex deposition in the mesangium",
+        "answer": "A",
+        "explanation": "Henoch-Schönlein purpura shows identical renal findings to IgA nephropathy. Both diseases involve IgA immune complex deposition in the mesangium. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Henoch-Schönlein purpura rodo identiškus inkstų radinius kaip IgA nefropatija",
+        "reason": "Abi ligos apima IgA imunokompleksinį nusėdimą mezangiume",
+        "answer": "A",
+        "explanation": "Henoch-Schönlein purpura rodo identiškus inkstų radinius kaip IgA nefropatija. Abi ligos apima IgA imunokompleksinį nusėdimą mezangiume. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      }
+    },
+    {
+      "id": 101,
+      "disease_id": "IgAN",
+      "topic": "IgAN_slide52",
+      "difficulty": "hard",
+      "source_slide": 52,
+      "en": {
+        "assertion": "Oxford classification is used to assess prognosis in IgA nephropathy",
+        "reason": "MEST-C score evaluates mesangial proliferation, endocapillary proliferation, segmental sclerosis, tubular atrophy, and crescents",
+        "answer": "A",
+        "explanation": "Oxford classification is used to assess prognosis in IgA nephropathy. MEST-C score evaluates mesangial proliferation, endocapillary proliferation, segmental sclerosis, tubular atrophy, and crescents. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Oxford klasifikacija naudojama prognozei įvertinti IgA nefropatijoje",
+        "reason": "MEST-C balas vertina mezanginę proliferaciją, endokapilarinę proliferaciją, segmentinę sklerozę, kanalėlių atrofiją ir pusmėnulius",
+        "answer": "A",
+        "explanation": "Oxford klasifikacija naudojama prognozei įvertinti IgA nefropatijoje. MEST-C balas vertina mezanginę proliferaciją, endokapilarinę proliferaciją, segmentinę sklerozę, kanalėlių atrofiją ir pusmėnulius. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      }
+    },
+    {
+      "id": 102,
+      "disease_id": "IgAN",
+      "topic": "IgAN_slide52",
+      "difficulty": "medium",
+      "source_slide": 52,
+      "en": {
+        "assertion": "IgA nephropathy shows mesangial proliferation on light microscopy",
+        "reason": "IgA immune complex deposition triggers mesangial cell proliferation and matrix expansion",
+        "answer": "A",
+        "explanation": "IgA nephropathy shows mesangial proliferation on light microscopy. IgA immune complex deposition triggers mesangial cell proliferation and matrix expansion. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "IgA nefropatija rodo mezanginę proliferaciją šviesos mikroskopijoje",
+        "reason": "IgA imunokompleksinis nusėdimas sukelia mezanginių ląstelių proliferaciją ir matrikso išsiplėtimą",
+        "answer": "A",
+        "explanation": "IgA nefropatija rodo mezanginę proliferaciją šviesos mikroskopijoje. IgA imunokompleksinis nusėdimas sukelia mezanginių ląstelių proliferaciją ir matrikso išsiplėtimą. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      }
+    },
+    {
+      "id": 103,
+      "disease_id": "MGN",
+      "topic": "IF_slide9",
+      "difficulty": "medium",
+      "source_slide": 9,
+      "en": {
+        "assertion": "Linear IgG staining along the GBM is diagnostic of anti-GBM disease",
+        "reason": "Antibodies bind uniformly to the GBM creating a smooth linear pattern",
+        "answer": "A",
+        "explanation": "Linear IgG staining along the GBM is diagnostic of anti-GBM disease. Antibodies bind uniformly to the GBM creating a smooth linear pattern. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Linijinis IgG dažymas išilgai GBM yra diagnostinis anti-GBM ligai",
+        "reason": "Antikūnai jungiasi tolygiai prie GBM sukurdami lygų linijinį modelį",
+        "answer": "A",
+        "explanation": "Linijinis IgG dažymas išilgai GBM yra diagnostinis anti-GBM ligai. Antikūnai jungiasi tolygiai prie GBM sukurdami lygų linijinį modelį. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/IgAN/IgAN_slide9_img1.jpg"
+    },
+    {
+      "id": 104,
+      "disease_id": "MGN",
+      "topic": "IF_slide9",
+      "difficulty": "medium",
+      "source_slide": 9,
+      "en": {
+        "assertion": "Granular immunofluorescence indicates immune complex-mediated disease",
+        "reason": "Immune complexes deposit in discrete locations creating a granular pattern",
+        "answer": "A",
+        "explanation": "Granular immunofluorescence indicates immune complex-mediated disease. Immune complexes deposit in discrete locations creating a granular pattern. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Granulinis imunofluorescencija rodo imunokompleksais tarpininkaujamą ligą",
+        "reason": "Imuniniai kompleksai nusėda diskrečiose vietose sukurdami granulini modelį",
+        "answer": "A",
+        "explanation": "Granulinis imunofluorescencija rodo imunokompleksais tarpininkaujamą ligą. Imuniniai kompleksai nusėda diskrečiose vietose sukurdami granulini modelį. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/IgAN/IgAN_slide9_img1.jpg"
+    },
+    {
+      "id": 105,
+      "disease_id": "MGN",
+      "topic": "IF_slide9",
+      "difficulty": "medium",
+      "source_slide": 9,
+      "en": {
+        "assertion": "Pauci-immune glomerulonephritis shows absent or minimal immunofluorescence",
+        "reason": "ANCA-associated GN lacks significant immune complex deposition",
+        "answer": "A",
+        "explanation": "Pauci-immune glomerulonephritis shows absent or minimal immunofluorescence. ANCA-associated GN lacks significant immune complex deposition. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Pauci-imuninis glomerulonefritas rodo nebuvimą arba minimalų imunofluorescenciją",
+        "reason": "ANCA susijęs GN trūksta reikšmingo imunokompleksinio nusėdimo",
+        "answer": "A",
+        "explanation": "Pauci-imuninis glomerulonefritas rodo nebuvimą arba minimalų imunofluorescenciją. ANCA susijęs GN trūksta reikšmingo imunokompleksinio nusėdimo. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/IgAN/IgAN_slide9_img1.jpg"
+    },
+    {
+      "id": 106,
+      "disease_id": "MGN",
+      "topic": "IF_slide9",
+      "difficulty": "hard",
+      "source_slide": 9,
+      "en": {
+        "assertion": "C3-dominant glomerulonephritis suggests complement-mediated injury",
+        "reason": "Alternative complement pathway dysregulation causes C3 deposition without immunoglobulins",
+        "answer": "A",
+        "explanation": "C3-dominant glomerulonephritis suggests complement-mediated injury. Alternative complement pathway dysregulation causes C3 deposition without immunoglobulins. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "C3-dominuojantis glomerulonefritas rodo komplemento tarpininkaujamą pažeidimą",
+        "reason": "Alternatyvaus komplemento kelio disreguliacija sukelia C3 nusėdimą be imunoglobulinų",
+        "answer": "A",
+        "explanation": "C3-dominuojantis glomerulonefritas rodo komplemento tarpininkaujamą pažeidimą. Alternatyvaus komplemento kelio disreguliacija sukelia C3 nusėdimą be imunoglobulinų. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/IgAN/IgAN_slide9_img1.jpg"
+    },
+    {
+      "id": 107,
+      "disease_id": "MGN",
+      "topic": "IF_slide9",
+      "difficulty": "hard",
+      "source_slide": 9,
+      "en": {
+        "assertion": "Mesangial IgA with C3 but absent C1q is typical of IgA nephropathy",
+        "reason": "IgA activates complement via alternative pathway, not classical pathway",
+        "answer": "A",
+        "explanation": "Mesangial IgA with C3 but absent C1q is typical of IgA nephropathy. IgA activates complement via alternative pathway, not classical pathway. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Mezanginis IgA su C3 bet nebuvimas C1q yra tipiškas IgA nefropatijai",
+        "reason": "IgA aktyvina komplementą per alternatyvų kelią, ne klasikinį kelią",
+        "answer": "A",
+        "explanation": "Mezanginis IgA su C3 bet nebuvimas C1q yra tipiškas IgA nefropatijai. IgA aktyvina komplementą per alternatyvų kelią, ne klasikinį kelią. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/IgAN/IgAN_slide9_img1.jpg"
+    },
+    {
+      "id": 108,
+      "disease_id": "DIABETIC_GN",
+      "topic": "DIABETIC_slide89",
+      "difficulty": "medium",
+      "source_slide": 89,
+      "en": {
+        "assertion": "Diabetic nephropathy shows diffuse mesangial expansion",
+        "reason": "Chronic hyperglycemia causes mesangial matrix accumulation",
+        "answer": "A",
+        "explanation": "Diabetic nephropathy shows diffuse mesangial expansion. Chronic hyperglycemia causes mesangial matrix accumulation. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Diabetinė nefropatija rodo difuzinį mezanginio išsiplėtimą",
+        "reason": "Lėtinis hiperglikemija sukelia mezanginio matrikso kaupimąsi",
+        "answer": "A",
+        "explanation": "Diabetinė nefropatija rodo difuzinį mezanginio išsiplėtimą. Lėtinis hiperglikemija sukelia mezanginio matrikso kaupimąsi. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      }
+    },
+    {
+      "id": 109,
+      "disease_id": "DIABETIC_GN",
+      "topic": "DIABETIC_slide89",
+      "difficulty": "medium",
+      "source_slide": 89,
+      "en": {
+        "assertion": "Kimmelstiel-Wilson nodules are pathognomonic for diabetic nephropathy",
+        "reason": "These nodular sclerotic lesions represent advanced mesangial matrix expansion",
+        "answer": "A",
+        "explanation": "Kimmelstiel-Wilson nodules are pathognomonic for diabetic nephropathy. These nodular sclerotic lesions represent advanced mesangial matrix expansion. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Kimmelstiel-Wilson mazgeliai yra patognomoniški diabetinei nefropatijai",
+        "reason": "Šie mazginiai skleroziniai pažeidimai reprezentuoja išplėtotą mezanginio matrikso išsiplėtimą",
+        "answer": "A",
+        "explanation": "Kimmelstiel-Wilson mazgeliai yra patognomoniški diabetinei nefropatijai. Šie mazginiai skleroziniai pažeidimai reprezentuoja išplėtotą mezanginio matrikso išsiplėtimą. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      }
+    },
+    {
+      "id": 110,
+      "disease_id": "DIABETIC_GN",
+      "topic": "DIABETIC_slide89",
+      "difficulty": "medium",
+      "source_slide": 89,
+      "en": {
+        "assertion": "Diabetic nephropathy shows GBM thickening on electron microscopy",
+        "reason": "Chronic hyperglycemia causes accumulation of basement membrane material",
+        "answer": "A",
+        "explanation": "Diabetic nephropathy shows GBM thickening on electron microscopy. Chronic hyperglycemia causes accumulation of basement membrane material. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Diabetinė nefropatija rodo GBM sustorėjimą elektroninėje mikroskopijoje",
+        "reason": "Lėtinis hiperglikemija sukelia bazinės membranos medžiagos kaupimąsi",
+        "answer": "A",
+        "explanation": "Diabetinė nefropatija rodo GBM sustorėjimą elektroninėje mikroskopijoje. Lėtinis hiperglikemija sukelia bazinės membranos medžiagos kaupimąsi. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      }
+    },
+    {
+      "id": 111,
+      "disease_id": "DIABETIC_GN",
+      "topic": "DIABETIC_slide89",
+      "difficulty": "easy",
+      "source_slide": 89,
+      "en": {
+        "assertion": "Diabetic nephropathy is the leading cause of end-stage renal disease in developed countries",
+        "reason": "The high prevalence of diabetes and its renal complications drive ESRD rates",
+        "answer": "A",
+        "explanation": "Diabetic nephropathy is the leading cause of end-stage renal disease in developed countries. The high prevalence of diabetes and its renal complications drive ESRD rates. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Diabetinė nefropatija yra pagrindinė galutinės stadijos inkstų ligos priežastis išsivysčiusiose šalyse",
+        "reason": "Didelis diabeto paplitimas ir jo inkstų komplikacijos skatina ESRD dažnius",
+        "answer": "A",
+        "explanation": "Diabetinė nefropatija yra pagrindinė galutinės stadijos inkstų ligos priežastis išsivysčiusiose šalyse. Didelis diabeto paplitimas ir jo inkstų komplikacijos skatina ESRD dažnius. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      }
+    },
+    {
+      "id": 112,
+      "disease_id": "ANCA_GN",
+      "topic": "ANCA_slide66",
+      "difficulty": "medium",
+      "source_slide": 66,
+      "en": {
+        "assertion": "ANCA-associated GN shows pauci-immune crescentic glomerulonephritis",
+        "reason": "Neutrophil-mediated injury occurs without significant immune complex deposition",
+        "answer": "A",
+        "explanation": "ANCA-associated GN shows pauci-immune crescentic glomerulonephritis. Neutrophil-mediated injury occurs without significant immune complex deposition. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "ANCA susijęs GN rodo pauci-imuninį pusmėnulinį glomerulonefritą",
+        "reason": "Neutrofilų tarpininkaujamas pažeidimas įvyksta be reikšmingo imunokompleksinio nusėdimo",
+        "answer": "A",
+        "explanation": "ANCA susijęs GN rodo pauci-imuninį pusmėnulinį glomerulonefritą. Neutrofilų tarpininkaujamas pažeidimas įvyksta be reikšmingo imunokompleksinio nusėdimo. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/OTHER/OTHER_slide66_img1.jpg"
+    },
+    {
+      "id": 113,
+      "disease_id": "ANCA_GN",
+      "topic": "ANCA_slide66",
+      "difficulty": "medium",
+      "source_slide": 66,
+      "en": {
+        "assertion": "ANCA-GN includes granulomatosis with polyangiitis (Wegener's)",
+        "reason": "This is one of the three major ANCA-associated vasculitides",
+        "answer": "A",
+        "explanation": "ANCA-GN includes granulomatosis with polyangiitis (Wegener's). This is one of the three major ANCA-associated vasculitides. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "ANCA-GN apima granulomatozę su poliangiitu (Wegener's)",
+        "reason": "Tai viena iš trijų pagrindinių ANCA susijusių vaskulitų",
+        "answer": "A",
+        "explanation": "ANCA-GN apima granulomatozę su poliangiitu (Wegener's). Tai viena iš trijų pagrindinių ANCA susijusių vaskulitų. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/OTHER/OTHER_slide66_img1.jpg"
+    },
+    {
+      "id": 114,
+      "disease_id": "ANCA_GN",
+      "topic": "ANCA_slide66",
+      "difficulty": "hard",
+      "source_slide": 66,
+      "en": {
+        "assertion": "ANCA antibodies target neutrophil cytoplasmic enzymes",
+        "reason": "MPO-ANCA and PR3-ANCA activate neutrophils causing necrotizing inflammation",
+        "answer": "A",
+        "explanation": "ANCA antibodies target neutrophil cytoplasmic enzymes. MPO-ANCA and PR3-ANCA activate neutrophils causing necrotizing inflammation. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "ANCA antikūnai taikosi į neutrofilų citoplazminius fermentus",
+        "reason": "MPO-ANCA ir PR3-ANCA aktyvina neutrofilus sukeliantis nekrotizuojantį uždegimą",
+        "answer": "A",
+        "explanation": "ANCA antikūnai taikosi į neutrofilų citoplazminius fermentus. MPO-ANCA ir PR3-ANCA aktyvina neutrofilus sukeliantis nekrotizuojantį uždegimą. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      },
+      "image": "extracted_images/OTHER/OTHER_slide66_img1.jpg"
+    },
+    {
+      "id": 115,
+      "disease_id": "ALPORT",
+      "topic": "ALPORT_slide80",
+      "difficulty": "hard",
+      "source_slide": 80,
+      "en": {
+        "assertion": "Alport syndrome shows characteristic GBM ultrastructural abnormalities",
+        "reason": "Type IV collagen defects cause basket-weave GBM pattern on electron microscopy",
+        "answer": "A",
+        "explanation": "Alport syndrome shows characteristic GBM ultrastructural abnormalities. Type IV collagen defects cause basket-weave GBM pattern on electron microscopy. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Alport sindromas rodo būdingus GBM ultrastruktūrinius nukrypimus",
+        "reason": "IV tipo kolageno defektai sukelia krepšelio pynimo GBM raštą elektroninėje mikroskopijoje",
+        "answer": "A",
+        "explanation": "Alport sindromas rodo būdingus GBM ultrastruktūrinius nukrypimus. IV tipo kolageno defektai sukelia krepšelio pynimo GBM raštą elektroninėje mikroskopijoje. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      }
+    },
+    {
+      "id": 116,
+      "disease_id": "ALPORT",
+      "topic": "ALPORT_slide80",
+      "difficulty": "medium",
+      "source_slide": 80,
+      "en": {
+        "assertion": "Alport syndrome is associated with sensorineural hearing loss",
+        "reason": "Type IV collagen mutations affect both GBM and cochlear basement membranes",
+        "answer": "A",
+        "explanation": "Alport syndrome is associated with sensorineural hearing loss. Type IV collagen mutations affect both GBM and cochlear basement membranes. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Alport sindromas susijęs su sensoneuriniu klausos praradimu",
+        "reason": "IV tipo kolageno mutacijos paveikia ir GBM, ir klausiolio bazines membranas",
+        "answer": "A",
+        "explanation": "Alport sindromas susijęs su sensoneuriniu klausos praradimu. IV tipo kolageno mutacijos paveikia ir GBM, ir klausiolio bazines membranas. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      }
+    },
+    {
+      "id": 117,
+      "disease_id": "ALPORT",
+      "topic": "ALPORT_slide80",
+      "difficulty": "hard",
+      "source_slide": 80,
+      "en": {
+        "assertion": "Alport syndrome shows absence of alpha-5 type IV collagen in GBM",
+        "reason": "COL4A5 gene mutations prevent normal collagen assembly in basement membranes",
+        "answer": "A",
+        "explanation": "Alport syndrome shows absence of alpha-5 type IV collagen in GBM. COL4A5 gene mutations prevent normal collagen assembly in basement membranes. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Alport sindromas rodo alpha-5 tipo IV kolageno nebuvimą GBM",
+        "reason": "COL4A5 geno mutacijos neleidžia normalaus kolageno surinkimo bazinėse membranose",
+        "answer": "A",
+        "explanation": "Alport sindromas rodo alpha-5 tipo IV kolageno nebuvimą GBM. COL4A5 geno mutacijos neleidžia normalaus kolageno surinkimo bazinėse membranose. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      }
+    },
+    {
+      "id": 118,
+      "disease_id": "AMYLOIDOSIS",
+      "topic": "AMYLOID_slide95",
+      "difficulty": "medium",
+      "source_slide": 95,
+      "en": {
+        "assertion": "Renal amyloidosis shows apple-green birefringence with Congo red stain",
+        "reason": "Congo red binds to amyloid fibrils which show characteristic birefringence under polarized light",
+        "answer": "A",
+        "explanation": "Renal amyloidosis shows apple-green birefringence with Congo red stain. Congo red binds to amyloid fibrils which show characteristic birefringence under polarized light. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Inkstų amiloidozė rodo obuolių žalią dvigubą lūžį su Kongo raudonuoju dažu",
+        "reason": "Kongo raudonasis jungiasi prie amiloido fibrilų kurie rodo būdingą dvigubą lūžį po poliarizuota šviesa",
+        "answer": "A",
+        "explanation": "Inkstų amiloidozė rodo obuolių žalią dvigubą lūžį su Kongo raudonuoju dažu. Kongo raudonasis jungiasi prie amiloido fibrilų kurie rodo būdingą dvigubą lūžį po poliarizuota šviesa. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      }
+    },
+    {
+      "id": 119,
+      "disease_id": "AMYLOIDOSIS",
+      "topic": "AMYLOID_slide95",
+      "difficulty": "medium",
+      "source_slide": 95,
+      "en": {
+        "assertion": "AL amyloidosis is caused by light chain deposition",
+        "reason": "Plasma cell dyscrasias produce monoclonal light chains that form amyloid fibrils",
+        "answer": "A",
+        "explanation": "AL amyloidosis is caused by light chain deposition. Plasma cell dyscrasias produce monoclonal light chains that form amyloid fibrils. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "AL amiloidozė sukeliama lengvosios grandinės nusėdimo",
+        "reason": "Plazmos ląstelių diskrazijos gamina monokloninius lengvąsias grandines kurios formuoja amiloido fibriles",
+        "answer": "A",
+        "explanation": "AL amiloidozė sukeliama lengvosios grandinės nusėdimo. Plazmos ląstelių diskrazijos gamina monokloninius lengvąsias grandines kurios formuoja amiloido fibriles. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      }
+    },
+    {
+      "id": 120,
+      "disease_id": "AMYLOIDOSIS",
+      "topic": "AMYLOID_slide95",
+      "difficulty": "hard",
+      "source_slide": 95,
+      "en": {
+        "assertion": "Amyloid deposits are congo-philic and show fibrillar structure on electron microscopy",
+        "reason": "Amyloid consists of beta-pleated sheet protein aggregates arranged in non-branching fibrils",
+        "answer": "A",
+        "explanation": "Amyloid deposits are congo-philic and show fibrillar structure on electron microscopy. Amyloid consists of beta-pleated sheet protein aggregates arranged in non-branching fibrils. Therefore, both the assertion and reason are true, and the reason correctly explains the assertion."
+      },
+      "lt": {
+        "assertion": "Amiloido nuosėdai yra kongo-filiniai ir rodo fibrilinę struktūrą elektroninėje mikroskopijoje",
+        "reason": "Amiloidą sudaro beta-plisetuotų lakštų baltymų agregatai išdėstyti nesišakojančiose fibrilose",
+        "answer": "A",
+        "explanation": "Amiloido nuosėdai yra kongo-filiniai ir rodo fibrilinę struktūrą elektroninėje mikroskopijoje. Amiloidą sudaro beta-plisetuotų lakštų baltymų agregatai išdėstyti nesišakojančiose fibrilose. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
+      }
+    }
+  ]
+}
