@@ -451,9 +451,27 @@
                 <select id="filter-disease" onchange="applyFilters()">
                     <option value="all">All Diseases</option>
                 </select>
-                <select id="filter-status" onchange="applyFilters()">
+                <select id="filter-difficulty" onchange="applyFilters()">
+                    <option value="all">All Difficulty</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+                <select id="filter-active" onchange="applyFilters()">
                     <option value="all">All Questions</option>
+                    <option value="active">Active Only</option>
+                    <option value="inactive">Inactive Only</option>
+                </select>
+                <select id="filter-priority" onchange="applyFilters()">
+                    <option value="all">All Priority</option>
+                    <option value="high">High Priority</option>
+                    <option value="low">Low Priority</option>
+                    <option value="none">No Priority</option>
+                </select>
+                <select id="filter-status" onchange="applyFilters()">
+                    <option value="all">All Images</option>
                     <option value="with-images">With Images Only</option>
+                    <option value="no-images">No Images Only</option>
                     <option value="modified">Modified Only</option>
                 </select>
             </div>
@@ -463,6 +481,9 @@
             </button>
             <button class="btn btn-warning" onclick="resetAll()">
                 🔄 Reset All
+            </button>
+            <button class="btn btn-primary" onclick="reloadQuestions()">
+                🔄 Reload Data
             </button>
         </div>
 

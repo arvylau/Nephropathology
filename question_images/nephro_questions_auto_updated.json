@@ -6,9 +6,9 @@
       "lt"
     ],
     "total_questions": 120,
-    "updated": "2025-12-29T16:48:54.639361",
+    "updated": "2025-12-29T13:24:23.444Z",
     "version": "4.2-auto-save",
-    "questions_with_images": 35,
+    "questions_with_images": 34,
     "auto_save": true
   },
   "interface_translations": {
@@ -504,8 +504,7 @@
         "reason": "Šios nuosėdos yra imuniniai kompleksai, susidarę poinfekcinio imuninio atsako metu ir yra nusėdę glomerulų bazinės membranos subepitelinėje pusėje.",
         "answer": "A",
         "explanation": "Ir tiesa, ir susijusi.Subepiteliniai kauburėliai EM yra patognomoniški APIGN ir yra imuniniai kompleksai, susidarantys po streptokokinės infekcijos.Šios kupros išnyksta laikui bėgant, kai liga pagerėja."
-      },
-      "image": "question_images/question_18.jpg"
+      }
     },
     {
       "id": 19,
@@ -1665,7 +1664,7 @@
         "answer": "A",
         "explanation": "Imunofluorescencija membraninėje nefropatijoje rodo granulinius IgG nuosėdus. IgG antikūnai jungiasi prie podocitų antigenų sukurdami in-situ imuninius kompleksus. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_81.jpeg"
+      "image": "question_images/question_81.jpg"
     },
     {
       "id": 82,
@@ -1705,7 +1704,7 @@
         "answer": "A",
         "explanation": "Membraninė nefropatija progresuoja per keturias histologines stadijas. Stadijos atspindi evoliuciją nuo ankstyvų nuosėdų iki išplėtotos membranos sustorėjimo. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_83.jpg"
+      "image": null
     },
     {
       "id": 84,
