@@ -371,6 +371,43 @@
             margin-bottom: 20px;
         }
 
+        /* Toast notifications */
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        .toast {
+            animation: slideInUp 0.3s ease;
+        }
+
+        /* Checkbox styling */
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"]:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
         @media (max-width: 768px) {
             .gallery {
                 grid-template-columns: 1fr;
@@ -422,11 +459,41 @@
             </div>
 
             <button class="btn btn-success" onclick="exportDatabase()">
-                💾 Export Updated Database
+                💾 Manual Export
             </button>
             <button class="btn btn-warning" onclick="resetAll()">
-                🔄 Reset All Changes
+                🔄 Reset All
             </button>
+        </div>
+
+        <!-- Auto-save Controls -->
+        <div class="controls" style="background: #f0f4ff; border-left: 4px solid #667eea;">
+            <div style="flex: 1;">
+                <h3 style="margin: 0 0 10px 0; color: #667eea; font-size: 16px;">⚡ Auto-Save Mode</h3>
+                <p style="margin: 0; font-size: 13px; color: #666;">
+                    Select a folder once, then images auto-save as you drag & drop
+                </p>
+            </div>
+
+            <button class="btn btn-primary" onclick="selectImageFolder()" style="min-width: 180px;">
+                📁 Select Folder
+            </button>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                    <input type="checkbox" id="auto-save-toggle" onchange="toggleAutoSave()" disabled>
+                    <span style="font-size: 14px; font-weight: 600;">Auto-save JSON</span>
+                </label>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 5px; min-width: 200px;">
+                <div id="folder-status" style="font-size: 12px; color: #999;">
+                    📁 No folder selected
+                </div>
+                <div id="auto-save-status" style="font-size: 12px; color: #999;">
+                    ⭕ Auto-save OFF
+                </div>
+            </div>
         </div>
 
         <div id="gallery" class="gallery"></div>

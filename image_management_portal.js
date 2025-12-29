@@ -3,6 +3,9 @@ let allQuestions = [];
 let diseaseTranslations = {};
 let modifiedQuestions = new Set(); // Track which questions have been modified
 let newImageData = {}; // Store new image data: { questionId: { file, dataUrl } }
+let imageFolderHandle = null; // Handle to question_images folder
+let autoSaveEnabled = false; // Auto-save JSON after each change
+let originalData = null; // Store original database data
 
 // Load questions
 async function loadQuestions() {
@@ -10,12 +13,16 @@ async function loadQuestions() {
         const response = await fetch('nephro_questions_enhanced.json');
         const data = await response.json();
 
+        // Store original data for reference
+        originalData = JSON.parse(JSON.stringify(data));
+
         allQuestions = data.questions;
         diseaseTranslations = data.disease_translations || {};
 
         populateDiseaseFilter();
         renderGallery(allQuestions);
         updateStats();
+        checkFolderAccess();
     } catch (error) {
         console.error('Error loading questions:', error);
         document.getElementById('gallery').innerHTML = `
@@ -25,6 +32,61 @@ async function loadQuestions() {
                 <p>Please ensure nephro_questions_enhanced.json is available.</p>
             </div>
         `;
+    }
+}
+
+// Check if we have folder access from previous session
+async function checkFolderAccess() {
+    const folderPath = localStorage.getItem('imageFolderPath');
+    if (folderPath) {
+        document.getElementById('folder-status').textContent = `📁 ${folderPath}`;
+        document.getElementById('folder-status').style.color = '#48bb78';
+    }
+}
+
+// Select question_images folder
+async function selectImageFolder() {
+    try {
+        // Check if File System Access API is supported
+        if (!('showDirectoryPicker' in window)) {
+            alert('Your browser does not support automatic file saving.\n\n' +
+                  'Please use Chrome, Edge, or another Chromium-based browser.\n\n' +
+                  'You can still use the manual export feature.');
+            return;
+        }
+
+        imageFolderHandle = await window.showDirectoryPicker({
+            mode: 'readwrite',
+            startIn: 'documents'
+        });
+
+        const folderPath = imageFolderHandle.name;
+        localStorage.setItem('imageFolderPath', folderPath);
+
+        document.getElementById('folder-status').textContent = `✅ Folder: ${folderPath}`;
+        document.getElementById('folder-status').style.color = '#48bb78';
+        document.getElementById('auto-save-toggle').disabled = false;
+
+        alert(`Success! Images will now auto-save to:\n${folderPath}\n\nYou can now drag & drop images and they'll be saved automatically.`);
+    } catch (error) {
+        if (error.name !== 'AbortError') {
+            console.error('Error selecting folder:', error);
+            alert('Could not access folder. Please try again.');
+        }
+    }
+}
+
+// Toggle auto-save
+function toggleAutoSave() {
+    autoSaveEnabled = document.getElementById('auto-save-toggle').checked;
+    localStorage.setItem('autoSaveEnabled', autoSaveEnabled);
+
+    if (autoSaveEnabled) {
+        document.getElementById('auto-save-status').textContent = '✅ Auto-save ON';
+        document.getElementById('auto-save-status').style.color = '#48bb78';
+    } else {
+        document.getElementById('auto-save-status').textContent = '⭕ Auto-save OFF';
+        document.getElementById('auto-save-status').style.color = '#999';
     }
 }
 
@@ -204,7 +266,7 @@ function handleFileSelect(event, questionId) {
     }
 }
 
-function processImageFile(file, questionId) {
+async function processImageFile(file, questionId) {
     // Validate file type
     if (!file.type.startsWith('image/')) {
         alert('Please select an image file (JPG, PNG, GIF)');
@@ -218,7 +280,7 @@ function processImageFile(file, questionId) {
     }
 
     const reader = new FileReader();
-    reader.onload = function(e) {
+    reader.onload = async function(e) {
         // Store the new image data
         newImageData[questionId] = {
             file: file,
@@ -228,12 +290,124 @@ function processImageFile(file, questionId) {
         // Mark as modified
         modifiedQuestions.add(questionId);
 
+        // AUTO-SAVE: Save image to folder if folder is selected
+        if (imageFolderHandle) {
+            try {
+                await saveImageToFolder(file, questionId);
+            } catch (error) {
+                console.error('Error auto-saving image:', error);
+                alert('Could not auto-save image to folder. You may need to re-select the folder.');
+            }
+        }
+
+        // Update the question with new image path
+        const question = allQuestions.find(q => q.id === questionId);
+        if (question) {
+            const extension = file.name.split('.').pop();
+            question.image = `question_images/question_${questionId}.${extension}`;
+        }
+
+        // AUTO-SAVE: Save JSON if auto-save is enabled
+        if (autoSaveEnabled && imageFolderHandle) {
+            await autoSaveJSON();
+        }
+
         // Update the card display
         updateCardImage(questionId, e.target.result, file.name);
         updateStats();
     };
 
     reader.readAsDataURL(file);
+}
+
+// Save image to the selected folder
+async function saveImageToFolder(file, questionId) {
+    if (!imageFolderHandle) {
+        throw new Error('No folder selected');
+    }
+
+    const extension = file.name.split('.').pop();
+    const fileName = `question_${questionId}.${extension}`;
+
+    // Create/overwrite the file in the folder
+    const fileHandle = await imageFolderHandle.getFileHandle(fileName, { create: true });
+    const writable = await fileHandle.createWritable();
+    await writable.write(file);
+    await writable.close();
+
+    console.log(`✓ Saved: ${fileName}`);
+    showToast(`✓ Image saved: ${fileName}`);
+}
+
+// Auto-save the JSON database
+async function autoSaveJSON() {
+    if (!imageFolderHandle) return;
+
+    try {
+        // Get parent directory of question_images folder
+        // We'll save the JSON in the same parent directory
+        const jsonFileName = 'nephro_questions_auto_updated.json';
+
+        // Create the updated database
+        const exportData = {
+            metadata: {
+                title: "Nephropathology Assessment - Auto-Updated",
+                languages: ["en", "lt"],
+                total_questions: allQuestions.length,
+                updated: new Date().toISOString(),
+                version: "4.2-auto-save",
+                questions_with_images: allQuestions.filter(q => q.image).length,
+                auto_save: true
+            },
+            interface_translations: originalData.interface_translations || {},
+            disease_translations: diseaseTranslations,
+            questions: allQuestions
+        };
+
+        // Convert to JSON string
+        const jsonString = JSON.stringify(exportData, null, 2);
+        const blob = new Blob([jsonString], { type: 'application/json' });
+
+        // Try to save in parent directory
+        // This requires getting parent, which isn't directly supported
+        // So we'll save to the question_images folder itself
+        const fileHandle = await imageFolderHandle.getFileHandle(jsonFileName, { create: true });
+        const writable = await fileHandle.createWritable();
+        await writable.write(blob);
+        await writable.close();
+
+        console.log(`✓ Auto-saved JSON: ${jsonFileName}`);
+        showToast('✓ Database auto-saved');
+    } catch (error) {
+        console.error('Error auto-saving JSON:', error);
+        // Don't alert on auto-save errors, just log them
+    }
+}
+
+// Show toast notification
+function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    toast.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #48bb78;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        z-index: 10000;
+        animation: slideInUp 0.3s ease;
+    `;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.style.animation = 'fadeOut 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+    }, 2000);
 }
 
 function updateCardImage(questionId, dataUrl, fileName) {
