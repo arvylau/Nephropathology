@@ -6,9 +6,9 @@
       "lt"
     ],
     "total_questions": 120,
-    "updated": "2025-12-29T12:14:17.759Z",
+    "updated": "2025-12-29T12:15:40.737Z",
     "version": "4.2-auto-save",
-    "questions_with_images": 35,
+    "questions_with_images": 34,
     "auto_save": true
   },
   "interface_translations": {
@@ -1824,7 +1824,7 @@
         "answer": "A",
         "explanation": "Fokusinė segmentinė glomerulosklerozė pažeidžia tik kai kuriuos glomerulius. Sklerozė yra ir fokusinė (kai kurie glomerulai) ir segmentinė (dalis kampo). Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_89.png"
+      "image": null
     },
     {
       "id": 90,
