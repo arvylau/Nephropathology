@@ -5,6 +5,219 @@ let translations = {};
 let diseaseTranslations = {};
 let editingQuestion = null;
 
+// Auto-save variables
+let jsonFolderHandle = null;
+let autoSaveEnabled = false;
+let originalData = null;
+
+// IndexedDB for persisting folder handle
+const DB_NAME = 'InstructorPortalDB';
+const DB_VERSION = 1;
+const STORE_NAME = 'folderHandles';
+let db = null;
+
+async function initDB() {
+    return new Promise((resolve, reject) => {
+        const request = indexedDB.open(DB_NAME, DB_VERSION);
+        request.onerror = () => reject(request.error);
+        request.onsuccess = () => {
+            db = request.result;
+            resolve(db);
+        };
+        request.onupgradeneeded = (event) => {
+            const db = event.target.result;
+            if (!db.objectStoreNames.contains(STORE_NAME)) {
+                db.createObjectStore(STORE_NAME);
+            }
+        };
+    });
+}
+
+async function saveFolderHandle(handle) {
+    if (!db) await initDB();
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction([STORE_NAME], 'readwrite');
+        const store = transaction.objectStore(STORE_NAME);
+        const request = store.put(handle, 'jsonFolder');
+        request.onsuccess = () => resolve();
+        request.onerror = () => reject(request.error);
+    });
+}
+
+async function loadFolderHandle() {
+    if (!db) await initDB();
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction([STORE_NAME], 'readonly');
+        const store = transaction.objectStore(STORE_NAME);
+        const request = store.get('jsonFolder');
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+    });
+}
+
+async function clearSavedHandle() {
+    if (!db) await initDB();
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction([STORE_NAME], 'readwrite');
+        const store = transaction.objectStore(STORE_NAME);
+        const request = store.delete('jsonFolder');
+        request.onsuccess = () => resolve();
+        request.onerror = () => reject(request.error);
+    });
+}
+
+async function selectJSONFolder() {
+    try {
+        if (!window.showDirectoryPicker) {
+            alert('Your browser does not support the File System Access API.\n\nPlease use:\n- Chrome 86+ or Edge 86+\n\nOr continue using manual Export JSON button.');
+            return;
+        }
+
+        const handle = await window.showDirectoryPicker({
+            mode: 'readwrite',
+            startIn: 'documents'
+        });
+
+        jsonFolderHandle = handle;
+        await saveFolderHandle(handle);
+
+        document.getElementById('folder-status').textContent = `📁 ${handle.name}`;
+        document.getElementById('folder-status').style.color = '#48bb78';
+        document.getElementById('auto-save-toggle').disabled = false;
+
+        showToast('[OK] Folder selected! Enable auto-save toggle to start.');
+    } catch (error) {
+        if (error.name === 'AbortError') {
+            showToast('[INFO] Folder selection cancelled');
+        } else if (error.name === 'SecurityError' || error.message.includes('system files')) {
+            alert('Cannot access this folder due to system restrictions.\n\nTry selecting a folder:\n- Outside your Git repository\n- In Documents or Desktop\n- Not containing .git or system files');
+        } else {
+            console.error('Folder selection error:', error);
+            alert('Error selecting folder: ' + error.message);
+        }
+    }
+}
+
+function toggleAutoSave() {
+    autoSaveEnabled = document.getElementById('auto-save-toggle').checked;
+
+    if (autoSaveEnabled) {
+        document.getElementById('auto-save-status').textContent = '✅ Auto-save ON';
+        document.getElementById('auto-save-status').style.color = '#48bb78';
+        showToast('[OK] Auto-save enabled! Changes will save automatically.');
+    } else {
+        document.getElementById('auto-save-status').textContent = '⭕ Auto-save OFF';
+        document.getElementById('auto-save-status').style.color = '#999';
+        showToast('[INFO] Auto-save disabled');
+    }
+}
+
+async function autoSaveJSON() {
+    if (!autoSaveEnabled || !jsonFolderHandle) {
+        return;
+    }
+
+    try {
+        // Check if we still have permission
+        const permission = await jsonFolderHandle.queryPermission({ mode: 'readwrite' });
+        if (permission !== 'granted') {
+            const newPermission = await jsonFolderHandle.requestPermission({ mode: 'readwrite' });
+            if (newPermission !== 'granted') {
+                showToast('[ERROR] Permission denied');
+                return;
+            }
+        }
+
+        // Create complete JSON with updated questions
+        const exportData = {
+            metadata: {
+                title: "Nephropathology Assessment - Bilingual (EN/LT)",
+                languages: ["en", "lt"],
+                total_questions: allQuestions.length,
+                created: new Date().toISOString(),
+                version: "3.4-editable-bilingual",
+                translation_method: "Google Translate with medical terminology preservation + manual editing"
+            },
+            interface_translations: translations,
+            disease_translations: diseaseTranslations,
+            questions: allQuestions
+        };
+
+        // Write to file
+        const fileName = 'nephro_questions_auto_updated.json';
+        const fileHandle = await jsonFolderHandle.getFileHandle(fileName, { create: true });
+        const writable = await fileHandle.createWritable();
+        await writable.write(JSON.stringify(exportData, null, 2));
+        await writable.close();
+
+        showToast('[OK] Auto-saved to ' + fileName);
+    } catch (error) {
+        console.error('Auto-save error:', error);
+        showToast('[ERROR] Auto-save failed: ' + error.message);
+
+        if (error.name === 'NotAllowedError') {
+            autoSaveEnabled = false;
+            document.getElementById('auto-save-toggle').checked = false;
+            document.getElementById('auto-save-status').textContent = '⭕ Auto-save OFF';
+            document.getElementById('auto-save-status').style.color = '#999';
+            await clearSavedHandle();
+            jsonFolderHandle = null;
+            document.getElementById('folder-status').textContent = '📁 No folder selected';
+            document.getElementById('folder-status').style.color = '#999';
+            document.getElementById('auto-save-toggle').disabled = true;
+        }
+    }
+}
+
+function showToast(message) {
+    // Simple toast notification
+    const toast = document.createElement('div');
+    toast.textContent = message;
+    toast.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #333;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        z-index: 10000;
+        font-size: 14px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        animation: slideInUp 0.3s ease;
+    `;
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.style.animation = 'fadeOut 0.3s ease';
+        setTimeout(() => document.body.removeChild(toast), 300);
+    }, 3000);
+}
+
+async function checkFolderAccess() {
+    try {
+        await initDB();
+        const savedHandle = await loadFolderHandle();
+
+        if (savedHandle) {
+            const permission = await savedHandle.queryPermission({ mode: 'readwrite' });
+
+            if (permission === 'granted') {
+                jsonFolderHandle = savedHandle;
+                document.getElementById('folder-status').textContent = `📁 ${savedHandle.name}`;
+                document.getElementById('folder-status').style.color = '#48bb78';
+                document.getElementById('auto-save-toggle').disabled = false;
+                showToast('[OK] Restored saved folder');
+            } else {
+                await clearSavedHandle();
+            }
+        }
+    } catch (error) {
+        console.error('Error checking folder access:', error);
+        await clearSavedHandle();
+    }
+}
+
 // Load bilingual questions
 async function loadQuestions() {
     try {
@@ -269,7 +482,7 @@ function toggleEdit(qId) {
     }
 }
 
-function saveEdit(qId) {
+async function saveEdit(qId) {
     const card = document.getElementById('q-' + qId);
     const textareas = card.querySelectorAll('.edit-textarea');
     const question = allQuestions.find(q => q.id === qId);
@@ -293,7 +506,12 @@ function saveEdit(qId) {
     card.querySelector('.edit-buttons').style.display = 'none';
     editingQuestion = null;
 
-    alert('Changes saved! Use "Export JSON" to save permanently.');
+    // Auto-save if enabled
+    await autoSaveJSON();
+
+    if (!autoSaveEnabled) {
+        alert('Changes saved in browser! Use "Export JSON" to save permanently.');
+    }
 }
 
 function cancelEdit(qId) {
@@ -317,7 +535,7 @@ function cancelEdit(qId) {
     editingQuestion = null;
 }
 
-function toggleActive(qId) {
+async function toggleActive(qId) {
     if (!questionSettings[qId]) {
         questionSettings[qId] = { active: true, priority: 'none' };
     }
@@ -325,9 +543,10 @@ function toggleActive(qId) {
     saveSettings();
     applyFilters();
     updateStats();
+    await autoSaveJSON();
 }
 
-function setPriority(qId, priority) {
+async function setPriority(qId, priority) {
     if (!questionSettings[qId]) {
         questionSettings[qId] = { active: true, priority: 'none' };
     }
@@ -335,27 +554,30 @@ function setPriority(qId, priority) {
     saveSettings();
     applyFilters();
     updateStats();
+    await autoSaveJSON();
 }
 
-function activateAll() {
+async function activateAll() {
     allQuestions.forEach(q => {
         questionSettings[q.id] = { ...questionSettings[q.id], active: true };
     });
     saveSettings();
     applyFilters();
     updateStats();
+    await autoSaveJSON();
 }
 
-function deactivateAll() {
+async function deactivateAll() {
     allQuestions.forEach(q => {
         questionSettings[q.id] = { ...questionSettings[q.id], active: false };
     });
     saveSettings();
     applyFilters();
     updateStats();
+    await autoSaveJSON();
 }
 
-function activateFiltered() {
+async function activateFiltered() {
     const filtered = getFilteredQuestions();
     filtered.forEach(q => {
         questionSettings[q.id] = { ...questionSettings[q.id], active: true };
@@ -363,9 +585,10 @@ function activateFiltered() {
     saveSettings();
     applyFilters();
     updateStats();
+    await autoSaveJSON();
 }
 
-function deactivateFiltered() {
+async function deactivateFiltered() {
     const filtered = getFilteredQuestions();
     filtered.forEach(q => {
         questionSettings[q.id] = { ...questionSettings[q.id], active: false };
@@ -373,9 +596,10 @@ function deactivateFiltered() {
     saveSettings();
     applyFilters();
     updateStats();
+    await autoSaveJSON();
 }
 
-function resetAll() {
+async function resetAll() {
     if (confirm('Reset all settings to default? This cannot be undone.')) {
         allQuestions.forEach(q => {
             questionSettings[q.id] = { active: true, priority: 'none' };
@@ -383,6 +607,7 @@ function resetAll() {
         saveSettings();
         applyFilters();
         updateStats();
+        await autoSaveJSON();
     }
 }
 
@@ -627,4 +852,7 @@ document.addEventListener('keydown', function(e) {
 });
 
 // Load on page load
-window.addEventListener('DOMContentLoaded', loadQuestions);
+window.addEventListener('DOMContentLoaded', async () => {
+    await loadQuestions();
+    await checkFolderAccess();
+});

@@ -4,11 +4,13 @@ echo Sync Working Folder to Git Repository
 echo ========================================
 echo.
 
-set "WORKING=C:\Users\lauar\Documents\NEFRO\nephro_images\question_images"
+set "WORKING=C:\Users\lauar\Documents\nephro_work\question_images"
+set "WORKING_OLD=C:\Users\lauar\Documents\NEFRO\nephro_images\question_images"
 set "GIT_REPO=%~dp0"
 set "GIT_IMAGES=%GIT_REPO%question_images"
 
-echo Source: %WORKING%
+echo Primary Source: %WORKING%
+echo Backup Source: %WORKING_OLD%
 echo Target: %GIT_IMAGES%
 echo.
 
@@ -33,10 +35,19 @@ xcopy "%WORKING%\question_*.jpeg" "%GIT_IMAGES%\" /Y /Q >nul 2>&1
 
 echo [OK] Images synced
 
-REM Copy JSON if it exists
-if exist "%WORKING%\..\nephro_questions_auto_updated.json" (
-    copy /Y "%WORKING%\..\nephro_questions_auto_updated.json" "%GIT_REPO%nephro_questions_enhanced.json" >nul
-    echo [OK] Database synced
+REM Copy JSON if it exists (check multiple locations, nephro_work is primary)
+if exist "%WORKING%\nephro_questions_auto_updated.json" (
+    copy /Y "%WORKING%\nephro_questions_auto_updated.json" "%GIT_REPO%nephro_questions_enhanced.json" >nul
+    echo [OK] Database synced from nephro_work/question_images
+) else if exist "C:\Users\lauar\Documents\nephro_work\nephro_questions_auto_updated.json" (
+    copy /Y "C:\Users\lauar\Documents\nephro_work\nephro_questions_auto_updated.json" "%GIT_REPO%nephro_questions_enhanced.json" >nul
+    echo [OK] Database synced from nephro_work
+) else if exist "%WORKING_OLD%\nephro_questions_auto_updated.json" (
+    copy /Y "%WORKING_OLD%\nephro_questions_auto_updated.json" "%GIT_REPO%nephro_questions_enhanced.json" >nul
+    echo [OK] Database synced from NEFRO/question_images (backup)
+) else if exist "%WORKING_OLD%\..\nephro_questions_auto_updated.json" (
+    copy /Y "%WORKING_OLD%\..\nephro_questions_auto_updated.json" "%GIT_REPO%nephro_questions_enhanced.json" >nul
+    echo [OK] Database synced from NEFRO/nephro_images (backup)
 )
 
 echo.

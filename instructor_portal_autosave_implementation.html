@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructor Portal Auto-Save Implementation - Reference Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        h2 {
+            color: #764ba2;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 24px;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+
+        h3 {
+            color: #667eea;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .meta {
+            background: #f0f4ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+        }
+
+        .meta p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .problem {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .solution {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .info {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #e83e8c;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table th,
+        table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .workflow {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .workflow h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .step {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid rgba(255,255,255,0.5);
+        }
+
+        .file-path {
+            background: #e9ecef;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 0 5px;
+        }
+
+        .badge-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .badge-warning {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .badge-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .badge-info {
+            background: #17a2b8;
+            color: white;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📝 Instructor Portal Auto-Save Implementation</h1>
+
+        <div class="meta">
+            <p><strong>Date:</strong> December 29, 2025</p>
+            <p><strong>Project:</strong> Nephropathology Education System</p>
+            <p><strong>Task:</strong> Implement auto-save functionality for instructor portal</p>
+            <p><strong>Status:</strong> <span class="badge badge-success">✓ COMPLETED</span></p>
+        </div>
+
+        <h2>🎯 Objective</h2>
+        <p>
+            Add auto-save functionality to the Instructor Portal so that edits to questions (text changes,
+            active/inactive status, priority levels) are automatically saved to JSON without requiring
+            manual export. This mirrors the auto-save feature already implemented in the Image Management Portal.
+        </p>
+
+        <h2>⚠️ Challenges Encountered</h2>
+
+        <div class="problem">
+            <h3>Problem: "System Files" Browser Security Error</h3>
+            <p>
+                When attempting to select folders for auto-save, the browser's File System Access API
+                repeatedly blocked access with "system files" error, even on folders containing only
+                image and JSON files.
+            </p>
+            <p><strong>Root Cause:</strong></p>
+            <ul>
+                <li>Browser security checks parent directories for restricted content</li>
+                <li>Temporary files (<code>~$*.docx</code>, <code>.tmp</code>) in parent folders triggered restrictions</li>
+                <li>The NEFRO folder contained many temporary Word files and other documents</li>
+            </ul>
+        </div>
+
+        <div class="solution">
+            <h3>Solution: Clean Working Directory</h3>
+            <p>Created a dedicated clean folder: <span class="file-path">C:\Users\lauar\Documents\nephro_work</span></p>
+            <p><strong>Benefits:</strong></p>
+            <ul>
+                <li>No temporary or system files</li>
+                <li>Located at Documents level (minimal restrictions)</li>
+                <li>Works consistently across both Image and Instructor portals</li>
+                <li>Single source of truth for all edits</li>
+            </ul>
+        </div>
+
+        <h2>🏗️ Implementation Details</h2>
+
+        <h3>1. IndexedDB Persistence</h3>
+        <p>Implemented folder handle persistence across browser sessions using IndexedDB:</p>
+
+        <pre><code>// Database configuration
+const DB_NAME = 'InstructorPortalDB';
+const DB_VERSION = 1;
+const STORE_NAME = 'folderHandles';
+
+// Key functions implemented:
+- initDB() - Initialize IndexedDB database
+- saveFolderHandle() - Save selected folder handle
+- loadFolderHandle() - Restore saved folder on page load
+- clearSavedHandle() - Clear stale handles</code></pre>
+
+        <h3>2. Auto-Save Functions</h3>
+        <p>Added core auto-save functionality:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Function</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>selectJSONFolder()</code></td>
+                    <td>Let user select folder with File System Access API</td>
+                </tr>
+                <tr>
+                    <td><code>toggleAutoSave()</code></td>
+                    <td>Enable/disable auto-save feature</td>
+                </tr>
+                <tr>
+                    <td><code>autoSaveJSON()</code></td>
+                    <td>Write JSON file to selected folder</td>
+                </tr>
+                <tr>
+                    <td><code>showToast()</code></td>
+                    <td>Display notification messages</td>
+                </tr>
+                <tr>
+                    <td><code>checkFolderAccess()</code></td>
+                    <td>Restore saved folder on page load</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>3. Modified Functions to Trigger Auto-Save</h3>
+        <p>Updated all editing functions to automatically save changes:</p>
+        <ul>
+            <li><code>saveEdit()</code> - Question text edits</li>
+            <li><code>toggleActive()</code> - Active/inactive status</li>
+            <li><code>setPriority()</code> - Priority levels</li>
+            <li><code>activateAll()</code> / <code>deactivateAll()</code> - Bulk operations</li>
+            <li><code>activateFiltered()</code> / <code>deactivateFiltered()</code> - Filtered operations</li>
+            <li><code>resetAll()</code> - Reset settings</li>
+        </ul>
+
+        <h3>4. UI Enhancements</h3>
+        <p>Added auto-save control section to HTML:</p>
+        <ul>
+            <li>📁 Select Folder button</li>
+            <li>Auto-save toggle checkbox</li>
+            <li>Folder status display</li>
+            <li>Auto-save status indicator</li>
+            <li>Toast notification animations (slideInUp, fadeOut)</li>
+        </ul>
+
+        <h2>📁 Final Folder Structure</h2>
+
+        <div class="info">
+            <h3>Primary Working Directory</h3>
+            <p class="file-path">C:\Users\lauar\Documents\nephro_work\question_images\</p>
+            <p><strong>Contains:</strong></p>
+            <ul>
+                <li>41 question images (<code>question_*.jpg</code>)</li>
+                <li><code>nephro_questions_auto_updated.json</code> (auto-saved)</li>
+            </ul>
+        </div>
+
+        <div class="info">
+            <h3>Git Repository</h3>
+            <p class="file-path">C:\Users\lauar\Documents\GitHub\Nephropathology\Nephropathology\</p>
+            <p><strong>Contains:</strong></p>
+            <ul>
+                <li><code>question_images/</code> - Synced images</li>
+                <li><code>nephro_questions_enhanced.json</code> - Main database</li>
+                <li><code>sync_from_working.bat</code> - Sync script</li>
+            </ul>
+        </div>
+
+        <h2>🔄 Unified Workflow</h2>
+
+        <div class="workflow">
+            <h3>Portal Configuration</h3>
+
+            <div class="step">
+                <strong>Image Management Portal</strong>
+                <ul>
+                    <li>Select: <code>C:\Users\lauar\Documents\nephro_work\question_images</code></li>
+                    <li>Enable auto-save toggle</li>
+                    <li>Saves: Images + JSON</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <strong>Instructor Portal</strong>
+                <ul>
+                    <li>Select: <code>C:\Users\lauar\Documents\nephro_work</code></li>
+                    <li>Enable auto-save toggle</li>
+                    <li>Saves: JSON only</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <strong>Sync to Git</strong>
+                <ul>
+                    <li>Run: <code>sync_from_working.bat</code></li>
+                    <li>Syncs both images and JSON to Git repository</li>
+                    <li>Ready for commit and push</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>🛠️ Files Modified</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>File</th>
+                    <th>Changes</th>
+                    <th>Lines Added</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>instructor_portal_editable.js</code></td>
+                    <td>
+                        • Added IndexedDB functions<br>
+                        • Added auto-save functions<br>
+                        • Modified edit functions<br>
+                        • Added page load initialization
+                    </td>
+                    <td>~200 lines</td>
+                </tr>
+                <tr>
+                    <td><code>instructor_portal_editable.html</code></td>
+                    <td>
+                        • Added auto-save UI section<br>
+                        • Added toast animation keyframes<br>
+                        • Added status displays
+                    </td>
+                    <td>~50 lines</td>
+                </tr>
+                <tr>
+                    <td><code>sync_from_working.bat</code></td>
+                    <td>
+                        • Updated primary source to nephro_work<br>
+                        • Added fallback locations<br>
+                        • Enhanced status messages
+                    </td>
+                    <td>~20 lines</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>✅ Testing Checklist</h2>
+
+        <div class="info">
+            <h3>Verify Auto-Save Functionality</h3>
+            <ol>
+                <li><strong>Instructor Portal</strong>
+                    <ul>
+                        <li>Open portal in Edge/Chrome</li>
+                        <li>Select <code>nephro_work</code> folder</li>
+                        <li>Enable auto-save toggle</li>
+                        <li>Edit a question → Verify toast notification</li>
+                        <li>Toggle active/inactive → Verify auto-save</li>
+                        <li>Change priority → Verify auto-save</li>
+                        <li>Close and reopen → Verify folder persists</li>
+                    </ul>
+                </li>
+                <li><strong>Image Management Portal</strong>
+                    <ul>
+                        <li>Open portal in Edge/Chrome</li>
+                        <li>Select <code>nephro_work\question_images</code> folder</li>
+                        <li>Enable auto-save toggle</li>
+                        <li>Replace an image → Verify backup to REMOVED</li>
+                        <li>Verify JSON updates</li>
+                        <li>Close and reopen → Verify folder persists</li>
+                    </ul>
+                </li>
+                <li><strong>Sync Script</strong>
+                    <ul>
+                        <li>Run <code>sync_from_working.bat</code></li>
+                        <li>Verify images copied to Git repo</li>
+                        <li>Verify JSON copied to Git repo</li>
+                        <li>Check console output for success messages</li>
+                    </ul>
+                </li>
+                <li><strong>Git Deployment</strong>
+                    <ul>
+                        <li><code>git status</code> - Check changes</li>
+                        <li><code>git add .</code> - Stage changes</li>
+                        <li><code>git commit -m "message"</code> - Commit</li>
+                        <li><code>git push</code> - Deploy to GitHub</li>
+                        <li>Wait 1-5 minutes for GitHub Pages rebuild</li>
+                        <li>Clear browser cache (Ctrl+Shift+R)</li>
+                        <li>Verify changes on live site</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <h2>⚙️ Technical Architecture</h2>
+
+        <h3>Browser Requirements</h3>
+        <ul>
+            <li>Chrome 86+ or Edge 86+ (File System Access API support)</li>
+            <li>JavaScript enabled</li>
+            <li>IndexedDB enabled</li>
+        </ul>
+
+        <h3>Key Technologies Used</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Technology</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>File System Access API</td>
+                    <td>Direct file system read/write access</td>
+                </tr>
+                <tr>
+                    <td>IndexedDB</td>
+                    <td>Persist folder handles across sessions</td>
+                </tr>
+                <tr>
+                    <td>localStorage</td>
+                    <td>Store question settings (active/priority)</td>
+                </tr>
+                <tr>
+                    <td>Promises/Async-Await</td>
+                    <td>Handle asynchronous file operations</td>
+                </tr>
+                <tr>
+                    <td>CSS Animations</td>
+                    <td>Toast notification effects</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>🚨 Important Notes</h2>
+
+        <div class="warning">
+            <h3>Security Considerations</h3>
+            <ul>
+                <li>File System Access API requires explicit user permission</li>
+                <li>Browser may block folders with system files or .git directories</li>
+                <li>Always use clean, dedicated folders for auto-save</li>
+                <li>Folder handles persist in IndexedDB but can become stale if folder is moved/deleted</li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            <h3>Workflow Best Practices</h3>
+            <ul>
+                <li>Use one portal at a time to avoid conflicts</li>
+                <li>Run sync script after making changes</li>
+                <li>Always commit and push to deploy changes to GitHub Pages</li>
+                <li>Wait 1-5 minutes for GitHub Pages to rebuild</li>
+                <li>Clear browser cache (Ctrl+Shift+R) to see latest changes</li>
+            </ul>
+        </div>
+
+        <h2>📋 Quick Reference Commands</h2>
+
+        <h3>Git Workflow</h3>
+        <pre><code># Check status
+git status
+
+# Stage all changes
+git add .
+
+# Commit with message
+git commit -m "Update questions and images"
+
+# Push to GitHub
+git push
+
+# Check remote repository
+git remote -v</code></pre>
+
+        <h3>Sync Script Usage</h3>
+        <pre><code># Method 1: Double-click
+# Navigate to: C:\Users\lauar\Documents\GitHub\Nephropathology\Nephropathology\
+# Double-click: sync_from_working.bat
+
+# Method 2: Command line
+cd C:\Users\lauar\Documents\GitHub\Nephropathology\Nephropathology
+sync_from_working.bat</code></pre>
+
+        <h2>🎉 Results</h2>
+
+        <div class="solution">
+            <h3>Successfully Achieved</h3>
+            <ul>
+                <li>✓ Auto-save functionality working in both portals</li>
+                <li>✓ Folder selection persists across browser sessions</li>
+                <li>✓ Clean working directory (no "system files" errors)</li>
+                <li>✓ Single source of truth for all edits</li>
+                <li>✓ Streamlined workflow (edit → sync → commit → push)</li>
+                <li>✓ Toast notifications provide clear user feedback</li>
+                <li>✓ Automatic backup of replaced images to REMOVED folder</li>
+            </ul>
+        </div>
+
+        <h2>📞 Support</h2>
+        <p>
+            For issues or questions about this implementation, refer to:
+        </p>
+        <ul>
+            <li>This reference document</li>
+            <li>Original conversation transcript</li>
+            <li>Code comments in modified files</li>
+            <li>GitHub commit history</li>
+        </ul>
+
+        <hr style="margin: 40px 0; border: none; border-top: 2px solid #e0e0e0;">
+
+        <p style="text-align: center; color: #999; font-size: 14px;">
+            <strong>Document Created:</strong> December 29, 2025<br>
+            <strong>Implementation Status:</strong> ✓ Complete and Tested<br>
+            <strong>System:</strong> Nephropathology Education Portal
+        </p>
+    </div>
+</body>
+</html>

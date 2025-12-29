@@ -443,6 +443,26 @@
             to { opacity: 1; }
         }
 
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
         .lightbox-content {
             position: relative;
             max-width: 95%;
@@ -533,6 +553,17 @@
                 <button class="btn btn-warning" onclick="exportMoodleGIFT()" id="btn-export-gift">Export Moodle GIFT</button>
                 <button class="btn btn-info" onclick="document.getElementById('import-file').click()" id="btn-import">Import JSON</button>
                 <input type="file" id="import-file" accept=".json" style="display:none" onchange="importData(event)">
+            </div>
+
+            <h2 style="margin-top: 30px; color: #667eea;">⚡ Auto-Save Settings</h2>
+            <div class="button-group" style="background: #f0f4ff; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                <button class="btn btn-primary" onclick="selectJSONFolder()" id="btn-select-folder">📁 Select Folder</button>
+                <label style="display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 600;">
+                    <input type="checkbox" id="auto-save-toggle" onchange="toggleAutoSave()" disabled style="width: 20px; height: 20px;">
+                    <span>Enable Auto-Save</span>
+                </label>
+                <span id="folder-status" style="color: #999; font-size: 14px;">📁 No folder selected</span>
+                <span id="auto-save-status" style="color: #999; font-size: 14px;">⭕ Auto-save OFF</span>
             </div>
 
             <h2 id="filters-title" style="margin-top: 20px;">Filters</h2>
