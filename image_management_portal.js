@@ -7,9 +7,18 @@ let imageFolderHandle = null; // Handle to question_images folder
 let autoSaveEnabled = false; // Auto-save JSON after each change
 let originalData = null; // Store original database data
 
+// IndexedDB for persisting folder handle
+const DB_NAME = 'ImagePortalDB';
+const DB_VERSION = 1;
+const STORE_NAME = 'folderHandles';
+let db = null;
+
 // Load questions
 async function loadQuestions() {
     try {
+        // Initialize IndexedDB first
+        await initDB();
+
         const response = await fetch('nephro_questions_enhanced.json');
         const data = await response.json();
 
@@ -22,7 +31,9 @@ async function loadQuestions() {
         populateDiseaseFilter();
         renderGallery(allQuestions);
         updateStats();
-        checkFolderAccess();
+
+        // Check if we can restore folder access from previous session
+        await checkFolderAccess();
     } catch (error) {
         console.error('Error loading questions:', error);
         document.getElementById('gallery').innerHTML = `
@@ -35,12 +46,85 @@ async function loadQuestions() {
     }
 }
 
+// Initialize IndexedDB for storing folder handle
+async function initDB() {
+    return new Promise((resolve, reject) => {
+        const request = indexedDB.open(DB_NAME, DB_VERSION);
+
+        request.onerror = () => reject(request.error);
+        request.onsuccess = () => {
+            db = request.result;
+            resolve(db);
+        };
+
+        request.onupgradeneeded = (event) => {
+            const db = event.target.result;
+            if (!db.objectStoreNames.contains(STORE_NAME)) {
+                db.createObjectStore(STORE_NAME);
+            }
+        };
+    });
+}
+
+// Save folder handle to IndexedDB
+async function saveFolderHandle(handle) {
+    if (!db) await initDB();
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction([STORE_NAME], 'readwrite');
+        const store = transaction.objectStore(STORE_NAME);
+        const request = store.put(handle, 'imageFolderHandle');
+
+        request.onsuccess = () => resolve();
+        request.onerror = () => reject(request.error);
+    });
+}
+
+// Load folder handle from IndexedDB
+async function loadFolderHandle() {
+    if (!db) await initDB();
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction([STORE_NAME], 'readonly');
+        const store = transaction.objectStore(STORE_NAME);
+        const request = store.get('imageFolderHandle');
+
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+    });
+}
+
 // Check if we have folder access from previous session
 async function checkFolderAccess() {
-    const folderPath = localStorage.getItem('imageFolderPath');
-    if (folderPath) {
-        document.getElementById('folder-status').textContent = `📁 ${folderPath}`;
-        document.getElementById('folder-status').style.color = '#48bb78';
+    try {
+        // Try to load saved handle from IndexedDB
+        const savedHandle = await loadFolderHandle();
+
+        if (savedHandle) {
+            // Verify we still have permission
+            const permission = await savedHandle.queryPermission({ mode: 'readwrite' });
+
+            if (permission === 'granted') {
+                imageFolderHandle = savedHandle;
+                document.getElementById('folder-status').textContent = `✅ Folder: ${savedHandle.name}`;
+                document.getElementById('folder-status').style.color = '#48bb78';
+                document.getElementById('auto-save-toggle').disabled = false;
+
+                // Restore auto-save setting
+                const savedAutoSave = localStorage.getItem('autoSaveEnabled');
+                if (savedAutoSave === 'true') {
+                    document.getElementById('auto-save-toggle').checked = true;
+                    toggleAutoSave();
+                }
+
+                console.log('✓ Restored folder access from previous session');
+            } else if (permission === 'prompt') {
+                // We need to request permission again
+                document.getElementById('folder-status').textContent = `📁 ${savedHandle.name} (click to restore access)`;
+                document.getElementById('folder-status').style.color = '#ed8936';
+            }
+        }
+    } catch (error) {
+        console.log('No saved folder access found or error loading:', error);
+        // This is OK - first time use
     }
 }
 
@@ -55,24 +139,71 @@ async function selectImageFolder() {
             return;
         }
 
-        imageFolderHandle = await window.showDirectoryPicker({
+        // Request folder selection
+        const handle = await window.showDirectoryPicker({
             mode: 'readwrite',
             startIn: 'documents'
         });
 
-        const folderPath = imageFolderHandle.name;
-        localStorage.setItem('imageFolderPath', folderPath);
+        // Verify we can access the folder
+        try {
+            // Try to verify access by checking permission
+            const permission = await handle.requestPermission({ mode: 'readwrite' });
+            if (permission !== 'granted') {
+                alert('Permission denied. Please try again and grant access to the folder.');
+                return;
+            }
+        } catch (permError) {
+            console.error('Permission error:', permError);
+            alert('Could not verify folder permissions. Please try selecting the folder again.');
+            return;
+        }
 
+        // Save the handle
+        imageFolderHandle = handle;
+
+        // Persist to IndexedDB for future sessions
+        try {
+            await saveFolderHandle(handle);
+            console.log('✓ Folder handle saved to IndexedDB');
+        } catch (saveError) {
+            console.error('Could not save folder handle:', saveError);
+            // Continue anyway - at least it works for this session
+        }
+
+        // Update UI
+        const folderPath = handle.name;
         document.getElementById('folder-status').textContent = `✅ Folder: ${folderPath}`;
         document.getElementById('folder-status').style.color = '#48bb78';
         document.getElementById('auto-save-toggle').disabled = false;
 
-        alert(`Success! Images will now auto-save to:\n${folderPath}\n\nYou can now drag & drop images and they'll be saved automatically.`);
+        alert(`Success! Images will now auto-save to:\n${folderPath}\n\n` +
+              `This folder will be remembered in future sessions.\n\n` +
+              `You can now drag & drop images and they'll be saved automatically.`);
     } catch (error) {
-        if (error.name !== 'AbortError') {
-            console.error('Error selecting folder:', error);
-            alert('Could not access folder. Please try again.');
+        if (error.name === 'AbortError') {
+            // User cancelled - do nothing
+            return;
         }
+
+        console.error('Error selecting folder:', error);
+
+        // Provide helpful error messages
+        let errorMsg = 'Could not access folder.\n\n';
+
+        if (error.name === 'SecurityError') {
+            errorMsg += 'Security Error: The folder may contain system files or be in a protected location.\n\n' +
+                       'Try:\n' +
+                       '1. Select the Nephropathology parent folder instead\n' +
+                       '2. Move question_images to a different location\n' +
+                       '3. Create a new empty folder for images';
+        } else if (error.name === 'NotAllowedError') {
+            errorMsg += 'Access denied. Please grant permission when prompted.';
+        } else {
+            errorMsg += `Error: ${error.message}\n\nPlease try again or use Manual Export instead.`;
+        }
+
+        alert(errorMsg);
     }
 }
 
@@ -166,8 +297,18 @@ function renderGallery(questions) {
                         Question #${q.id}
                         ${isModified ? '<span style="color:#48bb78;">●</span>' : ''}
                     </div>
-                    <div class="question-text">${q.en.assertion}</div>
-                    <span class="badge badge-disease">${diseaseName}</span>
+                    <div style="margin-bottom: 12px;">
+                        <div style="font-size: 11px; color: #667eea; font-weight: 600; text-transform: uppercase; margin-bottom: 4px;">Assertion:</div>
+                        <div class="question-text" style="-webkit-line-clamp: 3;">${q.en.assertion}</div>
+                    </div>
+                    <div style="margin-bottom: 12px;">
+                        <div style="font-size: 11px; color: #667eea; font-weight: 600; text-transform: uppercase; margin-bottom: 4px;">Reason:</div>
+                        <div class="question-text" style="-webkit-line-clamp: 3;">${q.en.reason}</div>
+                    </div>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        <span class="badge badge-disease">${diseaseName}</span>
+                        <span class="badge" style="background: #48bb78; color: white;">Answer: ${q.en.answer}</span>
+                    </div>
                 </div>
 
                 ${hasImage ? `
@@ -282,6 +423,19 @@ async function processImageFile(file, questionId) {
 
     const reader = new FileReader();
     reader.onload = async function(e) {
+        // Check if there's an existing image to backup
+        const question = allQuestions.find(q => q.id === questionId);
+        if (question && question.image && imageFolderHandle) {
+            try {
+                // Move old image to REMOVED folder before replacing
+                await moveImageToRemoved(question.image, questionId);
+                showToast('✓ Old image backed up to REMOVED folder');
+            } catch (error) {
+                console.error('Could not backup old image:', error);
+                // Continue anyway - replacement is more important
+            }
+        }
+
         // Store the new image data
         newImageData[questionId] = {
             file: file,
@@ -302,7 +456,6 @@ async function processImageFile(file, questionId) {
         }
 
         // Update the question with new image path
-        const question = allQuestions.find(q => q.id === questionId);
         if (question) {
             const extension = file.name.split('.').pop();
             question.image = `question_images/question_${questionId}.${extension}`;
@@ -321,6 +474,23 @@ async function processImageFile(file, questionId) {
     reader.readAsDataURL(file);
 }
 
+// Get or create the question_images subfolder
+async function getQuestionImagesFolder() {
+    // If the selected folder is named 'question_images', use it directly
+    if (imageFolderHandle.name === 'question_images') {
+        return imageFolderHandle;
+    }
+
+    // Otherwise, try to access/create 'question_images' subfolder
+    try {
+        return await imageFolderHandle.getDirectoryHandle('question_images', { create: true });
+    } catch (error) {
+        console.error('Could not access question_images subfolder:', error);
+        // Fall back to using the selected folder directly
+        return imageFolderHandle;
+    }
+}
+
 // Save image to the selected folder
 async function saveImageToFolder(file, questionId) {
     if (!imageFolderHandle) {
@@ -330,13 +500,16 @@ async function saveImageToFolder(file, questionId) {
     const extension = file.name.split('.').pop();
     const fileName = `question_${questionId}.${extension}`;
 
+    // Get the appropriate folder (question_images or selected folder)
+    const targetFolder = await getQuestionImagesFolder();
+
     // Create/overwrite the file in the folder
-    const fileHandle = await imageFolderHandle.getFileHandle(fileName, { create: true });
+    const fileHandle = await targetFolder.getFileHandle(fileName, { create: true });
     const writable = await fileHandle.createWritable();
     await writable.write(file);
     await writable.close();
 
-    console.log(`✓ Saved: ${fileName}`);
+    console.log(`✓ Saved: ${fileName} to ${targetFolder.name}`);
     showToast(`✓ Image saved: ${fileName}`);
 }
 
@@ -345,8 +518,6 @@ async function autoSaveJSON() {
     if (!imageFolderHandle) return;
 
     try {
-        // Get parent directory of question_images folder
-        // We'll save the JSON in the same parent directory
         const jsonFileName = 'nephro_questions_auto_updated.json';
 
         // Create the updated database
@@ -369,15 +540,16 @@ async function autoSaveJSON() {
         const jsonString = JSON.stringify(exportData, null, 2);
         const blob = new Blob([jsonString], { type: 'application/json' });
 
-        // Try to save in parent directory
-        // This requires getting parent, which isn't directly supported
-        // So we'll save to the question_images folder itself
-        const fileHandle = await imageFolderHandle.getFileHandle(jsonFileName, { create: true });
+        // Get the appropriate folder
+        const targetFolder = await getQuestionImagesFolder();
+
+        // Save to the folder
+        const fileHandle = await targetFolder.getFileHandle(jsonFileName, { create: true });
         const writable = await fileHandle.createWritable();
         await writable.write(blob);
         await writable.close();
 
-        console.log(`✓ Auto-saved JSON: ${jsonFileName}`);
+        console.log(`✓ Auto-saved JSON: ${jsonFileName} to ${targetFolder.name}`);
         showToast('✓ Database auto-saved');
     } catch (error) {
         console.error('Error auto-saving JSON:', error);
@@ -505,8 +677,11 @@ async function moveImageToRemoved(imagePath, questionId) {
     const fileName = imagePath.split('/').pop();
 
     try {
+        // Get the appropriate folder (question_images or selected folder)
+        const targetFolder = await getQuestionImagesFolder();
+
         // Get handle to the existing image file
-        const existingFileHandle = await imageFolderHandle.getFileHandle(fileName);
+        const existingFileHandle = await targetFolder.getFileHandle(fileName);
 
         // Read the file content
         const file = await existingFileHandle.getFile();
@@ -515,7 +690,7 @@ async function moveImageToRemoved(imagePath, questionId) {
         // Create REMOVED subdirectory if it doesn't exist
         let removedFolderHandle;
         try {
-            removedFolderHandle = await imageFolderHandle.getDirectoryHandle('REMOVED', { create: true });
+            removedFolderHandle = await targetFolder.getDirectoryHandle('REMOVED', { create: true });
         } catch (error) {
             console.error('Error creating REMOVED folder:', error);
             throw new Error('Could not create REMOVED subfolder');
