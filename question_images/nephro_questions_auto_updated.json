@@ -6,9 +6,9 @@
       "lt"
     ],
     "total_questions": 120,
-    "updated": "2025-12-29T13:24:23.444Z",
+    "updated": "2026-01-02T10:10:43.118Z",
     "version": "4.2-auto-save",
-    "questions_with_images": 34,
+    "questions_with_images": 37,
     "auto_save": true
   },
   "interface_translations": {
@@ -194,11 +194,12 @@
         "explanation": "Both statements are true. MCD shows normal glomeruli on LM because the primary lesion (foot process effacement) is ultrastructural and requires EM to visualize. This foot process effacement disrupts the glomerular filtration barrier, causing massive proteinuria and nephrotic syndrome."
       },
       "lt": {
-        "assertion": "Pacientams, sergantiems minimalių pokyčių liga, šviesos mikroskopu paprastai būna normalios formos glomerulų, nepaisant nefrozinio sindromo.",
-        "reason": "Patologinis pažeidimas esant minimalių pakitimų ligai yra difuzinis podocitų pėdos proceso išsausėjimas, kuris matomas tik elektroniniu mikroskopu.",
+        "assertion": "Pacientams, sergantiems minimalių pokyčių liga, histologiškai glomerulai paprastai būna nepakitę, nepaisant nefrozinio sindromo.",
+        "reason": "Patologinis pažeidimas esant minimalių pakitimų ligai yra difuzinis podocitų mažųjų kojyčių susiliejimas, matomas tik elektroniniu mikroskopu.",
         "answer": "A",
         "explanation": "Abu teiginiai yra teisingi.MCD rodo normalius glomerulus LM, nes pirminis pažeidimas (pėdos proceso išnykimas) yra ultrastruktūrinis ir norint jį vizualizuoti, reikia EM.Šis pėdos proceso išsausėjimas pažeidžia glomerulų filtracijos barjerą, sukeldamas didžiulę proteinuriją ir nefrozinį sindromą."
-      }
+      },
+      "image": "question_images/question_1.jpg"
     },
     {
       "id": 2,
@@ -504,7 +505,8 @@
         "reason": "Šios nuosėdos yra imuniniai kompleksai, susidarę poinfekcinio imuninio atsako metu ir yra nusėdę glomerulų bazinės membranos subepitelinėje pusėje.",
         "answer": "A",
         "explanation": "Ir tiesa, ir susijusi.Subepiteliniai kauburėliai EM yra patognomoniški APIGN ir yra imuniniai kompleksai, susidarantys po streptokokinės infekcijos.Šios kupros išnyksta laikui bėgant, kai liga pagerėja."
-      }
+      },
+      "image": "question_images/question_18.jpg"
     },
     {
       "id": 19,
@@ -1664,7 +1666,7 @@
         "answer": "A",
         "explanation": "Imunofluorescencija membraninėje nefropatijoje rodo granulinius IgG nuosėdus. IgG antikūnai jungiasi prie podocitų antigenų sukurdami in-situ imuninius kompleksus. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": "question_images/question_81.jpg"
+      "image": "question_images/question_81.jpeg"
     },
     {
       "id": 82,
@@ -1704,7 +1706,7 @@
         "answer": "A",
         "explanation": "Membraninė nefropatija progresuoja per keturias histologines stadijas. Stadijos atspindi evoliuciją nuo ankstyvų nuosėdų iki išplėtotos membranos sustorėjimo. Todėl tiek teiginys, tiek priežastis yra teisingi, ir priežastis teisingai paaiškina teiginį."
       },
-      "image": null
+      "image": "question_images/question_83.jpg"
     },
     {
       "id": 84,
