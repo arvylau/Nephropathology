@@ -53,6 +53,12 @@ if exist "%WORKING%\image_management_portal.html" (
     echo [OK] Image portal files synced
 )
 
+if exist "%WORKING%\student_portal_bilingual.html" (
+    copy /Y "%WORKING%\student_portal_bilingual.html" "%GIT_REPO%student_portal_bilingual.html" >nul
+    copy /Y "%WORKING%\student_portal_bilingual.js" "%GIT_REPO%student_portal_bilingual.js" >nul
+    echo [OK] Student portal files synced
+)
+
 echo.
 echo ========================================
 echo SYNC COMPLETE
@@ -61,8 +67,9 @@ echo.
 echo Files synced:
 echo   - Images (question_images/*.jpg/png/jpeg)
 echo   - Database (nephro_questions_enhanced.json with question_settings)
-echo   - Portal files (instructor_portal_editable.html/js)
+echo   - Instructor portal (instructor_portal_editable.html/js)
 echo   - Image portal (image_management_portal.html/js)
+echo   - Student portal (student_portal_bilingual.html/js)
 echo.
 echo Next steps to commit to Git:
 echo   cd "%GIT_REPO%"
