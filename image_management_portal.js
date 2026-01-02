@@ -297,6 +297,7 @@ function applyFilters() {
     const difficultyFilter = document.getElementById('filter-difficulty').value;
     const activeFilter = document.getElementById('filter-active').value;
     const priorityFilter = document.getElementById('filter-priority').value;
+    const modalityFilter = document.getElementById('filter-modality').value;
     const statusFilter = document.getElementById('filter-status').value;
 
     // Load instructor settings from localStorage
@@ -340,6 +341,15 @@ function applyFilters() {
         });
     }
 
+    // Filter by modality
+    if (modalityFilter !== 'all') {
+        filtered = filtered.filter(q => {
+            const setting = questionSettings[q.id];
+            const modality = setting?.modality || 'None';
+            return modality === modalityFilter;
+        });
+    }
+
     // Filter by image status
     if (statusFilter === 'with-images') {
         filtered = filtered.filter(q => q.image || newImageData[q.id]);
@@ -350,6 +360,24 @@ function applyFilters() {
     }
 
     renderGallery(filtered);
+    updateAnswerStats(filtered);
+}
+
+function updateAnswerStats(filteredQuestions) {
+    const answerCounts = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+
+    filteredQuestions.forEach(q => {
+        const answer = q.en.answer.toUpperCase();
+        if (answerCounts.hasOwnProperty(answer)) {
+            answerCounts[answer]++;
+        }
+    });
+
+    document.getElementById('stat-answer-a').textContent = answerCounts.A;
+    document.getElementById('stat-answer-b').textContent = answerCounts.B;
+    document.getElementById('stat-answer-c').textContent = answerCounts.C;
+    document.getElementById('stat-answer-d').textContent = answerCounts.D;
+    document.getElementById('stat-answer-e').textContent = answerCounts.E;
 }
 
 function renderGallery(questions) {
@@ -421,6 +449,9 @@ function renderGallery(questions) {
                                 ${priority === 'high' ? '⚡ High' : '⭐ Low'} Priority
                             </span>
                         ` : ''}
+                        <span class="badge" style="background: #9f7aea; color: white;">
+                            🎯 ${setting.modality || 'None'}
+                        </span>
                     </div>
                 </div>
 

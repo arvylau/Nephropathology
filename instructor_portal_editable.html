@@ -600,8 +600,47 @@
                         <option value="none" id="option-none">None</option>
                     </select>
                 </div>
+                <div class="filter-group">
+                    <label id="label-modality-filter">Modality:</label>
+                    <select id="filter-modality" onchange="applyFilters()">
+                        <option value="all" id="option-all-modalities">All Modalities</option>
+                        <option value="None">None</option>
+                        <option value="Self">Self</option>
+                        <option value="Test1">Test1</option>
+                        <option value="Test2">Test2</option>
+                        <option value="Test3">Test3</option>
+                    </select>
+                </div>
                 <div class="search-box">
                     <input type="text" id="search-box" placeholder="Search questions..." oninput="applyFilters()">
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-bar" style="display:block;">
+            <div style="width:100%;">
+                <h3 style="margin-bottom: 15px; color: #667eea; font-size: 18px;">📊 Answer Statistics (Filtered Data)</h3>
+                <div style="display:flex; gap:15px; justify-content:space-around; flex-wrap:wrap;">
+                    <div class="stat-item">
+                        <div class="stat-value" id="stat-answer-a" style="font-size:28px;">0</div>
+                        <div class="stat-label">Answer A</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="stat-answer-b" style="font-size:28px;">0</div>
+                        <div class="stat-label">Answer B</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="stat-answer-c" style="font-size:28px;">0</div>
+                        <div class="stat-label">Answer C</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="stat-answer-d" style="font-size:28px;">0</div>
+                        <div class="stat-label">Answer D</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="stat-answer-e" style="font-size:28px;">0</div>
+                        <div class="stat-label">Answer E</div>
+                    </div>
                 </div>
             </div>
         </div>

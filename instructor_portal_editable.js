@@ -128,29 +128,43 @@ async function autoSaveJSON() {
             }
         }
 
-        // Create complete JSON with updated questions
+        // Create complete JSON with updated questions AND settings
         const exportData = {
             metadata: {
                 title: "Nephropathology Assessment - Bilingual (EN/LT)",
                 languages: ["en", "lt"],
                 total_questions: allQuestions.length,
                 created: new Date().toISOString(),
-                version: "3.4-editable-bilingual",
+                version: "3.6-persistent-settings",
                 translation_method: "Google Translate with medical terminology preservation + manual editing"
             },
             interface_translations: translations,
             disease_translations: diseaseTranslations,
+            question_settings: questionSettings,
             questions: allQuestions
         };
 
-        // Write to file
-        const fileName = 'nephro_questions_auto_updated.json';
-        const fileHandle = await jsonFolderHandle.getFileHandle(fileName, { create: true });
-        const writable = await fileHandle.createWritable();
-        await writable.write(JSON.stringify(exportData, null, 2));
-        await writable.close();
+        const jsonString = JSON.stringify(exportData, null, 2);
 
-        showToast('[OK] Auto-saved to ' + fileName);
+        // Save to backup file
+        const backupFileName = 'nephro_questions_auto_updated.json';
+        const backupHandle = await jsonFolderHandle.getFileHandle(backupFileName, { create: true });
+        const backupWritable = await backupHandle.createWritable();
+        await backupWritable.write(jsonString);
+        await backupWritable.close();
+
+        // Also save to main file so changes persist after refresh
+        try {
+            const mainFileName = 'nephro_questions_enhanced.json';
+            const mainHandle = await jsonFolderHandle.getFileHandle(mainFileName, { create: true });
+            const mainWritable = await mainHandle.createWritable();
+            await mainWritable.write(jsonString);
+            await mainWritable.close();
+            showToast('[OK] Auto-saved (changes will persist after refresh)');
+        } catch (mainError) {
+            console.log('Could not save to main file:', mainError);
+            showToast('[OK] Auto-saved to backup file only');
+        }
     } catch (error) {
         console.error('Auto-save error:', error);
         showToast('[ERROR] Auto-save failed: ' + error.message);
@@ -229,18 +243,37 @@ async function loadQuestions() {
         diseaseTranslations = data.disease_translations;
         allQuestions = data.questions;
 
-        // Load settings from localStorage
-        const saved = localStorage.getItem('questionSettings');
-        if (saved) {
-            questionSettings = JSON.parse(saved);
+        // Load settings from JSON file first (if available), then fall back to localStorage
+        if (data.question_settings) {
+            // Settings from JSON file (most reliable)
+            questionSettings = data.question_settings;
+            console.log('✓ Loaded settings from JSON file');
         } else {
-            allQuestions.forEach(q => {
-                questionSettings[q.id] = {
-                    active: true,
-                    priority: 'none'
-                };
-            });
+            // Fall back to localStorage
+            const saved = localStorage.getItem('questionSettings');
+            if (saved) {
+                questionSettings = JSON.parse(saved);
+                console.log('✓ Loaded settings from localStorage');
+            } else {
+                questionSettings = {};
+            }
         }
+
+        // Ensure all questions have settings with proper defaults
+        allQuestions.forEach(q => {
+            if (!questionSettings[q.id]) {
+                // New question without settings - use defaults
+                questionSettings[q.id] = { active: true, priority: 'none', modality: 'None' };
+            } else {
+                // Existing question - only fill in missing fields, don't overwrite
+                if (questionSettings[q.id].active === undefined) questionSettings[q.id].active = true;
+                if (!questionSettings[q.id].priority) questionSettings[q.id].priority = 'none';
+                if (!questionSettings[q.id].modality) questionSettings[q.id].modality = 'None';
+            }
+        });
+
+        // Save to localStorage as backup
+        localStorage.setItem('questionSettings', JSON.stringify(questionSettings));
 
         populateDiseaseFilter();
         updateInterfaceLanguage();
@@ -323,15 +356,17 @@ function getFilteredQuestions() {
     const difficultyFilter = document.getElementById('filter-difficulty').value;
     const statusFilter = document.getElementById('filter-status').value;
     const priorityFilter = document.getElementById('filter-priority').value;
+    const modalityFilter = document.getElementById('filter-modality').value;
     const searchTerm = document.getElementById('search-box').value.toLowerCase();
 
     return allQuestions.filter(q => {
-        const settings = questionSettings[q.id] || { active: true, priority: 'none' };
+        const settings = questionSettings[q.id] || { active: true, priority: 'none', modality: 'None' };
 
         if (diseaseFilter !== 'all' && q.disease_id !== diseaseFilter) return false;
         if (difficultyFilter !== 'all' && q.difficulty !== difficultyFilter) return false;
         if (statusFilter !== 'all' && ((statusFilter === 'active' && !settings.active) || (statusFilter === 'inactive' && settings.active))) return false;
         if (priorityFilter !== 'all' && settings.priority !== priorityFilter) return false;
+        if (modalityFilter !== 'all' && settings.modality !== modalityFilter) return false;
 
         if (searchTerm) {
             const searchableText = (
@@ -348,6 +383,24 @@ function getFilteredQuestions() {
 function applyFilters() {
     const filtered = getFilteredQuestions();
     renderQuestions(filtered);
+    updateAnswerStats(filtered);
+}
+
+function updateAnswerStats(filteredQuestions) {
+    const answerCounts = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+
+    filteredQuestions.forEach(q => {
+        const answer = q.en.answer.toUpperCase();
+        if (answerCounts.hasOwnProperty(answer)) {
+            answerCounts[answer]++;
+        }
+    });
+
+    document.getElementById('stat-answer-a').textContent = answerCounts.A;
+    document.getElementById('stat-answer-b').textContent = answerCounts.B;
+    document.getElementById('stat-answer-c').textContent = answerCounts.C;
+    document.getElementById('stat-answer-d').textContent = answerCounts.D;
+    document.getElementById('stat-answer-e').textContent = answerCounts.E;
 }
 
 function renderQuestions(questions) {
@@ -359,7 +412,7 @@ function renderQuestions(questions) {
     }
 
     container.innerHTML = questions.map((q, index) => {
-        const settings = questionSettings[q.id] || { active: true, priority: 'none' };
+        const settings = questionSettings[q.id] || { active: true, priority: 'none', modality: 'None' };
         const diseaseNameEN = diseaseTranslations[q.disease_id]?.en || q.disease_id;
         const diseaseNameLT = diseaseTranslations[q.disease_id]?.lt || q.disease_id;
 
@@ -392,6 +445,9 @@ function renderQuestions(questions) {
                     ${settings.priority !== 'none' ? `<span class="badge badge-priority-${settings.priority}">
                         ★ ${settings.priority === 'high' ? t('high') : t('low')} ${t('priority')}
                     </span>` : ''}
+                    <span class="badge" style="background:#9f7aea;color:white;">
+                        🎯 ${settings.modality || 'None'}
+                    </span>
                     ${q.image ? '<span class="badge" style="background:#e3f2fd;color:#1976d2;">📷 Image</span>' : ''}
                 </div>
                 <div class="question-actions">
@@ -448,6 +504,7 @@ function renderQuestions(questions) {
                 </div>
             </div>
             <div class="priority-controls">
+                <span style="font-weight:600; color:#555; margin-right:8px;">Priority:</span>
                 <button class="btn btn-warning priority-btn" onclick="setPriority(${q.id}, 'high')">
                     ★ ${t('high')}
                 </button>
@@ -456,6 +513,23 @@ function renderQuestions(questions) {
                 </button>
                 <button class="btn btn-danger priority-btn" onclick="setPriority(${q.id}, 'none')">
                     ✕ ${t('none')}
+                </button>
+                <div style="border-left:2px solid #e0e0e0; margin:0 10px;"></div>
+                <span style="font-weight:600; color:#555; margin-right:8px;">Modality:</span>
+                <button class="btn btn-danger priority-btn" onclick="setModality(${q.id}, 'None')">
+                    ✕ None
+                </button>
+                <button class="btn priority-btn" style="background:#9f7aea;color:white;" onclick="setModality(${q.id}, 'Self')">
+                    Self
+                </button>
+                <button class="btn priority-btn" style="background:#6366f1;color:white;" onclick="setModality(${q.id}, 'Test1')">
+                    Test1
+                </button>
+                <button class="btn priority-btn" style="background:#8b5cf6;color:white;" onclick="setModality(${q.id}, 'Test2')">
+                    Test2
+                </button>
+                <button class="btn priority-btn" style="background:#a855f7;color:white;" onclick="setModality(${q.id}, 'Test3')">
+                    Test3
                 </button>
                 <div class="edit-buttons" style="display:none; margin-left:auto; gap:8px;">
                     <button class="btn btn-success" onclick="saveEdit(${q.id})">Save Changes</button>
@@ -537,7 +611,7 @@ function cancelEdit(qId) {
 
 async function toggleActive(qId) {
     if (!questionSettings[qId]) {
-        questionSettings[qId] = { active: true, priority: 'none' };
+        questionSettings[qId] = { active: true, priority: 'none', modality: 'None' };
     }
     questionSettings[qId].active = !questionSettings[qId].active;
     saveSettings();
@@ -548,9 +622,20 @@ async function toggleActive(qId) {
 
 async function setPriority(qId, priority) {
     if (!questionSettings[qId]) {
-        questionSettings[qId] = { active: true, priority: 'none' };
+        questionSettings[qId] = { active: true, priority: 'none', modality: 'None' };
     }
     questionSettings[qId].priority = priority;
+    saveSettings();
+    applyFilters();
+    updateStats();
+    await autoSaveJSON();
+}
+
+async function setModality(qId, modality) {
+    if (!questionSettings[qId]) {
+        questionSettings[qId] = { active: true, priority: 'none', modality: 'None' };
+    }
+    questionSettings[qId].modality = modality;
     saveSettings();
     applyFilters();
     updateStats();
@@ -612,18 +697,19 @@ async function resetAll() {
 }
 
 function exportJSON() {
-    // Create complete JSON with updated questions
+    // Create complete JSON with updated questions AND settings
     const exportData = {
         metadata: {
             title: "Nephropathology Assessment - Bilingual (EN/LT)",
             languages: ["en", "lt"],
             total_questions: allQuestions.length,
             created: new Date().toISOString(),
-            version: "3.4-editable-bilingual",
+            version: "3.6-persistent-settings",
             translation_method: "Google Translate with medical terminology preservation + manual editing"
         },
         interface_translations: translations,
         disease_translations: diseaseTranslations,
+        question_settings: questionSettings,
         questions: allQuestions
     };
 

@@ -468,6 +468,14 @@
                     <option value="low">Low Priority</option>
                     <option value="none">No Priority</option>
                 </select>
+                <select id="filter-modality" onchange="applyFilters()">
+                    <option value="all">All Modalities</option>
+                    <option value="None">None</option>
+                    <option value="Self">Self</option>
+                    <option value="Test1">Test1</option>
+                    <option value="Test2">Test2</option>
+                    <option value="Test3">Test3</option>
+                </select>
                 <select id="filter-status" onchange="applyFilters()">
                     <option value="all">All Images</option>
                     <option value="with-images">With Images Only</option>
@@ -485,6 +493,35 @@
             <button class="btn btn-primary" onclick="reloadQuestions()">
                 🔄 Reload Data
             </button>
+        </div>
+
+        <!-- Answer Statistics -->
+        <div class="controls" style="background: #fff5e6; border-left: 4px solid #f59e0b;">
+            <div style="flex: 1;">
+                <h3 style="margin: 0 0 15px 0; color: #f59e0b; font-size: 16px;">📊 Answer Statistics (Filtered Data)</h3>
+                <div style="display: flex; gap: 20px; justify-content: space-around; flex-wrap: wrap;">
+                    <div class="stat-box" style="border-left-color: #f59e0b;">
+                        <div class="stat-label">Answer A</div>
+                        <div class="stat-value" id="stat-answer-a" style="color: #f59e0b;">0</div>
+                    </div>
+                    <div class="stat-box" style="border-left-color: #f59e0b;">
+                        <div class="stat-label">Answer B</div>
+                        <div class="stat-value" id="stat-answer-b" style="color: #f59e0b;">0</div>
+                    </div>
+                    <div class="stat-box" style="border-left-color: #f59e0b;">
+                        <div class="stat-label">Answer C</div>
+                        <div class="stat-value" id="stat-answer-c" style="color: #f59e0b;">0</div>
+                    </div>
+                    <div class="stat-box" style="border-left-color: #f59e0b;">
+                        <div class="stat-label">Answer D</div>
+                        <div class="stat-value" id="stat-answer-d" style="color: #f59e0b;">0</div>
+                    </div>
+                    <div class="stat-box" style="border-left-color: #f59e0b;">
+                        <div class="stat-label">Answer E</div>
+                        <div class="stat-value" id="stat-answer-e" style="color: #f59e0b;">0</div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Auto-save Controls -->
