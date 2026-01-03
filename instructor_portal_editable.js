@@ -937,6 +937,300 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
+// ============================================
+// AI QUESTION GENERATOR
+// ============================================
+
+let generatedQuestionsCache = [];
+
+// File reading helper
+async function readFileContent(file) {
+    const fileName = file.name.toLowerCase();
+
+    if (fileName.endsWith('.txt') || fileName.endsWith('.md')) {
+        // Read text files directly
+        return await file.text();
+    } else if (fileName.endsWith('.docx')) {
+        // Extract text from Word document using mammoth.js
+        return await readWordFile(file);
+    } else if (fileName.endsWith('.pdf')) {
+        // Extract text from PDF using PDF.js
+        return await readPDFFile(file);
+    } else {
+        showToast('[ERROR] Unsupported file format');
+        return null;
+    }
+}
+
+// Read Word (.docx) file
+async function readWordFile(file) {
+    try {
+        if (typeof mammoth === 'undefined') {
+            throw new Error('Mammoth.js library not loaded');
+        }
+
+        const arrayBuffer = await file.arrayBuffer();
+        const result = await mammoth.extractRawText({ arrayBuffer: arrayBuffer });
+
+        if (result.messages && result.messages.length > 0) {
+            console.log('Word extraction warnings:', result.messages);
+        }
+
+        return result.value;
+    } catch (error) {
+        console.error('Error reading Word file:', error);
+        showToast(`[ERROR] Could not read Word file: ${error.message}`);
+        return null;
+    }
+}
+
+// Read PDF file
+async function readPDFFile(file) {
+    try {
+        if (typeof pdfjsLib === 'undefined') {
+            throw new Error('PDF.js library not loaded');
+        }
+
+        const arrayBuffer = await file.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+
+        let fullText = '';
+
+        // Extract text from each page
+        for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+            const page = await pdf.getPage(pageNum);
+            const textContent = await page.getTextContent();
+            const pageText = textContent.items.map(item => item.str).join(' ');
+            fullText += pageText + '\n\n';
+        }
+
+        return fullText;
+    } catch (error) {
+        console.error('Error reading PDF file:', error);
+        showToast(`[ERROR] Could not read PDF file: ${error.message}`);
+        return null;
+    }
+}
+
+// Call Claude API to generate questions
+async function callClaudeAPI(content, apiKey, sourceFileName) {
+    const prompt = `You are a medical education expert specializing in nephropathology. Generate high-quality assessment questions based on the following content.
+
+Content from "${sourceFileName}":
+${content}
+
+Generate 3-5 questions in this exact JSON format:
+{
+  "questions": [
+    {
+      "assertion": "Clear medical statement",
+      "reason": "Related explanation or mechanism",
+      "answer": "A/B/C/D/E where A=Both true and related, B=Both true but unrelated, C=Assertion true, reason false, D=Assertion false, reason true, E=Both false",
+      "explanation": "Detailed explanation of why this is the correct answer",
+      "disease_id": "Disease category (e.g., IgAN, FSGS, MGN, MCD, etc.)",
+      "difficulty": "easy/medium/hard"
+    }
+  ]
+}
+
+Requirements:
+- Use assertion-reason format only
+- Ensure medical accuracy
+- Make questions clinically relevant
+- Include detailed explanations
+- Assign appropriate disease category and difficulty`;
+
+    try {
+        const response = await fetch('https://api.anthropic.com/v1/messages', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-api-key': apiKey,
+                'anthropic-version': '2023-06-01'
+            },
+            body: JSON.stringify({
+                model: 'claude-3-5-sonnet-20241022',
+                max_tokens: 4000,
+                messages: [{
+                    role: 'user',
+                    content: prompt
+                }]
+            })
+        });
+
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.error?.message || 'API call failed');
+        }
+
+        const data = await response.json();
+        const content = data.content[0].text;
+
+        // Parse JSON from response
+        const jsonMatch = content.match(/\{[\s\S]*\}/);
+        if (!jsonMatch) {
+            throw new Error('Could not parse JSON from response');
+        }
+
+        return JSON.parse(jsonMatch[0]);
+    } catch (error) {
+        console.error('Claude API error:', error);
+        throw error;
+    }
+}
+
+// Main generate questions function
+async function generateQuestions() {
+    const apiKey = document.getElementById('claude-api-key').value.trim();
+    const fileInput = document.getElementById('source-files');
+    const files = fileInput.files;
+
+    if (!apiKey) {
+        alert('Please enter your Claude API key');
+        return;
+    }
+
+    if (files.length === 0) {
+        alert('Please select at least one source file');
+        return;
+    }
+
+    // Store API key in localStorage for convenience
+    localStorage.setItem('claude_api_key', apiKey);
+
+    // Show status
+    document.getElementById('generation-status').style.display = 'block';
+    document.getElementById('generated-questions-preview').style.display = 'none';
+    generatedQuestionsCache = [];
+
+    try {
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            updateStatus(`Reading ${file.name}...`, (i / files.length) * 50);
+
+            const content = await readFileContent(file);
+            if (!content) continue;
+
+            updateStatus(`Generating questions from ${file.name}...`, 50 + (i / files.length) * 50);
+
+            const result = await callClaudeAPI(content, apiKey, file.name);
+
+            // Add metadata to each question
+            const timestamp = new Date().toISOString();
+            result.questions.forEach(q => {
+                q.source_file = file.name;
+                q.generated_timestamp = timestamp;
+                q.id = Date.now() + Math.random(); // Temporary ID
+            });
+
+            generatedQuestionsCache.push(...result.questions);
+        }
+
+        updateStatus(`✅ Generated ${generatedQuestionsCache.length} questions successfully!`, 100);
+        showGeneratedQuestions();
+    } catch (error) {
+        updateStatus(`❌ Error: ${error.message}`, 0);
+        console.error('Generation error:', error);
+    }
+}
+
+function updateStatus(message, progress) {
+    document.getElementById('status-message').textContent = message;
+    document.getElementById('progress-fill').style.width = progress + '%';
+}
+
+function showGeneratedQuestions() {
+    const previewDiv = document.getElementById('generated-questions-preview');
+    const listDiv = document.getElementById('preview-list');
+
+    listDiv.innerHTML = generatedQuestionsCache.map((q, idx) => `
+        <div style="background: white; padding: 15px; margin-bottom: 10px; border-radius: 5px; border-left: 4px solid #3b82f6;">
+            <div style="font-weight: 600; color: #3b82f6; margin-bottom: 5px;">Question ${idx + 1}</div>
+            <div style="margin-bottom: 5px;"><strong>Assertion:</strong> ${q.assertion}</div>
+            <div style="margin-bottom: 5px;"><strong>Reason:</strong> ${q.reason}</div>
+            <div style="margin-bottom: 5px;"><strong>Answer:</strong> ${q.answer}</div>
+            <div style="margin-bottom: 5px;"><strong>Disease:</strong> ${q.disease_id} | <strong>Difficulty:</strong> ${q.difficulty}</div>
+            <div style="font-size: 12px; color: #666;"><strong>Source:</strong> ${q.source_file} | <strong>Generated:</strong> ${new Date(q.generated_timestamp).toLocaleString()}</div>
+        </div>
+    `).join('');
+
+    previewDiv.style.display = 'block';
+}
+
+async function addGeneratedQuestions() {
+    if (generatedQuestionsCache.length === 0) {
+        alert('No questions to add');
+        return;
+    }
+
+    const startId = Math.max(...allQuestions.map(q => q.id), 0) + 1;
+
+    generatedQuestionsCache.forEach((q, idx) => {
+        const newQuestion = {
+            id: startId + idx,
+            disease_id: q.disease_id,
+            difficulty: q.difficulty,
+            en: {
+                assertion: q.assertion,
+                reason: q.reason,
+                answer: q.answer,
+                explanation: q.explanation
+            },
+            lt: {
+                assertion: q.assertion, // Will need translation
+                reason: q.reason,
+                answer: q.answer,
+                explanation: q.explanation
+            },
+            source_file: q.source_file,
+            generated_timestamp: q.generated_timestamp
+        };
+
+        allQuestions.push(newQuestion);
+    });
+
+    // Save to JSON
+    await autoSaveJSON();
+
+    // Refresh display
+    applyFilters();
+    updateStats();
+
+    showToast(`✅ Added ${generatedQuestionsCache.length} questions to the bank!`);
+
+    // Clear generator
+    clearGenerator();
+}
+
+function clearGenerator() {
+    document.getElementById('source-files').value = '';
+    document.getElementById('file-list').textContent = '';
+    document.getElementById('generation-status').style.display = 'none';
+    document.getElementById('generated-questions-preview').style.display = 'none';
+    generatedQuestionsCache = [];
+}
+
+// File selection handler
+document.getElementById('source-files')?.addEventListener('change', function(e) {
+    const files = e.target.files;
+    const listDiv = document.getElementById('file-list');
+
+    if (files.length > 0) {
+        listDiv.innerHTML = `Selected ${files.length} file(s): ` +
+            Array.from(files).map(f => f.name).join(', ');
+    } else {
+        listDiv.textContent = '';
+    }
+});
+
+// Load saved API key on page load
+setTimeout(() => {
+    const savedKey = localStorage.getItem('claude_api_key');
+    if (savedKey && document.getElementById('claude-api-key')) {
+        document.getElementById('claude-api-key').value = savedKey;
+    }
+}, 100);
+
 // Load on page load
 window.addEventListener('DOMContentLoaded', async () => {
     await loadQuestions();
