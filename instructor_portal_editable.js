@@ -502,6 +502,9 @@ function renderQuestions(questions) {
                 <div style="margin-top: 10px;">
                     <span class="content-label">${t('answer')}:</span> <strong>${q.en.answer}</strong>
                 </div>
+                ${q.source_file ? `<div style="margin-top: 10px; padding: 8px; background: #f0f9ff; border-radius: 4px; font-size: 12px; color: #0369a1;">
+                    <strong>🤖 AI Generated:</strong> ${q.source_file} ${q.generated_timestamp ? '| ' + new Date(q.generated_timestamp).toLocaleString() : ''}
+                </div>` : ''}
             </div>
             <div class="priority-controls">
                 <span style="font-weight:600; color:#555; margin-right:8px;">Priority:</span>
@@ -1014,7 +1017,7 @@ async function readPDFFile(file) {
 
 // Call Claude API to generate questions
 async function callClaudeAPI(content, apiKey, sourceFileName) {
-    const prompt = `You are a medical education expert specializing in nephropathology. Generate high-quality assessment questions based on the following content.
+    const prompt = `You are a medical education expert specializing in nephropathology. Generate high-quality bilingual (English and Lithuanian) assessment questions based on the following content.
 
 Content from "${sourceFileName}":
 ${content}
@@ -1023,10 +1026,13 @@ Generate 3-5 questions in this exact JSON format:
 {
   "questions": [
     {
-      "assertion": "Clear medical statement",
-      "reason": "Related explanation or mechanism",
+      "assertion_en": "Clear medical statement in English",
+      "reason_en": "Related explanation or mechanism in English",
+      "explanation_en": "Detailed explanation in English",
+      "assertion_lt": "Aiškus medicininių teiginių lietuvių kalba",
+      "reason_lt": "Susijęs paaiškinimas ar mechanizmas lietuvių kalba",
+      "explanation_lt": "Išsamus paaiškinimas lietuvių kalba",
       "answer": "A/B/C/D/E where A=Both true and related, B=Both true but unrelated, C=Assertion true, reason false, D=Assertion false, reason true, E=Both false",
-      "explanation": "Detailed explanation of why this is the correct answer",
       "disease_id": "Disease category (e.g., IgAN, FSGS, MGN, MCD, etc.)",
       "difficulty": "easy/medium/hard"
     }
@@ -1034,33 +1040,38 @@ Generate 3-5 questions in this exact JSON format:
 }
 
 Requirements:
+- Generate BOTH English and Lithuanian versions for each question
 - Use assertion-reason format only
-- Ensure medical accuracy
+- Ensure medical accuracy in both languages
 - Make questions clinically relevant
-- Include detailed explanations
-- Assign appropriate disease category and difficulty`;
+- Include detailed explanations in both languages
+- Assign appropriate disease category and difficulty
+- Maintain medical terminology consistency between languages`;
 
     try {
-        const response = await fetch('https://api.anthropic.com/v1/messages', {
+        // Use local proxy server to avoid CORS issues
+        const response = await fetch('http://localhost:8081/api/claude', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'x-api-key': apiKey,
-                'anthropic-version': '2023-06-01'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                model: 'claude-3-5-sonnet-20241022',
-                max_tokens: 4000,
-                messages: [{
-                    role: 'user',
-                    content: prompt
-                }]
+                api_key: apiKey,
+                request: {
+                    model: 'claude-3-5-haiku-20241022',
+                    max_tokens: 4096,
+                    messages: [{
+                        role: 'user',
+                        content: prompt
+                    }]
+                }
             })
         });
 
         if (!response.ok) {
             const error = await response.json();
-            throw new Error(error.error?.message || 'API call failed');
+            console.error('Full API error response:', error);
+            throw new Error(error.error?.message || JSON.stringify(error) || 'API call failed');
         }
 
         const data = await response.json();
@@ -1145,9 +1156,21 @@ function showGeneratedQuestions() {
 
     listDiv.innerHTML = generatedQuestionsCache.map((q, idx) => `
         <div style="background: white; padding: 15px; margin-bottom: 10px; border-radius: 5px; border-left: 4px solid #3b82f6;">
-            <div style="font-weight: 600; color: #3b82f6; margin-bottom: 5px;">Question ${idx + 1}</div>
-            <div style="margin-bottom: 5px;"><strong>Assertion:</strong> ${q.assertion}</div>
-            <div style="margin-bottom: 5px;"><strong>Reason:</strong> ${q.reason}</div>
+            <div style="font-weight: 600; color: #3b82f6; margin-bottom: 10px;">Question ${idx + 1}</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 10px;">
+                <div>
+                    <h4 style="color: #059669; margin-bottom: 8px;">English</h4>
+                    <div style="margin-bottom: 5px;"><strong>Assertion:</strong> ${q.assertion_en || q.assertion}</div>
+                    <div style="margin-bottom: 5px;"><strong>Reason:</strong> ${q.reason_en || q.reason}</div>
+                    <div style="margin-bottom: 5px;"><strong>Explanation:</strong> ${q.explanation_en || q.explanation}</div>
+                </div>
+                <div>
+                    <h4 style="color: #dc2626; margin-bottom: 8px;">Lietuvių</h4>
+                    <div style="margin-bottom: 5px;"><strong>Teiginys:</strong> ${q.assertion_lt || q.assertion}</div>
+                    <div style="margin-bottom: 5px;"><strong>Priežastis:</strong> ${q.reason_lt || q.reason}</div>
+                    <div style="margin-bottom: 5px;"><strong>Paaiškinimas:</strong> ${q.explanation_lt || q.explanation}</div>
+                </div>
+            </div>
             <div style="margin-bottom: 5px;"><strong>Answer:</strong> ${q.answer}</div>
             <div style="margin-bottom: 5px;"><strong>Disease:</strong> ${q.disease_id} | <strong>Difficulty:</strong> ${q.difficulty}</div>
             <div style="font-size: 12px; color: #666;"><strong>Source:</strong> ${q.source_file} | <strong>Generated:</strong> ${new Date(q.generated_timestamp).toLocaleString()}</div>
@@ -1171,16 +1194,16 @@ async function addGeneratedQuestions() {
             disease_id: q.disease_id,
             difficulty: q.difficulty,
             en: {
-                assertion: q.assertion,
-                reason: q.reason,
+                assertion: q.assertion_en || q.assertion,
+                reason: q.reason_en || q.reason,
                 answer: q.answer,
-                explanation: q.explanation
+                explanation: q.explanation_en || q.explanation
             },
             lt: {
-                assertion: q.assertion, // Will need translation
-                reason: q.reason,
+                assertion: q.assertion_lt || q.assertion_en || q.assertion,
+                reason: q.reason_lt || q.reason_en || q.reason,
                 answer: q.answer,
-                explanation: q.explanation
+                explanation: q.explanation_lt || q.explanation_en || q.explanation
             },
             source_file: q.source_file,
             generated_timestamp: q.generated_timestamp
